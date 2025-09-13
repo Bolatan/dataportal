@@ -10,6 +10,11 @@ function getBrandColors() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+        window.location.href = 'login.html';
+        return;
+    }
+
     const brandColors = getBrandColors();
 
     fetch('data.json')
