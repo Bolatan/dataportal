@@ -85,5 +85,12 @@
                 }
             ]
         }
-    }
+    },
+    "users": [
+        {
+            "username": "admin",
+            "password": "password",
+            "role": "admin"
+        }
+    ]
 }
