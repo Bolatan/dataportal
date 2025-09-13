@@ -1,17 +1,33 @@
+function getBrandColors() {
+    const rootStyles = getComputedStyle(document.documentElement);
+    return [
+        rootStyles.getPropertyValue('--brand-gold').trim(),
+        rootStyles.getPropertyValue('--brand-blue').trim(),
+        rootStyles.getPropertyValue('--brand-red').trim(),
+        rootStyles.getPropertyValue('--brand-green').trim(),
+        rootStyles.getPropertyValue('--brand-black').trim(),
+    ];
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    const brandColors = getBrandColors();
+
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
-            renderOfficeInfrastructureChart(data.officeInfrastructure);
-            renderRespondentsDemographicsCharts(data.respondentsDemographics);
-            renderSourceOfElectricityChart(data.sourceOfElectricity);
-            renderToiletFacilitiesChart(data.toiletFacilities);
-            renderStaffingChart(data.staffing);
+            renderOfficeInfrastructureChart(data.officeInfrastructure, brandColors);
+            renderRespondentsDemographicsCharts(data.respondentsDemographics, brandColors);
+            renderSourceOfElectricityChart(data.sourceOfElectricity, brandColors);
+            renderToiletFacilitiesChart(data.toiletFacilities, brandColors);
+            renderStaffingChart(data.staffing, brandColors);
         });
 });
 
-function renderOfficeInfrastructureChart(data) {
+function renderOfficeInfrastructureChart(data, brandColors) {
     const ctx = document.getElementById('officeInfrastructureChart');
+    data.chart.datasets.forEach((dataset, index) => {
+        dataset.backgroundColor = brandColors[index % brandColors.length];
+    });
     new Chart(ctx, {
         type: 'bar',
         data: data.chart,
@@ -50,40 +66,58 @@ function renderOfficeInfrastructureChart(data) {
     });
 }
 
-function renderRespondentsDemographicsCharts(data) {
+function renderRespondentsDemographicsCharts(data, brandColors) {
     const sexDistributionCtx = document.getElementById('sexDistributionChart');
+    data.sexDistribution.datasets.forEach(dataset => {
+        dataset.backgroundColor = brandColors;
+    });
     new Chart(sexDistributionCtx, {
         type: 'doughnut',
         data: data.sexDistribution
     });
 
     const qualificationsCtx = document.getElementById('qualificationsChart');
+    data.qualifications.datasets.forEach(dataset => {
+        dataset.backgroundColor = brandColors;
+    });
     new Chart(qualificationsCtx, {
         type: 'pie',
         data: data.qualifications
     });
 }
 
-function renderSourceOfElectricityChart(data) {
+function renderSourceOfElectricityChart(data, brandColors) {
     const ctx = document.getElementById('electricitySourceChart');
+    data.chart.datasets.forEach(dataset => {
+        dataset.backgroundColor = brandColors;
+    });
     new Chart(ctx, {
         type: 'pie',
-        data: data.chart
+        data: data.chart,
+        options: {}
     });
 }
 
-function renderToiletFacilitiesChart(data) {
+function renderToiletFacilitiesChart(data, brandColors) {
     const ctx = document.getElementById('toiletFacilitiesChart');
+    data.chart.datasets.forEach((dataset, index) => {
+        dataset.backgroundColor = brandColors[index % brandColors.length];
+    });
     new Chart(ctx, {
         type: 'bar',
-        data: data.chart
+        data: data.chart,
+        options: {}
     });
 }
 
-function renderStaffingChart(data) {
+function renderStaffingChart(data, brandColors) {
     const ctx = document.getElementById('staffingChart');
+    data.chart.datasets.forEach((dataset, index) => {
+        dataset.backgroundColor = brandColors[index % brandColors.length];
+    });
     new Chart(ctx, {
         type: 'bar',
-        data: data.chart
+        data: data.chart,
+        options: {}
     });
 }
