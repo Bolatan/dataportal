@@ -1,0 +1,89 @@
+{
+    "officeInfrastructure": {
+        "chart": {
+            "labels": ["Mushin", "Kosofe", "Oshodi/Isolo", "Surulere", "Ikeja", "Alimosho", "Lagos/Isiand", "Somolu", "Ajeromi/Ifelodun", "Ifako/Ijaye", "Ojo", "Eti/Osa", "Apapa", "Ikorodu", "Lagos Mainland", "Badagry", "Agege", "Amuwo/Odofin", "Epe", "Ibeju/Lekki"],
+            "datasets": [
+                {
+                    "label": "Good Condition",
+                    "data": [68, 100, 75, 100, 60, 100, 65, 80, 100, 100, 60, 100, 25, 100, 20, 100, 100, 0, 0, 0],
+                    "backgroundColor": "green"
+                },
+                {
+                    "label": "Needs Major Repairs",
+                    "data": [22, 0, 25, 0, 40, 0, 35, 0, 0, 0, 40, 0, 75, 0, 80, 0, 0, 100, 100, 0],
+                    "backgroundColor": "darkblue"
+                },
+                {
+                    "label": "Needs Minor Repairs",
+                    "data": [10, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100],
+                    "backgroundColor": "goldenrod"
+                }
+            ]
+        }
+    },
+    "respondentsDemographics": {
+        "sexDistribution": {
+            "labels": ["Male", "Female"],
+            "datasets": [{
+                "label": "Sex Distribution",
+                "data": [15, 5],
+                "backgroundColor": ["darkblue", "green"]
+            }]
+        },
+        "qualifications": {
+            "labels": ["M.Ed", "BSc.Ed", "B.Ed", "PGD", "NCE", "PhD"],
+            "datasets": [{
+                "label": "Highest Qualifications",
+                "data": [6, 4, 3, 2, 1, 1],
+                "backgroundColor": ["green", "darkblue", "goldenrod", "purple", "lightblue", "red"]
+            }]
+        }
+    },
+    "sourceOfElectricity": {
+        "chart": {
+            "labels": ["generator", "phcn", "phcn_disconnected_bills"],
+            "datasets": [{
+                "label": "Source of Electricity",
+                "data": [11, 8, 1],
+                "backgroundColor": ["orange", "yellow", "red"]
+            }]
+        }
+    },
+    "toiletFacilities": {
+        "chart": {
+            "labels": ["Surulere", "Agege", "Somolu", "Mushin", "Apapa", "Lagos/Island", "Amuwo/Odofin", "Lagos Mainland", "Oshodi/Isolo", "Kosofe", "Badagry", "Ikorodu", "Epe", "Ikeja", "Alimosho", "Eti/Osa", "Ife/Ijaiye", "Ojo", "Ibeju/Lekki"],
+            "datasets": [{
+                "label": "Sum of Number of Cubicle Toilet Available",
+                "data": [22, 16, 14, 13, 12, 11, 10, 10, 8, 7, 6, 6, 6, 6, 4, 2, 2, 1, 0],
+                "backgroundColor": "lightblue"
+            }]
+        }
+    },
+    "staffing": {
+        "chart": {
+            "labels": ["Ajeromi/Ifelodun", "Ifako/Ijaye", "Somolu", "Lagos/Island", "Ikorodu", "Epe", "Agege", "Lagos Mainland", "Alimosho", "Surulere", "Mushin", "Oshodi/Isolo", "Ojo", "Kosofe", "Apapa", "Eti/Osa", "Ikeja", "Badagry"],
+            "datasets": [
+                {
+                    "label": "Non-teaching Staff (Female)",
+                    "data": [60, 32, 30, 20, 10, 15, 18, 18, 10, 8, 10, 10, 18, 12, 10, 18, 18, 10],
+                    "backgroundColor": "green"
+                },
+                {
+                    "label": "Non-teaching Staff (Male)",
+                    "data": [10, 25, 15, 10, 20, 10, 15, 17, 18, 15, 8, 10, 8, 10, 18, 10, 10, 10],
+                    "backgroundColor": "darkred"
+                },
+                {
+                    "label": "Professional Teachers (Female)",
+                    "data": [15, 10, 42, 32, 32, 32, 25, 25, 28, 22, 22, 22, 28, 25, 30, 25, 22, 15],
+                    "backgroundColor": "darkblue"
+                },
+                {
+                    "label": "Professional Teachers (Male)",
+                    "data": [10, 18, 10, 5, 15, 10, 10, 10, 10, 10, 5, 10, 10, 10, 10, 10, 32, 22],
+                    "backgroundColor": "goldenrod"
+                }
+            ]
+        }
+    }
+}
