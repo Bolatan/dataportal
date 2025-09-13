@@ -9,6 +9,11 @@ const port = 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/login.html');
+});
 
 // MongoDB Connection
 const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
