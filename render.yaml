@@ -20,8 +20,9 @@ services:
   - type: pserv
     name: mongodb
     plan: free
-    image: docker.io/bitnami/mongodb:4.4
-    env:
+    image:
+      url: docker.io/bitnami/mongodb:4.4
+    envVars:
       - key: MONGODB_USERNAME
         generateValue: true
       - key: MONGODB_PASSWORD
@@ -30,7 +31,7 @@ services:
         generateValue: true
       - key: MONGODB_ROOT_PASSWORD
         generateValue: true
-    volume:
+    disk:
       name: mongodb-data
       mountPath: /bitnami/mongodb
       sizeGB: 1
