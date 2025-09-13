@@ -8,7 +8,7 @@ const port = 3000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+// app.use(bodyParser.json()); // This can interfere with multer
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
@@ -37,22 +37,32 @@ const upload = multer({ storage: storage });
 
 // API routes
 app.post('/api/survey', upload.array('photos', 10), (req, res) => {
-    const surveyData = req.body;
-    if (req.files) {
-        surveyData.photos = req.files.map(file => file.path);
+    try {
+        const surveyData = req.body;
+        if (req.files) {
+            surveyData.photos = req.files.map(file => file.path);
+        }
+        const newSurvey = new Survey(surveyData);
+        newSurvey.save()
+            .then(survey => {
+                console.log('Survey saved successfully:', survey);
+                res.json(survey);
+            })
+            .catch(err => {
+                console.error('Error saving survey:', err);
+                res.status(400).json('Error: ' + err);
+            });
+    } catch (error) {
+        console.error('Error in /api/survey route:', error);
+        res.status(500).json('Server error');
     }
-    const newSurvey = new Survey(surveyData);
-    newSurvey.save()
-        .then(survey => res.json(survey))
-        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
         if (surveys.length === 0) {
-            const defaultData = require('./data.json');
-            return res.json(defaultData);
+            return res.json({ noData: true });
         }
 
         // Aggregate data
