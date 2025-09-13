@@ -1,0 +1,37 @@
+# render.yaml
+services:
+  # Web service for the Node.js application
+  - type: web
+    name: survey-app
+    runtime: node
+    plan: free
+    buildCommand: "./.render-build.sh"
+    startCommand: "npm start"
+    envVars:
+      - key: DATABASE_URL
+        fromService:
+          type: pserv
+          name: mongodb
+          property: connectionString
+      - key: NODE_VERSION
+        value: "14.17.0" # You can change this to your desired Node.js version
+
+  # Database service for MongoDB
+  - type: pserv
+    name: mongodb
+    plan: free
+    image:
+      url: docker.io/bitnami/mongodb:4.4
+    env:
+      - key: MONGODB_USERNAME
+        generateValue: true
+      - key: MONGODB_PASSWORD
+        generateValue: true
+      - key: MONGODB_DATABASE
+        generateValue: true
+      - key: MONGODB_ROOT_PASSWORD
+        generateValue: true
+    volume:
+      name: mongodb-data
+      mountPath: /bitnami/mongodb
+      sizeGB: 1
