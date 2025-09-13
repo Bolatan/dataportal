@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    document.getElementById('logout-button').addEventListener('click', logout);
+
     const brandColors = getBrandColors();
 
     fetch('http://localhost:3000/api/data')
@@ -27,6 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
             renderStaffingChart(data.staffing, brandColors);
         });
 });
+
+function logout() {
+    sessionStorage.removeItem('loggedIn');
+    window.location.href = 'login.html';
+}
 
 function renderOfficeInfrastructureChart(data, brandColors) {
     const ctx = document.getElementById('officeInfrastructureChart');

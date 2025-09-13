@@ -31,6 +31,22 @@ header h1 {
     margin: 0;
 }
 
+#logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: var(--brand-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    background-color: darkred;
+}
+
 .dashboard {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
