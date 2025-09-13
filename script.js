@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const brandColors = getBrandColors();
 
-    fetch('data.json')
+    fetch('http://localhost:3000/api/data')
         .then(response => response.json())
         .then(data => {
             renderOfficeInfrastructureChart(data.officeInfrastructure, brandColors);
