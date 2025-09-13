@@ -20,8 +20,7 @@ services:
   - type: pserv
     name: mongodb
     plan: free
-    image:
-      url: docker.io/bitnami/mongodb:4.4
+    image: docker.io/bitnami/mongodb:4.4
     env:
       - key: MONGODB_USERNAME
         generateValue: true
