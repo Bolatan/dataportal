@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SILNAT 1.1 Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>SILNAT 1.1</h1>
+        <a href="index.html">← Back to Home</a>
+    </header>
+    <main>
+        <p>Dear Respondent,</p>
+        <p>This instrument is designed to elicit responses that are capable of helping the Board of LASUBEB and PIMU to identify areas of Education Managers’ needs with the intention of helping them overcome difficulties in the course of discharging their duties. The instrument is not meant for any other purpose than to enhance productivity on the part of Education managers and for improved Education service delivery State-wide. Your support therefore is solicited to ensure successful completion of this instrument. We would appreciate your sincere responses.</p>
+        <p>Thank you.</p>
+        <p><strong>Instruction:</strong> The instrument has Four Sections. Section A requires Bio Data; Section B requires School/Institution Data; Section C contains items on Education Managers’ Needs Assessment while Section D is on School Infrastructure. Kindly fill in the statements that are applicable to your school.</p>
+
+        <form id="surveyForm">
+            <h2>SECTION A: BIO DATA</h2>
+            <div>
+                <label for="headTeacherName">Head Teacher/Manager Name *</label>
+                <input type="text" id="headTeacherName" name="headTeacherName" required>
+            </div>
+            <div>
+                <label for="contactNumber">Contact Number *</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+            </div>
+            <div>
+                <p>Gender *</p>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <div>
+                <p>Marital Status *</p>
+                <input type="radio" id="single" name="maritalStatus" value="single" required>
+                <label for="single">Single</label><br>
+                <input type="radio" id="married" name="maritalStatus" value="married">
+                <label for="married">Married</label><br>
+                <input type="radio" id="divorced" name="maritalStatus" value="divorced">
+                <label for="divorced">Divorced</label><br>
+                <input type="radio" id="separated" name="maritalStatus" value="separated">
+                <label for="separated">Separated</label><br>
+                <input type="radio" id="widow" name="maritalStatus" value="widow">
+                <label for="widow">Widow/Widower</label>
+            </div>
+            <div>
+                <label for="highestQualification">Highest Qualification: *</label>
+                <select id="highestQualification" name="highestQualification" required>
+                    <option value="">Select Qualification</option>
+                    <option value="Grade II">Grade II</option>
+                    <option value="NCE">NCE</option>
+                    <option value="B.Ed">B.Ed</option>
+                    <option value="BA. Ed">BA. Ed</option>
+                    <option value="B.Sc.Ed">B.Sc.Ed</option>
+                    <option value="HND">HND</option>
+                    <option value="M.Ed">M.Ed</option>
+                    <option value="PGD">PGD</option>
+                    <option value="PhD">PhD</option>
+                </select>
+            </div>
+            <div>
+                <label for="yearsExperience">Years of Leadership Experience *</label>
+                <input type="number" id="yearsExperience" name="yearsExperience" required>
+            </div>
+
+            <h2>Section B: School/Institution Data</h2>
+            <div>
+                <label for="institutionType">Institution Type *</label>
+                <select id="institutionType" name="institutionType" required>
+                    <option value="">Select Institution Type</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Secondary">Secondary</option>
+                </select>
+            </div>
+            <div>
+                <label for="lgea">Local Govt Educ Auth *</label>
+                <select id="lgea" name="lgea" required>
+                    <option value="">Select Local Government</option>
+                    <option value="Agege">Agege</option>
+                    <option value="Ajeromi-Ifelodun">Ajeromi-Ifelodun</option>
+                    <option value="Alimosho">Alimosho</option>
+                    <option value="Amuwo-Odofin">Amuwo-Odofin</option>
+                    <option value="Apapa">Apapa</option>
+                    <option value="Badagry">Badagry</option>
+                    <option value="Epe">Epe</option>
+                    <option value="Eti-Osa">Eti-Osa</option>
+                    <option value="Ibeju-Lekki">Ibeju-Lekki</option>
+                    <option value="Ifako-Ijaiye">Ifako-Ijaiye</option>
+                    <option value="Ikeja">Ikeja</option>
+                    <option value="Ikorodu">Ikorodu</option>
+                    <option value="Kosofe">Kosofe</option>
+                    <option value="Lagos Island">Lagos Island</option>
+                    <option value="Lagos Mainland">Lagos Mainland</option>
+                    <option value="Mushin">Mushin</option>
+                    <option value="Ojo">Ojo</option>
+                    <option value="Oshodi-Isolo">Oshodi-Isolo</option>
+                    <option value="Shomolu">Shomolu</option>
+                    <option value="Surulere">Surulere</option>
+                </select>
+            </div>
+            <div>
+                <label for="schoolName">Name of School/Institution *</label>
+                <input type="text" id="schoolName" name="schoolName" required>
+            </div>
+            <div>
+                <label for="schoolAddress">Address of School/Institution *</label>
+                <input type="text" id="schoolAddress" name="schoolAddress" required>
+            </div>
+            <div>
+                <label for="location">Location *</label>
+                <select id="location" name="location" required>
+                    <option value="">select location</option>
+                    <!-- Add options here -->
+                </select>
+            </div>
+            <div>
+                <label for="latitude">Latitude *</label>
+                <input type="text" id="latitude" name="latitude" required>
+                <button type="button" onclick="getLocation()">📍 Get Current Location</button>
+            </div>
+            <div>
+                <label for="longitude">Longitude *</label>
+                <input type="text" id="longitude" name="longitude" required>
+            </div>
+            <div>
+                <label for="assemblyStart">Assembly Devotion Start Time *</label>
+                <input type="time" id="assemblyStart" name="assemblyStart" required>
+            </div>
+            <div>
+                <label for="assemblyEnd">Assembly Devotion End Time *</label>
+                <input type="time" id="assemblyEnd" name="assemblyEnd" required>
+            </div>
+
+            <h3>Number of Teachers in the School:</h3>
+            <div>
+                <label for="teachersMale">Male *</label>
+                <input type="number" id="teachersMale" name="teachersMale" required>
+            </div>
+            <div>
+                <label for="teachersFemale">Female *</label>
+                <input type="number" id="teachersFemale" name="teachersFemale" required>
+            </div>
+            <div>
+                <label for="teachersTotal">Total</label>
+                <input type="number" id="teachersTotal" name="teachersTotal" readonly>
+            </div>
+
+            <h3>Number of Non-Teaching Staff in the School:</h3>
+            <div>
+                <label for="nonTeachingMale">Male *</label>
+                <input type="number" id="nonTeachingMale" name="nonTeachingMale" required>
+            </div>
+            <div>
+                <label for="nonTeachingFemale">Female *</label>
+                <input type="number" id="nonTeachingFemale" name="nonTeachingFemale" required>
+            </div>
+            <div>
+                <label for="nonTeachingTotal">Total</label>
+                <input type="number" id="nonTeachingTotal" name="nonTeachingTotal" readonly>
+            </div>
+
+            <h3>ECCDE:</h3>
+            <div>
+                <label for="eccdeMale">Male *</label>
+                <input type="number" id="eccdeMale" name="eccdeMale" required>
+            </div>
+            <div>
+                <label for="eccdeFemale">Female *</label>
+                <input type="number" id="eccdeFemale" name="eccdeFemale" required>
+            </div>
+            <div>
+                <label for="eccdeTotal">Total</label>
+                <input type="number" id="eccdeTotal" name="eccdeTotal" readonly>
+            </div>
+
+            <h3>Primary:</h3>
+            <div>
+                <label for="primaryMale">Male *</label>
+                <input type="number" id="primaryMale" name="primaryMale" required>
+            </div>
+            <div>
+                <label for="primaryFemale">Female *</label>
+                <input type="number" id="primaryFemale" name="primaryFemale" required>
+            </div>
+            <div>
+                <label for="primaryTotal">Total</label>
+                <input type="number" id="primaryTotal" name="primaryTotal" readonly>
+            </div>
+
+            <h3>Special Learners:</h3>
+            <div>
+                <label for="specialMale">Male *</label>
+                <input type="number" id="specialMale" name="specialMale" required>
+            </div>
+            <div>
+                <label for="specialFemale">Female *</label>
+                <input type="number" id="specialFemale" name="specialFemale" required>
+            </div>
+            <div>
+                <label for="specialTotal">Total</label>
+                <input type="number" id="specialTotal" name="specialTotal" readonly>
+            </div>
+
+            <h3>Total Number of Pupils in the School (Auto-Calculated):</h3>
+            <div>
+                <label for="totalPupilsMale">Male</label>
+                <input type="number" id="totalPupilsMale" name="totalPupilsMale" readonly>
+            </div>
+            <div>
+                <label for="totalPupilsFemale">Female</label>
+                <input type="number" id="totalPupilsFemale" name="totalPupilsFemale" readonly>
+            </div>
+            <div>
+                <label for="totalPupils">Total</label>
+                <input type="number" id="totalPupils" name="totalPupils" readonly>
+            </div>
+
+            <h3>Teacher/Pupils Ratio (Auto-Calculated):</h3>
+            <div>
+                <label for="teacherPupilRatio">1 :</label>
+                <input type="text" id="teacherPupilRatio" name="teacherPupilRatio" readonly>
+            </div>
+
+            <div>
+                <label for="additionalTeachers">Number of Additional Teachers/Staff Required: *</label>
+                <input type="number" id="additionalTeachers" name="additionalTeachers" required>
+            </div>
+            <div>
+                <label for="multigradeClasses">Number of Classes operated as Multigrade: *</label>
+                <input type="number" id="multigradeClasses" name="multigradeClasses" required>
+            </div>
+            <div>
+                <label for="multigradeReason">Reason(s) for operating the classes as Multigrade:</label>
+                <textarea id="multigradeReason" name="multigradeReason"></textarea>
+            </div>
+
+            <h2>Section C: Needs Assessment</h2>
+            <p>Tick the areas where you are having difficulties in your LGEA and Schools. *</p>
+            <h3>Control and Discipline</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>ITEM</th>
+                        <th>Yes</th>
+                        <th>No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a.</td>
+                        <td>Getting Teachers and Learners to obey rules and regulations</td>
+                        <td><input type="radio" name="control_a" value="yes"></td>
+                        <td><input type="radio" name="control_a" value="no"></td>
+                    </tr>
+                    <tr>
+                        <td>b.</td>
+                        <td>Handling of disciplinary cases on time and appropriately</td>
+                        <td><input type="radio" name="control_b" value="yes"></td>
+                        <td><input type="radio" name="control_b" value="no"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cooperation and Team Work</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>ITEM</th>
+                        <th>Yes</th>
+                        <th>No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a.</td>
+                        <td>Assigning administrative responsibilities in the school to teachers</td>
+                        <td><input type="radio" name="cooperation_a" value="yes"></td>
+                        <td><input type="radio" name="cooperation_a" value="no"></td>
+                    </tr>
+                    <tr>
+                        <td>b.</td>
+                        <td>Delegating of duties to subordinates</td>
+                        <td><input type="radio" name="cooperation_b" value="yes"></td>
+                        <td><input type="radio" name="cooperation_b" value="no"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Communication in the School</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>ITEM</th>
+                        <th>Yes</th>
+                        <th>No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a.</td>
+                        <td>Establishing effective channel of communication in the School</td>
+                        <td><input type="radio" name="communication_a" value="yes"></td>
+                        <td><input type="radio" name="communication_a" value="no"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>School and Community Relations</h3>
+            <table>
+                <tbody>
+                    <tr><td>a.</td><td>Getting the communities to be committed to the school activities</td><td><input type="radio" name="community_a" value="yes"></td><td><input type="radio" name="community_a" value="no"></td></tr>
+                </tbody>
+            </table>
+            <h3>Supervision and Monitoring</h3>
+            <table>
+                <tbody>
+                    <tr><td>a.</td><td>Assessing Teachers’ lesson plan before delivery</td><td><input type="radio" name="supervision_a" value="yes"></td><td><input type="radio" name="supervision_a" value="no"></td></tr>
+                </tbody>
+            </table>
+            <h3>School Records</h3>
+            <table>
+                <tbody>
+                    <tr><td>a.</td><td>Maintaining the School Log Book</td><td><input type="radio" name="records_a" value="yes"></td><td><input type="radio" name="records_a" value="no"></td></tr>
+                </tbody>
+            </table>
+            <h3>Health and Hygiene</h3>
+            <table>
+                <tbody>
+                    <tr><td>a.</td><td>Keeping the school compound clean</td><td><input type="radio" name="health_a" value="yes"></td><td><input type="radio" name="health_a" value="no"></td></tr>
+                </tbody>
+            </table>
+
+            <h2>Section D: School Infrastructure</h2>
+            <h3>1. INFRASTRUCTURE</h3>
+            <div>
+                <p>Signboard *</p>
+                <input type="radio" id="signboardGood" name="signboard" value="good" required>
+                <label for="signboardGood">Available and in good condition</label><br>
+                <input type="radio" id="signboardNotGood" name="signboard" value="not_good">
+                <label for="signboardNotGood">Available but not in good condition</label><br>
+                <input type="radio" id="signboardNotAvailable" name="signboard" value="not_available">
+                <label for="signboardNotAvailable">Not Available</label>
+            </div>
+
+            <h3>Teachers’ Furniture</h3>
+            <div>
+                <label for="teachersFurnitureAvailable">Number Available *</label>
+                <input type="number" id="teachersFurnitureAvailable" name="teachersFurnitureAvailable" required>
+            </div>
+            <div>
+                <label for="teachersFurnitureGood">Number in Good Condition *</label>
+                <input type="number" id="teachersFurnitureGood" name="teachersFurnitureGood" required>
+            </div>
+            <div>
+                <label for="teachersFurnitureRequired">Additional Number Required *</label>
+                <input type="number" id="teachersFurnitureRequired" name="teachersFurnitureRequired" required>
+            </div>
+
+            <h3>ECCDE Furniture</h3>
+            <div>
+                <label for="eccdeFurnitureAvailable">Number Available *</label>
+                <input type="number" id="eccdeFurnitureAvailable" name="eccdeFurnitureAvailable" required>
+            </div>
+            <div>
+                <label for="eccdeFurnitureGood">Number in Good Condition *</label>
+                <input type="number" id="eccdeFurnitureGood" name="eccdeFurnitureGood" required>
+            </div>
+            <div>
+                <label for="eccdeFurnitureRequired">Additional Number Required *</label>
+                <input type="number" id="eccdeFurnitureRequired" name="eccdeFurnitureRequired" required>
+            </div>
+
+            <h3>Primary Furniture</h3>
+            <div>
+                <label for="primaryFurnitureAvailable">Number Available *</label>
+                <input type="number" id="primaryFurnitureAvailable" name="primaryFurnitureAvailable" required>
+            </div>
+            <div>
+                <label for="primaryFurnitureGood">Number in Good Condition *</label>
+                <input type="number" id="primaryFurnitureGood" name="primaryFurnitureGood" required>
+            </div>
+            <div>
+                <label for="primaryFurnitureRequired">Additional Number Required *</label>
+                <input type="number" id="primaryFurnitureRequired" name="primaryFurnitureRequired" required>
+            </div>
+
+            <h3>2. FENCING</h3>
+            <div>
+                <p>a. Shared Facility</p>
+                <p>Is the school located within a school Complex? *</p>
+                <input type="radio" name="sharedFacility" value="yes" required> Yes
+                <input type="radio" name="sharedFacility" value="no"> No
+            </div>
+            <div>
+                <p>b. Does the school have perimeter fence: *</p>
+                <input type="radio" name="perimeterFence" value="yes" required> Yes
+                <input type="radio" name="perimeterFence" value="no"> No
+            </div>
+
+            <h3>Classroom Condition</h3>
+            <div>
+                <label for="classroomsAvailable">Number Available *</label>
+                <input type="number" id="classroomsAvailable" name="classroomsAvailable" required>
+            </div>
+            <div>
+                <label for="classroomsGood">Number in Good Condition *</label>
+                <input type="number" id="classroomsGood" name="classroomsGood" required>
+            </div>
+            <div>
+                <label for="classroomsMinorRepair">Number in need of Minor Repair *</label>
+                <input type="number" id="classroomsMinorRepair" name="classroomsMinorRepair" required>
+            </div>
+            <div>
+                <label for="classroomsMajorRepair">Number in need of Major Repair/Renovation *</label>
+                <input type="number" id="classroomsMajorRepair" name="classroomsMajorRepair" required>
+            </div>
+            <div>
+                <label for="classroomsRequired">Number of Additional Classroom Required *</label>
+                <input type="number" id="classroomsRequired" name="classroomsRequired" required>
+            </div>
+            <div>
+                <label for="repairDescription">Briefly, describe the type of repair needed</label>
+                <textarea id="repairDescription" name="repairDescription"></textarea>
+            </div>
+
+            <h3>3. TOILET FACILITIES</h3>
+            <div>
+                <p>Type of Toilet: *</p>
+                <input type="radio" id="toiletPit" name="toiletType" value="pit" required> <label for="toiletPit">Pit</label><br>
+                <input type="radio" id="toiletWC" name="toiletType" value="wc"> <label for="toiletWC">WC</label><br>
+                <input type="radio" id="toiletSquat" name="toiletType" value="squat"> <label for="toiletSquat">Squat Water flush</label><br>
+                <input type="radio" id="toiletNone" name="toiletType" value="none"> <label for="toiletNone">None</label>
+            </div>
+            <div>
+                <label for="cubicleAvailable">Number of Cubicle Toilet Available *</label>
+                <input type="number" id="cubicleAvailable" name="cubicleAvailable" required>
+            </div>
+            <div>
+                <label for="cubicleMinorRepair">Number in need of Minor Repair *</label>
+                <input type="number" id="cubicleMinorRepair" name="cubicleMinorRepair" required>
+            </div>
+            <div>
+                <label for="cubicleMajorRepair">Number in need of Major Repair *</label>
+                <input type="number" id="cubicleMajorRepair" name="cubicleMajorRepair" required>
+            </div>
+            <div>
+                <label for="cubicleRenovation">Renovation Required *</label>
+                <input type="number" id="cubicleRenovation" name="cubicleRenovation" required>
+            </div>
+            <div>
+                <label for="cubicleRequired">Number of Additional Cubicle Toilet Required *</label>
+                <input type="number" id="cubicleRequired" name="cubicleRequired" required>
+            </div>
+            <div>
+                <label for="toiletRepairDescription">Briefly, describe the type of repair needed</label>
+                <textarea id="toiletRepairDescription" name="toiletRepairDescription"></textarea>
+            </div>
+
+            <h3>4. SEPTIC TANK</h3>
+            <div>
+                <input type="radio" name="septicTank" value="available" required> Available
+                <input type="radio" name="septicTank" value="not_available"> Not Available
+                <input type="radio" name="septicTank" value="needs_evacuation"> Needs Evacuation
+            </div>
+
+            <h3>5. SOURCE OF POTABLE WATER</h3>
+            <div>
+                <input type="radio" name="waterSource" value="none" required> None
+                <input type="radio" name="waterSource" value="well"> Well
+                <input type="radio" name="waterSource" value="tap"> Tap Water
+                <input type="radio" name="waterSource" value="borehole"> Borehole
+            </div>
+            <div>
+                <label for="recommendations">Recommendations</label>
+                <textarea id="recommendations" name="recommendations"></textarea>
+            </div>
+
+            <h3>6. SOURCE OF ELECTRICITY</h3>
+            <div>
+                <p>Source of Electricity: *</p>
+                <input type="radio" id="electricityNone" name="electricity" value="none" required> <label for="electricityNone">None</label><br>
+                <input type="radio" id="electricityPhcn" name="electricity" value="phcn"> <label for="electricityPhcn">PHCN</label><br>
+                <input type="radio" id="electricityGenerator" name="electricity" value="generator"> <label for="electricityGenerator">Generator</label><br>
+                <input type="radio" id="electricitySolar" name="electricity" value="solar"> <label for="electricitySolar">Solar</label><br>
+                <input type="radio" id="electricityOther" name="electricity" value="other"> <label for="electricityOther">Others</label><br>
+                <input type="radio" id="electricityDisconnectedBills" name="electricity" value="disconnected_bills"> <label for="electricityDisconnectedBills">PHCN but Disconnected because of accumulated bills</label><br>
+                <input type="radio" id="electricityDisconnectedMeter" name="electricity" value="disconnected_meter"> <label for="electricityDisconnectedMeter">PHCN but Disconnected because of lack of meter</label>
+            </div>
+
+            <div>
+                <p>7. Is your School regularly waterlogged when it rained? *</p>
+                <input type="radio" name="waterlogged" value="yes" required> Yes
+                <input type="radio" name="waterlogged" value="no"> No
+            </div>
+
+            <div>
+                <label for="photos">Upload Photos (Max 10) *</label>
+                <input type="file" id="photos" name="photos" multiple accept="image/*" required>
+            </div>
+
+            <button type="submit">Submit SILNAT Form 1.1</button>
+        </form>
+    </main>
+    <footer>
+        <p>Lagos State Universal Basic Education Board © 2025. All Rights Reserved. | Centre of Excellence</p>
+    </footer>
+    <script src="survey.js"></script>
+</body>
+</html>
