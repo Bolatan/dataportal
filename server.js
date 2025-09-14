@@ -123,6 +123,29 @@ app.delete('/api/user/:id', async (req, res) => {
     }
 });
 
+// User login
+app.post('/api/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+        user.comparePassword(password, (err, isMatch) => {
+            if (err) {
+                return res.status(500).json({ message: 'Error logging in', error: err });
+            }
+            if (!isMatch) {
+                return res.status(401).json({ message: 'Invalid credentials' });
+            }
+            res.json({ message: 'Login successful', user: { id: user._id, username: user.username, role: user.role } });
+        });
+    } catch (error) {
+        res.status(500).json({ message: 'Error logging in', error });
+    }
+});
+
 app.post('/api/survey', upload.array('photos', 10), (req, res) => {
     try {
         const surveyData = req.body;
