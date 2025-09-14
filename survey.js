@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(result => {
+            // Form successfully submitted, redirecting to home.
             console.log('Success:', result);
             window.location.href = 'index.html';
         })
