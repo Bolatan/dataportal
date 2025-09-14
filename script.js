@@ -25,7 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.noData) {
                 const chartContainers = document.querySelectorAll('.chart-container');
                 chartContainers.forEach(container => {
-                    container.innerHTML = '<h2>No data to display</h2>';
+                    const elementsToRemove = container.querySelectorAll('canvas, table');
+                    elementsToRemove.forEach(el => el.remove());
+
+                    const noDataMessage = document.createElement('p');
+                    noDataMessage.textContent = 'No data to display';
+                    container.appendChild(noDataMessage);
                 });
                 return;
             }
