@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const brandColors = getBrandColors();
 
-    fetch('http://localhost:3000/api/data')
+    fetch('/api/data')
         .then(response => response.json())
         .then(data => {
             if (data.noData) {
