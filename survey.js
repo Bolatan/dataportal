@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData(surveyForm);
 
-        fetch('http://localhost:3000/api/survey', {
+        fetch('/api/survey', {
             method: 'POST',
             body: formData
         })
