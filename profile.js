@@ -1,28 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     const profileForm = document.getElementById('profile-form');
-    // =================================================================================
-    // IMPORTANT: Hardcoded User ID for Demonstration
-    // =================================================================================
-    // This script uses a hardcoded user ID to demonstrate the profile update
-    // functionality. In a real-world application, this ID should be dynamically
-    // obtained from the server after a user logs in. This is typically handled
-    // by storing a session token or user ID in localStorage or a cookie.
-    //
-    // To make this functional, you would need to implement a login system that
-    // provides the client with the logged-in user's ID.
-    // =================================================================================
-    const userId = '60d5ec49e0b3f8a8c8b45678'; // Replace with a dynamic user ID after implementing authentication
+    const pageTitle = document.querySelector('h1');
+    const submitButton = document.querySelector('button[type="submit"]');
 
-    // Fetch user data and populate the form
-    fetch(`/api/user/${userId}`)
-        .then(response => response.json())
-        .then(user => {
-            document.getElementById('username').value = user.username;
-            document.getElementById('email').value = user.email;
-            document.getElementById('fullName').value = user.fullName;
-            document.getElementById('role').value = user.role;
-        })
-        .catch(error => console.error('Error fetching user data:', error));
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('userId');
+
+    let isEditMode = userId !== null;
+
+    if (isEditMode) {
+        pageTitle.textContent = 'Edit User';
+        submitButton.textContent = 'Update Profile';
+
+        // Fetch user data and populate the form
+        fetch(`/api/user/${userId}`)
+            .then(response => response.json())
+            .then(user => {
+                document.getElementById('username').value = user.username;
+                document.getElementById('email').value = user.email;
+                document.getElementById('fullName').value = user.fullName;
+                document.getElementById('role').value = user.role;
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+    } else {
+        pageTitle.textContent = 'Create User';
+        submitButton.textContent = 'Create Profile';
+    }
 
     profileForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -35,26 +38,31 @@ document.addEventListener('DOMContentLoaded', () => {
             delete data.password;
         }
 
-        fetch(`/api/user/${userId}`, {
-            method: 'PUT',
+        const method = isEditMode ? 'PUT' : 'POST';
+        const url = isEditMode ? `/api/user/${userId}` : '/api/user';
+
+        fetch(url, {
+            method: method,
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(updatedUser => {
-            alert('Profile updated successfully!');
-            // Optionally, refresh the form with the new data
-            document.getElementById('username').value = updatedUser.username;
-            document.getElementById('email').value = updatedUser.email;
-            document.getElementById('fullName').value = updatedUser.fullName;
-            document.getElementById('role').value = updatedUser.role;
-            document.getElementById('password').value = '';
+        .then(responseData => {
+            if (responseData.message) {
+                alert(responseData.message);
+                if (!isEditMode) {
+                     window.location.href = 'users.html';
+                }
+            } else {
+                alert(`Profile ${isEditMode ? 'updated' : 'created'} successfully!`);
+                window.location.href = 'users.html';
+            }
         })
         .catch(error => {
-            console.error('Error updating profile:', error);
-            alert('Failed to update profile.');
+            console.error(`Error ${isEditMode ? 'updating' : 'creating'} profile:`, error);
+            alert(`Failed to ${isEditMode ? 'update' : 'create'} profile.`);
         });
     });
 });

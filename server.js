@@ -19,6 +19,10 @@ app.get('/profile', (req, res) => {
     res.sendFile(__dirname + '/profile.html');
 });
 
+app.get('/users', (req, res) => {
+    res.sendFile(__dirname + '/users.html');
+});
+
 // MongoDB Connection
 const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/dataportal?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -52,6 +56,16 @@ app.post('/api/user', async (req, res) => {
         res.status(201).json(newUser);
     } catch (error) {
         res.status(400).json({ message: 'Error creating user', error });
+    }
+});
+
+// Get all users
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await User.find().select('-password');
+        res.json(users);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching users', error });
     }
 });
 
@@ -93,6 +107,19 @@ app.put('/api/user/:id', async (req, res) => {
         res.json(userObject);
     } catch (error) {
         res.status(400).json({ message: 'Error updating user', error });
+    }
+});
+
+// Delete a user by ID
+app.delete('/api/user/:id', async (req, res) => {
+    try {
+        const user = await User.findByIdAndDelete(req.params.id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json({ message: 'User deleted successfully' });
+    } catch (error) {
+        res.status(400).json({ message: 'Error deleting user', error });
     }
 });
 
