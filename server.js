@@ -173,7 +173,7 @@ app.get('/api/data', async (req, res) => {
             goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
             needed: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             majorRepairs: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
-            renovationRequired: surveys.reduce((acc, s) => acc + (s.cubicleRenovation || 0), 0), // Assuming cubicleRenovation is for offices
+            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0), // Changed to classroomsMajorRepair
             additionalNeeded: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
