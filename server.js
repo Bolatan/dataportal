@@ -8,11 +8,15 @@ const port = 3000;
 
 // Middleware
 app.use(cors());
-// app.use(bodyParser.json()); // This can interfere with multer
+app.use(bodyParser.json());
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/login.html');
+});
+
+app.get('/profile', (req, res) => {
+    res.sendFile(__dirname + '/profile.html');
 });
 
 // MongoDB Connection
@@ -23,6 +27,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const multer = require('multer');
 const Survey = require('./models/Survey');
+const User = require('./models/User');
 
 // Multer setup
 const storage = multer.diskStorage({
@@ -36,6 +41,61 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // API routes
+
+// User API Routes
+// Create a new user
+app.post('/api/user', async (req, res) => {
+    try {
+        const { username, email, password, fullName, role } = req.body;
+        const newUser = new User({ username, email, password, fullName, role });
+        await newUser.save();
+        res.status(201).json(newUser);
+    } catch (error) {
+        res.status(400).json({ message: 'Error creating user', error });
+    }
+});
+
+// Get a user by ID
+app.get('/api/user/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id).select('-password');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching user', error });
+    }
+});
+
+// Update a user by ID
+app.put('/api/user/:id', async (req, res) => {
+    try {
+        const { username, email, password, fullName, role } = req.body;
+        const user = await User.findById(req.params.id);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        user.username = username || user.username;
+        user.email = email || user.email;
+        user.fullName = fullName || user.fullName;
+        user.role = role || user.role;
+
+        if (password) {
+            user.password = password;
+        }
+
+        const updatedUser = await user.save();
+        const userObject = updatedUser.toObject();
+        delete userObject.password;
+        res.json(userObject);
+    } catch (error) {
+        res.status(400).json({ message: 'Error updating user', error });
+    }
+});
+
 app.post('/api/survey', upload.array('photos', 10), (req, res) => {
     try {
         const surveyData = req.body;
