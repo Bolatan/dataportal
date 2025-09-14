@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000/api/data')
         .then(response => response.json())
         .then(data => {
+            if (data.noData) {
+                const chartContainers = document.querySelectorAll('.chart-container');
+                chartContainers.forEach(container => {
+                    container.innerHTML = '<h2>No data to display</h2>';
+                });
+                return;
+            }
             renderOfficeInfrastructureChart(data.officeInfrastructure, brandColors);
             renderRespondentsDemographicsCharts(data.respondentsDemographics, brandColors);
             renderSourceOfElectricityChart(data.sourceOfElectricity, brandColors);

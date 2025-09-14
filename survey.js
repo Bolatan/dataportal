@@ -66,15 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Response status:', response.status);
+            return response.json();
+        })
         .then(result => {
             console.log('Success:', result);
-            alert('Survey submitted successfully!');
             window.location.href = 'index.html';
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('There was an error submitting the survey.');
+            console.error('Fetch Error:', error);
+            // alert('There was an error submitting the survey.');
         });
     });
 
