@@ -8,6 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <div id="success-message" style="display: none; background-color: #4CAF50; color: white; text-align: center; padding: 10px;">
+        Survey submitted successfully!
+    </div>
     <header>
         <img src="news-lasg.jpg" alt="Lagos State Logo">
         <h1>LGEA NAP (SILNAT 1.1) 2025 FACT SHEET</h1>
@@ -27,27 +30,7 @@
                         <th>Count</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Available (Good)</td>
-                        <td>174</td>
-                    </tr>
-                    <tr>
-                        <td>Needed</td>
-                        <td>80</td>
-                    </tr>
-                    <tr>
-                        <td>Major Repairs</td>
-                        <td>54</td>
-                    </tr>
-                    <tr>
-                        <td>Renovation Required</td>
-                        <td>20</td>
-                    </tr>
-                    <tr>
-                        <td>Additional Offices Needed</td>
-                        <td>40</td>
-                    </tr>
+                <tbody id="officeInfrastructureTableBody">
                 </tbody>
             </table>
         </div>
@@ -72,23 +55,7 @@
                         <th>Count</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Cubicle Toilets</td>
-                        <td>420</td>
-                    </tr>
-                    <tr>
-                        <td>Minor Repairs Needed</td>
-                        <td>110</td>
-                    </tr>
-                    <tr>
-                        <td>Major Repairs Needed</td>
-                        <td>70</td>
-                    </tr>
-                    <tr>
-                        <td>Additional Toilets Needed</td>
-                        <td>60</td>
-                    </tr>
+                <tbody id="toiletFacilitiesTableBody">
                 </tbody>
             </table>
         </div>
@@ -104,25 +71,7 @@
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Teachers</td>
-                        <td>370</td>
-                        <td>284</td>
-                        <td>654</td>
-                    </tr>
-                    <tr>
-                        <td>Non-teaching</td>
-                        <td>278</td>
-                        <td>160</td>
-                        <td>438</td>
-                    </tr>
-                    <tr>
-                        <td>Total Staff</td>
-                        <td>682</td>
-                        <td>472</td>
-                        <td>1154</td>
-                    </tr>
+                <tbody id="staffingTableBody">
                 </tbody>
             </table>
         </div>

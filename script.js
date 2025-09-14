@@ -10,6 +10,16 @@ function getBrandColors() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Check for success message
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success')) {
+        const successMessage = document.getElementById('success-message');
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 3000);
+    }
+
     if (sessionStorage.getItem('loggedIn') !== 'true') {
         window.location.href = 'login.html';
         return;
@@ -39,6 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
             renderSourceOfElectricityChart(data.sourceOfElectricity, brandColors);
             renderToiletFacilitiesChart(data.toiletFacilities, brandColors);
             renderStaffingChart(data.staffing, brandColors);
+
+            // Populate tables
+            populateOfficeInfrastructureTable(data.officeInfrastructure);
+            populateToiletFacilitiesTable(data.toiletFacilities);
+            populateStaffingTable(data.staffing);
         });
 });
 
@@ -46,6 +61,81 @@ function logout() {
     sessionStorage.removeItem('loggedIn');
     window.location.href = 'login.html';
 }
+
+function populateOfficeInfrastructureTable(data) {
+    const tableBody = document.getElementById('officeInfrastructureTableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    const rows = [
+        { condition: 'Available (Good)', count: data.goodCondition },
+        { condition: 'Needed', count: data.needed },
+        { condition: 'Major Repairs', count: data.majorRepairs },
+        { condition: 'Renovation Required', count: data.renovationRequired },
+        { condition: 'Additional Offices Needed', count: data.additionalNeeded }
+    ];
+
+    rows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.condition}</td><td>${row.count}</td>`;
+        tableBody.appendChild(tr);
+    });
+}
+
+function populateToiletFacilitiesTable(data) {
+    const tableBody = document.getElementById('toiletFacilitiesTableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    const rows = [
+        { metric: 'Cubicle Toilets', count: data.cubicleToilets },
+        { metric: 'Minor Repairs Needed', count: data.minorRepairs },
+        { metric: 'Major Repairs Needed', count: data.majorRepairs },
+        { metric: 'Additional Toilets Needed', count: data.additionalNeeded }
+    ];
+
+    rows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.metric}</td><td>${row.count}</td>`;
+        tableBody.appendChild(tr);
+    });
+}
+
+function populateStaffingTable(data) {
+    const tableBody = document.getElementById('staffingTableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    const teachersMale = data.teachersMale || 0;
+    const teachersFemale = data.teachersFemale || 0;
+    const nonTeachingMale = data.nonTeachingMale || 0;
+    const nonTeachingFemale = data.nonTeachingFemale || 0;
+    const totalMale = teachersMale + nonTeachingMale;
+    const totalFemale = teachersFemale + nonTeachingFemale;
+    const teachersTotal = teachersMale + teachersFemale;
+    const nonTeachingTotal = nonTeachingMale + nonTeachingFemale;
+    const grandTotal = totalMale + totalFemale;
+
+
+    tableBody.innerHTML = `
+        <tr>
+            <td>Teachers</td>
+            <td>${teachersMale}</td>
+            <td>${teachersFemale}</td>
+            <td>${teachersTotal}</td>
+        </tr>
+        <tr>
+            <td>Non-teaching</td>
+            <td>${nonTeachingMale}</td>
+            <td>${nonTeachingFemale}</td>
+            <td>${nonTeachingTotal}</td>
+        </tr>
+        <tr>
+            <td>Total Staff</td>
+            <td>${totalMale}</td>
+            <td>${totalFemale}</td>
+            <td>${grandTotal}</td>
+        </tr>
+    `;
+}
+
 
 function renderOfficeInfrastructureChart(data, brandColors) {
     const ctx = document.getElementById('officeInfrastructureChart');

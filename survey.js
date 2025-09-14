@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(result => {
             // Form successfully submitted, redirecting to home.
             console.log('Success:', result);
-            window.location.href = 'index.html';
+            window.location.href = 'index.html?success=true';
         })
         .catch(error => {
             console.error('Fetch Error:', error);
