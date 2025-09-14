@@ -18,10 +18,17 @@ body {
 }
 
 header {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This will push the items to the edges */
     margin-bottom: 40px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 20px;
+}
+
+header img {
+    height: 80px; /* Increased size for better visibility */
+    margin-right: 20px;
 }
 
 header h1 {
