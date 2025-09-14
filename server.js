@@ -170,6 +170,11 @@ app.get('/api/data', async (req, res) => {
         });
 
         const officeInfrastructure = {
+            goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
+            needed: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
+            majorRepairs: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
+            renovationRequired: surveys.reduce((acc, s) => acc + (s.cubicleRenovation || 0), 0), // Assuming cubicleRenovation is for offices
+            additionalNeeded: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
                 datasets: [
@@ -181,6 +186,10 @@ app.get('/api/data', async (req, res) => {
         };
 
         const toiletFacilities = {
+            cubicleToilets: surveys.reduce((acc, s) => acc + (s.cubicleAvailable || 0), 0),
+            minorRepairs: surveys.reduce((acc, s) => acc + (s.cubicleMinorRepair || 0), 0),
+            majorRepairs: surveys.reduce((acc, s) => acc + (s.cubicleMajorRepair || 0), 0),
+            additionalNeeded: surveys.reduce((acc, s) => acc + (s.cubicleRequired || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
                 datasets: [{
@@ -191,6 +200,10 @@ app.get('/api/data', async (req, res) => {
         };
 
         const staffing = {
+            teachersMale: surveys.reduce((acc, s) => acc + (s.teachersMale || 0), 0),
+            teachersFemale: surveys.reduce((acc, s) => acc + (s.teachersFemale || 0), 0),
+            nonTeachingMale: surveys.reduce((acc, s) => acc + (s.nonTeachingMale || 0), 0),
+            nonTeachingFemale: surveys.reduce((acc, s) => acc + (s.nonTeachingFemale || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
                 datasets: [
@@ -202,8 +215,8 @@ app.get('/api/data', async (req, res) => {
             }
         };
 
-        const chartData = {
-            officeInfrastructure,
+        const responseData = {
+            officeInfrastructure: officeInfrastructure,
             respondentsDemographics: {
                 sexDistribution: {
                     labels: Object.keys(genderCounts),
@@ -220,11 +233,11 @@ app.get('/api/data', async (req, res) => {
                     datasets: [{ data: Object.values(electricityCounts) }]
                 }
             },
-            toiletFacilities,
-            staffing
+            toiletFacilities: toiletFacilities,
+            staffing: staffing
         };
 
-        res.json(chartData);
+        res.json(responseData);
     } catch (err) {
         res.status(400).json('Error: ' + err);
     }
