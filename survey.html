@@ -410,104 +410,51 @@
                 <textarea id="multigradeReason" name="multigradeReason"></textarea>
             </div>
 
-            <h2>Section C: Needs Assessment</h2>
-            <p>Tick the areas where you are having difficulties in your LGEA and Schools. *</p>
-            <h3>Control and Discipline</h3>
+            <h2>Section C: STAFF</h2>
+            <h3>Number of Teachers in the School:</h3>
+            <div>
+                <label for="teachersMale">Male *</label>
+                <input type="number" id="teachersMale" name="teachersMale" required>
+            </div>
+            <div>
+                <label for="teachersFemale">Female *</label>
+                <input type="number" id="teachersFemale" name="teachersFemale" required>
+            </div>
+            <div>
+                <label for="teachersTotal">Total</label>
+                <input type="number" id="teachersTotal" name="teachersTotal" readonly>
+            </div>
+
+            <h3>Number of Non-Teaching Staff in the School:</h3>
+            <div>
+                <label for="nonTeachingMale">Male *</label>
+                <input type="number" id="nonTeachingMale" name="nonTeachingMale" required>
+            </div>
+            <div>
+                <label for="nonTeachingFemale">Female *</label>
+                <input type="number" id="nonTeachingFemale" name="nonTeachingFemale" required>
+            </div>
+            <div>
+                <label for="nonTeachingTotal">Total</label>
+                <input type="number" id="nonTeachingTotal" name="nonTeachingTotal" readonly>
+            </div>
+
+            <h3>STAFF PROFILE</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>S/N</th>
-                        <th>ITEM</th>
-                        <th>Yes</th>
-                        <th>No</th>
+                        <th>NAME OF STAFF</th>
+                        <th>HIGHEST QUALIFICATION</th>
+                        <th>SUBJECT SPECIALISATION</th>
+                        <th>YEARS OF EXPEREINCE</th>
+                        <th>TRCN NO (IF AVAILABLE)</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>a.</td>
-                        <td>Getting Teachers and Learners to obey rules and regulations</td>
-                        <td><input type="radio" name="control_a" value="yes"></td>
-                        <td><input type="radio" name="control_a" value="no"></td>
-                    </tr>
-                    <tr>
-                        <td>b.</td>
-                        <td>Handling of disciplinary cases on time and appropriately</td>
-                        <td><input type="radio" name="control_b" value="yes"></td>
-                        <td><input type="radio" name="control_b" value="no"></td>
-                    </tr>
+                <tbody id="staffProfileTableBody">
+                    <!-- Staff rows will be added here dynamically -->
                 </tbody>
             </table>
-
-            <h3>Cooperation and Team Work</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>S/N</th>
-                        <th>ITEM</th>
-                        <th>Yes</th>
-                        <th>No</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>a.</td>
-                        <td>Assigning administrative responsibilities in the school to teachers</td>
-                        <td><input type="radio" name="cooperation_a" value="yes"></td>
-                        <td><input type="radio" name="cooperation_a" value="no"></td>
-                    </tr>
-                    <tr>
-                        <td>b.</td>
-                        <td>Delegating of duties to subordinates</td>
-                        <td><input type="radio" name="cooperation_b" value="yes"></td>
-                        <td><input type="radio" name="cooperation_b" value="no"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Communication in the School</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>S/N</th>
-                        <th>ITEM</th>
-                        <th>Yes</th>
-                        <th>No</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>a.</td>
-                        <td>Establishing effective channel of communication in the School</td>
-                        <td><input type="radio" name="communication_a" value="yes"></td>
-                        <td><input type="radio" name="communication_a" value="no"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>School and Community Relations</h3>
-            <table>
-                <tbody>
-                    <tr><td>a.</td><td>Getting the communities to be committed to the school activities</td><td><input type="radio" name="community_a" value="yes"></td><td><input type="radio" name="community_a" value="no"></td></tr>
-                </tbody>
-            </table>
-            <h3>Supervision and Monitoring</h3>
-            <table>
-                <tbody>
-                    <tr><td>a.</td><td>Assessing Teachers’ lesson plan before delivery</td><td><input type="radio" name="supervision_a" value="yes"></td><td><input type="radio" name="supervision_a" value="no"></td></tr>
-                </tbody>
-            </table>
-            <h3>School Records</h3>
-            <table>
-                <tbody>
-                    <tr><td>a.</td><td>Maintaining the School Log Book</td><td><input type="radio" name="records_a" value="yes"></td><td><input type="radio" name="records_a" value="no"></td></tr>
-                </tbody>
-            </table>
-            <h3>Health and Hygiene</h3>
-            <table>
-                <tbody>
-                    <tr><td>a.</td><td>Keeping the school compound clean</td><td><input type="radio" name="health_a" value="yes"></td><td><input type="radio" name="health_a" value="no"></td></tr>
-                </tbody>
-            </table>
+            <button type="button" id="addStaffRow">Add Staff</button>
 
             <h2>Section D: School Infrastructure</h2>
             <h3>1. INFRASTRUCTURE</h3>

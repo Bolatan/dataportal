@@ -55,6 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const addStaffRowBtn = document.getElementById('addStaffRow');
+    if (addStaffRowBtn) {
+        let staffRowCounter = 1;
+        const staffProfileTableBody = document.getElementById('staffProfileTableBody');
+
+        addStaffRowBtn.addEventListener('click', () => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td><input type="text" name="staff_name_${staffRowCounter}"></td>
+                <td><input type="text" name="staff_qualification_${staffRowCounter}"></td>
+                <td><input type="text" name="staff_specialization_${staffRowCounter}"></td>
+                <td><input type="number" name="staff_experience_${staffRowCounter}"></td>
+                <td><input type="text" name="staff_trcn_${staffRowCounter}"></td>
+            `;
+            staffProfileTableBody.appendChild(newRow);
+            staffRowCounter++;
+        });
+    }
+
     setupTableCalculation('prePrimarySchool');
     setupTableCalculation('juniorSecondarySchool');
     setupTableCalculation('seniorSecondarySchool');
