@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const maleValue = parseInt(maleInput.value) || 0;
             const femaleValue = parseInt(femaleInput.value) || 0;
             totalInput.value = maleValue + femaleValue;
-            updatePupilTotals();
         };
 
         maleInput.addEventListener('input', updateTotal);
@@ -116,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target.tagName === 'INPUT' && (event.target.name.includes('_male') || event.target.name.includes('_female'))) {
                 const row = event.target.closest('tr');
                 updateRowTotal(row);
-                updatePupilTotals();
             }
         });
 
@@ -187,37 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function updatePupilTotals() {
-        let totalMale = 0;
-        let totalFemale = 0;
-
-        document.querySelectorAll('#prePrimarySchool input[name*="_male"], #juniorSecondarySchool input[name*="_male"], #seniorSecondarySchool input[name*="_male"], #specialLearners input[name*="_male"]').forEach(input => {
-            totalMale += parseInt(input.value) || 0;
-        });
-
-        document.querySelectorAll('#prePrimarySchool input[name*="_female"], #juniorSecondarySchool input[name*="_female"], #seniorSecondarySchool input[name*="_female"], #specialLearners input[name*="_female"]').forEach(input => {
-            totalFemale += parseInt(input.value) || 0;
-        });
-
-        document.getElementById('totalPupilsMale').value = totalMale;
-        document.getElementById('totalPupilsFemale').value = totalFemale;
-        document.getElementById('totalPupils').value = totalMale + totalFemale;
-
-        updateTeacherPupilRatio();
-    }
-
-    function updateTeacherPupilRatio() {
-        const totalTeachers = parseInt(document.getElementById('teachersTotal').value) || 0;
-        const totalPupils = parseInt(document.getElementById('totalPupils').value) || 0;
-        const ratioInput = document.getElementById('teacherPupilRatio');
-
-        if (totalTeachers > 0 && totalPupils > 0) {
-            const ratio = totalPupils / totalTeachers;
-            ratioInput.value = `1 : ${ratio.toFixed(2)}`;
-        } else {
-            ratioInput.value = 'N/A';
-        }
-    }
 
     surveyForm.addEventListener('submit', (event) => {
         event.preventDefault();
