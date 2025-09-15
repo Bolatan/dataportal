@@ -133,7 +133,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
                 <td><input type="text" name="staff_name_${staffRowCounter}"></td>
-                <td><input type="text" name="staff_qualification_${staffRowCounter}"></td>
+                <td>
+                    <select name="staff_qualification_${staffRowCounter}">
+                        <option value="">Select Qualification</option>
+                        <option value="Grade II">Grade II</option>
+                        <option value="NCE">NCE</option>
+                        <option value="B.Ed">B.Ed</option>
+                        <option value="BA. Ed">BA. Ed</option>
+                        <option value="B.Sc.Ed">B.Sc.Ed</option>
+                        <option value="HND">HND</option>
+                        <option value="M.Ed">M.Ed</option>
+                        <option value="PGD">PGD</option>
+                        <option value="PhD">PhD</option>
+                    </select>
+                </td>
                 <td><input type="text" name="staff_specialization_${staffRowCounter}"></td>
                 <td><input type="number" name="staff_experience_${staffRowCounter}"></td>
                 <td><input type="text" name="staff_trcn_${staffRowCounter}"></td>
