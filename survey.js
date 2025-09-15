@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputsToCalculate = [
         { male: 'teachersMale', female: 'teachersFemale', total: 'teachersTotal' },
         { male: 'nonTeachingMale', female: 'nonTeachingFemale', total: 'nonTeachingTotal' },
-        { male: 'eccdeMale', female: 'eccdeFemale', total: 'eccdeTotal' },
-        { male: 'primaryMale', female: 'primaryFemale', total: 'primaryTotal' },
-        { male: 'specialMale', female: 'specialFemale', total: 'specialTotal' }
     ];
 
     inputsToCalculate.forEach(group => {
@@ -26,16 +23,91 @@ document.addEventListener('DOMContentLoaded', () => {
         femaleInput.addEventListener('input', updateTotal);
     });
 
-    function updatePupilTotals() {
-        const eccdeMale = parseInt(document.getElementById('eccdeMale').value) || 0;
-        const eccdeFemale = parseInt(document.getElementById('eccdeFemale').value) || 0;
-        const primaryMale = parseInt(document.getElementById('primaryMale').value) || 0;
-        const primaryFemale = parseInt(document.getElementById('primaryFemale').value) || 0;
-        const specialMale = parseInt(document.getElementById('specialMale').value) || 0;
-        const specialFemale = parseInt(document.getElementById('specialFemale').value) || 0;
+    function setupTableCalculation(tableId) {
+        const table = document.getElementById(tableId);
+        if (!table) return;
 
-        const totalMale = eccdeMale + primaryMale + specialMale;
-        const totalFemale = eccdeFemale + primaryFemale + specialFemale;
+        const tbody = table.querySelector('tbody');
+
+        const updateRowTotal = (row) => {
+            const maleInput = row.querySelector('input[name*="_male"]');
+            const femaleInput = row.querySelector('input[name*="_female"]');
+            const totalInput = row.querySelector('input[name*="_total"]');
+
+            if (maleInput && femaleInput && totalInput) {
+                const maleValue = parseInt(maleInput.value) || 0;
+                const femaleValue = parseInt(femaleInput.value) || 0;
+                totalInput.value = maleValue + femaleValue;
+            }
+        };
+
+        tbody.addEventListener('input', (event) => {
+            if (event.target.tagName === 'INPUT' && (event.target.name.includes('_male') || event.target.name.includes('_female'))) {
+                const row = event.target.closest('tr');
+                updateRowTotal(row);
+                updatePupilTotals();
+            }
+        });
+
+        // Initial calculation for all rows
+        tbody.querySelectorAll('tr').forEach(row => {
+            updateRowTotal(row);
+        });
+    }
+
+    setupTableCalculation('prePrimarySchool');
+    setupTableCalculation('juniorSecondarySchool');
+    setupTableCalculation('seniorSecondarySchool');
+    setupTableCalculation('specialLearners');
+
+    const addSpecialLearnerRowBtn = document.getElementById('addSpecialLearnerRow');
+    if (addSpecialLearnerRowBtn) {
+        let specialLearnerRowCounter = 2;
+        const specialLearnersTable = document.getElementById('specialLearners').querySelector('tbody');
+
+        addSpecialLearnerRowBtn.addEventListener('click', () => {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <select name="specialLearners_class_${specialLearnerRowCounter}">
+                        <option value="">Select Class</option>
+                        <option value="NURSERY 1">NURSERY 1</option>
+                        <option value="NURSERY 2">NURSERY 2</option>
+                        <option value="KINDERGARTIN">KINDERGARTIN</option>
+                        <option value="PRIMARY 1">PRIMARY 1</option>
+                        <option value="PRIMARY 2">PRIMARY 2</option>
+                        <option value="PRIMARY 3">PRIMARY 3</option>
+                        <option value="PRIMARY 4">PRIMARY 4</option>
+                        <option value="PRIMARY 5">PRIMARY 5</option>
+                        <option value="PRIMARY 6">PRIMARY 6</option>
+                        <option value="JSS1">JSS1</option>
+                        <option value="JSS2">JSS2</option>
+                        <option value="JSS3">JSS3</option>
+                        <option value="SSS1">SSS1</option>
+                        <option value="SSS2">SSS2</option>
+                        <option value="SSS3">SSS3</option>
+                    </select>
+                </td>
+                <td><input type="number" name="specialLearners_male_${specialLearnerRowCounter}"></td>
+                <td><input type="number" name="specialLearners_female_${specialLearnerRowCounter}"></td>
+                <td><input type="number" name="specialLearners_total_${specialLearnerRowCounter}" readonly></td>
+            `;
+            specialLearnersTable.appendChild(newRow);
+            specialLearnerRowCounter++;
+        });
+    }
+
+    function updatePupilTotals() {
+        let totalMale = 0;
+        let totalFemale = 0;
+
+        document.querySelectorAll('#prePrimarySchool input[name*="_male"], #juniorSecondarySchool input[name*="_male"], #seniorSecondarySchool input[name*="_male"], #specialLearners input[name*="_male"]').forEach(input => {
+            totalMale += parseInt(input.value) || 0;
+        });
+
+        document.querySelectorAll('#prePrimarySchool input[name*="_female"], #juniorSecondarySchool input[name*="_female"], #seniorSecondarySchool input[name*="_female"], #specialLearners input[name*="_female"]').forEach(input => {
+            totalFemale += parseInt(input.value) || 0;
+        });
 
         document.getElementById('totalPupilsMale').value = totalMale;
         document.getElementById('totalPupilsFemale').value = totalFemale;

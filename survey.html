@@ -178,47 +178,204 @@
                 <input type="number" id="nonTeachingTotal" name="nonTeachingTotal" readonly>
             </div>
 
-            <h3>ECCDE:</h3>
-            <div>
-                <label for="eccdeMale">Male *</label>
-                <input type="number" id="eccdeMale" name="eccdeMale" required>
-            </div>
-            <div>
-                <label for="eccdeFemale">Female *</label>
-                <input type="number" id="eccdeFemale" name="eccdeFemale" required>
-            </div>
-            <div>
-                <label for="eccdeTotal">Total</label>
-                <input type="number" id="eccdeTotal" name="eccdeTotal" readonly>
-            </div>
+            <h3>Pre-Primary & Primary School:</h3>
+            <table id="prePrimarySchool">
+                <thead>
+                    <tr>
+                        <th rowspan="2">CLASS</th>
+                        <th rowspan="2">NO. OF STREAM</th>
+                        <th colspan="3" style="text-align:center">SEX</th>
+                    </tr>
+                    <tr>
+                        <th>MALE</th>
+                        <th>FEMALE</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NURSERY 1</td>
+                        <td><input type="number" name="prePrimary_nursery1_streams"></td>
+                        <td><input type="number" name="prePrimary_nursery1_male"></td>
+                        <td><input type="number" name="prePrimary_nursery1_female"></td>
+                        <td><input type="number" name="prePrimary_nursery1_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>NURSERY 2</td>
+                        <td><input type="number" name="prePrimary_nursery2_streams"></td>
+                        <td><input type="number" name="prePrimary_nursery2_male"></td>
+                        <td><input type="number" name="prePrimary_nursery2_female"></td>
+                        <td><input type="number" name="prePrimary_nursery2_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>KINDERGARTIN</td>
+                        <td><input type="number" name="prePrimary_kindergartin_streams"></td>
+                        <td><input type="number" name="prePrimary_kindergartin_male"></td>
+                        <td><input type="number" name="prePrimary_kindergartin_female"></td>
+                        <td><input type="number" name="prePrimary_kindergartin_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>PRIMARY 1</td>
+                        <td><input type="number" name="prePrimary_primary1_streams"></td>
+                        <td><input type="number" name="prePrimary_primary1_male"></td>
+                        <td><input type="number" name="prePrimary_primary1_female"></td>
+                        <td><input type="number" name="prePrimary_primary1_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>PRIMARY 2</td>
+                        <td><input type="number" name="prePrimary_primary2_streams"></td>
+                        <td><input type="number" name="prePrimary_primary2_male"></td>
+                        <td><input type="number" name="prePrimary_primary2_female"></td>
+                        <td><input type="number" name="prePrimary_primary2_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>PRIMARY 3</td>
+                        <td><input type="number" name="prePrimary_primary3_streams"></td>
+                        <td><input type="number" name="prePrimary_primary3_male"></td>
+                        <td><input type="number" name="prePrimary_primary3_female"></td>
+                        <td><input type="number" name="prePrimary_primary3_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>PRIMARY 4</td>
+                        <td><input type="number" name="prePrimary_primary4_streams"></td>
+                        <td><input type="number" name="prePrimary_primary4_male"></td>
+                        <td><input type="number" name="prePrimary_primary4_female"></td>
+                        <td><input type="number" name="prePrimary_primary4_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>PRIMARY 5</td>
+                        <td><input type="number" name="prePrimary_primary5_streams"></td>
+                        <td><input type="number" name="prePrimary_primary5_male"></td>
+                        <td><input type="number" name="prePrimary_primary5_female"></td>
+                        <td><input type="number" name="prePrimary_primary5_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>PRIMARY 6</td>
+                        <td><input type="number" name="prePrimary_primary6_streams"></td>
+                        <td><input type="number" name="prePrimary_primary6_male"></td>
+                        <td><input type="number" name="prePrimary_primary6_female"></td>
+                        <td><input type="number" name="prePrimary_primary6_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <h3>Primary:</h3>
-            <div>
-                <label for="primaryMale">Male *</label>
-                <input type="number" id="primaryMale" name="primaryMale" required>
-            </div>
-            <div>
-                <label for="primaryFemale">Female *</label>
-                <input type="number" id="primaryFemale" name="primaryFemale" required>
-            </div>
-            <div>
-                <label for="primaryTotal">Total</label>
-                <input type="number" id="primaryTotal" name="primaryTotal" readonly>
-            </div>
+            <h3>Junior Secondary School:</h3>
+            <table id="juniorSecondarySchool">
+                <thead>
+                    <tr>
+                        <th rowspan="2">CLASS</th>
+                        <th rowspan="2">NO. OF STREAM</th>
+                        <th colspan="3" style="text-align:center">SEX</th>
+                    </tr>
+                    <tr>
+                        <th>MALE</th>
+                        <th>FEMALE</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JSS1</td>
+                        <td><input type="number" name="jss1_streams"></td>
+                        <td><input type="number" name="jss1_male"></td>
+                        <td><input type="number" name="jss1_female"></td>
+                        <td><input type="number" name="jss1_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>JSS2</td>
+                        <td><input type="number" name="jss2_streams"></td>
+                        <td><input type="number" name="jss2_male"></td>
+                        <td><input type="number" name="jss2_female"></td>
+                        <td><input type="number" name="jss2_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>JSS3</td>
+                        <td><input type="number" name="jss3_streams"></td>
+                        <td><input type="number" name="jss3_male"></td>
+                        <td><input type="number" name="jss3_female"></td>
+                        <td><input type="number" name="jss3_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Senior Secondary School:</h3>
+            <table id="seniorSecondarySchool">
+                <thead>
+                    <tr>
+                        <th rowspan="2">CLASS</th>
+                        <th rowspan="2">NO. OF STREAM</th>
+                        <th colspan="3" style="text-align:center">SEX</th>
+                    </tr>
+                    <tr>
+                        <th>MALE</th>
+                        <th>FEMALE</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SSS1</td>
+                        <td><input type="number" name="sss1_streams"></td>
+                        <td><input type="number" name="sss1_male"></td>
+                        <td><input type="number" name="sss1_female"></td>
+                        <td><input type="number" name="sss1_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>SSS2</td>
+                        <td><input type="number" name="sss2_streams"></td>
+                        <td><input type="number" name="sss2_male"></td>
+                        <td><input type="number" name="sss2_female"></td>
+                        <td><input type="number" name="sss2_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>SSS3</td>
+                        <td><input type="number" name="sss3_streams"></td>
+                        <td><input type="number" name="sss3_male"></td>
+                        <td><input type="number" name="sss3_female"></td>
+                        <td><input type="number" name="sss3_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h3>Special Learners:</h3>
-            <div>
-                <label for="specialMale">Male *</label>
-                <input type="number" id="specialMale" name="specialMale" required>
-            </div>
-            <div>
-                <label for="specialFemale">Female *</label>
-                <input type="number" id="specialFemale" name="specialFemale" required>
-            </div>
-            <div>
-                <label for="specialTotal">Total</label>
-                <input type="number" id="specialTotal" name="specialTotal" readonly>
-            </div>
+            <table id="specialLearners">
+                <thead>
+                    <tr>
+                        <th>CLASS (DROP DOWN)</th>
+                        <th>MALE</th>
+                        <th>FEMALE</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select name="specialLearners_class_1">
+                                <option value="">Select Class</option>
+                                <option value="NURSERY 1">NURSERY 1</option>
+                                <option value="NURSERY 2">NURSERY 2</option>
+                                <option value="KINDERGARTIN">KINDERGARTIN</option>
+                                <option value="PRIMARY 1">PRIMARY 1</option>
+                                <option value="PRIMARY 2">PRIMARY 2</option>
+                                <option value="PRIMARY 3">PRIMARY 3</option>
+                                <option value="PRIMARY 4">PRIMARY 4</option>
+                                <option value="PRIMARY 5">PRIMARY 5</option>
+                                <option value="PRIMARY 6">PRIMARY 6</option>
+                                <option value="JSS1">JSS1</option>
+                                <option value="JSS2">JSS2</option>
+                                <option value="JSS3">JSS3</option>
+                                <option value="SSS1">SSS1</option>
+                                <option value="SSS2">SSS2</option>
+                                <option value="SSS3">SSS3</option>
+                            </select>
+                        </td>
+                        <td><input type="number" name="specialLearners_male_1"></td>
+                        <td><input type="number" name="specialLearners_female_1"></td>
+                        <td><input type="number" name="specialLearners_total_1" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" id="addSpecialLearnerRow">Add Row</button>
 
             <h3>Total Number of Pupils in the School:</h3>
             <div>
