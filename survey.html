@@ -68,9 +68,15 @@
                 <input type="text" id="address" name="address" required>
             </div>
             <div>
-                <label for="geolocation">Geolocation</label>
-                <input type="text" id="geolocation" name="geolocation" required>
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" name="latitude" required>
             </div>
+            <div>
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" name="longitude" required>
+            </div>
+            <!-- The getLocation() function is defined in survey.js -->
+            <button type="button" onclick="getLocation()">Get Geolocation</button>
 
             <h2>Section B: School/Institution Data</h2>
             <h3>Pre-Primary & Primary School:</h3>
