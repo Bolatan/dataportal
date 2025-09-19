@@ -22,6 +22,18 @@ const lgaWardData = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const backToHome = document.getElementById('back-to-home');
+    const logoutButton = document.getElementById('logout-button');
+
+    if (user.role === 'admin') {
+        if (backToHome) backToHome.style.display = 'inline';
+        if (logoutButton) logoutButton.style.display = 'none';
+    } else if (user.role === 'enumerator') {
+        if (backToHome) backToHome.style.display = 'none';
+        if (logoutButton) logoutButton.style.display = 'inline-block';
+    }
+
     const ownership = document.getElementById('ownership');
     const privateSpecifics = document.getElementById('private-specifics');
     const privateType = document.getElementById('private-type');
