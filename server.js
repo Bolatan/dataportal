@@ -32,10 +32,19 @@ app.get('/survey', (req, res) => {
 });
 
 // MongoDB Connection
-const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/dataportal?retryWrites=true&w=majority&appName=Cluster0';
+const dbURI = process.env.DATABASE_URL;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected...'))
-    .catch(err => console.log(err));
+    .then(() => {
+        if (!dbURI) {
+            console.error('Error: DATABASE_URL environment variable not set.');
+            process.exit(1);
+        }
+        console.log('MongoDB connected...');
+    })
+    .catch(err => {
+        console.log('Failed to connect to MongoDB', err);
+        process.exit(1);
+    });
 
 const multer = require('multer');
 const Survey = require('./models/Survey');
