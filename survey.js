@@ -239,4 +239,13 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Geolocation is not supported by this browser.");
         }
     };
+
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            sessionStorage.removeItem('loggedIn');
+            sessionStorage.removeItem('user');
+            window.location.href = 'login.html';
+        });
+    }
 });
