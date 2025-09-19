@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/login.html');
 });
 
@@ -21,6 +25,10 @@ app.get('/profile', (req, res) => {
 
 app.get('/users', (req, res) => {
     res.sendFile(__dirname + '/users.html');
+});
+
+app.get('/survey', (req, res) => {
+    res.sendFile(__dirname + '/survey.html');
 });
 
 // MongoDB Connection

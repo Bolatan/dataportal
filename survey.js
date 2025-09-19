@@ -213,9 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(result => {
-            // Form successfully submitted, redirecting to home.
+            // Form successfully submitted
             console.log('Success:', result);
-            window.location.href = 'index.html?success=true';
+            const successMessage = document.getElementById('success-message');
+            successMessage.textContent = 'Form submitted successfully!';
+            successMessage.style.display = 'block';
+            surveyForm.reset();
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
         })
         .catch(error => {
             console.error('Fetch Error:', error);

@@ -17,7 +17,11 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         if (data.message === 'Login successful') {
             sessionStorage.setItem('loggedIn', 'true');
             sessionStorage.setItem('user', JSON.stringify(data.user));
-            window.location.href = 'index.html';
+            if (data.user.role === 'enumerator') {
+                window.location.href = 'survey.html';
+            } else {
+                window.location.href = 'index.html';
+            }
         } else {
             errorMessage.textContent = data.message || 'Invalid username or password';
         }
