@@ -502,7 +502,13 @@
                 <input type="file" id="photos" name="photos" multiple accept="image/*" required>
             </div>
 
-            <div id="success-message" style="display: none; color: green; margin-bottom: 15px;"></div>
+            <!-- The Modal -->
+            <div id="successModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p id="success-message"></p>
+                </div>
+            </div>
             <button type="submit">Submit Data Entry Form</button>
         </form>
     </main>
