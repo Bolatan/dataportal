@@ -227,13 +227,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(result => {
             // Form successfully submitted
             console.log('Success:', result);
+            const modal = document.getElementById('successModal');
             const successMessage = document.getElementById('success-message');
             successMessage.textContent = 'Form submitted successfully!';
-            successMessage.style.display = 'block';
+            modal.style.display = 'block';
             surveyForm.reset();
             setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 5000);
+                modal.style.display = 'none';
+            }, 3000); // Changed to 3 seconds to match original timeout
         })
         .catch(error => {
             console.error('Fetch Error:', error);
