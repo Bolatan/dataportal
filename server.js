@@ -466,7 +466,7 @@ app.get('/api/jss-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
         if (req.user.role === 'enumerator') {
-            query.submittedBy = req.user.id;
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
         }
         const reports = await Jss.find(query).sort({ createdAt: -1 });
         res.json(reports);
@@ -479,7 +479,7 @@ app.get('/api/private-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
         if (req.user.role === 'enumerator') {
-            query.submittedBy = req.user.id;
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
         }
         const reports = await PrivateSurvey.find(query).sort({ createdAt: -1 });
         res.json(reports);
@@ -492,7 +492,7 @@ app.get('/api/sss-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
         if (req.user.role === 'enumerator') {
-            query.submittedBy = req.user.id;
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
         }
         const reports = await Sss.find(query).sort({ createdAt: -1 });
         res.json(reports);
@@ -505,7 +505,7 @@ app.get('/api/eccde-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
         if (req.user.role === 'enumerator') {
-            query.submittedBy = req.user.id;
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
         }
         const reports = await Eccde.find(query).sort({ createdAt: -1 });
         res.json(reports);
@@ -518,7 +518,7 @@ app.get('/api/science-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
         if (req.user.role === 'enumerator') {
-            query.submittedBy = req.user.id;
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
         }
         const reports = await Science.find(query).sort({ createdAt: -1 });
         res.json(reports);
