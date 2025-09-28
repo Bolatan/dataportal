@@ -49,9 +49,10 @@ app.get('/science', (req, res) => {
 
 app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
+});
+
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
-
 });
 
 // MongoDB Connection
@@ -290,6 +291,10 @@ app.post('/api/science', isEnumerator, (req, res) => {
             });
     } catch (error) {
         console.error('Error in /api/science route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
 app.post('/api/private-survey', isEnumerator, (req, res) => {
     try {
         const surveyData = req.body;
@@ -324,17 +329,9 @@ app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
         const scienceForms = await Science.find();
-
-        if (surveys.length === 0 && scienceForms.length === 0) {
-            return res.json({ noData: true });
-        }
-
-app.get('/api/data', async (req, res) => {
-    try {
-        const surveys = await Survey.find();
         const privateSurveys = await PrivateSurvey.find();
 
-        if (surveys.length === 0 && privateSurveys.length === 0) {
+        if (surveys.length === 0 && privateSurveys.length === 0 && scienceForms.length === 0) {
             return res.json({ noData: true });
         }
 
@@ -433,7 +430,7 @@ app.get('/api/data', async (req, res) => {
             goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
             needed: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             majorRepairs: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
-            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0), // Changed to classroomsMajorRepair
+            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
             additionalNeeded: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
