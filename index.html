@@ -20,8 +20,13 @@
         Survey submitted successfully!
     </div>
     <header>
-        <img src="surveylogo.jpeg" alt="Lagos State Logo">
-        <h1>Lagos State EDUCATION MANAGEMENT INFORMATION SYSTEM (EMIS)</h1>
+        <div class="header-top">
+            <img src="surveylogo.jpeg" alt="Lagos State Logo">
+            <h1>Lagos State EDUCATION MANAGEMENT INFORMATION SYSTEM (EMIS)</h1>
+            <button class="hamburger-menu">
+                &#9776;
+            </button>
+        </div>
         <nav>
             <ul>
                 <li><a href="/">Dashboard</a></li>
@@ -32,9 +37,9 @@
                 <li><a href="/science-report">Science Reports</a></li>
                 <li><a href="/audit-log">Audit Log</a></li>
                 <li><a href="/forms">School Census Forms</a></li>
+                <li><button id="logout-button">Logout</button></li>
             </ul>
         </nav>
-        <button id="logout-button">Logout</button>
     </header>
     <div class="dashboard">
         <div class="chart-container">
@@ -137,5 +142,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
