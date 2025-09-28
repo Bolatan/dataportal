@@ -469,6 +469,13 @@ app.get('/api/data', async (req, res) => {
                 }
             });
         });
+        eccdeForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                if (staff.academicQualification) {
+                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
+                }
+            });
+        });
 
         const electricityCounts = {};
         surveys.forEach(s => {
@@ -528,6 +535,16 @@ app.get('/api/data', async (req, res) => {
             });
         });
         sssForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                const gender = staff.gender?.toUpperCase();
+                if (gender === 'M') {
+                    genderCounts.Male++;
+                } else if (gender === 'F') {
+                    genderCounts.Female++;
+                }
+            });
+        });
+        eccdeForms.forEach(s => {
             s.staff?.staffInfo?.forEach(staff => {
                 const gender = staff.gender?.toUpperCase();
                 if (gender === 'M') {
