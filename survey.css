@@ -201,3 +201,52 @@ form div {
     font-size: 24px; /* Bigger font size */
     color: #4CAF50;
 }
+
+/* Card layout for forms */
+.form-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.card a:hover {
+    background-color: #0056b3;
+}
