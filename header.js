@@ -60,19 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Role-based access control for navigation
         if (user.role === 'enumerator') {
             const navLinks = document.querySelectorAll('nav ul li a');
-            const allowedHrefs = ['/profile', '/forms', '/']; // Enumerators should see profile and forms
+            const allowedHrefs = ['/forms', '/']; // Enumerators should only see forms and dashboard
             navLinks.forEach(link => {
                 const href = link.getAttribute('href');
                 if (href && !allowedHrefs.includes(href)) {
                     link.parentElement.style.display = 'none';
                 }
             });
-             const usersLink = document.querySelector('a[href="/users"]');
-            if(usersLink) usersLink.parentElement.style.display = 'none';
-            const reportsLink = document.querySelector('a[href="/reports"]');
-            if(reportsLink) reportsLink.parentElement.style.display = 'none';
-            const auditLink = document.querySelector('a[href="/audit-log"]');
-            if(auditLink) auditLink.parentElement.style.display = 'none';
         }
     }
 });

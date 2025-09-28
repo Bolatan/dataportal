@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             sessionStorage.setItem('loggedIn', 'true');
             sessionStorage.setItem('user', JSON.stringify(data.user));
             if (data.user.role === 'enumerator') {
-                window.location.href = 'https://survey-app-vubz.onrender.com/forms';
+                window.location.href = 'forms.html';
             } else {
                 window.location.href = 'index.html';
             }
