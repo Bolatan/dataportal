@@ -73,12 +73,6 @@ if (!dbURI) {
     console.error('CRITICAL ERROR: DATABASE_URL environment variable is not set.');
     process.exit(1);
 }
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected...'))
-    .catch(err => {
-        console.error('Failed to connect to MongoDB', err);
-        process.exit(1);
-    });
 
 const multer = require('multer');
 const Survey = require('./models/Survey');
@@ -792,6 +786,14 @@ app.get('/api/data', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('MongoDB connected...');
+        app.listen(port, () => {
+            console.log(`Server is running on port: ${port}`);
+        });
+    })
+    .catch(err => {
+        console.error('Failed to connect to MongoDB', err);
+        process.exit(1);
+    });
