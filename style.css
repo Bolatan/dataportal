@@ -101,7 +101,7 @@ nav ul li a {
         display: none;
         width: 100%;
         position: absolute;
-        top: 95%;
+        top: 100%;
         left: 0;
         background-color: var(--brand-gold);
         z-index: 100;
