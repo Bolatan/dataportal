@@ -247,10 +247,6 @@ app.delete('/api/user/:id', isAdmin, async (req, res) => {
 app.post('/api/login', async (req, res) => {
     try {
         const { username, password } = req.body;
-
-        const userCount = await User.countDocuments();
-        console.log(`[DEBUG] Total users in database: ${userCount}`); // Temporary debug log
-
         const user = await User.findOne({ username });
         if (!user) {
             return res.status(401).json({ message: 'Invalid credentials' });
@@ -267,7 +263,6 @@ app.post('/api/login', async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({ message: 'Error logging in', error });
-
     }
 });
 
@@ -808,10 +803,36 @@ app.get('/api/data', async (req, res) => {
     }
 });
 
+// --- ONE-TIME ADMIN CREATION ---
+// This function runs on startup to ensure an admin user exists in the database.
+// This is a temporary measure and should be removed after the admin user is created.
+const ensureAdminUserExists = async () => {
+    try {
+        const adminUser = await User.findOne({ username: 'admin' });
+        if (!adminUser) {
+            console.log('[STARTUP] Admin user not found, creating one...');
+            const newAdmin = new User({
+                username: 'admin',
+                email: 'admin@example.com',
+                password: 'temporaryPassword123',
+                fullName: 'Administrator',
+                role: 'admin'
+            });
+            await newAdmin.save();
+            console.log('[STARTUP] Admin user created successfully.');
+        } else {
+            console.log('[STARTUP] Admin user already exists.');
+        }
+    } catch (error) {
+        console.error('[STARTUP] Error during one-time admin creation:', error);
+    }
+};
+// --- END ONE-TIME ADMIN CREATION ---
+
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((conn) => {
+    .then(async () => {
         console.log('MongoDB connected...');
-        console.log(`[DEBUG] Connected to database: ${conn.connection.name} on host: ${conn.connection.host}`); // Temporary debug log
+        await ensureAdminUserExists(); // Ensure admin user exists before starting the server
         app.listen(port, () => {
             console.log(`Server is running on port: ${port}`);
         });
