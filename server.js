@@ -475,6 +475,19 @@ app.get('/api/jss-reports', isAdminOrEnumerator, async (req, res) => {
     }
 });
 
+app.get('/api/jss-reports-all', isAdminOrEnumerator, async (req, res) => {
+    try {
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
+        }
+        const reports = await Jss.find(query).sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching all JSS reports', error });
+    }
+});
+
 app.get('/api/private-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
@@ -488,6 +501,19 @@ app.get('/api/private-reports', isAdminOrEnumerator, async (req, res) => {
     }
 });
 
+app.get('/api/private-reports-all', isAdminOrEnumerator, async (req, res) => {
+    try {
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
+        }
+        const reports = await PrivateSurvey.find(query).sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching all Private School reports', error });
+    }
+});
+
 app.get('/api/sss-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
@@ -498,6 +524,19 @@ app.get('/api/sss-reports', isAdminOrEnumerator, async (req, res) => {
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching SSS reports', error });
+    }
+});
+
+app.get('/api/sss-reports-all', isAdminOrEnumerator, async (req, res) => {
+    try {
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
+        }
+        const reports = await Sss.find(query).sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching all SSS reports', error });
     }
 });
 
@@ -537,6 +576,19 @@ app.get('/api/science-reports', isAdminOrEnumerator, async (req, res) => {
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching science reports', error });
+    }
+});
+
+app.get('/api/science-reports-all', isAdminOrEnumerator, async (req, res) => {
+    try {
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
+        }
+        const reports = await Science.find(query).sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching all science reports', error });
     }
 });
 
