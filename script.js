@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             populateOfficeInfrastructureTable(data.officeInfrastructure);
             populateToiletFacilitiesTable(data.toiletFacilities);
             populateStaffingTable(data.staffing);
+
             populatePrivateSchoolTable(data.privateSchoolData);
 
             // Render ECCDE charts and tables
