@@ -31,12 +31,3 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         errorMessage.textContent = 'An error occurred. Please try again later.';
     });
 });
-
-document.getElementById('showPassword').addEventListener('change', function() {
-    const passwordInput = document.getElementById('password');
-    if (this.checked) {
-        passwordInput.type = 'text';
-    } else {
-        passwordInput.type = 'password';
-    }
-});
