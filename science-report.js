@@ -24,6 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching reports:', error);
             reportsTableBody.innerHTML = '<tr><td colspan="5">Error loading reports.</td></tr>';
         });
+
+    const exportPdfBtn = document.getElementById('exportPdf');
+    exportPdfBtn.addEventListener('click', () => {
+        exportToPdf('reportsTable', 'science-reports.pdf');
+    });
+
+    const exportCsvBtn = document.getElementById('exportCsv');
+    exportCsvBtn.addEventListener('click', () => {
+        exportToCsv('reportsTable', 'science-reports.csv');
+    });
 });
 
 function viewDetails(reportId) {
