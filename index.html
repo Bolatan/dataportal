@@ -37,6 +37,7 @@
                 <li><a href="/science-report">Science Reports</a></li>
                 <li><a href="/audit-log">Audit Log</a></li>
                 <li><a href="/forms">School Census Forms</a></li>
+                <li><a href="/sss-reports">SSS Reports</a></li>
                 <li><button id="logout-button">Logout</button></li>
             </ul>
         </nav>
@@ -107,6 +108,21 @@
                     </tr>
                 </thead>
                 <tbody id="privateSchoolTableBody">
+                </tbody>
+            </table>
+        </div>
+        <div class="chart-container">
+            <h2>SSS Data</h2>
+            <canvas id="sssTeacherQualificationsChart"></canvas>
+            <canvas id="ssceStatsChart"></canvas>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="sssDataTableBody">
                 </tbody>
             </table>
         </div>

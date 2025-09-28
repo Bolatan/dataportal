@@ -49,9 +49,17 @@ app.get('/science', (req, res) => {
 
 app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
+});
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
+});
 
+app.get('/sss', (req, res) => {
+    res.sendFile(__dirname + '/sss.html');
+});
+
+app.get('/sss-reports', (req, res) => {
+    res.sendFile(__dirname + '/sss-reports.html');
 });
 
 // MongoDB Connection
@@ -64,6 +72,7 @@ const multer = require('multer');
 const Survey = require('./models/Survey');
 const Science = require('./models/Science');
 const PrivateSurvey = require('./models/PrivateSurvey');
+const SSS = require('./models/SSS');
 
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
@@ -273,6 +282,27 @@ app.post('/api/survey', isEnumerator, upload.array('photos', 10), (req, res) => 
     }
 });
 
+app.post('/api/sss', isEnumerator, (req, res) => {
+    try {
+        const sssData = req.body;
+        const newSSS = new SSS(sssData);
+        newSSS.save()
+            .then(sss => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted SSS form for school ${sss.schoolIdentification.schoolName}`);
+                console.log('SSS form saved successfully:', sss);
+                res.json(sss);
+            })
+            .catch(err => {
+                console.error('Error saving SSS form:', err);
+                res.status(400).json({ message: 'Error: ' + err, error: err });
+            });
+    } catch (error) {
+        console.error('Error in /api/sss route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
 app.post('/api/science', isEnumerator, (req, res) => {
     try {
         const scienceData = req.body;
@@ -290,6 +320,9 @@ app.post('/api/science', isEnumerator, (req, res) => {
             });
     } catch (error) {
         console.error('Error in /api/science route:', error);
+        res.status(500).json('Server error');
+    }
+});
 app.post('/api/private-survey', isEnumerator, (req, res) => {
     try {
         const surveyData = req.body;
@@ -320,21 +353,23 @@ app.get('/api/science-reports', async (req, res) => {
     }
 });
 
-app.get('/api/data', async (req, res) => {
+app.get('/api/sss-reports', async (req, res) => {
     try {
-        const surveys = await Survey.find();
-        const scienceForms = await Science.find();
-
-        if (surveys.length === 0 && scienceForms.length === 0) {
-            return res.json({ noData: true });
-        }
+        const reports = await SSS.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching SSS reports', error });
+    }
+});
 
 app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
         const privateSurveys = await PrivateSurvey.find();
+        const sssForms = await SSS.find();
+        const scienceForms = await Science.find();
 
-        if (surveys.length === 0 && privateSurveys.length === 0) {
+        if (surveys.length === 0 && privateSurveys.length === 0 && sssForms.length === 0 && scienceForms.length === 0) {
             return res.json({ noData: true });
         }
 
@@ -507,6 +542,82 @@ app.get('/api/data', async (req, res) => {
             totalStudents: totalPrivateStudents,
         };
 
+        // Aggregate SSS form data
+        const totalSssStudents = sssForms.reduce((total, form) => {
+            let formTotal = 0;
+            const enrolment = form.enrolment?.seniorSecondaryEnrolment;
+            if (enrolment) {
+                ['ss1', 'ss2', 'ss3'].forEach(level => {
+                    const levelData = enrolment[level];
+                    if (levelData) {
+                        formTotal += (levelData.below15?.male || 0) + (levelData.below15?.female || 0);
+                        formTotal += (levelData.age15?.male || 0) + (levelData.age15?.female || 0);
+                        formTotal += (levelData.age16?.male || 0) + (levelData.age16?.female || 0);
+                        formTotal += (levelData.age17?.male || 0) + (levelData.age17?.female || 0);
+                        formTotal += (levelData.above17?.male || 0) + (levelData.above17?.female || 0);
+                    }
+                });
+            }
+            return total + formTotal;
+        }, 0);
+
+        const ssceStats = {
+            waec: { registered: 0, sat: 0, passed: 0 },
+            neco: { registered: 0, sat: 0, passed: 0 }
+        };
+        sssForms.forEach(form => {
+            const exams = form.enrolment?.ssceExams;
+            if (exams) {
+                if (exams.waec) {
+                    ssceStats.waec.registered += exams.waec.registered?.total || 0;
+                    ssceStats.waec.sat += exams.waec.sat?.total || 0;
+                    ssceStats.waec.passed += exams.waec.passed?.total || 0;
+                }
+                if (exams.neco) {
+                    ssceStats.neco.registered += exams.neco.registered?.total || 0;
+                    ssceStats.neco.sat += exams.neco.sat?.total || 0;
+                    ssceStats.neco.passed += exams.neco.passed?.total || 0;
+                }
+            }
+        });
+
+        const sssTeacherQualificationCounts = {};
+        const qualificationLabels = {
+            phd: 'Ph.D.',
+            mastersWithTeaching: 'Masters with Teaching Qual.',
+            mastersWithoutTeaching: 'Masters without Teaching Qual.',
+            degreeWithTeaching: 'Degree with Teaching Qual.',
+            degreeWithoutTeaching: 'Degree without Teaching Qual.',
+            hndWithTeaching: 'HND with Teaching Qual.',
+            hndWithoutTeaching: 'HND without Teaching Qual.',
+            nce: 'NCE',
+            ond: 'OND/Diploma/ND',
+            gradeII: 'Grade II',
+            ssce: 'SSCE/WASC/WASSC/GCE',
+            belowSSCE: 'Below SSCE',
+            others: 'Others'
+        };
+
+        sssForms.forEach(form => {
+            const qualifications = form.teacherQualificationByLevel?.sss;
+            if (qualifications && qualifications.size > 0) {
+                qualifications.forEach((value, key) => {
+                    const label = qualificationLabels[key] || key;
+                    sssTeacherQualificationCounts[label] = (sssTeacherQualificationCounts[label] || 0) + (value.total || 0);
+                });
+            }
+        });
+
+        const sssData = {
+            count: sssForms.length,
+            totalStudents: totalSssStudents,
+            ssceStats,
+            teacherQualifications: {
+                labels: Object.keys(sssTeacherQualificationCounts),
+                datasets: [{ data: Object.values(sssTeacherQualificationCounts) }]
+            }
+        };
+
         const responseData = {
             officeInfrastructure: officeInfrastructure,
             respondentsDemographics: {
@@ -540,7 +651,8 @@ app.get('/api/data', async (req, res) => {
             totalStudents,
             toiletFacilities: toiletFacilities,
             staffing: staffing,
-            privateSchoolData: privateSchoolData
+            privateSchoolData: privateSchoolData,
+            sssData: sssData
         };
 
         res.json(responseData);

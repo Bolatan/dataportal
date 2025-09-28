@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Science Form - Survey App</title>
+    <title>SSS Form - Survey App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="survey.css">
 </head>
@@ -23,8 +23,8 @@
         </nav>
     </header>
     <main>
-        <h1>Science Form</h1>
-        <form id="scienceForm">
+        <h1>SSS Form</h1>
+        <form id="sssForm">
             <!-- School Code and Coordinates -->
             <h2>School Information</h2>
             <div>
@@ -71,7 +71,7 @@
                 <input type="text" id="state" name="schoolIdentification.state">
             </div>
             <div>
-                <label for="schoolTelephone">A.7 School Telephone / principal’s GSM number</label>
+                <label for="schoolTelephone">A.7 School Telephone / Principal’s GSM number</label>
                 <input type="text" id="schoolTelephone" name="schoolIdentification.schoolTelephone">
             </div>
             <div>
@@ -96,19 +96,15 @@
                 <label>B.3 Levels of education offered</label>
                 <input type="radio" id="seniorOnly" name="schoolCharacteristics.levelsOfEducation" value="Senior Secondary only">
                 <label for="seniorOnly">Senior Secondary only</label>
-                <input type="radio" id="juniorAndSenior" name="schoolCharacteristics.levelsOfEducation" value="Junior and Senior Secondary">
-                <label for="juniorAndSenior">Junior and Senior Secondary</label>
+                <input type="radio" id="juniorAndSenior" name="schoolCharacteristics.levelsOfEducation" value="Junior and Senior Secondary only">
+                <label for="juniorAndSenior">Junior and Senior Secondary only</label>
             </div>
             <div>
                 <label>B.4 Type of school</label>
                 <input type="radio" id="typeRegular" name="schoolCharacteristics.typeOfSchool" value="Regular">
                 <label for="typeRegular">Regular</label>
-                <input type="radio" id="typeNomadic" name="schoolCharacteristics.typeOfSchool" value="Nomadic">
-                <label for="typeNomadic">Nomadic (Migrants)</label>
                 <input type="radio" id="typeIslamiyya" name="schoolCharacteristics.typeOfSchool" value="Islamiyya integrated">
                 <label for="typeIslamiyya">Islamiyya integrated</label>
-                <input type="radio" id="typeSpecial" name="schoolCharacteristics.typeOfSchool" value="Special needs">
-                <label for="typeSpecial">Special needs</label>
             </div>
             <div>
                 <label>B.5 Shifts: Does the School operate shift system?</label>
@@ -134,7 +130,7 @@
                 <input type="radio" name="schoolCharacteristics.multiGradeTeaching" value="No"> No
             </div>
             <div>
-                <label for="distanceFromCatchment">B.8 School: Average Distance from Catchment Communities/Areas (in km)</label>
+                <label for="distanceFromCatchment">B.8 School: Average Distance from Catchment Communities/areas (in km)</label>
                 <input type="number" id="distanceFromCatchment" name="schoolCharacteristics.distanceFromCatchment">
             </div>
             <div>
@@ -173,7 +169,7 @@
             <div>
                 <label for="lastInspectionDate">B.15 Date of Last Inspection Visit</label>
                 <input type="date" id="lastInspectionDate" name="schoolCharacteristics.lastInspectionDate">
-                <label for="numberOfInspections">Number of inspection Visit in last academic year</label>
+                <label for="numberOfInspections">Number of inspection visit in last academic year</label>
                 <input type="number" id="numberOfInspections" name="schoolCharacteristics.numberOfInspections">
             </div>
             <div>
@@ -184,7 +180,7 @@
             </div>
             <div>
                 <label for="cctBeneficiaries">B.17 Conditional Cash Transfer</label>
-                <p>How many pupils benefitted from Conditional Cash Transfer?</p>
+                <p>How many students benefitted from Conditional Cash Transfer?</p>
                 <input type="number" id="cctBeneficiaries" name="schoolCharacteristics.conditionalCashTransferBeneficiaries">
             </div>
             <div>
@@ -209,201 +205,18 @@
 
             <!-- C. Enrolment -->
             <h2>C. Enrolment</h2>
-            <!-- C.1 -->
-            <h3>C.1 Number of students enrolled with Birth Certificates and NIN in JSS1</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Male</th>
-                        <th>Female</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>enrolled with Birth certificates from National Population Commission (NPopC)</td>
-                        <td><input type="number" name="enrolment.jss1WithBirthCertificatesAndNIN.birthCertNPopC.male"></td>
-                        <td><input type="number" name="enrolment.jss1WithBirthCertificatesAndNIN.birthCertNPopC.female"></td>
-                    </tr>
-                    <tr>
-                        <td>Other Birth Certificates</td>
-                        <td><input type="number" name="enrolment.jss1WithBirthCertificatesAndNIN.otherBirthCert.male"></td>
-                        <td><input type="number" name="enrolment.jss1WithBirthCertificatesAndNIN.otherBirthCert.female"></td>
-                    </tr>
-                    <tr>
-                        <td>National Identification Number (NIN)</td>
-                        <td><input type="number" name="enrolment.jss1WithBirthCertificatesAndNIN.nin.male"></td>
-                        <td><input type="number" name="enrolment.jss1WithBirthCertificatesAndNIN.nin.female"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <label>C.1 Number of students with Birth Certificates in SSS1</label>
+                <input type="number" name="enrolment.studentsWithBirthCertificatesSSS1.male" placeholder="Male">
+                <input type="number" name="enrolment.studentsWithBirthCertificatesSSS1.female" placeholder="Female">
+            </div>
+            <div>
+                <label>C.2 New entrants into SSS1</label>
+                <input type="number" name="enrolment.newEntrantsSSS1.male" placeholder="Male">
+                <input type="number" name="enrolment.newEntrantsSSS1.female" placeholder="Female">
+            </div>
 
-            <!-- C.2 -->
-            <h3>C.2 New entrants into JSS1</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Student age</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Below 12 years</td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.below12.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.below12.female"></td>
-                    </tr>
-                    <tr>
-                        <td>12 Years</td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.age12.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.age12.female"></td>
-                    </tr>
-                    <tr>
-                        <td>13 Years</td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.age13.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.age13.female"></td>
-                    </tr>
-                    <tr>
-                        <td>14 Years</td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.age14.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.age14.female"></td>
-                    </tr>
-                    <tr>
-                        <td>Above 14 years</td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.above14.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsJSS1.above14.female"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- C.3 -->
-            <h3>C.3 Junior Secondary Enrolment by age for the Current Academic Year</h3>
-            <table id="juniorSecondaryEnrolmentTable">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th colspan="2">JS1</th>
-                        <th colspan="2">JS2</th>
-                        <th colspan="2">JS3</th>
-                    </tr>
-                    <tr>
-                        <th>Student age</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>No. of streams</td>
-                        <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.streams"></td>
-                        <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.streams"></td>
-                        <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.streams"></td>
-                    </tr>
-                    <tr>
-                        <td>No. of streams with Multigrade teaching</td>
-                        <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.multigradeStreams"></td>
-                        <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.multigradeStreams"></td>
-                        <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.multigradeStreams"></td>
-                    </tr>
-                    <tr>
-                        <td>Below 12 years</td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.below12.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.below12.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.below12.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.below12.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.below12.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.below12.female"></td>
-                    </tr>
-                    <tr>
-                        <td>12 Years</td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age12.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age12.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age12.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age12.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age12.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age12.female"></td>
-                    </tr>
-                    <tr>
-                        <td>13 Years</td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age13.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age13.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age13.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age13.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age13.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age13.female"></td>
-                    </tr>
-                    <tr>
-                        <td>14 Years</td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age14.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age14.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age14.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age14.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age14.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age14.female"></td>
-                    </tr>
-                    <tr>
-                        <td>Above 14 years</td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.above14.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.above14.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.above14.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.above14.female"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.above14.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.above14.female"></td>
-                    </tr>
-                    <tr>
-                        <td>No. Completed JSS 3 for previous year</td>
-                        <td colspan="4"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.completedPreviousYear.male"></td>
-                        <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.completedPreviousYear.female"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <!-- C.4 -->
-            <h3>C.4 New entrants in SS1</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Student age</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Below 15 years</td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.below15.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.below15.female"></td>
-                    </tr>
-                    <tr>
-                        <td>15 Years</td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.age15.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.age15.female"></td>
-                    </tr>
-                    <tr>
-                        <td>16 Years</td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.age16.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.age16.female"></td>
-                    </tr>
-                    <tr>
-                        <td>17 Years</td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.age17.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.age17.female"></td>
-                    </tr>
-                    <tr>
-                        <td>Above 17 years</td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.above17.male"></td>
-                        <td><input type="number" name="enrolment.newEntrantsSS1.above17.female"></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- C.5 -->
-            <h3>C.5 Senior Secondary enrolment by age for the current school year</h3>
+            <h3>C.3 Senior Secondary Enrolment by age for the Current Academic Year</h3>
             <table id="seniorSecondaryEnrolmentTable">
                 <thead>
                     <tr>
@@ -481,7 +294,7 @@
                         <td><input type="number" name="enrolment.seniorSecondaryEnrolment.ss3.above17.female"></td>
                     </tr>
                     <tr>
-                        <td>No. Completed SS 3 for previous year</td>
+                        <td>No. Completed SSS 3 for previous year</td>
                         <td colspan="4"></td>
                         <td><input type="number" name="enrolment.seniorSecondaryEnrolment.ss3.completedPreviousYear.male"></td>
                         <td><input type="number" name="enrolment.seniorSecondaryEnrolment.ss3.completedPreviousYear.female"></td>
@@ -489,27 +302,17 @@
                 </tbody>
             </table>
 
-            <!-- C.6 -->
-            <h3>C.6 Student Flow for the Current Academic Year</h3>
+            <h3>C.4 Students Flow for the Current Academic Year Senior Secondary School</h3>
             <table id="studentFlowTable">
                 <thead>
                     <tr>
                         <th>Student Flow</th>
-                        <th colspan="2">JS1</th>
-                        <th colspan="2">JS2</th>
-                        <th colspan="2">JS3</th>
                         <th colspan="2">SS1</th>
                         <th colspan="2">SS2</th>
                         <th colspan="2">SS3</th>
                     </tr>
                      <tr>
                         <th></th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
                         <th>Male</th>
                         <th>Female</th>
                         <th>Male</th>
@@ -522,15 +325,11 @@
                 </tbody>
             </table>
 
-            <!-- C.7 -->
-            <h3>C.7 Students with Special needs in the current school year</h3>
+            <h3>C.5 Students with Special Needs for the Current Academic Year</h3>
             <table id="specialNeedsTable">
                 <thead>
                     <tr>
                         <th>Challenge that impacts the ability to learn</th>
-                        <th colspan="2">JS1</th>
-                        <th colspan="2">JS2</th>
-                        <th colspan="2">JS3</th>
                         <th colspan="2">SS1</th>
                         <th colspan="2">SS2</th>
                         <th colspan="2">SS3</th>
@@ -543,24 +342,25 @@
                         <th>Female</th>
                         <th>Male</th>
                         <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Male</th>
-                        <th>Female</th>
                     </tr>
                 </thead>
                 <tbody id="specialNeedsTableBody">
                 </tbody>
             </table>
 
-            <!-- C.8 -->
-            <h3>C.8 NABTEB examination in the previous school year</h3>
+            <h3>C.6 SSCE examination for the previous Academic Year</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Student</th>
+                        <th>How many students:</th>
+                        <th colspan="3">WAEC</th>
+                        <th colspan="3">NECO</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Total</th>
                         <th>Male</th>
                         <th>Female</th>
                         <th>Total</th>
@@ -568,22 +368,31 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>That registered for NABTEB?</td>
-                        <td><input type="number" name="enrolment.nabtebExams.registered.male"></td>
-                        <td><input type="number" name="enrolment.nabtebExams.registered.female"></td>
-                        <td><input type="number" name="enrolment.nabtebExams.registered.total"></td>
+                        <td>registered for SSCE?</td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.registered.male"></td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.registered.female"></td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.registered.total"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.registered.male"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.registered.female"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.registered.total"></td>
                     </tr>
                     <tr>
-                        <td>That took part in the (sat for) NABTEB?</td>
-                        <td><input type="number" name="enrolment.nabtebExams.sat.male"></td>
-                        <td><input type="number" name="enrolment.nabtebExams.sat.female"></td>
-                        <td><input type="number" name="enrolment.nabtebExams.sat.total"></td>
+                        <td>took part in the (sat for) SSCE?</td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.sat.male"></td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.sat.female"></td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.sat.total"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.sat.male"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.sat.female"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.sat.total"></td>
                     </tr>
                     <tr>
-                        <td>That passed (5 credit including English and Mathematics) in NABTEB exams?</td>
-                        <td><input type="number" name="enrolment.nabtebExams.passed.male"></td>
-                        <td><input type="number" name="enrolment.nabtebExams.passed.female"></td>
-                        <td><input type="number" name="enrolment.nabtebExams.passed.total"></td>
+                        <td>passed SSCE?</td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.passed.male"></td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.passed.female"></td>
+                        <td><input type="number" name="enrolment.ssceExams.waec.passed.total"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.passed.male"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.passed.female"></td>
+                        <td><input type="number" name="enrolment.ssceExams.neco.passed.total"></td>
                     </tr>
                 </tbody>
             </table>
@@ -597,16 +406,16 @@
                 <input type="number" name="staff.nonTeaching.total" placeholder="Total" readonly>
             </div>
             <div>
-                <label>D.2 How many teachers are working at the school regardless of whether they are currently present or on Course or Absent</label>
+                <label>D.2 How many teachers are working at the school regardless of whether they are currently present or on course or absent</label>
                 <input type="number" name="staff.teaching.male" placeholder="Male">
                 <input type="number" name="staff.teaching.female" placeholder="Female">
                 <input type="number" name="staff.teaching.total" placeholder="Total" readonly>
             </div>
-            <h3>D.3 Information on all staff during the current school year</h3>
+            <h3>D.3 Information on all staff during the school year</h3>
             <table id="staffInfoTable">
                 <thead>
                     <tr>
-                        <th>Staff File No</th>
+                        <th>Staff File No.</th>
                         <th>Name of staff</th>
                         <th>Gender</th>
                         <th>Type of staff</th>
@@ -622,8 +431,8 @@
                         <th>Subject of qualification</th>
                         <th>Main subject taught</th>
                         <th>Teaching type</th>
-                        <th>Teaches both junior & senior secondary</th>
-                        <th>Trainings in last 12 months</th>
+                        <th>Tick box if teacher also teaches junior secondary classes in this school</th>
+                        <th>Provide number if teacher attended training workshop / seminar in last 12 months</th>
                     </tr>
                 </thead>
                 <tbody id="staffInfoTableBody">
@@ -650,8 +459,8 @@
                     <tr>
                         <th>Year of construction</th>
                         <th>Present condition</th>
-                        <th>Length (m)</th>
-                        <th>Width (m)</th>
+                        <th>Length in metres</th>
+                        <th>Width in metres</th>
                         <th>Floor material</th>
                         <th>Walls material</th>
                         <th>Roof material</th>
@@ -665,30 +474,7 @@
             </table>
             <button type="button" id="addClassroomRow">Add Classroom</button>
 
-            <h3>E.5 Information on all workshops</h3>
-            <table id="workshopsTable">
-                <thead>
-                    <tr>
-                        <th>Type of workshop</th>
-                        <th>Shared</th>
-                        <th>Year of construction</th>
-                        <th>Present condition</th>
-                        <th>Length (m)</th>
-                        <th>Width (m)</th>
-                        <th>Floor material</th>
-                        <th>Walls material</th>
-                        <th>Roof material</th>
-                        <th>Seating</th>
-                        <th>Good blackboard</th>
-                    </tr>
-                </thead>
-                <tbody id="workshopsTableBody">
-                    <!-- Workshop rows will be added dynamically -->
-                </tbody>
-            </table>
-            <button type="button" id="addWorkshopRow">Add Workshop</button>
-
-            <h4>E.4 Number of rooms other than classrooms</h4>
+            <h3>E.5 Number of rooms other than classrooms are there in the school by type of room</h3>
             <div>
                 <label>Staff rooms</label>
                 <input type="number" name="classrooms.otherRooms.staffRooms">
@@ -714,16 +500,15 @@
                 <input type="number" name="classrooms.otherRooms.others">
             </div>
 
-
             <!-- F. FACILITIES -->
             <h2>F. FACILITIES</h2>
             <div>
                 <label>F.1 Source(s) of safe drinking water</label>
-                <input type="checkbox" name="facilities.safeDrinkingWater" value="Pipe borne Water"> Pipe borne Water
-                <input type="checkbox" name="facilities.safeDrinkingWater" value="Borehole"> Borehole
-                <input type="checkbox" name="facilities.safeDrinkingWater" value="Well"> Well
-                <input type="checkbox" name="facilities.safeDrinkingWater" value="Other"> Other
-                <input type="checkbox" name="facilities.safeDrinkingWater" value="No Source of Safe Water"> No Source of Safe Water
+                <input type="checkbox" name="facilities.safeDrinkingWater[]" value="Pipe- borne Water"> Pipe- borne Water
+                <input type="checkbox" name="facilities.safeDrinkingWater[]" value="Borehole"> Borehole
+                <input type="checkbox" name="facilities.safeDrinkingWater[]" value="Well"> Well
+                <input type="checkbox" name="facilities.safeDrinkingWater[]" value="Other"> Other
+                <input type="checkbox" name="facilities.safeDrinkingWater[]" value="No Source of Safe Water"> No Source of Safe Water
             </div>
             <h3>F.2 Facilities available</h3>
             <table>
@@ -764,6 +549,11 @@
                         <td>Library</td>
                         <td><input type="number" name="facilities.availableFacilities.library.useable"></td>
                         <td><input type="number" name="facilities.availableFacilities.library.notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Reading Corner</td>
+                        <td><input type="number" name="facilities.availableFacilities.readingCorner.useable"></td>
+                        <td><input type="number" name="facilities.availableFacilities.readingCorner.notUseable"></td>
                     </tr>
                     <tr>
                         <td>Play Ground(s)</td>
@@ -890,16 +680,16 @@
             </table>
             <div>
                 <label>F.5 Sources of power</label>
-                <input type="checkbox" name="facilities.powerSources" value="PHCN/NEPA"> PHCN/NEPA
-                <input type="checkbox" name="facilities.powerSources" value="Generator"> Generator
-                <input type="checkbox" name="facilities.powerSources" value="Solar"> Solar
-                <input type="checkbox" name="facilities.powerSources" value="No source of Power"> No source of Power
+                <input type="checkbox" name="facilities.powerSources[]" value="PHCN/NEPA"> PHCN/NEPA
+                <input type="checkbox" name="facilities.powerSources[]" value="Generator"> Generator
+                <input type="checkbox" name="facilities.powerSources[]" value="Solar"> Solar
+                <input type="checkbox" name="facilities.powerSources[]" value="No source of Power"> No source of Power
             </div>
             <div>
                 <label>F.6.1 Health facility</label>
-                <input type="checkbox" name="facilities.healthFacility.type" value="Health Clinic/Sick Bay"> Health Clinic/Sick Bay
-                <input type="checkbox" name="facilities.healthFacility.type" value="First Aid Kit"> First Aid Kit
-                <input type="checkbox" name="facilities.healthFacility.type" value="No Health facility"> No Health facility
+                <input type="checkbox" name="facilities.healthFacility.type[]" value="Health Clinic/Sick Bay"> Health Clinic/Sick Bay
+                <input type="checkbox" name="facilities.healthFacility.type[]" value="First Aid Kit"> First Aid Kit
+                <input type="checkbox" name="facilities.healthFacility.type[]" value="No Health facility"> No Health facility
             </div>
             <div>
                 <label>F.6.2 Does the school have health personnel?</label>
@@ -908,63 +698,45 @@
             </div>
             <div>
                 <label>F.7 Safety Facilities</label>
-                <input type="checkbox" name="facilities.safetyFacilities" value="perimeter fence"> perimeter fence
-                <input type="checkbox" name="facilities.safetyFacilities" value="school gate"> school gate
-                <input type="checkbox" name="facilities.safetyFacilities" value="Security guards"> Security guards
-                <input type="checkbox" name="facilities.safetyFacilities" value="Security camera"> Security camera
+                <input type="checkbox" name="facilities.safetyFacilities[]" value="perimeter fence"> perimeter fence
+                <input type="checkbox" name="facilities.safetyFacilities[]" value="school gate"> school gate
+                <input type="checkbox" name="facilities.safetyFacilities[]" value="Security guards"> Security guards
+                <input type="checkbox" name="facilities.safetyFacilities[]" value="Security camera"> Security camera
             </div>
             <div>
                 <label>F.8 Agricultural Facilities</label>
-                <input type="checkbox" name="facilities.agriculturalFacilities" value="Poultry Farm"> Poultry Farm
-                <input type="checkbox" name="facilities.agriculturalFacilities" value="Fish Pond"> Fish Pond
-                <input type="checkbox" name="facilities.agriculturalFacilities" value="Piggery Pen"> Piggery Pen
-                <input type="checkbox" name="facilities.agriculturalFacilities" value="School Farm"> School Farm
-                <input type="checkbox" name="facilities.agriculturalFacilities" value="Others"> Others
+                <input type="checkbox" name="facilities.agriculturalFacilities[]" value="Poultry Farm"> Poultry Farm
+                <input type="checkbox" name="facilities.agriculturalFacilities[]" value="Fish Pond"> Fish Pond
+                <input type="checkbox" name="facilities.agriculturalFacilities[]" value="Piggery Pen"> Piggery Pen
+                <input type="checkbox" name="facilities.agriculturalFacilities[]" value="School Farm"> School Farm
+                <input type="checkbox" name="facilities.agriculturalFacilities[]" value="Others"> Others
             </div>
 
-            <h3>F.8 Additional Classrooms Information</h3>
+            <h3>F.9 Additional Classrooms Information</h3>
             <table>
                 <thead>
                     <tr>
                         <th>Class</th>
-                        <th>1-Seater</th>
-                        <th>2-Seater</th>
-                        <th>3-Seater</th>
+                        <th>1 Seater</th>
+                        <th>2 Seater</th>
+                        <th>3 Seater</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>JS 1</td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js1.oneSeater"></td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js1.twoSeater"></td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js1.threeSeater"></td>
-                    </tr>
-                    <tr>
-                        <td>JS 2</td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js2.oneSeater"></td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js2.twoSeater"></td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js2.threeSeater"></td>
-                    </tr>
-                    <tr>
-                        <td>JS 3</td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js3.oneSeater"></td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js3.twoSeater"></td>
-                        <td><input type="number" name="facilities.additionalClassroomsInfo.js3.threeSeater"></td>
-                    </tr>
-                    <tr>
-                        <td>SS1</td>
+                        <td>SS 1</td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss1.oneSeater"></td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss1.twoSeater"></td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss1.threeSeater"></td>
                     </tr>
                     <tr>
-                        <td>SS2</td>
+                        <td>SS 2</td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss2.oneSeater"></td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss2.twoSeater"></td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss2.threeSeater"></td>
                     </tr>
                     <tr>
-                        <td>SS3</td>
+                        <td>SS 3</td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss3.oneSeater"></td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss3.twoSeater"></td>
                         <td><input type="number" name="facilities.additionalClassroomsInfo.ss3.threeSeater"></td>
@@ -972,33 +744,24 @@
                 </tbody>
             </table>
 
-            <!-- G. NUMBER OF STUDENT BY SUBJECT -->
-            <h2>G. NUMBER OF STUDENT BY SUBJECT</h2>
+            <!-- G. NUMBER OF STUDENTS BY SUBJECT. -->
+            <h2>G. NUMBER OF STUDENTS BY SUBJECT.</h2>
             <table id="studentBySubjectTable">
                 <thead>
                     <tr>
-                        <th>Subject and trade Area</th>
-                        <th colspan="2">JS1</th>
-                        <th colspan="2">JS2</th>
-                        <th colspan="2">JS3</th>
-                        <th colspan="2">SS1</th>
+                        <th>Subject</th>
+                        <th colspan="2">SS 1</th>
                         <th colspan="2">SS2</th>
                         <th colspan="2">SS3</th>
                     </tr>
                     <tr>
                         <th></th>
-                        <th>M</th>
-                        <th>F</th>
-                        <th>M</th>
-                        <th>F</th>
-                        <th>M</th>
-                        <th>F</th>
-                        <th>M</th>
-                        <th>F</th>
-                        <th>M</th>
-                        <th>F</th>
-                        <th>M</th>
-                        <th>F</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
                     </tr>
                 </thead>
                 <tbody id="studentBySubjectTableBody">
@@ -1006,34 +769,28 @@
                 </tbody>
             </table>
 
-            <!-- H. STUDENT/TEACHER BOOK -->
+            <!-- H.  STUDENT/TEACHER BOOK -->
             <h2>H. STUDENT/TEACHER BOOK</h2>
-            <h3>H.1.1. NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO STUDENTS PROVIDED BY GOVERNMENT.</h3>
+            <h3>H.1.1 NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO STUDENTS PROVIDED BY GOVERNMENT.</h3>
             <table id="textbooksByGovtTable">
                 <thead>
                     <tr>
                         <th>Subject Area</th>
-                        <th>JS1</th>
-                        <th>JS2</th>
-                        <th>JS3</th>
-                        <th>SS1</th>
-                        <th>SS2</th>
-                        <th>SS3</th>
+                        <th>SSS1</th>
+                        <th>SSS2</th>
+                        <th>SSS3</th>
                     </tr>
                 </thead>
                 <tbody id="textbooksByGovtTableBody"></tbody>
             </table>
-            <h3>H.1.2. NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO STUDENTS PROVIDED BY ANY OTHER SOURCE.</h3>
+            <h3>H.1.2 NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO STUDENTS PROVIDED BY ANY OTHER SOURCE.</h3>
             <table id="textbooksByOtherTable">
                  <thead>
                     <tr>
                         <th>Subject Area</th>
-                        <th>JS1</th>
-                        <th>JS2</th>
-                        <th>JS3</th>
-                        <th>SS1</th>
-                        <th>SS2</th>
-                        <th>SS3</th>
+                        <th>SSS1</th>
+                        <th>SSS2</th>
+                        <th>SSS3</th>
                     </tr>
                 </thead>
                 <tbody id="textbooksByOtherTableBody"></tbody>
@@ -1043,12 +800,9 @@
                  <thead>
                     <tr>
                         <th>Subject Area</th>
-                        <th>JS1</th>
-                        <th>JS2</th>
-                        <th>JS3</th>
-                        <th>SS1</th>
-                        <th>SS2</th>
-                        <th>SS3</th>
+                        <th>SSS1</th>
+                        <th>SSS2</th>
+                        <th>SSS3</th>
                     </tr>
                 </thead>
                 <tbody id="teacherTextbooksByGovtTableBody"></tbody>
@@ -1058,12 +812,9 @@
                  <thead>
                     <tr>
                         <th>Subject Area</th>
-                        <th>JS1</th>
-                        <th>JS2</th>
-                        <th>JS3</th>
-                        <th>SS1</th>
-                        <th>SS2</th>
-                        <th>SS3</th>
+                        <th>SSS1</th>
+                        <th>SSS2</th>
+                        <th>SSS3</th>
                     </tr>
                 </thead>
                 <tbody id="teacherTextbooksByOtherTableBody"></tbody>
@@ -1073,12 +824,9 @@
                  <thead>
                     <tr>
                         <th>Subject Area</th>
-                        <th>JS1</th>
-                        <th>JS2</th>
-                        <th>JS3</th>
-                        <th>SS1</th>
-                        <th>SS2</th>
-                        <th>SS3</th>
+                        <th>SSS1</th>
+                        <th>SSS2</th>
+                        <th>SSS3</th>
                     </tr>
                 </thead>
                 <tbody id="teacherGuidesByGovtTableBody"></tbody>
@@ -1088,31 +836,24 @@
                  <thead>
                     <tr>
                         <th>Subject Area</th>
-                        <th>JS1</th>
-                        <th>JS2</th>
-                        <th>JS3</th>
-                        <th>SS1</th>
-                        <th>SS2</th>
-                        <th>SS3</th>
+                        <th>SSS1</th>
+                        <th>SSS2</th>
+                        <th>SSS3</th>
                     </tr>
                 </thead>
                 <tbody id="teacherGuidesByOtherTableBody"></tbody>
             </table>
 
-            <!-- I. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION -->
-            <h2>I. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION</h2>
+            <!-- I. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION IN THE CURRENT ACADEMIC YEAR -->
+            <h2>I. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION IN THE CURRENT ACADEMIC YEAR</h2>
             <table id="teacherQualificationTable">
                 <thead>
                     <tr>
                         <th>Level of Teaching</th>
-                        <th colspan="3">JSS</th>
                         <th colspan="3">SSS</th>
                     </tr>
                     <tr>
                         <th>Highest Academic qualification</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Total</th>
                         <th>Male</th>
                         <th>Female</th>
                         <th>Total</th>
@@ -1121,10 +862,10 @@
                 <tbody id="teacherQualificationTableBody"></tbody>
             </table>
 
-            <!-- I. SCHOOL WELL-BEING -->
-            <h2>I. SCHOOL WELL-BEING</h2>
+            <!-- J. SCHOOL WELL-BEING -->
+            <h2>J. SCHOOL WELL-BEING</h2>
             <div>
-                <label>I.1 School rules and regulations/guidelines</label>
+                <label>J.1 School rules and regulations/guidelines</label>
                 <p>Does the school have rules and regulations/guidelines?</p>
                 <input type="radio" name="schoolWellBeing.hasRules" value="YES"> YES
                 <input type="radio" name="schoolWellBeing.hasRules" value="NO"> NO
@@ -1194,7 +935,7 @@
                 <input type="radio" name="schoolWellBeing.rulesCover.grievanceProcedures" value="NO"> NO
             </div>
             <div>
-                <label>I.2 Communication of rules and guidelines</label>
+                <label>J.2 Communication of rules and guidelines</label>
                 <p>Has your school communicated information about the rules and guidelines to learners?</p>
                 <input type="radio" name="schoolWellBeing.communicationOfRules.toLearners" value="YES"> YES
                 <input type="radio" name="schoolWellBeing.communicationOfRules.toLearners" value="NO"> NO
@@ -1206,7 +947,7 @@
                 <input type="radio" name="schoolWellBeing.communicationOfRules.toParents" value="NO"> NO
             </div>
             <div>
-                <label>I.3 School Well-being Education</label>
+                <label>J.3 School Well-being Education</label>
                 <p>1. Did learners in your school receive any form of life-skills-based SWB Education in the previous academic year?</p>
                 <input type="radio" name="schoolWellBeing.wellBeingEducation.receivedLifeSkills" value="YES"> YES
                 <input type="radio" name="schoolWellBeing.wellBeingEducation.receivedLifeSkills" value="NO"> NO
@@ -1232,25 +973,25 @@
                 <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.pandemics" value="NO"> NO
             </div>
             <div>
-                <label>I.4 Number of learners that received/participated in SWB Life Skills in the previous year?</label>
+                <label>J.4 Number of learners that received/participated in SWB Life Skills in the previous year?</label>
                 <input type="number" name="schoolWellBeing.learnersReceivedSWB.male" placeholder="M">
                 <input type="number" name="schoolWellBeing.learnersReceivedSWB.female" placeholder="F">
             </div>
             <div>
-                <label>I.5 Orientation Process for Parents or Guardians of Learners</label>
+                <label>J.5 Orientation Process for Parents or Guardians of Learners</label>
                 <p>How many times has your school organized an orientation program for parents or guardians of learners regarding SWB in the previous academic year?</p>
                 <input type="number" name="schoolWellBeing.parentOrientation.timesOrganized">
                 <p>In what fora was the orientation program provided?</p>
-                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora" value="PTA"> PTA
-                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora" value="Open Day"> Open Day
-                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora" value="Special Session(s)"> Special Session(s)
+                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora[]" value="PTA"> PTA
+                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora[]" value="Open Day"> Open Day
+                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora[]" value="Special Session(s)"> Special Session(s)
             </div>
             <div>
-                <label>I.6 Date of Last Orientation</label>
+                <label>J.6 Date of Last Orientation</label>
                 <input type="date" name="schoolWellBeing.lastOrientationDate">
             </div>
             <div>
-                <label>I.7 Life skills-based Well-being: Teacher training</label>
+                <label>J.7 Life skills-based Well-being: Teacher training</label>
                 <p>How many teachers in your school received formal training on SWB?</p>
                 <input type="number" name="schoolWellBeing.teacherTraining.receivedFormalTraining.male" placeholder="M">
                 <input type="number" name="schoolWellBeing.teacherTraining.receivedFormalTraining.female" placeholder="F">
@@ -1259,8 +1000,8 @@
                 <input type="number" name="schoolWellBeing.teacherTraining.taughtRelatedTopics.female" placeholder="F">
             </div>
 
-            <!-- J. UNDERTAKING -->
-            <h2>J. UNDERTAKING</h2>
+            <!-- K. UNDERTAKING -->
+            <h2>K. UNDERTAKING</h2>
             <div>
                 <label>Attestation by Principal</label>
                 <input type="text" name="undertaking.principal.name" placeholder="Name">
@@ -1291,6 +1032,6 @@
     <footer>
         <p>Lagos State Universal Basic Education Board © 2025. All Rights Reserved. | Centre of Excellence</p>
     </footer>
-    <script src="science.js"></script>
+    <script src="sss.js"></script>
 </body>
 </html>

@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             populateToiletFacilitiesTable(data.toiletFacilities);
             populateStaffingTable(data.staffing);
             populatePrivateSchoolTable(data.privateSchoolData);
+            renderSssData(data.sssData, brandColors);
         });
 });
 
@@ -228,6 +229,86 @@ function renderSourceOfElectricityChart(data, brandColors) {
         data: data.chart,
         options: {}
     });
+}
+
+function renderSssData(data, brandColors) {
+    if (!data) return;
+
+    // Render Teacher Qualifications Chart
+    const teacherQualificationsCtx = document.getElementById('sssTeacherQualificationsChart');
+    if (teacherQualificationsCtx && data.teacherQualifications) {
+        data.teacherQualifications.datasets.forEach((dataset, index) => {
+            dataset.backgroundColor = brandColors;
+        });
+        new Chart(teacherQualificationsCtx, {
+            type: 'pie',
+            data: data.teacherQualifications,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'SSS Teacher Qualifications'
+                    }
+                }
+            }
+        });
+    }
+
+    // Render SSCE Stats Chart
+    const ssceStatsCtx = document.getElementById('ssceStatsChart');
+    if (ssceStatsCtx && data.ssceStats) {
+        new Chart(ssceStatsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['WAEC', 'NECO'],
+                datasets: [
+                    {
+                        label: 'Registered',
+                        data: [data.ssceStats.waec.registered, data.ssceStats.neco.registered],
+                        backgroundColor: brandColors[0],
+                    },
+                    {
+                        label: 'Sat',
+                        data: [data.ssceStats.waec.sat, data.ssceStats.neco.sat],
+                        backgroundColor: brandColors[1],
+                    },
+                    {
+                        label: 'Passed',
+                        data: [data.ssceStats.waec.passed, data.ssceStats.neco.passed],
+                        backgroundColor: brandColors[2],
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'SSCE Statistics (WAEC vs NECO)'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    // Populate SSS Data Table
+    const tableBody = document.getElementById('sssDataTableBody');
+    if (tableBody) {
+        tableBody.innerHTML = ''; // Clear existing rows
+        const rows = [
+            { metric: 'Number of SSS Schools Surveyed', value: data.count },
+            { metric: 'Total SSS Students', value: data.totalStudents }
+        ];
+        rows.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${row.metric}</td><td>${row.value}</td>`;
+            tableBody.appendChild(tr);
+        });
+    }
 }
 
 function renderToiletFacilitiesChart(data, brandColors) {
