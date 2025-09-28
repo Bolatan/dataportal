@@ -5,6 +5,26 @@ function exportToPdf(tableId, filename) {
     doc.save(filename);
 }
 
+function exportToCsv(tableId, filename) {
+    let csv = [];
+    const rows = document.querySelectorAll(`#${tableId} tr`);
+    for (const row of rows) {
+        const rowData = [];
+        for (const cell of row.querySelectorAll('th, td')) {
+            rowData.push(`"${cell.innerText.replace(/"/g, '""')}"`);
+        }
+        csv.push(rowData.join(','));
+    }
+    const csvContent = 'data:text/csv;charset=utf-8,' + csv.join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 const flattenObject = (obj, prefix = '') => {
     let res = {};
     for (const key in obj) {
@@ -22,7 +42,7 @@ const flattenObject = (obj, prefix = '') => {
     return res;
 };
 
-function exportToCsv(data, filename, labels) {
+function exportDataToCsv(data, filename, labels) {
     if (!data || data.length === 0) {
         console.error("No data to export.");
         return;
