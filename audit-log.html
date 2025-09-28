@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Log - Survey App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/audit-log">Audit Log</a></li>
+                <li><a href="/forms">School Census Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>User Action Audit Log</h1>
+        <table id="audit-log-table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Log rows will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </main>
+    <script src="audit-log.js"></script>
+</body>
+</html>
