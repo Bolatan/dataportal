@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const loadingDiv = document.getElementById('loading');
     const dashboardContent = document.getElementById('dashboard-content');
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(sessionStorage.getItem('user'));
 
     if (!user || !user.id) {
         window.location.href = '/login.html';
