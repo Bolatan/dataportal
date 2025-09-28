@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/api/eccde-reports')
+    fetch('/api/jss-reports')
         .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector('#reportsTable tbody');
             data.forEach(report => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${report.schoolName}</td>
-                    <td>${report.lga}</td>
-                    <td>${report.state}</td>
+                    <td>${report.schoolIdentification?.schoolName || 'N/A'}</td>
+                    <td>${report.schoolIdentification?.lga || 'N/A'}</td>
+                    <td>${report.schoolIdentification?.state || 'N/A'}</td>
                     <td>${new Date(report.createdAt).toLocaleDateString()}</td>
                 `;
                 tableBody.appendChild(row);
@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const exportPdfBtn = document.getElementById('exportPdf');
     exportPdfBtn.addEventListener('click', () => {
-        exportToPdf('reportsTable', 'eccde-reports.pdf');
+        exportToPdf('reportsTable', 'jss-reports.pdf');
     });
 
     const exportCsvBtn = document.getElementById('exportCsv');
     exportCsvBtn.addEventListener('click', () => {
-        exportToCsv('reportsTable', 'eccde-reports.csv');
+        exportToCsv('reportsTable', 'jss-reports.csv');
     });
 });

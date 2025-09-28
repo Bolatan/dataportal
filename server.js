@@ -377,6 +377,19 @@ app.get('/eccde-reports', (req, res) => {
     res.sendFile(__dirname + '/eccde-reports.html');
 });
 
+app.get('/jss-reports', (req, res) => {
+    res.sendFile(__dirname + '/jss-reports.html');
+});
+
+app.get('/api/jss-reports', async (req, res) => {
+    try {
+        const reports = await Jss.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching JSS reports', error });
+    }
+});
+
 app.get('/api/eccde-reports', async (req, res) => {
     try {
         const reports = await Eccde.find().sort({ createdAt: -1 });

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECCDE Reports - Survey App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="report-buttons.css">
 </head>
 <body>
     <header>
@@ -23,6 +24,10 @@
     </header>
     <main>
         <h1>ECCDE Primary Form Reports</h1>
+        <div class="button-container">
+            <button id="exportPdf">Export to PDF</button>
+            <button id="exportCsv">Export to CSV</button>
+        </div>
         <table id="reportsTable">
             <thead>
                 <tr>
@@ -37,6 +42,9 @@
             </tbody>
         </table>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <script src="export-helper.js"></script>
     <script src="eccde-reports.js"></script>
 </body>
 </html>
