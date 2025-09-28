@@ -247,34 +247,25 @@ app.delete('/api/user/:id', isAdmin, async (req, res) => {
 app.post('/api/login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        console.log(`[DEBUG] Login attempt for username: ${username}`);
+
+        const userCount = await User.countDocuments();
+        console.log(`[DEBUG] Total users in database: ${userCount}`); // Temporary debug log
 
         const user = await User.findOne({ username });
         if (!user) {
-            console.log(`[DEBUG] User not found: ${username}`);
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        console.log(`[DEBUG] User found. Stored password hash: ${user.password}`);
-
         user.comparePassword(password, (err, isMatch) => {
             if (err) {
-                console.error('[DEBUG] bcrypt error during password comparison:', err);
                 return res.status(500).json({ message: 'Error logging in', error: err });
             }
-
-            console.log(`[DEBUG] Password comparison result (isMatch): ${isMatch}`);
-
             if (!isMatch) {
-                console.log(`[DEBUG] Password mismatch for user: ${username}`);
                 return res.status(401).json({ message: 'Invalid credentials' });
             }
-
-            console.log(`[DEBUG] Login successful for user: ${username}`);
             res.json({ message: 'Login successful', user: { id: user._id, username: user.username, role: user.role } });
         });
     } catch (error) {
-        console.error('[DEBUG] Catch block error in /api/login:', error);
         res.status(500).json({ message: 'Error logging in', error });
     }
 });
@@ -817,8 +808,9 @@ app.get('/api/data', async (req, res) => {
 });
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
+    .then((conn) => {
         console.log('MongoDB connected...');
+        console.log(`[DEBUG] Connected to database: ${conn.connection.name} on host: ${conn.connection.host}`); // Temporary debug log
         app.listen(port, () => {
             console.log(`Server is running on port: ${port}`);
         });
