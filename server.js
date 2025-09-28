@@ -49,6 +49,9 @@ app.get('/science', (req, res) => {
 
 app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
+app.get('/private-form', (req, res) => {
+    res.sendFile(__dirname + '/private_form.html');
+
 });
 
 // MongoDB Connection
@@ -60,6 +63,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 const multer = require('multer');
 const Survey = require('./models/Survey');
 const Science = require('./models/Science');
+const PrivateSurvey = require('./models/PrivateSurvey');
+
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
 
@@ -285,6 +290,23 @@ app.post('/api/science', isEnumerator, (req, res) => {
             });
     } catch (error) {
         console.error('Error in /api/science route:', error);
+app.post('/api/private-survey', isEnumerator, (req, res) => {
+    try {
+        const surveyData = req.body;
+        const newPrivateSurvey = new PrivateSurvey(surveyData);
+        newPrivateSurvey.save()
+            .then(survey => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted private survey for school ${survey.schoolIdentification.schoolName}`);
+                console.log('Private Survey saved successfully:', survey);
+                res.json(survey);
+            })
+            .catch(err => {
+                console.error('Error saving private survey:', err);
+                res.status(400).json('Error: ' + err);
+            });
+    } catch (error) {
+        console.error('Error in /api/private-survey route:', error);
         res.status(500).json('Server error');
     }
 });
@@ -307,6 +329,16 @@ app.get('/api/data', async (req, res) => {
             return res.json({ noData: true });
         }
 
+app.get('/api/data', async (req, res) => {
+    try {
+        const surveys = await Survey.find();
+        const privateSurveys = await PrivateSurvey.find();
+
+        if (surveys.length === 0 && privateSurveys.length === 0) {
+            return res.json({ noData: true });
+        }
+
+        // Aggregate public survey data
         const qualificationCounts = {};
         surveys.forEach(s => {
             if(s.highestQualification) {
@@ -443,6 +475,38 @@ app.get('/api/data', async (req, res) => {
             }
         };
 
+        // Aggregate private survey data
+        const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
+            let surveyTotal = 0;
+            const enrolment = survey.schoolEnrolment;
+            if (!enrolment) return total;
+
+            const sumLevel = (level) => {
+                let levelTotal = 0;
+                if (level) {
+                    for (const grade in level) {
+                        if (level[grade] && typeof level[grade] === 'object' && 'male' in level[grade] && 'female' in level[grade]) {
+                            levelTotal += (level[grade].male || 0);
+                            levelTotal += (level[grade].female || 0);
+                        }
+                    }
+                }
+                return levelTotal;
+            };
+
+            surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.primaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.juniorSecondaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.seniorSecondaryEnrolmentByAge);
+
+            return total + surveyTotal;
+        }, 0);
+
+        const privateSchoolData = {
+            count: privateSurveys.length,
+            totalStudents: totalPrivateStudents,
+        };
+
         const responseData = {
             officeInfrastructure: officeInfrastructure,
             respondentsDemographics: {
@@ -475,7 +539,8 @@ app.get('/api/data', async (req, res) => {
             },
             totalStudents,
             toiletFacilities: toiletFacilities,
-            staffing: staffing
+            staffing: staffing,
+            privateSchoolData: privateSchoolData
         };
 
         res.json(responseData);
