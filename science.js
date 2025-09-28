@@ -283,12 +283,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            if (!user || !user.id) {
+                alert('You must be logged in to submit this form.');
+                return;
+            }
+
             // Submit the structured data
             fetch('/api/science', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-user-id': JSON.parse(sessionStorage.getItem('user'))?.id
+                    'x-user-id': user.id
                 },
                 body: JSON.stringify(data)
             })

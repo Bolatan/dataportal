@@ -149,11 +149,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // so the data object should be correctly structured.
 
         try {
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            if (!user || !user.id) {
+                alert('You must be logged in to submit this form.');
+                return;
+            }
+
             const response = await fetch('/api/jss', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-user-id': localStorage.getItem('userId')
+                    'x-user-id': user.id
                 },
                 body: JSON.stringify(data)
             });

@@ -142,11 +142,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            if (!user || !user.id) {
+                alert('You must be logged in to submit this form.');
+                return;
+            }
+
             const response = await fetch('/api/sss', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-user-id': localStorage.getItem('userId')
+                    'x-user-id': user.id
                 },
                 body: JSON.stringify(data)
             });

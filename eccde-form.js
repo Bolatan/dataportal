@@ -222,10 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
             setProperty(structuredData, key, value);
         }
 
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (!user || !user.id) {
+            alert('You must be logged in to submit this form.');
+            return;
+        }
+
         fetch('/api/eccde-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'x-user-id': user.id,
             },
             body: JSON.stringify(structuredData),
         })
