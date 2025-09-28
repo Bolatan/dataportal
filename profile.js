@@ -30,6 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     profileForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        const actorId = user ? user.id : null;
+
+        if (!actorId) {
+            alert('Authentication error. Please log in again.');
+            return;
+        }
+
         const formData = new FormData(profileForm);
         const data = Object.fromEntries(formData.entries());
 
@@ -44,25 +52,27 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(url, {
             method: method,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'x-user-id': actorId
             },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
-        .then(responseData => {
-            if (responseData.message) {
-                alert(responseData.message);
-                if (!isEditMode) {
-                     window.location.href = 'users.html';
-                }
-            } else {
-                alert(`Profile ${isEditMode ? 'updated' : 'created'} successfully!`);
-                window.location.href = 'users.html';
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(err => {
+                    throw new Error(err.message || `HTTP error! status: ${response.status}`);
+                });
             }
+            return response.json();
+        })
+        .then(responseData => {
+            alert(`Profile ${isEditMode ? 'updated' : 'created'} successfully!`);
+            window.location.href = 'users.html';
+
         })
         .catch(error => {
             console.error(`Error ${isEditMode ? 'updating' : 'creating'} profile:`, error);
-            alert(`Failed to ${isEditMode ? 'update' : 'create'} profile.`);
+            alert(`Failed to ${isEditMode ? 'update' : 'create'} profile: ${error.message}`);
         });
     });
 });
