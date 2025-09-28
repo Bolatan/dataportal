@@ -1,18 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetch('/api/eccde-reports')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             const tableBody = document.querySelector('#reportsTable tbody');
-            data.forEach(report => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${report.schoolName}</td>
-                    <td>${report.lga}</td>
-                    <td>${report.state}</td>
-                    <td>${new Date(report.createdAt).toLocaleDateString()}</td>
-                `;
-                tableBody.appendChild(row);
-            });
+            if (data && Array.isArray(data)) {
+                data.forEach(report => {
+                    const row = document.createElement('tr');
+                    const schoolName = report.schoolIdentification ? report.schoolIdentification.schoolName : 'N/A';
+                    const lga = report.schoolIdentification ? report.schoolIdentification.lga : 'N/A';
+                    const state = report.schoolIdentification ? report.schoolIdentification.state : 'N/A';
+                    const submissionDate = report.createdAt ? new Date(report.createdAt).toLocaleDateString() : 'N/A';
+
+                    row.innerHTML = `
+                        <td>${schoolName}</td>
+                        <td>${lga}</td>
+                        <td>${state}</td>
+                        <td>${submissionDate}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } else {
+                console.error('Data is not in the expected format:', data);
+            }
         })
         .catch(error => console.error('Error fetching reports:', error));
 

@@ -3,14 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports - Survey App</title>
+    <title>Reports Dashboard - Survey App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reports.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <main>
-        <h1>Reports</h1>
-        <div class="report-cards">
+        <h1>Reports Dashboard</h1>
+        <div id="loading">Loading dashboard data...</div>
+        <div id="dashboard-content" style="display: none;">
+            <!-- Key Metrics -->
+            <div class="report-cards metrics">
+                <div class="card">
+                    <h3>Total Students (Public)</h3>
+                    <p id="total-students">--</p>
+                </div>
+                <div class="card">
+                    <h3>Total Private Schools</h3>
+                    <p id="private-schools-count">--</p>
+                </div>
+                <div class="card">
+                    <h3>Total Students (Private)</h3>
+                    <p id="private-students-total">--</p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="report-cards">
+                <div class="card chart-container">
+                    <h3>Office Infrastructure Condition</h3>
+                    <canvas id="officeInfrastructureChart"></canvas>
+                </div>
+                <div class="card chart-container">
+                    <h3>Staff Qualifications</h3>
+                    <canvas id="staffQualificationsChart"></canvas>
+                </div>
+                <div class="card chart-container">
+                    <h3>Source of Electricity</h3>
+                    <canvas id="electricitySourceChart"></canvas>
+                </div>
+                <div class="card chart-container">
+                    <h3>Toilet Facilities by LGEA</h3>
+                    <canvas id="toiletFacilitiesChart"></canvas>
+                </div>
+                 <div class="card chart-container">
+                    <h3>School Types</h3>
+                    <canvas id="schoolTypesChart"></canvas>
+                </div>
+                <div class="card chart-container">
+                    <h3>School Locations</h3>
+                    <canvas id="schoolLocationsChart"></canvas>
+                </div>
+            </div>
+        </div>
+         <div class="report-cards">
             <div class="card">
                 <h3>ECCDE Primary Form Report</h3>
                 <p>View the report for the ECCDE Primary Form submissions.</p>
