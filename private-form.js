@@ -319,39 +319,40 @@ async function handleFormSubmission(event) {
     const formData = new FormData(form);
     const data = {};
 
-    for (const [key, value] of formData.entries()) {
-        const keys = key.split(/(?=\.)/).map(k => k.replace('.', ''));
-        let current = data;
-        keys.forEach((k, i) => {
-            const isArray = k.includes('[]');
-            const cleanKey = k.replace('[]', '');
-            if (i === keys.length - 1) {
-                if (isArray) {
-                    if (!current[cleanKey]) {
-                        current[cleanKey] = [];
-                    }
-                    current[cleanKey].push(value);
-                } else {
-                    current[cleanKey] = value;
-                }
+    // Helper function to set nested properties in an object
+    const setProperty = (obj, path, value) => {
+        const keys = path.split('.');
+        let current = obj;
+        keys.forEach((key, index) => {
+            if (index === keys.length - 1) {
+                current[key] = value;
             } else {
-                if (!current[cleanKey]) {
-                    current[cleanKey] = {};
+                if (!current[key]) {
+                    current[key] = {};
                 }
-                current = current[cleanKey];
+                current = current[key];
             }
         });
-    }
-     // A special adjustment for levelsOffered checkboxes
-    if (data.schoolCharacteristics && data.schoolCharacteristics.levelsOffered) {
-        const levels = formData.getAll('schoolCharacteristics.levelsOffered');
-        data.schoolCharacteristics.levelsOffered = levels;
-    }
-     if (data.wellBeing && data.wellBeing.orientation && data.wellBeing.orientation.fora) {
-        const fora = formData.getAll('wellBeing.orientation.fora');
-        data.wellBeing.orientation.fora = fora;
+    };
+
+    // Iterate over form entries to build the data object
+    for (const [key, value] of formData.entries()) {
+        // Skip multi-value fields that will be handled by getAll()
+        if (key === 'schoolCharacteristics.levelsOffered' || key === 'wellBeing.orientation.fora') {
+            continue;
+        }
+        setProperty(data, key, value);
     }
 
+    // Handle multi-value checkbox fields correctly
+    if (formData.has('schoolCharacteristics.levelsOffered')) {
+        const levels = formData.getAll('schoolCharacteristics.levelsOffered');
+        setProperty(data, 'schoolCharacteristics.levelsOffered', levels);
+    }
+    if (formData.has('wellBeing.orientation.fora')) {
+        const fora = formData.getAll('wellBeing.orientation.fora');
+        setProperty(data, 'wellBeing.orientation.fora', fora);
+    }
 
     try {
         const user = JSON.parse(sessionStorage.getItem('user'));

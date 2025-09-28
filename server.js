@@ -8,7 +8,8 @@ const port = 3000;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
@@ -650,7 +651,7 @@ app.get('/api/data', isAdmin, async (req, res) => {
         };
         const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
             let surveyTotal = 0;
-            const enrolment = survey.enrolment;
+            const enrolment = survey.schoolEnrolment;
             if (!enrolment) return total;
             const sumLevel = (level) => Object.values(level || {}).reduce((acc, grade) => acc + (grade.male || 0) + (grade.female || 0), 0);
             surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
