@@ -31,6 +31,18 @@ app.get('/survey', (req, res) => {
     res.sendFile(__dirname + '/survey.html');
 });
 
+app.get('/reports', (req, res) => {
+    res.sendFile(__dirname + '/reports.html');
+});
+
+app.get('/audit-log', (req, res) => {
+    res.sendFile(__dirname + '/audit-log.html');
+});
+
+app.get('/forms', (req, res) => {
+    res.sendFile(__dirname + '/forms.html');
+});
+
 // MongoDB Connection
 const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/dataportal?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -40,6 +52,57 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 const multer = require('multer');
 const Survey = require('./models/Survey');
 const User = require('./models/User');
+const AuditLog = require('./models/AuditLog');
+
+// Middleware to log user actions
+const logAction = async (userId, action) => {
+    if (!userId) return;
+    try {
+        const user = await User.findById(userId);
+        if (user) {
+            const newLog = new AuditLog({ user: userId, action });
+            await newLog.save();
+        }
+    } catch (error) {
+        console.error('Failed to log action:', error);
+    }
+};
+
+const isAdmin = async (req, res, next) => {
+    const userId = req.headers['x-user-id'];
+    if (!userId) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+    try {
+        const user = await User.findById(userId);
+        if (user && user.role === 'admin') {
+            req.user = user;
+            next();
+        } else {
+            res.status(403).json({ message: 'Forbidden: Admin access required' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error verifying admin status', error });
+    }
+};
+
+const isEnumerator = async (req, res, next) => {
+    const userId = req.headers['x-user-id'];
+    if (!userId) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+    try {
+        const user = await User.findById(userId);
+        if (user && (user.role === 'enumerator' || user.role === 'admin')) {
+            req.user = user;
+            next();
+        } else {
+            res.status(403).json({ message: 'Forbidden: Enumerator access required' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error verifying enumerator status', error });
+    }
+};
 
 // Multer setup
 const storage = multer.diskStorage({
@@ -54,6 +117,16 @@ const upload = multer({ storage: storage });
 
 // API routes
 
+// Audit Log API
+app.get('/api/audit-log', isAdmin, async (req, res) => {
+    try {
+        const logs = await AuditLog.find().sort({ timestamp: -1 }).populate('user', 'username fullName');
+        res.json(logs);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching audit logs', error });
+    }
+});
+
 // User API Routes
 // Create a new user
 app.post('/api/user', async (req, res) => {
@@ -61,6 +134,8 @@ app.post('/api/user', async (req, res) => {
         const { username, email, password, fullName, role } = req.body;
         const newUser = new User({ username, email, password, fullName, role });
         await newUser.save();
+        const actorId = req.headers['x-user-id'];
+        logAction(actorId, `created user ${username}`);
         res.status(201).json(newUser);
     } catch (error) {
         res.status(400).json({ message: 'Error creating user', error });
@@ -68,7 +143,7 @@ app.post('/api/user', async (req, res) => {
 });
 
 // Get all users
-app.get('/api/users', async (req, res) => {
+app.get('/api/users', isAdmin, async (req, res) => {
     try {
         const users = await User.find().select('-password');
         res.json(users);
@@ -91,7 +166,7 @@ app.get('/api/user/:id', async (req, res) => {
 });
 
 // Update a user by ID
-app.put('/api/user/:id', async (req, res) => {
+app.put('/api/user/:id', isAdmin, async (req, res) => {
     try {
         const { username, email, password, fullName, role } = req.body;
         const user = await User.findById(req.params.id);
@@ -112,6 +187,10 @@ app.put('/api/user/:id', async (req, res) => {
         const updatedUser = await user.save();
         const userObject = updatedUser.toObject();
         delete userObject.password;
+
+        const actorId = req.headers['x-user-id'];
+        logAction(actorId, `updated user ${user.username}`);
+
         res.json(userObject);
     } catch (error) {
         res.status(400).json({ message: 'Error updating user', error });
@@ -119,12 +198,14 @@ app.put('/api/user/:id', async (req, res) => {
 });
 
 // Delete a user by ID
-app.delete('/api/user/:id', async (req, res) => {
+app.delete('/api/user/:id', isAdmin, async (req, res) => {
     try {
         const user = await User.findByIdAndDelete(req.params.id);
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
+        const actorId = req.headers['x-user-id'];
+        logAction(actorId, `deleted user ${user.username}`);
         res.json({ message: 'User deleted successfully' });
     } catch (error) {
         res.status(400).json({ message: 'Error deleting user', error });
@@ -154,7 +235,7 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-app.post('/api/survey', upload.array('photos', 10), (req, res) => {
+app.post('/api/survey', isEnumerator, upload.array('photos', 10), (req, res) => {
     try {
         const surveyData = req.body;
         if (req.files) {
@@ -163,6 +244,8 @@ app.post('/api/survey', upload.array('photos', 10), (req, res) => {
         const newSurvey = new Survey(surveyData);
         newSurvey.save()
             .then(survey => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted survey for LGEA ${survey.lgea}`);
                 console.log('Survey saved successfully:', survey);
                 res.json(survey);
             })
