@@ -10,10 +10,11 @@ function getBrandColors() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Basic setup for hamburger menu and success messages
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('nav');
-    hamburgerMenu.addEventListener('click', () => nav.classList.toggle('show'));
+    if (hamburgerMenu) {
+        hamburgerMenu.addEventListener('click', () => nav.classList.toggle('show'));
+    }
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('success')) {
@@ -24,213 +25,163 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Authentication check
-    const loggedIn = sessionStorage.getItem('loggedIn') === 'true';
-    const user = JSON.parse(sessionStorage.getItem('user') || 'null');
-
-    if (!loggedIn || !user || !user.id) {
-        // If not properly logged in, clear session and redirect to login.
-        sessionStorage.removeItem('loggedIn');
-        sessionStorage.removeItem('user');
-        window.location.href = 'login.html';
-        return;
-    }
     const user = JSON.parse(sessionStorage.getItem('user'));
     if (!user || !user.id) {
-        console.error('User not found in session storage. Redirecting to login.');
         window.location.href = 'login.html';
         return;
     }
-
-
-    const brandColors = getBrandColors();
 
     fetch('/api/data', {
         headers: {
             'Content-Type': 'application/json',
-
             'x-user-id': user.id
         }
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.noData) {
-                const dashboard = document.querySelector('.dashboard');
-                dashboard.innerHTML = '<p>No data to display.</p>';
-                return;
-            }
-
-            // Populate new dashboard elements
-            populateKeyMetrics(data);
-            renderSchoolTypesChart(data.charts.schoolTypes, data.schoolCounts.byType, brandColors);
-            populateEnrolmentAndStaffingTables(data.enrolment, data.staff);
-            renderTeacherQualificationsChart(data.charts.teacherQualifications, brandColors);
-            renderFacilitiesChart(data.charts.facilities, brandColors);
-        })
-        .catch(error => {
-            console.error('Error fetching or processing dashboard data:', error);
-            const dashboard = document.querySelector('.dashboard');
-            dashboard.innerHTML = `<p>Error loading dashboard data. Please try again later. Details: ${error.message}</p>`;
-        });
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+    })
+    .then(data => {
+        if (data.noData) {
+            document.querySelector('.dashboard').innerHTML = '<p>No survey data available to display.</p>';
+            return;
+        }
+        updateDashboard(data);
+    })
+    .catch(error => {
+        console.error('Error fetching or processing dashboard data:', error);
+        document.querySelector('.dashboard').innerHTML = `<p>Error loading dashboard data. Please try again later. Details: ${error.message}</p>`;
+    });
 });
+
+function updateDashboard(data) {
+    const brandColors = getBrandColors();
+
+    // Key Metrics
+    populateKeyMetrics(data);
+
+    // Charts
+    renderEnrolmentByLevelChart(data.enrolment.byLevel, brandColors);
+    renderEnrolmentByGenderChart(data.enrolment, brandColors);
+    renderSchoolTypesChart(data.charts.schoolTypes, brandColors);
+    renderTeacherQualificationsChart(data.charts.teacherQualifications, brandColors);
+    renderFacilitiesChart(data.charts.facilities, brandColors);
+}
 
 function populateKeyMetrics(data) {
     document.getElementById('total-schools').textContent = data.schoolCounts.total || '0';
     document.getElementById('total-students').textContent = data.enrolment.total || '0';
-    document.getElementById('total-staff').textContent = data.staff.total || '0';
+    document.getElementById('total-teachers').textContent = data.staff.teaching.total || '0';
+    const ratio = data.staff.teaching.total > 0 ? (data.enrolment.total / data.staff.teaching.total).toFixed(1) : 'N/A';
+    document.getElementById('student-teacher-ratio').textContent = ratio;
 }
 
-function renderSchoolTypesChart(chartData, tableData, brandColors) {
-    const ctx = document.getElementById('school-types-chart');
+function renderEnrolmentByLevelChart(enrolmentByLevel, brandColors) {
+    const ctx = document.getElementById('enrolment-by-level-chart')?.getContext('2d');
     if (!ctx) return;
-
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: chartData.labels,
-            datasets: [{
-                data: chartData.data,
-                backgroundColor: brandColors,
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: 'Distribution of School Types'
-                }
-            }
-        }
-    });
-
-    const tableBody = document.querySelector('#school-types-table tbody');
-    if (!tableBody) return;
-    tableBody.innerHTML = '';
-    for (const [type, count] of Object.entries(tableData)) {
-        const row = `<tr><td>${type}</td><td>${count}</td></tr>`;
-        tableBody.innerHTML += row;
-    }
-}
-
-function populateEnrolmentAndStaffingTables(enrolmentData, staffData) {
-    const enrolmentTableBody = document.querySelector('#enrolment-table tbody');
-    if (enrolmentTableBody) {
-        enrolmentTableBody.innerHTML = `
-            <tr><td>Male</td><td>${enrolmentData.male}</td></tr>
-            <tr><td>Female</td><td>${enrolmentData.female}</td></tr>
-            <tr><td><strong>Total</strong></td><td><strong>${enrolmentData.total}</strong></td></tr>
-        `;
-    }
-
-    const staffingTableBody = document.querySelector('#staffing-table tbody');
-    if (staffingTableBody) {
-        staffingTableBody.innerHTML = `
-            <tr>
-                <td>Teaching</td>
-                <td>${staffData.teaching.male}</td>
-                <td>${staffData.teaching.female}</td>
-                <td>${staffData.teaching.total}</td>
-            </tr>
-            <tr>
-                <td>Non-Teaching</td>
-                <td>${staffData.nonTeaching.male}</td>
-                <td>${staffData.nonTeaching.female}</td>
-                <td>${staffData.nonTeaching.total}</td>
-            </tr>
-            <tr>
-                <td><strong>Total</strong></td>
-                <td><strong>${staffData.teaching.male + staffData.nonTeaching.male}</strong></td>
-                <td><strong>${staffData.teaching.female + staffData.nonTeaching.female}</strong></td>
-                <td><strong>${staffData.total}</strong></td>
-            </tr>
-        `;
-    }
-}
-
-function renderTeacherQualificationsChart(chartData, brandColors) {
-    const ctx = document.getElementById('teacher-qualifications-chart');
-    if (!ctx) return;
-
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: chartData.labels,
-            datasets: [{
-                label: 'Qualifications',
-                data: chartData.data,
-                backgroundColor: brandColors,
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
-                }
-            }
-        }
-    });
-}
-
-function renderFacilitiesChart(chartData, brandColors) {
-    const ctx = document.getElementById('facilities-chart');
-    if (!ctx) return;
-
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: chartData.labels,
+            labels: ['Pre-Primary', 'Primary', 'JSS', 'SSS'],
             datasets: [{
-                label: '% of Schools',
-                data: chartData.data,
-                backgroundColor: brandColors[1],
+                label: 'Number of Students',
+                data: [
+                    enrolmentByLevel.prePrimary,
+                    enrolmentByLevel.primary,
+                    enrolmentByLevel.jss,
+                    enrolmentByLevel.sss
+                ],
+                backgroundColor: brandColors[0],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+}
+
+function renderEnrolmentByGenderChart(enrolment, brandColors) {
+    const ctx = document.getElementById('enrolment-by-gender-chart')?.getContext('2d');
+    if (!ctx) return;
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Male', 'Female'],
+            datasets: [{
+                data: [enrolment.male, enrolment.female],
+                backgroundColor: [brandColors[1], brandColors[2]],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } }
+        }
+    });
+}
+
+function renderSchoolTypesChart(schoolTypesData, brandColors) {
+    const ctx = document.getElementById('school-types-chart')?.getContext('2d');
+    if (!ctx) return;
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: schoolTypesData.labels,
+            datasets: [{
+                data: schoolTypesData.data,
+                backgroundColor: brandColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } }
+        }
+    });
+}
+
+function renderTeacherQualificationsChart(qualificationsData, brandColors) {
+    const ctx = document.getElementById('teacher-qualifications-chart')?.getContext('2d');
+    if (!ctx) return;
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: qualificationsData.labels,
+            datasets: [{
+                data: qualificationsData.data,
+                backgroundColor: brandColors,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } }
+        }
+    });
+}
+
+function renderFacilitiesChart(facilitiesData, brandColors) {
+    const ctx = document.getElementById('facilities-chart')?.getContext('2d');
+    if (!ctx) return;
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: facilitiesData.labels,
+            datasets: [{
+                data: facilitiesData.data,
+                backgroundColor: [brandColors[1], brandColors[3], brandColors[4]],
             }]
         },
         options: {
             indexAxis: 'y',
             responsive: true,
+            plugins: { legend: { display: false } },
             scales: {
                 x: {
                     beginAtZero: true,
                     max: 100,
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%'
-                        }
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false
+                    ticks: { callback: value => value + '%' }
                 }
             }
         }
     });
-}
-
-function showSuccessPopup(message) {
-    const popup = document.createElement('div');
-    popup.className = 'popup';
-    const popupContent = document.createElement('div');
-    popupContent.className = 'popup-content';
-    const closeButton = document.createElement('span');
-    closeButton.className = 'popup-close';
-    closeButton.innerHTML = '&times;';
-    closeButton.onclick = () => document.body.removeChild(popup);
-    const messageElement = document.createElement('p');
-    messageElement.textContent = message;
-    popupContent.appendChild(closeButton);
-    popupContent.appendChild(messageElement);
-    popup.appendChild(popupContent);
-    document.body.appendChild(popup);
 }
