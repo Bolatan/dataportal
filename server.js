@@ -484,253 +484,124 @@ app.get('/api/science-reports', async (req, res) => {
 
 app.get('/api/data', async (req, res) => {
     try {
-        const surveys = await Survey.find();
-        const scienceForms = await Science.find();
-        const privateSurveys = await PrivateSurvey.find();
-        const eccdeForms = await Eccde.find();
-        const jssForms = await Jss.find();
-        const sssForms = await Sss.find();
+        const surveys = await Survey.find().lean();
+        const scienceForms = await Science.find().lean();
+        const privateSurveys = await PrivateSurvey.find().lean();
+        const eccdeForms = await Eccde.find().lean();
+        const jssForms = await Jss.find().lean();
+        const sssForms = await Sss.find().lean();
 
-        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && eccdeForms.length === 0 && jssForms.length === 0 && sssForms.length === 0) {
+        const allButSurveyForms = [...scienceForms, ...eccdeForms, ...jssForms, ...sssForms];
+
+        if (surveys.length === 0 && allButSurveyForms.length === 0 && privateSurveys.length === 0) {
             return res.json({ noData: true });
         }
 
-        // Aggregate public survey data
         const qualificationCounts = {};
-        surveys.forEach(s => {
-            // For backward compatibility with old data
-            if(s.highestQualification) {
-                qualificationCounts[s.highestQualification] = (qualificationCounts[s.highestQualification] || 0) + 1;
-            }
-            // For new data from staff profiles
-            s.staffProfile?.forEach(staff => {
-                if (staff.qualification) {
-                    qualificationCounts[staff.qualification] = (qualificationCounts[staff.qualification] || 0) + 1;
-                }
-            });
-        });
-        scienceForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                if (staff.academicQualification) {
-                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
-                }
-            });
-        });
-        jssForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                if (staff.academicQualification) {
-                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
-                }
-            });
-        });
-        sssForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                if (staff.academicQualification) {
-                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
-                }
-            });
-        });
-        eccdeForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                if (staff.academicQualification) {
-                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
-                }
-            });
-        });
-
         const electricityCounts = {};
-        surveys.forEach(s => {
-            if (s.electricity) {
-                electricityCounts[s.electricity] = (electricityCounts[s.electricity] || 0) + 1;
-            }
-        });
-        scienceForms.forEach(s => {
-            s.facilities?.powerSources?.forEach(source => {
-                if (source) {
-                    electricityCounts[source] = (electricityCounts[source] || 0) + 1;
-                }
-            });
-        });
-        jssForms.forEach(s => {
-            s.facilities?.powerSources?.forEach(source => {
-                if (source) {
-                    electricityCounts[source] = (electricityCounts[source] || 0) + 1;
-                }
-            });
-        });
-        sssForms.forEach(s => {
-            s.facilities?.powerSources?.forEach(source => {
-                if (source) {
-                    electricityCounts[source] = (electricityCounts[source] || 0) + 1;
-                }
-            });
-        });
-
         const genderCounts = { Male: 0, Female: 0 };
-        // The new survey form does not collect gender information for staff.
-        // Data for this chart will come from the other forms.
-        scienceForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                const gender = staff.gender?.toUpperCase();
-                if (gender === 'M') {
-                    genderCounts.Male++;
-                } else if (gender === 'F') {
-                    genderCounts.Female++;
-                }
-            });
-        });
-        jssForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                const gender = staff.gender?.toUpperCase();
-                if (gender === 'M') {
-                    genderCounts.Male++;
-                } else if (gender === 'F') {
-                    genderCounts.Female++;
-                }
-            });
-        });
-        sssForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                const gender = staff.gender?.toUpperCase();
-                if (gender === 'M') {
-                    genderCounts.Male++;
-                } else if (gender === 'F') {
-                    genderCounts.Female++;
-                }
-            });
-        });
-        eccdeForms.forEach(s => {
-            s.staff?.staffInfo?.forEach(staff => {
-                const gender = staff.gender?.toUpperCase();
-                if (gender === 'M') {
-                    genderCounts.Male++;
-                } else if (gender === 'F') {
-                    genderCounts.Female++;
-                }
-            });
-        });
-
+        const officeInfrastructure = { goodCondition: 0, majorRepairs: 0, minorRepairs: 0, byLgea: {} };
+        const toiletFacilities = { cubicleToilets: 0, byLgea: {} };
         const schoolTypeCounts = {};
-        scienceForms.forEach(s => {
-            const type = s.schoolCharacteristics?.typeOfSchool;
-            if (type) {
-                schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
-            }
-        });
-        jssForms.forEach(s => {
-            const type = s.schoolCharacteristics?.typeOfSchool;
-            if (type) {
-                schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
-            }
-        });
-        sssForms.forEach(s => {
-            const type = s.schoolCharacteristics?.typeOfSchool;
-            if (type) {
-                schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
-            }
-        });
-
         const locationCounts = {};
-        scienceForms.forEach(s => {
-            const location = s.schoolCharacteristics?.location;
-            if(location) {
-                locationCounts[location] = (locationCounts[location] || 0) + 1;
-            }
-        });
-        jssForms.forEach(s => {
-            const location = s.schoolCharacteristics?.location;
-            if(location) {
-                locationCounts[location] = (locationCounts[location] || 0) + 1;
-            }
-        });
-        sssForms.forEach(s => {
-            const location = s.schoolCharacteristics?.location;
-            if(location) {
-                locationCounts[location] = (locationCounts[location] || 0) + 1;
-            }
-        });
-
         let totalStudents = 0;
-        scienceForms.forEach(s => {
-            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
-            if (jssEnrolment) {
-                for (const level in jssEnrolment) {
-                    const enrolment = jssEnrolment[level];
-                    totalStudents += (enrolment?.below12?.male || 0) + (enrolment?.below12?.female || 0);
-                    totalStudents += (enrolment?.age12?.male || 0) + (enrolment?.age12?.female || 0);
-                    totalStudents += (enrolment?.age13?.male || 0) + (enrolment?.age13?.female || 0);
-                    totalStudents += (enrolment?.age14?.male || 0) + (enrolment?.age14?.female || 0);
-                    totalStudents += (enrolment?.above14?.male || 0) + (enrolment?.above14?.female || 0);
+
+        // Aggregate data from all forms EXCEPT the legacy survey
+        for (const s of allButSurveyForms) {
+            const lgea = s.schoolIdentification?.lga || s.lga;
+
+            // Qualifications
+            const staffInfo = s.staff?.staffInfo || s.staffInfo || [];
+            for (const staff of staffInfo) {
+                if (staff.academicQualification) {
+                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
                 }
+            }
+
+            // Electricity
+            const powerSources = s.facilities?.powerSources || s.facilities?.power || [];
+            for (const source of powerSources) {
+                if (source) electricityCounts[source] = (electricityCounts[source] || 0) + 1;
+            }
+
+            // Gender
+            for (const staff of staffInfo) {
+                const gender = staff.gender?.toUpperCase();
+                if (gender === 'M' || gender === 'MALE') genderCounts.Male++;
+                if (gender === 'F' || gender === 'FEMALE') genderCounts.Female++;
+            }
+
+            // Office Infrastructure
+            const classroomInfo = s.classrooms?.classroomInfo || s.classroomInfo || [];
+            if (lgea && !officeInfrastructure.byLgea[lgea]) officeInfrastructure.byLgea[lgea] = { good: 0, major: 0, minor: 0 };
+            for (const c of classroomInfo) {
+                if (c.presentCondition === 'Good') {
+                    officeInfrastructure.goodCondition++;
+                    if (lgea) officeInfrastructure.byLgea[lgea].good++;
+                } else if (c.presentCondition === 'Needs major repairs') {
+                    officeInfrastructure.majorRepairs++;
+                    if (lgea) officeInfrastructure.byLgea[lgea].major++;
+                } else if (c.presentCondition === 'Needs minor repairs') {
+                    officeInfrastructure.minorRepairs++;
+                    if (lgea) officeInfrastructure.byLgea[lgea].minor++;
+                }
+            }
+
+            // Toilet Facilities
+            if (lgea && !toiletFacilities.byLgea[lgea]) toiletFacilities.byLgea[lgea] = 0;
+            const formToilets = s.facilities?.toilets;
+            if (formToilets) {
+                const addToilet = (t) => {
+                    if (t) {
+                        const count = (t.male || 0) + (t.female || 0) + (t.mixed || 0);
+                        toiletFacilities.cubicleToilets += count;
+                        if (lgea) toiletFacilities.byLgea[lgea] += count;
+                    }
+                };
+                ['studentOnly', 'teacherOnly', 'studentAndTeacher'].forEach(userType => {
+                    ['pit', 'bucket', 'waterFlush', 'others'].forEach(toiletType => addToilet(formToilets[userType]?.[toiletType]));
+                });
+            }
+            if (s.facilities?.available?.toilets) { // ECCDE specific path
+                const count = s.facilities.available.toilets.useable || 0;
+                toiletFacilities.cubicleToilets += count;
+                if (lgea) toiletFacilities.byLgea[lgea] += count;
+            }
+
+            // School Type & Location
+            if (s.schoolCharacteristics?.typeOfSchool) schoolTypeCounts[s.schoolCharacteristics.typeOfSchool] = (schoolTypeCounts[s.schoolCharacteristics.typeOfSchool] || 0) + 1;
+            if (s.schoolCharacteristics?.location) locationCounts[s.schoolCharacteristics.location] = (locationCounts[s.schoolCharacteristics.location] || 0) + 1;
+
+            // Total Students
+            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
+            if (jssEnrolment) for (const level of Object.values(jssEnrolment)) {
+                totalStudents += Object.values(level).filter(v => typeof v === 'object').reduce((acc, age) => acc + (age.male || 0) + (age.female || 0), 0);
             }
             const sssEnrolment = s.enrolment?.seniorSecondaryEnrolment;
-            if (sssEnrolment) {
-                for (const level in sssEnrolment) {
-                    const enrolment = sssEnrolment[level];
-                    totalStudents += (enrolment?.below15?.male || 0) + (enrolment?.below15?.female || 0);
-                    totalStudents += (enrolment?.age15?.male || 0) + (enrolment?.age15?.female || 0);
-                    totalStudents += (enrolment?.age16?.male || 0) + (enrolment?.age16?.female || 0);
-                    totalStudents += (enrolment?.age17?.male || 0) + (enrolment?.age17?.female || 0);
-                    totalStudents += (enrolment?.above17?.male || 0) + (enrolment?.above17?.female || 0);
-                }
+            if (sssEnrolment) for (const level of Object.values(sssEnrolment)) {
+                totalStudents += Object.values(level).filter(v => typeof v === 'object').reduce((acc, age) => acc + (age.male || 0) + (age.female || 0), 0);
             }
-        });
-        sssForms.forEach(s => {
-            const sssEnrolment = s.enrolment?.seniorSecondaryEnrolment;
-            if (sssEnrolment) {
-                for (const level in sssEnrolment) {
-                    const enrolment = sssEnrolment[level];
-                    totalStudents += (enrolment?.below15?.male || 0) + (enrolment?.below15?.female || 0);
-                    totalStudents += (enrolment?.age15?.male || 0) + (enrolment?.age15?.female || 0);
-                    totalStudents += (enrolment?.age16?.male || 0) + (enrolment?.age16?.female || 0);
-                    totalStudents += (enrolment?.age17?.male || 0) + (enrolment?.age17?.female || 0);
-                    totalStudents += (enrolment?.above17?.male || 0) + (enrolment?.above17?.female || 0);
-                }
-            }
-        });
-        jssForms.forEach(s => {
-            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
-            if (jssEnrolment) {
-                for (const level in jssEnrolment) {
-                    const enrolment = jssEnrolment[level];
-                    totalStudents += (enrolment?.below12?.male || 0) + (enrolment?.below12?.female || 0);
-                    totalStudents += (enrolment?.age12?.male || 0) + (enrolment?.age12?.female || 0);
-                    totalStudents += (enrolment?.age13?.male || 0) + (enrolment?.age13?.female || 0);
-                    totalStudents += (enrolment?.age14?.male || 0) + (enrolment?.age14?.female || 0);
-                    totalStudents += (enrolment?.above14?.male || 0) + (enrolment?.above14?.female || 0);
-                }
-            }
-        });
+        }
 
-        const officeInfrastructure = {
-            goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
-            needed: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
-            majorRepairs: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
-            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
-            additionalNeeded: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
-            chart: {
-                labels: surveys.map(s => s.lgea),
-                datasets: [
-                    { label: 'Good Condition', data: surveys.map(s => s.classroomsGood) },
-                    { label: 'Needs Major Repairs', data: surveys.map(s => s.classroomsMajorRepair) },
-                    { label: 'Needs Minor Repairs', data: surveys.map(s => s.classroomsMinorRepair) }
-                ]
-            }
+        // Process legacy survey data for its specific metrics
+        const officeLgeas = Object.keys(officeInfrastructure.byLgea);
+        const officeChart = {
+            labels: officeLgeas,
+            datasets: [
+                { label: 'Good Condition', data: officeLgeas.map(l => officeInfrastructure.byLgea[l].good) },
+                { label: 'Needs Major Repairs', data: officeLgeas.map(l => officeInfrastructure.byLgea[l].major) },
+                { label: 'Needs Minor Repairs', data: officeLgeas.map(l => officeInfrastructure.byLgea[l].minor) }
+            ]
         };
 
-        const toiletFacilities = {
-            cubicleToilets: surveys.reduce((acc, s) => acc + (s.cubicleAvailable || 0), 0),
-            minorRepairs: surveys.reduce((acc, s) => acc + (s.cubicleMinorRepair || 0), 0),
-            majorRepairs: surveys.reduce((acc, s) => acc + (s.cubicleMajorRepair || 0), 0),
-            additionalNeeded: surveys.reduce((acc, s) => acc + (s.cubicleRequired || 0), 0),
-            chart: {
-                labels: surveys.map(s => s.lgea),
-                datasets: [{
-                    label: 'Cubicle Toilets',
-                    data: surveys.map(s => s.cubicleAvailable)
-                }]
-            }
+        const toiletLgeas = Object.keys(toiletFacilities.byLgea);
+        const toiletChart = {
+            labels: toiletLgeas,
+            datasets: [{ label: 'Cubicle Toilets', data: toiletLgeas.map(l => toiletFacilities.byLgea[l]) }]
         };
+
+        const qualificationLabels = Object.keys(qualificationCounts).sort((a, b) => qualificationCounts[b] - qualificationCounts[a]);
+        const qualificationData = qualificationLabels.map(k => qualificationCounts[k]);
 
         const staffing = {
             teachersMale: surveys.reduce((acc, s) => acc + (s.teachersMale || 0), 0),
@@ -747,84 +618,46 @@ app.get('/api/data', async (req, res) => {
                 ]
             }
         };
-
-        // Aggregate private survey data
         const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
             let surveyTotal = 0;
             const enrolment = survey.schoolEnrolment;
             if (!enrolment) return total;
-
-            const sumLevel = (level) => {
-                let levelTotal = 0;
-                if (level) {
-                    for (const grade in level) {
-                        if (level[grade] && typeof level[grade] === 'object' && 'male' in level[grade] && 'female' in level[grade]) {
-                            levelTotal += (level[grade].male || 0);
-                            levelTotal += (level[grade].female || 0);
-                        }
-                    }
-                }
-                return levelTotal;
-            };
-
+            const sumLevel = (level) => Object.values(level || {}).reduce((acc, grade) => acc + (grade.male || 0) + (grade.female || 0), 0);
             surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
             surveyTotal += sumLevel(enrolment.primaryEnrolmentByAge);
             surveyTotal += sumLevel(enrolment.juniorSecondaryEnrolmentByAge);
             surveyTotal += sumLevel(enrolment.seniorSecondaryEnrolmentByAge);
-
             return total + surveyTotal;
         }, 0);
-
-        const privateSchoolData = {
-            count: privateSurveys.length,
-            totalStudents: totalPrivateStudents,
-        };
+        const privateSchoolData = { count: privateSurveys.length, totalStudents: totalPrivateStudents };
 
         const eccdeData = {
-            enrolment: {
-                prePrimary: { male: 0, female: 0 },
-                primary: { male: 0, female: 0 },
-            },
-            staffing: {
-                teachers: 0,
-                nonTeaching: 0,
-            },
+            enrolment: { prePrimary: { male: 0, female: 0 }, primary: { male: 0, female: 0 } },
+            staffing: { teachers: 0, nonTeaching: 0 },
         };
-
         eccdeForms.forEach(form => {
-            // Safely aggregate enrolment data
-            if (form.prePrimaryEnrolmentByAge) {
-                Object.values(form.prePrimaryEnrolmentByAge).forEach(ageGroup => {
-                    Object.values(ageGroup).forEach(level => {
-                        eccdeData.enrolment.prePrimary.male += Number(level.male) || 0;
-                        eccdeData.enrolment.prePrimary.female += Number(level.female) || 0;
-                    });
-                });
-            }
-            if (form.primaryEnrolmentByAge) {
-                Object.values(form.primaryEnrolmentByAge).forEach(ageGroup => {
-                    Object.values(ageGroup).forEach(level => {
-                        eccdeData.enrolment.primary.male += Number(level.male) || 0;
-                        eccdeData.enrolment.primary.female += Number(level.female) || 0;
-                    });
-                });
-            }
-
-            // Correctly aggregate staffing data
+            if (form.prePrimaryEnrolmentByAge) Object.values(form.prePrimaryEnrolmentByAge).forEach(ageGroup => Object.values(ageGroup).forEach(level => {
+                eccdeData.enrolment.prePrimary.male += Number(level.male) || 0;
+                eccdeData.enrolment.prePrimary.female += Number(level.female) || 0;
+            }));
+            if (form.primaryEnrolmentByAge) Object.values(form.primaryEnrolmentByAge).forEach(ageGroup => Object.values(ageGroup).forEach(level => {
+                eccdeData.enrolment.primary.male += Number(level.male) || 0;
+                eccdeData.enrolment.primary.female += Number(level.female) || 0;
+            }));
             eccdeData.staffing.teachers += Number(form.staff?.teaching?.total) || 0;
             eccdeData.staffing.nonTeaching += Number(form.staff?.nonTeaching?.total) || 0;
         });
 
         const responseData = {
-            officeInfrastructure: officeInfrastructure,
+            officeInfrastructure: { ...officeInfrastructure, chart: officeChart },
             respondentsDemographics: {
                 sexDistribution: {
                     labels: Object.keys(genderCounts),
                     datasets: [{ data: Object.values(genderCounts) }]
                 },
                 qualifications: {
-                    labels: Object.keys(qualificationCounts),
-                    datasets: [{ data: Object.values(qualificationCounts) }]
+                    labels: qualificationLabels,
+                    datasets: [{ data: qualificationData }]
                 }
             },
             sourceOfElectricity: {
@@ -833,27 +666,18 @@ app.get('/api/data', async (req, res) => {
                     datasets: [{ data: Object.values(electricityCounts) }]
                 }
             },
-            schoolTypes: {
-                chart: {
-                    labels: Object.keys(schoolTypeCounts),
-                    datasets: [{ data: Object.values(schoolTypeCounts) }]
-                }
-            },
-            schoolLocations: {
-                chart: {
-                    labels: Object.keys(locationCounts),
-                    datasets: [{ data: Object.values(locationCounts) }]
-                }
-            },
+            toiletFacilities: { ...toiletFacilities, chart: toiletChart },
+            schoolTypes: { chart: { labels: Object.keys(schoolTypeCounts), datasets: [{ data: Object.values(schoolTypeCounts) }]}},
+            schoolLocations: { chart: { labels: Object.keys(locationCounts), datasets: [{ data: Object.values(locationCounts) }]}},
             totalStudents,
-            toiletFacilities: toiletFacilities,
-            staffing: staffing,
-            privateSchoolData: privateSchoolData,
-            eccdeData: eccdeData
+            staffing,
+            privateSchoolData,
+            eccdeData
         };
 
         res.json(responseData);
     } catch (err) {
+        console.error('Error fetching dashboard data:', err);
         res.status(400).json('Error: ' + err);
     }
 });
