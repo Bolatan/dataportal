@@ -509,207 +509,148 @@ app.get('/api/science-reports', isAdmin, async (req, res) => {
 
 app.get('/api/data', isAdmin, async (req, res) => {
     try {
-        const surveys = await Survey.find().lean();
+        // Step 1: Fetch data from all relevant collections
         const scienceForms = await Science.find().lean();
-        const privateSurveys = await PrivateSurvey.find().lean();
+        const privateForms = await PrivateSurvey.find().lean();
         const eccdeForms = await Eccde.find().lean();
         const jssForms = await Jss.find().lean();
         const sssForms = await Sss.find().lean();
 
-        const allButSurveyForms = [
+        const allForms = [
             ...scienceForms.map(d => ({ ...d, formType: 'Science' })),
-            ...eccdeForms.map(d => ({ ...d, formType: 'Eccde' })),
-            ...jssForms.map(d => ({ ...d, formType: 'Jss' })),
-            ...sssForms.map(d => ({ ...d, formType: 'Sss' })),
-            ...privateSurveys.map(d => ({ ...d, formType: 'Private' }))
+            ...privateForms.map(d => ({ ...d, formType: 'Private' })),
+            ...eccdeForms.map(d => ({ ...d, formType: 'ECCDE' })),
+            ...jssForms.map(d => ({ ...d, formType: 'JSS' })),
+            ...sssForms.map(d => ({ ...d, formType: 'SSS' }))
         ];
 
-        if (surveys.length === 0 && allButSurveyForms.length === 0 && privateSurveys.length === 0) {
+        if (allForms.length === 0) {
             return res.json({ noData: true });
         }
 
-        const qualificationCounts = {};
-        const electricityCounts = {};
-        const genderCounts = { Male: 0, Female: 0 };
-        const officeInfrastructure = { goodCondition: 0, majorRepairs: 0, minorRepairs: 0, byLgea: {} };
-        const toiletFacilities = { cubicleToilets: 0, byLgea: {} };
-        const schoolTypeCounts = {};
-        const locationCounts = {};
-        let totalStudents = 0;
-
-        // Aggregate data from all forms EXCEPT the legacy survey
-        for (const s of allButSurveyForms) {
-            const lgea = s.schoolIdentification?.lga || s.lga;
-
-            // Qualifications
-            const staffInfo = s.staff?.staffInfo || s.staffInfo || [];
-            for (const staff of staffInfo) {
-                if (staff.academicQualification) {
-                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
-                }
+        // Step 2: Initialize aggregators for common metrics
+        const schoolCounts = {
+            total: allForms.length,
+            byType: {
+                'Science & Tech': scienceForms.length,
+                'Private School': privateForms.length,
+                'ECCDE/Primary': eccdeForms.length,
+                'JSS': jssForms.length,
+                'SSS': sssForms.length
             }
+        };
 
-            // Electricity
-            const powerSources = s.facilities?.powerSources || s.facilities?.power || [];
-            for (const source of powerSources) {
-                if (source) electricityCounts[source] = (electricityCounts[source] || 0) + 1;
-            }
+        const enrolment = { male: 0, female: 0 };
+        const staff = {
+            teaching: { male: 0, female: 0 },
+            nonTeaching: { male: 0, female: 0 }
+        };
+        const teacherQualifications = {};
+        const facilities = {
+            hasSafeWater: 0,
+            hasPower: 0,
+            hasSecurity: 0
+        };
 
-            // Gender
-            for (const staff of staffInfo) {
-                const gender = staff.gender?.toUpperCase();
-                if (gender === 'M' || gender === 'MALE') genderCounts.Male++;
-                if (gender === 'F' || gender === 'FEMALE') genderCounts.Female++;
-            }
-
-            // Office Infrastructure
-            const classroomInfo = s.classrooms?.classroomInfo || s.classroomInfo || [];
-            if (lgea && !officeInfrastructure.byLgea[lgea]) officeInfrastructure.byLgea[lgea] = { good: 0, major: 0, minor: 0 };
-            for (const c of classroomInfo) {
-                if (c.presentCondition === 'Good') {
-                    officeInfrastructure.goodCondition++;
-                    if (lgea) officeInfrastructure.byLgea[lgea].good++;
-                } else if (c.presentCondition === 'Needs major repairs') {
-                    officeInfrastructure.majorRepairs++;
-                    if (lgea) officeInfrastructure.byLgea[lgea].major++;
-                } else if (c.presentCondition === 'Needs minor repairs') {
-                    officeInfrastructure.minorRepairs++;
-                    if (lgea) officeInfrastructure.byLgea[lgea].minor++;
-                }
-            }
-
-            // Toilet Facilities
-            if (lgea && !toiletFacilities.byLgea[lgea]) toiletFacilities.byLgea[lgea] = 0;
-            const formToilets = s.facilities?.toilets;
-            if (formToilets) {
-                const addToilet = (t) => {
-                    if (t) {
-                        const count = (t.male || 0) + (t.female || 0) + (t.mixed || 0);
-                        toiletFacilities.cubicleToilets += count;
-                        if (lgea) toiletFacilities.byLgea[lgea] += count;
+        // Step 3: Loop through all forms and aggregate data
+        for (const form of allForms) {
+            // Aggregate Enrolment
+            const sumEnrolment = (levelData) => {
+                if (!levelData) return;
+                Object.values(levelData).forEach(classData => {
+                    if (typeof classData === 'object' && classData !== null) {
+                        Object.values(classData).forEach(ageGroup => {
+                            if (typeof ageGroup === 'object' && ageGroup !== null) {
+                                enrolment.male += Number(ageGroup.male) || 0;
+                                enrolment.female += Number(ageGroup.female) || 0;
+                            }
+                        });
                     }
-                };
-                ['studentOnly', 'teacherOnly', 'studentAndTeacher'].forEach(userType => {
-                    ['pit', 'bucket', 'waterFlush', 'others'].forEach(toiletType => addToilet(formToilets[userType]?.[toiletType]));
+                });
+            };
+
+            sumEnrolment(form.enrolment?.juniorSecondaryEnrolment);
+            sumEnrolment(form.enrolment?.seniorSecondaryEnrolment);
+            sumEnrolment(form.enrolment?.prePrimaryEnrolmentByAge);
+            sumEnrolment(form.enrolment?.primaryEnrolmentByAge);
+            sumEnrolment(form.enrolment?.juniorSecondaryEnrolmentByAge);
+            sumEnrolment(form.enrolment?.seniorSecondaryEnrolmentByAge);
+            if (form.formType === 'ECCDE') {
+                sumEnrolment(form.prePrimaryEnrolmentByAge);
+                sumEnrolment(form.primaryEnrolmentByAge);
+            }
+
+            // Aggregate Staff
+            staff.teaching.male += Number(form.staff?.teaching?.male) || 0;
+            staff.teaching.female += Number(form.staff?.teaching?.female) || 0;
+            staff.nonTeaching.male += Number(form.staff?.nonTeaching?.male) || 0;
+            staff.nonTeaching.female += Number(form.staff?.nonTeaching?.female) || 0;
+
+            // Aggregate Teacher Qualifications from staff info tables
+            const staffList = form.staff?.staffInfo || form.staffInfo || [];
+            if (Array.isArray(staffList)) {
+                staffList.forEach(s => {
+                    const qual = s.academicQualification;
+                    if (qual) {
+                        teacherQualifications[qual] = (teacherQualifications[qual] || 0) + 1;
+                    }
                 });
             }
-            if (s.facilities?.available?.toilets) { // ECCDE specific path
-                const count = s.facilities.available.toilets.useable || 0;
-                toiletFacilities.cubicleToilets += count;
-                if (lgea) toiletFacilities.byLgea[lgea] += count;
+
+            // Aggregate Facilities
+            const waterSources = form.facilities?.safeDrinkingWater || [];
+            if (waterSources.includes('Pipe borne Water') || waterSources.includes('Borehole')) {
+                facilities.hasSafeWater++;
             }
 
-            // School Type & Location
-            if (s.schoolCharacteristics?.typeOfSchool) schoolTypeCounts[s.schoolCharacteristics.typeOfSchool] = (schoolTypeCounts[s.schoolCharacteristics.typeOfSchool] || 0) + 1;
-            if (s.schoolCharacteristics?.location) locationCounts[s.schoolCharacteristics.location] = (locationCounts[s.schoolCharacteristics.location] || 0) + 1;
-
-            // Total Students
-            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
-            if (jssEnrolment) for (const level of Object.values(jssEnrolment)) {
-                totalStudents += Object.values(level).filter(v => typeof v === 'object').reduce((acc, age) => acc + (age.male || 0) + (age.female || 0), 0);
+            const powerSources = form.facilities?.powerSources || [];
+            if (powerSources.length > 0 && !powerSources.includes('No source of Power')) {
+                facilities.hasPower++;
             }
-            const sssEnrolment = s.enrolment?.seniorSecondaryEnrolment;
-            if (sssEnrolment) for (const level of Object.values(sssEnrolment)) {
-                totalStudents += Object.values(level).filter(v => typeof v === 'object').reduce((acc, age) => acc + (age.male || 0) + (age.female || 0), 0);
+
+            const safetyFacilities = form.facilities?.safetyFacilities || [];
+            if (safetyFacilities.includes('perimeter fence') || safetyFacilities.includes('Security guards')) {
+                facilities.hasSecurity++;
             }
         }
 
-        // Process legacy survey data for its specific metrics
-        const officeLgeas = Object.keys(officeInfrastructure.byLgea);
-        const officeChart = {
-            labels: officeLgeas,
-            datasets: [
-                { label: 'Good Condition', data: officeLgeas.map(l => officeInfrastructure.byLgea[l].good) },
-                { label: 'Needs Major Repairs', data: officeLgeas.map(l => officeInfrastructure.byLgea[l].major) },
-                { label: 'Needs Minor Repairs', data: officeLgeas.map(l => officeInfrastructure.byLgea[l].minor) }
-            ]
-        };
 
-        const toiletLgeas = Object.keys(toiletFacilities.byLgea);
-        const toiletChart = {
-            labels: toiletLgeas,
-            datasets: [{ label: 'Cubicle Toilets', data: toiletLgeas.map(l => toiletFacilities.byLgea[l]) }]
-        };
-
-        const qualificationLabels = Object.keys(qualificationCounts).sort((a, b) => qualificationCounts[b] - qualificationCounts[a]);
-        const qualificationData = qualificationLabels.map(k => qualificationCounts[k]);
-
-        const staffing = {
-            teachersMale: surveys.reduce((acc, s) => acc + (s.teachersMale || 0), 0),
-            teachersFemale: surveys.reduce((acc, s) => acc + (s.teachersFemale || 0), 0),
-            nonTeachingMale: surveys.reduce((acc, s) => acc + (s.nonTeachingMale || 0), 0),
-            nonTeachingFemale: surveys.reduce((acc, s) => acc + (s.nonTeachingFemale || 0), 0),
-            chart: {
-                labels: surveys.map(s => s.lgea),
-                datasets: [
-                    { label: 'Teachers (Male)', data: surveys.map(s => s.teachersMale) },
-                    { label: 'Teachers (Female)', data: surveys.map(s => s.teachersFemale) },
-                    { label: 'Non-teaching (Male)', data: surveys.map(s => s.nonTeachingMale) },
-                    { label: 'Non-teaching (Female)', data: surveys.map(s => s.nonTeachingFemale) }
-                ]
-            }
-        };
-        const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
-            let surveyTotal = 0;
-            const enrolment = survey.schoolEnrolment;
-            if (!enrolment) return total;
-            const sumLevel = (level) => Object.values(level || {}).reduce((acc, grade) => acc + (grade.male || 0) + (grade.female || 0), 0);
-            surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
-            surveyTotal += sumLevel(enrolment.primaryEnrolmentByAge);
-            surveyTotal += sumLevel(enrolment.juniorSecondaryEnrolmentByAge);
-            surveyTotal += sumLevel(enrolment.seniorSecondaryEnrolmentByAge);
-            return total + surveyTotal;
-        }, 0);
-        const privateSchoolData = { count: privateSurveys.length, totalStudents: totalPrivateStudents };
-
-        const eccdeData = {
-            enrolment: { prePrimary: { male: 0, female: 0 }, primary: { male: 0, female: 0 } },
-            staffing: { teachers: 0, nonTeaching: 0 },
-        };
-        eccdeForms.forEach(form => {
-            if (form.prePrimaryEnrolmentByAge) Object.values(form.prePrimaryEnrolmentByAge).forEach(ageGroup => Object.values(ageGroup).forEach(level => {
-                eccdeData.enrolment.prePrimary.male += Number(level.male) || 0;
-                eccdeData.enrolment.prePrimary.female += Number(level.female) || 0;
-            }));
-            if (form.primaryEnrolmentByAge) Object.values(form.primaryEnrolmentByAge).forEach(ageGroup => Object.values(ageGroup).forEach(level => {
-                eccdeData.enrolment.primary.male += Number(level.male) || 0;
-                eccdeData.enrolment.primary.female += Number(level.female) || 0;
-            }));
-            eccdeData.staffing.teachers += Number(form.staff?.teaching?.total) || 0;
-            eccdeData.staffing.nonTeaching += Number(form.staff?.nonTeaching?.total) || 0;
-        });
-
+        // Step 4: Format the aggregated data for the frontend
         const responseData = {
-            officeInfrastructure: { ...officeInfrastructure, chart: officeChart },
-            respondentsDemographics: {
-                sexDistribution: {
-                    labels: Object.keys(genderCounts),
-                    datasets: [{ data: Object.values(genderCounts) }]
+            schoolCounts,
+            enrolment: {
+                ...enrolment,
+                total: enrolment.male + enrolment.female
+            },
+            staff: {
+                teaching: { ...staff.teaching, total: staff.teaching.male + staff.teaching.female },
+                nonTeaching: { ...staff.nonTeaching, total: staff.nonTeaching.male + staff.nonTeaching.female },
+                total: staff.teaching.male + staff.teaching.female + staff.nonTeaching.male + staff.nonTeaching.female
+            },
+            charts: {
+                schoolTypes: {
+                    labels: Object.keys(schoolCounts.byType),
+                    data: Object.values(schoolCounts.byType)
                 },
-                qualifications: {
-                    labels: qualificationLabels,
-                    datasets: [{ data: qualificationData }]
+                teacherQualifications: {
+                    labels: Object.keys(teacherQualifications),
+                    data: Object.values(teacherQualifications)
+                },
+                facilities: {
+                    labels: ['Safe Water', 'Power', 'Security'],
+                    data: [
+                        (facilities.hasSafeWater / allForms.length) * 100,
+                        (facilities.hasPower / allForms.length) * 100,
+                        (facilities.hasSecurity / allForms.length) * 100
+                    ]
                 }
-            },
-            sourceOfElectricity: {
-                chart: {
-                    labels: Object.keys(electricityCounts),
-                    datasets: [{ data: Object.values(electricityCounts) }]
-                }
-            },
-            toiletFacilities: { ...toiletFacilities, chart: toiletChart },
-            schoolTypes: { chart: { labels: Object.keys(schoolTypeCounts), datasets: [{ data: Object.values(schoolTypeCounts) }]}},
-            schoolLocations: { chart: { labels: Object.keys(locationCounts), datasets: [{ data: Object.values(locationCounts) }]}},
-            totalStudents,
-            staffing,
-            privateSchoolData,
-            eccdeData
+            }
         };
 
         res.json(responseData);
     } catch (err) {
         console.error('Error fetching dashboard data:', err);
-        res.status(400).json('Error: ' + err);
+        res.status(500).json({ message: 'Error fetching dashboard data', error: err });
     }
 });
 
