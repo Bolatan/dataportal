@@ -49,9 +49,12 @@ app.get('/science', (req, res) => {
 
 app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
+});
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
-
+});
+app.get('/jss', (req, res) => {
+    res.sendFile(__dirname + '/jss.html');
 });
 
 // MongoDB Connection
@@ -64,6 +67,7 @@ const multer = require('multer');
 const Survey = require('./models/Survey');
 const Science = require('./models/Science');
 const PrivateSurvey = require('./models/PrivateSurvey');
+const Jss = require('./models/jss');
 
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
@@ -290,6 +294,31 @@ app.post('/api/science', isEnumerator, (req, res) => {
             });
     } catch (error) {
         console.error('Error in /api/science route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
+app.post('/api/jss', isEnumerator, (req, res) => {
+    try {
+        const jssData = req.body;
+        const newJss = new Jss(jssData);
+        newJss.save()
+            .then(jss => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted JSS form for school ${jss.schoolIdentification.schoolName}`);
+                console.log('JSS form saved successfully:', jss);
+                res.json(jss);
+            })
+            .catch(err => {
+                console.error('Error saving JSS form:', err);
+                res.status(400).json({ message: 'Error: ' + err, error: err });
+            });
+    } catch (error) {
+        console.error('Error in /api/jss route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
 app.post('/api/private-survey', isEnumerator, (req, res) => {
     try {
         const surveyData = req.body;
@@ -324,17 +353,10 @@ app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
         const scienceForms = await Science.find();
-
-        if (surveys.length === 0 && scienceForms.length === 0) {
-            return res.json({ noData: true });
-        }
-
-app.get('/api/data', async (req, res) => {
-    try {
-        const surveys = await Survey.find();
         const privateSurveys = await PrivateSurvey.find();
+        const jssForms = await Jss.find();
 
-        if (surveys.length === 0 && privateSurveys.length === 0) {
+        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && jssForms.length === 0) {
             return res.json({ noData: true });
         }
 
@@ -352,6 +374,14 @@ app.get('/api/data', async (req, res) => {
                 }
             });
         });
+        jssForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                if (staff.academicQualification) {
+                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
+                }
+            });
+        });
+
 
         const electricityCounts = {};
         surveys.forEach(s => {
@@ -366,6 +396,14 @@ app.get('/api/data', async (req, res) => {
                 }
             });
         });
+        jssForms.forEach(s => {
+            s.facilities?.powerSources?.forEach(source => {
+                if (source) {
+                    electricityCounts[source] = (electricityCounts[source] || 0) + 1;
+                }
+            });
+        });
+
 
         const genderCounts = { Male: 0, Female: 0 };
         surveys.forEach(s => {
@@ -386,6 +424,16 @@ app.get('/api/data', async (req, res) => {
                 }
             });
         });
+        jssForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                const gender = staff.gender?.toUpperCase();
+                if (gender === 'M') {
+                    genderCounts.Male++;
+                } else if (gender === 'F') {
+                    genderCounts.Female++;
+                }
+            });
+        });
 
         const schoolTypeCounts = {};
         scienceForms.forEach(s => {
@@ -394,6 +442,13 @@ app.get('/api/data', async (req, res) => {
                 schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
             }
         });
+        jssForms.forEach(s => {
+            const type = s.schoolCharacteristics?.typeOfSchool;
+            if (type) {
+                schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
+            }
+        });
+
 
         const locationCounts = {};
         scienceForms.forEach(s => {
@@ -402,6 +457,13 @@ app.get('/api/data', async (req, res) => {
                 locationCounts[location] = (locationCounts[location] || 0) + 1;
             }
         });
+         jssForms.forEach(s => {
+            const location = s.schoolCharacteristics?.location;
+            if(location) {
+                locationCounts[location] = (locationCounts[location] || 0) + 1;
+            }
+        });
+
 
         let totalStudents = 0;
         scienceForms.forEach(s => {
@@ -428,6 +490,20 @@ app.get('/api/data', async (req, res) => {
                 }
             }
         });
+        jssForms.forEach(s => {
+            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
+            if (jssEnrolment) {
+                for (const level in jssEnrolment) {
+                    const enrolment = jssEnrolment[level];
+                    totalStudents += (enrolment?.below12?.male || 0) + (enrolment?.below12?.female || 0);
+                    totalStudents += (enrolment?.age12?.male || 0) + (enrolment?.age12?.female || 0);
+                    totalStudents += (enrolment?.age13?.male || 0) + (enrolment?.age13?.female || 0);
+                    totalStudents += (enrolment?.age14?.male || 0) + (enrolment?.age14?.female || 0);
+                    totalStudents += (enrolment?.above14?.male || 0) + (enrolment?.above14?.female || 0);
+                }
+            }
+        });
+
 
         const officeInfrastructure = {
             goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
