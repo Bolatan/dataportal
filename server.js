@@ -64,10 +64,17 @@ app.get('/jss', (req, res) => {
 });
 
 // MongoDB Connection
-const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/dataportal?retryWrites=true&w=majority&appName=Cluster0';
+const dbURI = process.env.DATABASE_URL;
+if (!dbURI) {
+    console.error('CRITICAL ERROR: DATABASE_URL environment variable is not set.');
+    process.exit(1);
+}
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected...'))
-    .catch(err => console.log(err));
+    .catch(err => {
+        console.error('Failed to connect to MongoDB', err);
+        process.exit(1);
+    });
 
 const multer = require('multer');
 const Survey = require('./models/Survey');
