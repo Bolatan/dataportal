@@ -485,7 +485,13 @@ app.get('/api/data', async (req, res) => {
         const jssForms = await Jss.find().lean();
         const sssForms = await Sss.find().lean();
 
-        const allButSurveyForms = [...scienceForms, ...eccdeForms, ...jssForms, ...sssForms];
+        const allButSurveyForms = [
+            ...scienceForms.map(d => ({ ...d, formType: 'Science' })),
+            ...eccdeForms.map(d => ({ ...d, formType: 'Eccde' })),
+            ...jssForms.map(d => ({ ...d, formType: 'Jss' })),
+            ...sssForms.map(d => ({ ...d, formType: 'Sss' })),
+            ...privateSurveys.map(d => ({ ...d, formType: 'Private' }))
+        ];
 
         if (surveys.length === 0 && allButSurveyForms.length === 0 && privateSurveys.length === 0) {
             return res.json({ noData: true });
