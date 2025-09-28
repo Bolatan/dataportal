@@ -25,8 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    document.getElementById('logout-button').addEventListener('click', logout);
-
     const brandColors = getBrandColors();
 
     fetch('/api/data')
@@ -166,12 +164,6 @@ function populatePrivateSchoolTable(data) {
         tr.innerHTML = `<td>${row.metric}</td><td>${row.value}</td>`;
         tableBody.appendChild(tr);
     });
-}
-
-function logout() {
-    sessionStorage.removeItem('loggedIn');
-    sessionStorage.removeItem('user');
-    window.location.href = 'login.html';
 }
 
 function populateOfficeInfrastructureTable(data) {
