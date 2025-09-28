@@ -10,6 +10,12 @@ function getBrandColors() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const nav = document.querySelector('nav');
+
+    hamburgerMenu.addEventListener('click', () => {
+        nav.classList.toggle('show');
+    });
     // Check for success message
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('success')) {
