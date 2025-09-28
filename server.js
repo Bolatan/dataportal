@@ -79,8 +79,8 @@ const Survey = require('./models/Survey');
 const Science = require('./models/Science');
 const PrivateSurvey = require('./models/PrivateSurvey');
 const Eccde = require('./models/Eccde');
-const Jss = require('./models/jss');
-const Sss = require('./models/sss');
+const Jss = require('./models/Jss');
+const Sss = require('./models/Sss');
 
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
@@ -423,12 +423,38 @@ app.get('/jss-reports', (req, res) => {
     res.sendFile(__dirname + '/jss-reports.html');
 });
 
+app.get('/private-reports', (req, res) => {
+    res.sendFile(__dirname + '/private-reports.html');
+});
+
+app.get('/sss-reports', (req, res) => {
+    res.sendFile(__dirname + '/sss-reports.html');
+});
+
 app.get('/api/jss-reports', async (req, res) => {
     try {
         const reports = await Jss.find().sort({ createdAt: -1 });
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching JSS reports', error });
+    }
+});
+
+app.get('/api/private-reports', async (req, res) => {
+    try {
+        const reports = await PrivateSurvey.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching Private School reports', error });
+    }
+});
+
+app.get('/api/sss-reports', async (req, res) => {
+    try {
+        const reports = await Sss.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching SSS reports', error });
     }
 });
 
