@@ -46,6 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const exportCsvBtn = document.getElementById('exportCsv');
     exportCsvBtn.addEventListener('click', () => {
-        exportToCsv('reportsTable', 'private-reports.csv');
+        fetch('/api/private-reports-all', {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-user-id': user.id
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                alert(data.message);
+                return;
+            }
+            if (data && data.length > 0) {
+                exportDataToCsv(data, 'private-reports.csv', privateFieldLabels);
+            } else {
+                alert('No reports found to export.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching full reports:', error);
+            alert('Error fetching reports for CSV export.');
+        });
     });
 });
