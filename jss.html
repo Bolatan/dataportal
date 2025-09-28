@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSS School Census Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/science-report">Science Reports</a></li>
+                <li><a href="/audit-log">Audit Log</a></li>
+                <li><a href="/forms">School Census Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>JSS School Census Form</h1>
+        <form id="jss-form">
+            <p>For Principal Only: Search for your school using search school option in the NEMIS ASC PORTAL. If school is not found, prompt the LEMIS or SEMIS Officer to add school.</p>
+
+            <fieldset>
+                <legend>School Location</legend>
+                <label for="schoolCode">School Code</label>
+                <input type="text" id="schoolCode" name="schoolCode">
+
+                <label for="elevation">Elevation (Meter)</label>
+                <input type="number" id="elevation" name="schoolCoordinates.elevation">
+
+                <label for="latitude">Latitude North</label>
+                <input type="text" id="latitude" name="schoolCoordinates.latitudeNorth">
+
+                <label for="longitude">Longitude East</label>
+                <input type="text" id="longitude" name="schoolCoordinates.longitudeEast">
+            </fieldset>
+
+            <fieldset>
+                <legend>A. School Identification</legend>
+                <label for="schoolName">A.1 School Name</label>
+                <input type="text" id="schoolName" name="schoolIdentification.schoolName">
+
+                <label for="street">A.2 Number and Street name</label>
+                <input type="text" id="street" name="schoolIdentification.numberAndStreet">
+
+                <label for="village">A.3 Name of Village or Town</label>
+                <input type="text" id="village" name="schoolIdentification.villageOrTown">
+
+                <label for="ward">A.4 Ward</label>
+                <input type="text" id="ward" name="schoolIdentification.ward">
+
+                <label for="lga">A.5 LGA</label>
+                <input type="text" id="lga" name="schoolIdentification.lga">
+
+                <label for="state">A.6 State</label>
+                <input type="text" id="state" name="schoolIdentification.state">
+
+                <label for="schoolTelephone">A.7 School Telephone/ principal’s GSM number</label>
+                <input type="text" id="schoolTelephone" name="schoolIdentification.schoolTelephone">
+
+                <label for="email">A.8 E-mail Address</label>
+                <input type="email" id="email" name="schoolIdentification.emailAddress">
+            </fieldset>
+
+            <fieldset>
+                <legend>B. School Characteristics</legend>
+                <label for="yearOfEstablishment">B.1 Year of establishment</label>
+                <input type="number" id="yearOfEstablishment" name="schoolCharacteristics.yearOfEstablishment">
+
+                <label>B.2 Location</label>
+                <input type="radio" id="urban" name="schoolCharacteristics.location" value="Urban">
+                <label for="urban">Urban</label>
+                <input type="radio" id="rural" name="schoolCharacteristics.location" value="Rural">
+                <label for="rural">Rural</label>
+
+                <label>B.3 Levels of education offered</label>
+                <input type="radio" id="jssOnly" name="schoolCharacteristics.levelsOfEducation" value="Junior Secondary Only">
+                <label for="jssOnly">Junior Secondary Only</label>
+                <input type="radio" id="jssAndSss" name="schoolCharacteristics.levelsOfEducation" value="Junior and Senior Secondary">
+                <label for="jssAndSss">Junior and Senior Secondary</label>
+
+                <label>B.4 Type of school</label>
+                <input type="radio" id="regular" name="schoolCharacteristics.typeOfSchool" value="Regular">
+                <label for="regular">Regular</label>
+                <input type="radio" id="islamiyya" name="schoolCharacteristics.typeOfSchool" value="Islamiyya integrated">
+                <label for="islamiyya">Islamiyya integrated</label>
+
+                <label>B.5 Shifts: Does the School operate shift system?</label>
+                <input type="radio" id="shiftsYes" name="schoolCharacteristics.shifts" value="Yes">
+                <label for="shiftsYes">Yes</label>
+                <input type="radio" id="shiftsNo" name="schoolCharacteristics.shifts" value="No">
+                <label for="shiftsNo">No</label>
+
+                <label>B.6 Shared facilities</label>
+                <input type="radio" id="sharedFacilitiesYes" name="schoolCharacteristics.sharedFacilities.shares" value="Yes">
+                <label for="sharedFacilitiesYes">Yes</label>
+                <input type="radio" id="sharedFacilitiesNo" name="schoolCharacteristics.sharedFacilities.shares" value="No">
+                <label for="sharedFacilitiesNo">No</label>
+                <label for="numberOfSchoolsSharing">If Yes. How many Schools are sharing facilities:</label>
+                <input type="number" id="numberOfSchoolsSharing" name="schoolCharacteristics.sharedFacilities.numberOfSchools">
+
+                <label>B.7 Multi-grade teaching</label>
+                <input type="radio" id="multiGradeYes" name="schoolCharacteristics.multiGradeTeaching" value="Yes">
+                <label for="multiGradeYes">Yes</label>
+                <input type="radio" id="multiGradeNo" name="schoolCharacteristics.multiGradeTeaching" value="No">
+                <label for="multiGradeNo">No</label>
+
+                <label for="distanceFromCatchment">B.8 School: Average Distance from Catchment Communities/areas (kilometres)</label>
+                <input type="number" id="distanceFromCatchment" name="schoolCharacteristics.distanceFromCatchment">
+
+                <label for="distanceFromLGA">B.9 School: Distance from LGA (kilometres)</label>
+                <input type="number" id="distanceFromLGA" name="schoolCharacteristics.distanceFromLGA">
+
+                <label for="studentsFurtherThan3km">B.10 Pupils: Distance from School (How many pupils live further than 3km from the school?)</label>
+                <input type="number" id="studentsFurtherThan3km" name="schoolCharacteristics.studentsFurtherThan3km">
+
+                <label>B.11 Students: Boarding</label>
+                <label for="boardingMale">Male</label>
+                <input type="number" id="boardingMale" name="schoolCharacteristics.boardingStudents.male">
+                <label for="boardingFemale">Female</label>
+                <input type="number" id="boardingFemale" name="schoolCharacteristics.boardingStudents.female">
+
+                <label>B.12 School Development Plan (SDP)</label>
+                <input type="radio" id="sdpYes" name="schoolCharacteristics.sdpLastYear" value="Yes">
+                <label for="sdpYes">Yes</label>
+                <input type="radio" id="sdpNo" name="schoolCharacteristics.sdpLastYear" value="No">
+                <label for="sdpNo">No</label>
+
+                <label>B.13 School Based Management Committee (SBMC)</label>
+                <input type="radio" id="sbmcYes" name="schoolCharacteristics.sbmcLastYear" value="Yes">
+                <label for="sbmcYes">Yes</label>
+                <input type="radio" id="sbmcNo" name="schoolCharacteristics.sbmcLastYear" value="No">
+                <label for="sbmcNo">No</label>
+
+                <label>B.14 Parent-Teacher Association (PTA) / Parents' Forum (PF)/ Mother’s Association</label>
+                <input type="radio" id="ptaYes" name="schoolCharacteristics.ptaLastYear" value="Yes">
+                <label for="ptaYes">Yes</label>
+                <input type="radio" id="ptaNo" name="schoolCharacteristics.ptaLastYear" value="No">
+                <label for="ptaNo">No</label>
+
+                <label for="lastInspectionDate">B.15 Date of Last Inspection Visit</label>
+                <input type="date" id="lastInspectionDate" name="schoolCharacteristics.lastInspectionDate">
+                <label for="numberOfInspections">Number of inspection Visit in last academic year</label>
+                <input type="number" id="numberOfInspections" name="schoolCharacteristics.numberOfInspections">
+
+                <label>B.16 Authority of Last Inspection</label>
+                <input type="radio" id="federal" name="schoolCharacteristics.lastInspectionAuthority" value="Federal">
+                <label for="federal">Federal</label>
+                <input type="radio" id="stateInsp" name="schoolCharacteristics.lastInspectionAuthority" value="State">
+                <label for="stateInsp">State</label>
+                <input type="radio" id="lgeaInsp" name="schoolCharacteristics.lastInspectionAuthority" value="LGEA">
+                <label for="lgeaInsp">LGEA</label>
+
+                <label for="conditionalCashTransfer">B.17 Conditional Cash Transfer</label>
+                <input type="number" id="conditionalCashTransfer" name="schoolCharacteristics.conditionalCashTransferBeneficiaries">
+
+                <label>B.18 School Grants</label>
+                <input type="radio" id="grantsYes" name="schoolCharacteristics.grantsLastYear" value="Yes">
+                <label for="grantsYes">Yes</label>
+                <input type="radio" id="grantsNo" name="schoolCharacteristics.grantsLastYear" value="No">
+                <label for="grantsNo">No</label>
+
+                <label>B.19 Security Guard</label>
+                <input type="radio" id="securityGuardYes" name="schoolCharacteristics.securityGuard" value="Yes">
+                <label for="securityGuardYes">Yes</label>
+                <input type="radio" id="securityGuardNo" name="schoolCharacteristics.securityGuard" value="No">
+                <label for="securityGuardNo">No</label>
+
+                <label>B.20 Ownership</label>
+                <input type="radio" id="ownershipFederal" name="schoolCharacteristics.ownership" value="Federal">
+                <label for="ownershipFederal">Federal</label>
+                <input type="radio" id="ownershipState" name="schoolCharacteristics.ownership" value="State">
+                <label for="ownershipState">State</label>
+                <input type="radio" id="ownershipLGEA" name="schoolCharacteristics.ownership" value="LGEA">
+                <label for="ownershipLGEA">LGEA</label>
+                <input type="radio" id="ownershipCommunity" name="schoolCharacteristics.ownership" value="Community">
+                <label for="ownershipCommunity">Community</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>C. Enrolment</legend>
+                <label for="jss1BirthCert">C.1 Number of students with Birth Certificates in JSS1</label>
+                <input type="number" id="jss1BirthCert" name="enrolment.studentsWithBirthCertificatesJSS1">
+
+                <label for="newEntrantsJSS1">C.2 New entrants into JSS1</label>
+                <input type="number" id="newEntrantsJSS1" name="enrolment.newEntrantsJSS1">
+
+                <label>C.3 Junior Secondary Enrolment by age for the Current Academic Year</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>JS1</th>
+                            <th>JS2</th>
+                            <th>JS3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No. of streams</td>
+                            <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.streams"></td>
+                            <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.streams"></td>
+                            <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.streams"></td>
+                        </tr>
+                        <tr>
+                            <td>No. of streams with Multigrade teaching</td>
+                            <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.multigradeStreams"></td>
+                            <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.multigradeStreams"></td>
+                            <td colspan="2"><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.multigradeStreams"></td>
+                        </tr>
+                        <tr>
+                            <td>Below 12 years</td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.below12.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.below12.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.below12.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.below12.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.below12.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.below12.female"></td>
+                        </tr>
+                        <tr>
+                            <td>12 Years</td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age12.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age12.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age12.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age12.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age12.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age12.female"></td>
+                        </tr>
+                        <tr>
+                            <td>13 Years</td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age13.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age13.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age13.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age13.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age13.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age13.female"></td>
+                        </tr>
+                        <tr>
+                            <td>14 Years</td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age14.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.age14.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age14.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.age14.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age14.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.age14.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Above 14 years</td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.above14.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.above14.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.above14.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.above14.female"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.above14.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.above14.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.total.male" readonly></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js1.total.female" readonly></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.total.male" readonly></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js2.total.female" readonly></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.total.male" readonly></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.total.female" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>No. Completed JSS 3 for previous year</td>
+                            <td colspan="4"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.completedPreviousYear.male"></td>
+                            <td><input type="number" name="enrolment.juniorSecondaryEnrolment.js3.completedPreviousYear.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <label>C.4 Students Flow for the Current Academic Year Junior Secondary School</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Students Flow</th>
+                            <th>JS 1</th>
+                            <th>JS 2</th>
+                            <th>JS 3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dropout</td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.dropout.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.dropout.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.dropout.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.dropout.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.dropout.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.dropout.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer in</td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.transferIn.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.transferIn.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.transferIn.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.transferIn.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.transferIn.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.transferIn.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer out</td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.transferOut.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.transferOut.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.transferOut.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.transferOut.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.transferOut.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.transferOut.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Repeaters</td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.repeaters.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.repeaters.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.repeaters.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.repeaters.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.repeaters.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.repeaters.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Promoted</td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.promoted.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js1.promoted.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.promoted.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js2.promoted.female"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.promoted.male"></td>
+                            <td><input type="number" name="enrolment.studentFlow.js3.promoted.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <label>C.5 Students with Special Needs for the Current Academic Year</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Challenge that impacts the ability to learn</th>
+                            <th>JS 1</th>
+                            <th>JS 2</th>
+                            <th>JS 3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blind / visually impaired</td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.blind.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.blind.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.blind.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.blind.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.blind.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.blind.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Hearing / speech impaired</td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.hearingImpaired.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.hearingImpaired.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.hearingImpaired.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.hearingImpaired.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.hearingImpaired.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.hearingImpaired.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Physically challenged</td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.physicallyChallenged.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.physicallyChallenged.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.physicallyChallenged.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.physicallyChallenged.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.physicallyChallenged.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.physicallyChallenged.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Mentally challenged</td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.mentallyChallenged.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.mentallyChallenged.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.mentallyChallenged.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.mentallyChallenged.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.mentallyChallenged.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.mentallyChallenged.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Albinism</td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.albinism.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.albinism.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.albinism.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.albinism.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.albinism.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.albinism.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Autism</td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.autism.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js1.autism.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.autism.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js2.autism.female"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.autism.male"></td>
+                            <td><input type="number" name="enrolment.studentsWithSpecialNeeds.js3.autism.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <label>C.6 JSCE examination for the previous Academic Year</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>How many students</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>registered for JSCE?</td>
+                            <td><input type="number" name="enrolment.jsceExams.registered.male"></td>
+                            <td><input type="number" name="enrolment.jsceExams.registered.female"></td>
+                            <td><input type="number" name="enrolment.jsceExams.registered.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>took part in (sat for) the JSCE?</td>
+                            <td><input type="number" name="enrolment.jsceExams.sat.male"></td>
+                            <td><input type="number" name="enrolment.jsceExams.sat.female"></td>
+                            <td><input type="number" name="enrolment.jsceExams.sat.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>passed JSCE?</td>
+                            <td><input type="number" name="enrolment.jsceExams.passed.male"></td>
+                            <td><input type="number" name="enrolment.jsceExams.passed.female"></td>
+                            <td><input type="number" name="enrolment.jsceExams.passed.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="enrolment.jsceExams.total.male" readonly></td>
+                            <td><input type="number" name="enrolment.jsceExams.total.female" readonly></td>
+                            <td><input type="number" name="enrolment.jsceExams.total.total" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>D. STAFF</legend>
+                <label>D.1 How many non-teachings staff are working at the school?</label>
+                <input type="number" name="staff.nonTeaching.male" placeholder="Male">
+                <input type="number" name="staff.nonTeaching.female" placeholder="Female">
+                <input type="number" name="staff.nonTeaching.total" placeholder="Total" readonly>
+                <label>D.2 How many teachers are working at the school regardless of whether they are currently present or on course or absent</label>
+                <input type="number" name="staff.teaching.male" placeholder="Male">
+                <input type="number" name="staff.teaching.female" placeholder="Female">
+                <input type="number" name="staff.teaching.total" placeholder="Total" readonly>
+                <label>D.3 Information on all staff during the school year</label>
+                <div id="staff-info-container">
+                    <!-- Staff member fields will be dynamically added here -->
+                </div>
+                <button type="button" onclick="addStaff()">Add Staff</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>E. CLASSROOMS</legend>
+                <label for="numberOfClassrooms">E.1 How many classrooms are there in the school?</label>
+                <input type="number" id="numberOfClassrooms" name="classrooms.numberOfClassrooms">
+                <label>E.2 Are classes held outside because of insufficient classrooms? If yes, how many?</label>
+                <input type="radio" name="classrooms.classesHeldOutside.held" value="Yes"> Yes
+                <input type="number" name="classrooms.classesHeldOutside.number" placeholder="Number">
+                <input type="radio" name="classrooms.classesHeldOutside.held" value="No"> No
+                <label>E.3 Information on all classrooms</label>
+                <div id="classroom-info-container">
+                    <!-- Classroom fields will be dynamically added here -->
+                </div>
+                <button type="button" onclick="addClassroom()">Add Classroom</button>
+                <label>E.5 Number of rooms other than classrooms are there in the school by type of room</label>
+                <input type="number" name="classrooms.otherRooms.staffRooms" placeholder="Staff rooms">
+                <input type="number" name="classrooms.otherRooms.office" placeholder="Office">
+                <input type="number" name="classrooms.otherRooms.library" placeholder="Library">
+                <input type="number" name="classrooms.otherRooms.laboratories" placeholder="Laboratories">
+                <input type="number" name="classrooms.otherRooms.storeRoom" placeholder="Store room">
+                <input type="number" name="classrooms.otherRooms.others" placeholder="Others">
+            </fieldset>
+
+            <fieldset>
+                <legend>F. FACILITIES</legend>
+                <label>F.1 Source(s) of safe drinking water</label>
+                <input type="checkbox" name="facilities.safeDrinkingWater" value="Pipe-borne Water"> Pipe-borne Water
+                <input type="checkbox" name="facilities.safeDrinkingWater" value="Borehole"> Borehole
+                <input type="checkbox" name="facilities.safeDrinkingWater" value="Well"> Well
+                <input type="checkbox" name="facilities.safeDrinkingWater" value="Other"> Other
+                <input type="text" name="facilities.safeDrinkingWaterOther" placeholder="Specify other">
+                <input type="checkbox" name="facilities.safeDrinkingWater" value="No Source of Safe Water"> No Source of Safe Water
+                <label>F.2 Facilities available</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Useable</th>
+                            <th>Not useable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Toilets</td>
+                            <td><input type="number" name="facilities.availableFacilities.toilets.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.toilets.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Computers</td>
+                            <td><input type="number" name="facilities.availableFacilities.computers.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.computers.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Water Source(s)</td>
+                            <td><input type="number" name="facilities.availableFacilities.waterSources.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.waterSources.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Laboratories</td>
+                            <td><input type="number" name="facilities.availableFacilities.laboratories.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.laboratories.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Classrooms</td>
+                            <td><input type="number" name="facilities.availableFacilities.classrooms.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.classrooms.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Library</td>
+                            <td><input type="number" name="facilities.availableFacilities.library.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.library.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Reading Corner</td>
+                            <td><input type="number" name="facilities.availableFacilities.readingCorner.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.readingCorner.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Play Ground(s)</td>
+                            <td><input type="number" name="facilities.availableFacilities.playgrounds.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.playgrounds.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Wash hand facility</td>
+                            <td><input type="number" name="facilities.availableFacilities.washHandFacility.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.washHandFacility.notUseable"></td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                            <td><input type="number" name="facilities.availableFacilities.others.useable"></td>
+                            <td><input type="number" name="facilities.availableFacilities.others.notUseable"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>F.3 Shared Facilities</label>
+                <input type="checkbox" name="facilities.sharedFacilities.toilets" value="true"> Toilets
+                <input type="checkbox" name="facilities.sharedFacilities.classrooms" value="true"> Classrooms
+                <input type="checkbox" name="facilities.sharedFacilities.computers" value="true"> Computers
+                <input type="checkbox" name="facilities.sharedFacilities.library" value="true"> Library
+                <input type="checkbox" name="facilities.sharedFacilities.waterSources" value="true"> Water Source(s)
+                <input type="checkbox" name="facilities.sharedFacilities.playgrounds" value="true"> Play Ground(s)
+                <input type="checkbox" name="facilities.sharedFacilities.laboratories" value="true"> Laboratories
+                <input type="checkbox" name="facilities.sharedFacilities.washHandFacility" value="true"> Wash hand facility
+                <input type="checkbox" name="facilities.sharedFacilities.others" value="true"> Others
+                <label>F.4 Number of useable toilets units by each type of toilet.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="3">Used only by students</th>
+                            <th colspan="3">Used only by teachers</th>
+                            <th colspan="3">Used by students and teachers</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male only</th>
+                            <th>Female only</th>
+                            <th>Mixed</th>
+                            <th>Male only</th>
+                            <th>Female only</th>
+                            <th>Mixed</th>
+                            <th>Male only</th>
+                            <th>Female only</th>
+                            <th>Mixed</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pit</td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.pit.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.pit.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.pit.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.pit.male"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.pit.female"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.pit.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.pit.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.pit.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.pit.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.total.pit" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Bucket system</td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.bucket.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.bucket.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.bucket.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.bucket.male"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.bucket.female"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.bucket.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.bucket.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.bucket.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.bucket.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.total.bucket" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Water flush</td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.waterFlush.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.waterFlush.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.waterFlush.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.waterFlush.male"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.waterFlush.female"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.waterFlush.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.waterFlush.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.waterFlush.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.waterFlush.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.total.waterFlush" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.others.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.others.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentOnly.others.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.others.male"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.others.female"></td>
+                            <td><input type="number" name="facilities.toilets.teacherOnly.others.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.others.male"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.others.female"></td>
+                            <td><input type="number" name="facilities.toilets.studentAndTeacher.others.mixed"></td>
+                            <td><input type="number" name="facilities.toilets.total.others" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>F.5 Source (s) of power</label>
+                <input type="checkbox" name="facilities.powerSources" value="PHCN/NEPA"> PHCN/NEPA
+                <input type="checkbox" name="facilities.powerSources" value="Generator"> Generator
+                <input type="checkbox" name="facilities.powerSources" value="Solar"> Solar
+                <input type="checkbox" name="facilities.powerSources" value="No source of Power"> No source of Power
+                <label>F.6.1 Health facility</label>
+                <input type="checkbox" name="facilities.healthFacility.type" value="Health Clinic/Sick Bay"> Health Clinic/Sick Bay
+                <input type="checkbox" name="facilities.healthFacility.type" value="First Aid Kit"> First Aid Kit
+                <input type="checkbox" name="facilities.healthFacility.type" value="No Health facility"> No Health facility
+                <label>F.6.2 Does the school have health personnel?</label>
+                <input type="radio" name="facilities.healthFacility.hasPersonnel" value="Yes"> Yes
+                <input type="radio" name="facilities.healthFacility.hasPersonnel" value="No"> No
+                <label>F.7 Safety Facilities</label>
+                <input type="checkbox" name="facilities.safetyFacilities" value="perimeter fence"> perimeter fence
+                <label>F.8 Agricultural Facilities</label>
+                <input type="checkbox" name="facilities.agriculturalFacilities" value="Poultry Farm"> Poultry Farm
+                <input type="checkbox" name="facilities.agriculturalFacilities" value="Fish Pond"> Fish Pond
+                <input type="checkbox" name="facilities.agriculturalFacilities" value="Piggery Pen"> Piggery Pen
+                <input type="checkbox" name="facilities.agriculturalFacilities" value="School Farm"> School Farm
+                <input type="checkbox" name="facilities.agriculturalFacilities" value="Others"> Others
+                <label>F.8 Additional Class Information</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>1 Seater</th>
+                            <th>2-Seater</th>
+                            <th>3-Seater</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JSS 1</td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss1.oneSeater"></td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss1.twoSeater"></td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss1.threeSeater"></td>
+                        </tr>
+                        <tr>
+                            <td>JSS 2</td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss2.oneSeater"></td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss2.twoSeater"></td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss2.threeSeater"></td>
+                        </tr>
+                        <tr>
+                            <td>JSS 3</td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss3.oneSeater"></td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss3.twoSeater"></td>
+                            <td><input type="number" name="facilities.additionalClassInfo.jss3.threeSeater"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>G. NUMBER OF STUDENT BY SUBJECT</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class/Subject</th>
+                            <th colspan="2">JSS1</th>
+                            <th colspan="2">JSS2</th>
+                            <th colspan="2">JSS3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentBySubject.english.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.english.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.english.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.english.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.english.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.english.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentBySubject.mathematics.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.mathematics.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.mathematics.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.mathematics.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.mathematics.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.mathematics.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentBySubject.nationalValues.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.nationalValues.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.nationalValues.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.nationalValues.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.nationalValues.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.nationalValues.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts</td>
+                            <td><input type="number" name="studentBySubject.culturalAndCreativeArts.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.culturalAndCreativeArts.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.culturalAndCreativeArts.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.culturalAndCreativeArts.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.culturalAndCreativeArts.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.culturalAndCreativeArts.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentBySubject.basicScienceAndTechnology.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.basicScienceAndTechnology.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.basicScienceAndTechnology.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.basicScienceAndTechnology.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.basicScienceAndTechnology.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.basicScienceAndTechnology.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Prevocational Studies</td>
+                            <td><input type="number" name="studentBySubject.prevocationalStudies.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.prevocationalStudies.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.prevocationalStudies.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.prevocationalStudies.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.prevocationalStudies.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.prevocationalStudies.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentBySubject.businessStudies.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.businessStudies.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.businessStudies.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.businessStudies.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.businessStudies.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.businessStudies.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentBySubject.history.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.history.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.history.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.history.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.history.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.history.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentBySubject.french.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.french.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.french.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.french.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.french.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.french.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Arabic Language</td>
+                            <td><input type="number" name="studentBySubject.arabic.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.arabic.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.arabic.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.arabic.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.arabic.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.arabic.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentBySubject.christianReligiousStudies.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.christianReligiousStudies.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.christianReligiousStudies.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.christianReligiousStudies.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.christianReligiousStudies.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.christianReligiousStudies.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentBySubject.islamicReligiousStudies.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.islamicReligiousStudies.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.islamicReligiousStudies.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.islamicReligiousStudies.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.islamicReligiousStudies.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.islamicReligiousStudies.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo</td>
+                            <td><input type="number" name="studentBySubject.igbo.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.igbo.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.igbo.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.igbo.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.igbo.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.igbo.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa</td>
+                            <td><input type="number" name="studentBySubject.hausa.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.hausa.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.hausa.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.hausa.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.hausa.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.hausa.js3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba</td>
+                            <td><input type="number" name="studentBySubject.yoruba.js1.male"></td>
+                            <td><input type="number" name="studentBySubject.yoruba.js1.female"></td>
+                            <td><input type="number" name="studentBySubject.yoruba.js2.male"></td>
+                            <td><input type="number" name="studentBySubject.yoruba.js2.female"></td>
+                            <td><input type="number" name="studentBySubject.yoruba.js3.male"></td>
+                            <td><input type="number" name="studentBySubject.yoruba.js3.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>H. STUDENT/TEACHER BOOK</legend>
+                <label>H.1.1 NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO STUDENTS PROVIDED BY GOVERNMENT.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Area</th>
+                            <th>JSS1</th>
+                            <th>JSS2</th>
+                            <th>JSS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.english.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.english.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.english.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.mathematics.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.mathematics.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.mathematics.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.nationalValues.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.nationalValues.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.nationalValues.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.basicScienceAndTechnology.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.basicScienceAndTechnology.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.basicScienceAndTechnology.js3"></td>
+                        </tr>
+                         <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.history.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.history.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.history.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.christianReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.christianReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.christianReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.islamicReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.islamicReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.islamicReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.french.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.french.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.french.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Vocational Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.prevocationalStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.prevocationalStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.prevocationalStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.businessStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.businessStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.businessStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.igbo.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.igbo.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.igbo.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.hausa.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.hausa.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.hausa.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.yoruba.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.yoruba.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.yoruba.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts (CCA)</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.culturalAndCreativeArts.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.culturalAndCreativeArts.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByGovt.culturalAndCreativeArts.js3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>H.1.2 NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO STUDENTS PROVIDED BY ANY OTHER SOURCE.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Area</th>
+                            <th>JSS1</th>
+                            <th>JSS2</th>
+                            <th>JSS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.english.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.english.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.english.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.mathematics.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.mathematics.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.mathematics.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.nationalValues.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.nationalValues.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.nationalValues.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.basicScienceAndTechnology.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.basicScienceAndTechnology.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.basicScienceAndTechnology.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.history.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.history.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.history.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.christianReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.christianReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.christianReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.islamicReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.islamicReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.islamicReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.french.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.french.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.french.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Vocational Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.prevocationalStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.prevocationalStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.prevocationalStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.businessStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.businessStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.businessStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.igbo.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.igbo.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.igbo.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.hausa.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.hausa.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.hausa.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba Language</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.yoruba.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.yoruba.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.yoruba.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts (CCA)</td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.culturalAndCreativeArts.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.culturalAndCreativeArts.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.textbooksByOther.culturalAndCreativeArts.js3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>H.2.1 NUMBER OF CORE SUBJECT STUDENTS’ TEXTBOOKS MADE AVAILABLE TO TEACHERS IN THE SCHOOL PROVIDED BY GOVERNMENT.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Area</th>
+                            <th>JSS1</th>
+                            <th>JSS2</th>
+                            <th>JSS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.english.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.english.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.english.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.mathematics.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.mathematics.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.mathematics.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.nationalValues.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.nationalValues.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.nationalValues.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.basicScienceAndTechnology.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.basicScienceAndTechnology.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.basicScienceAndTechnology.js3"></td>
+                        </tr>
+                         <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.history.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.history.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.history.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.christianReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.christianReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.christianReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.islamicReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.islamicReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.islamicReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.french.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.french.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.french.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Vocational Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.prevocationalStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.prevocationalStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.prevocationalStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.businessStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.businessStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.businessStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.igbo.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.igbo.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.igbo.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.hausa.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.hausa.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.hausa.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.yoruba.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.yoruba.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.yoruba.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts (CCA)</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.culturalAndCreativeArts.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.culturalAndCreativeArts.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByGovt.culturalAndCreativeArts.js3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>H.2.2 NUMBER OF CORE SUBJECT STUDENTS’ TEXTBOOKS MADE AVAILABLE TO TEACHERS IN THE SCHOOL PROVIDED BY ANY OTHER SOURCE.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Area</th>
+                            <th>JSS1</th>
+                            <th>JSS2</th>
+                            <th>JSS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.english.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.english.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.english.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.mathematics.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.mathematics.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.mathematics.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.nationalValues.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.nationalValues.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.nationalValues.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.basicScienceAndTechnology.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.basicScienceAndTechnology.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.basicScienceAndTechnology.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.history.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.history.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.history.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.christianReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.christianReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.christianReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.islamicReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.islamicReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.islamicReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.french.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.french.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.french.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Vocational Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.prevocationalStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.prevocationalStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.prevocationalStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.businessStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.businessStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.businessStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.igbo.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.igbo.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.igbo.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.hausa.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.hausa.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.hausa.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.yoruba.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.yoruba.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.yoruba.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts (CCA)</td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.culturalAndCreativeArts.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.culturalAndCreativeArts.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherTextbooksByOther.culturalAndCreativeArts.js3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>H.3.1 NUMBER OF CORE SUBJECT TEACHERS’ GUIDES AVAILABLE IN THE SCHOOL IN THE CURRENT ACADEMIC YEAR PROVIDED BY GOVERNMENT.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Area</th>
+                            <th>JSS1</th>
+                            <th>JSS2</th>
+                            <th>JSS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.english.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.english.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.english.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.mathematics.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.mathematics.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.mathematics.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.nationalValues.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.nationalValues.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.nationalValues.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.basicScienceAndTechnology.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.basicScienceAndTechnology.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.basicScienceAndTechnology.js3"></td>
+                        </tr>
+                         <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.history.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.history.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.history.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.christianReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.christianReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.christianReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.islamicReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.islamicReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.islamicReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.french.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.french.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.french.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Vocational Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.prevocationalStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.prevocationalStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.prevocationalStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.businessStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.businessStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.businessStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.igbo.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.igbo.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.igbo.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.hausa.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.hausa.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.hausa.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.yoruba.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.yoruba.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.yoruba.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts (CCA)</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.culturalAndCreativeArts.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.culturalAndCreativeArts.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByGovt.culturalAndCreativeArts.js3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <label>H.3.2 NUMBER OF CORE SUBJECT TEACHERS’ GUIDES AVAILABLE IN THE SCHOOL IN THE CURRENT ACADEMIC YEAR PROVIDED BY ANY OTHER SOURCES.</label>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject Area</th>
+                            <th>JSS1</th>
+                            <th>JSS2</th>
+                            <th>JSS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>English Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.english.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.english.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.english.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.mathematics.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.mathematics.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.mathematics.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>National Values</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.nationalValues.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.nationalValues.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.nationalValues.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Basic Science & Technology</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.basicScienceAndTechnology.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.basicScienceAndTechnology.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.basicScienceAndTechnology.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.history.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.history.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.history.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Christian Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.christianReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.christianReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.christianReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Islamic Religious Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.islamicReligiousStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.islamicReligiousStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.islamicReligiousStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>French Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.french.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.french.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.french.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Pre-Vocational Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.prevocationalStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.prevocationalStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.prevocationalStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Business Studies</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.businessStudies.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.businessStudies.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.businessStudies.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Igbo Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.igbo.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.igbo.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.igbo.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Hausa Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.hausa.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.hausa.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.hausa.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Yoruba Language</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.yoruba.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.yoruba.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.yoruba.js3"></td>
+                        </tr>
+                        <tr>
+                            <td>Cultural & Creative Arts (CCA)</td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.culturalAndCreativeArts.js1"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.culturalAndCreativeArts.js2"></td>
+                            <td><input type="number" name="studentTeacherBook.teacherGuidesByOther.culturalAndCreativeArts.js3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>I. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION IN THE CURRENT ACADEMIC YEAR</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Highest Academic qualification</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ph.D.</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.phd.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.phd.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.phd.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Masters with Teaching Qualification</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.mastersWithTeaching.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.mastersWithTeaching.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.mastersWithTeaching.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Masters without Teaching Qualification</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.mastersWithoutTeaching.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.mastersWithoutTeaching.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.mastersWithoutTeaching.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Degree with Teaching Qualification</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.degreeWithTeaching.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.degreeWithTeaching.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.degreeWithTeaching.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Degree without Teaching Qualification</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.degreeWithoutTeaching.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.degreeWithoutTeaching.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.degreeWithoutTeaching.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>HND with Teaching Qualification</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.hndWithTeaching.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.hndWithTeaching.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.hndWithTeaching.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>HND without Teaching Qualification</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.hndWithoutTeaching.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.hndWithoutTeaching.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.hndWithoutTeaching.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>NCE</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.nce.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.nce.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.nce.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>OND/Diploma/ND</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.ond.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.ond.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.ond.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Grade II</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.gradeII.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.gradeII.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.gradeII.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>SSCE/WASC/WASSC/GCE</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.ssce.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.ssce.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.ssce.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Below SSCE</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.belowSSCE.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.belowSSCE.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.belowSSCE.total" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.others.male"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.others.female"></td>
+                            <td><input type="number" name="teacherQualificationByLevel.jss.others.total" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>J. SCHOOL WELL-BEING</legend>
+                <label>H.1 School rules and regulations/guidelines</label>
+                <input type="radio" name="schoolWellBeing.hasRules" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.hasRules" value="NO"> NO
+
+                <label>Do the rules and guidelines in your school cover the following aspects?</label>
+                <label>1. Physical safety in School?</label>
+                <label>a. Bullying ?</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.bullying" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.bullying" value="NO"> NO
+                <label>b. Physical Violence?</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.physicalViolence" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.physicalViolence" value="NO"> NO
+                <label>c. Corporal punishment?</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.corporalPunishment" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.corporalPunishment" value="NO"> NO
+                <label>d. Does the school have security personnel?</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasSecurityPersonnel" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasSecurityPersonnel" value="NO"> NO
+                <label>e. Does the school have a perimeter fence?</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasPerimeterFence" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasPerimeterFence" value="NO"> NO
+                <label>f. Has your school been ever attacked?</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasBeenAttacked" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasBeenAttacked" value="NO"> NO
+                <label>g. If Yes, how many times has your school been attacked in the last three (3) years?</label>
+                <input type="number" name="schoolWellBeing.rulesCover.physicalSafety.timesAttackedLast3Years">
+                <label>h. Others (please specify)</label>
+                <input type="text" name="schoolWellBeing.rulesCover.physicalSafety.others">
+
+                <label>2. Stigma and discrimination towards:</label>
+                <label>a. learners living with/affected by HIV</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHIV" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHIV" value="NO"> NO
+                <label>b. learners based on ethnicity</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersEthnicity" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersEthnicity" value="NO"> NO
+                <label>c. learners that have been harassed/abused</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHarassed" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHarassed" value="NO"> NO
+                <label>d. staff living with/affected by HIV</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHIV" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHIV" value="NO"> NO
+                <label>e. staff based on ethnicity</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffEthnicity" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffEthnicity" value="NO"> NO
+                <label>f. staff that have been harassed/abused</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHarassed" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHarassed" value="NO"> NO
+
+                <label>3. Grievance/disciplinary procedures in case of breach of the regulation described in the rules and guidelines.</label>
+                <input type="radio" name="schoolWellBeing.rulesCover.grievanceProcedures" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.rulesCover.grievanceProcedures" value="NO"> NO
+
+                <label>H.2 Communication of rules and guidelines</label>
+                <label>Has your school communicated information about the rules and guidelines to learners?</label>
+                <input type="radio" name="schoolWellBeing.communicationOfRules.toLearners" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.communicationOfRules.toLearners" value="NO"> NO
+                <label>Has your school communicated information about the rules and guidelines to teachers?</label>
+                <input type="radio" name="schoolWellBeing.communicationOfRules.toTeachers" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.communicationOfRules.toTeachers" value="NO"> NO
+                <label>Has your school communicated information about the rules and guidelines to parents?</label>
+                <input type="radio" name="schoolWellBeing.communicationOfRules.toParents" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.communicationOfRules.toParents" value="NO"> NO
+
+                <label>H.3 School Well-being Education</label>
+                <label>1. Did learners in your school receive any form of life-skills-based SWB Education in the previous academic year?</label>
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.receivedLifeSkills" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.receivedLifeSkills" value="NO"> NO
+                <label>2. If yes, indicate which of these topics were covered</label>
+                <label>a. Teaching on generic life skills</label>
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.genericLifeSkills" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.genericLifeSkills" value="NO"> NO
+                <label>b. Teaching on reproductive health</label>
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.reproductiveHealth" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.reproductiveHealth" value="NO"> NO
+                <label>c. Teaching on HIV transmission and prevention.</label>
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.hivPrevention" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.hivPrevention" value="NO"> NO
+                <label>d. Teaching on Epidemics such as Cholera, Lassa Fever, and others</label>
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.epidemics" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.epidemics" value="NO"> NO
+                <label>e. Teaching on Pandemics such as COVID-19, Ebola and others</label>
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.pandemics" value="YES"> YES
+                <input type="radio" name="schoolWellBeing.wellBeingEducation.topicsCovered.pandemics" value="NO"> NO
+
+                <label>H.4 Number of learners that received/participated in SWB Life Skills in the previous year?</label>
+                <input type="number" name="schoolWellBeing.learnersReceivedSWB.male" placeholder="Male">
+                <input type="number" name="schoolWellBeing.learnersReceivedSWB.female" placeholder="Female">
+
+                <label>H.5 Orientation Process for Parents or Guardians of Learners</label>
+                <label>How many times has your school organized an orientation program for parents or guardians of learners regarding SWB in the previous academic year?</label>
+                <input type="number" name="schoolWellBeing.parentOrientation.timesOrganized">
+                <label>In what fora was the orientation program provided?</label>
+                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora" value="PTA"> PTA
+                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora" value="Open Day"> Open Day
+                <input type="checkbox" name="schoolWellBeing.parentOrientation.fora" value="Special Session(s)"> Special Session(s)
+
+                <label>H.6 Date of Last Orientation</label>
+                <input type="date" name="schoolWellBeing.lastOrientationDate">
+
+                <label>H.7 Life skills-based Well-being: Teacher training</label>
+                <label>How many teachers in your school received formal training on SWB?</label>
+                <input type="number" name="schoolWellBeing.teacherTraining.receivedFormalTraining.male" placeholder="Male">
+                <input type="number" name="schoolWellBeing.teacherTraining.receivedFormalTraining.female" placeholder="Female">
+                <label>How many teachers in your school who received formal training in the previous year also taught related topics on SWB</label>
+                <input type="number" name="schoolWellBeing.teacherTraining.taughtRelatedTopics.male" placeholder="Male">
+                <input type="number" name="schoolWellBeing.teacherTraining.taughtRelatedTopics.female" placeholder="Female">
+            </fieldset>
+
+            <fieldset>
+                <legend>K. UNDERTAKING</legend>
+                <label>Attestation by Principal</label>
+                <input type="text" name="undertaking.principal.name" placeholder="Name">
+                <input type="text" name="undertaking.principal.telephone" placeholder="Telephone">
+                <input type="text" name="undertaking.principal.signature" placeholder="Signature">
+                <input type="date" name="undertaking.principal.date">
+                <label>Attestation by SBMC Chairperson/member</label>
+                <input type="text" name="undertaking.sbmcChairperson.name" placeholder="Name">
+                <input type="text" name="undertaking.sbmcChairperson.position" placeholder="Position">
+                <input type="text" name="undertaking.sbmcChairperson.telephone" placeholder="Telephone">
+                <input type="text" name="undertaking.sbmcChairperson.signature" placeholder="Signature">
+                <input type="date" name="undertaking.sbmcChairperson.date">
+                <label>Attestation by Supervisor</label>
+                <input type="text" name="undertaking.supervisor.name" placeholder="Name">
+                <input type="text" name="undertaking.supervisor.position" placeholder="Position">
+                <input type="text" name="undertaking.supervisor.telephone" placeholder="Telephone">
+                <input type="text" name="undertaking.supervisor.signature" placeholder="Signature">
+                <input type="date" name="undertaking.supervisor.date">
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <script src="jss.js"></script>
+</body>
+</html>

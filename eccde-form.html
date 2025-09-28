@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECCDE Primary Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/science-report">Science Reports</a></li>
+                <li><a href="/audit-log">Audit Log</a></li>
+                <li><a href="/forms">School Census Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>ECCDE Primary Form</h1>
+        <form id="eccdeForm">
+            <!-- School Identification -->
+            <h2>A. School Identification</h2>
+            <p><strong>For Head Teacher Only:</strong> Search for your school using search school option in the NEMIS ASC PORTAL. If school is not found, prompt the LEMIS or SEMIS Officer to add school.</p>
+            <div>
+                <label for="schoolCode">School Code</label>
+                <input type="text" id="schoolCode" name="schoolCode">
+            </div>
+            <div>
+                <label for="latitude">Latitude North</label>
+                <input type="text" id="latitude" name="latitude">
+            </div>
+            <div>
+                <label for="longitude">Longitude East</label>
+                <input type="text" id="longitude" name="longitude">
+            </div>
+            <div>
+                <label for="elevation">Elevation (Meter)</label>
+                <input type="text" id="elevation" name="elevation">
+            </div>
+            <div>
+                <label for="schoolName">A.1 School Name</label>
+                <input type="text" id="schoolName" name="schoolName">
+            </div>
+            <div>
+                <label for="streetName">A.2 Number and Street name</label>
+                <input type="text" id="streetName" name="streetName">
+            </div>
+            <div>
+                <label for="villageTown">A.3 Name of Village or Town</label>
+                <input type="text" id="villageTown" name="villageTown">
+            </div>
+            <div>
+                <label for="ward">A.4 Ward</label>
+                <input type="text" id="ward" name="ward">
+            </div>
+            <div>
+                <label for="lga">A.5 LGA</label>
+                <input type="text" id="lga" name="lga">
+            </div>
+            <div>
+                <label for="state">A.6 State</label>
+                <input type="text" id="state" name="state">
+            </div>
+            <div>
+                <label for="schoolTelephone">A.7 School Telephone</label>
+                <input type="text" id="schoolTelephone" name="schoolTelephone">
+            </div>
+            <div>
+                <label for="emailAddress">A.8 E-mail Address</label>
+                <input type="email" id="emailAddress" name="emailAddress">
+            </div>
+
+            <!-- School Characteristics -->
+            <h2>B. School Characteristics</h2>
+            <div>
+                <label for="yearOfEstablishment">B.1 Year of establishment</label>
+                <input type="number" id="yearOfEstablishment" name="yearOfEstablishment">
+            </div>
+            <div>
+                <label>B.2 Location</label>
+                <input type="radio" id="urban" name="location" value="Urban">
+                <label for="urban">Urban</label>
+                <input type="radio" id="rural" name="location" value="Rural">
+                <label for="rural">Rural</label>
+            </div>
+            <div>
+                <label>B.3 Levels of education Offered</label>
+                <input type="radio" id="prePrimaryOnly" name="educationLevel" value="Pre-primary only">
+                <label for="prePrimaryOnly">Pre-primary only</label>
+                <input type="radio" id="prePrimaryAndPrimary" name="educationLevel" value="Pre-primary and primary">
+                <label for="prePrimaryAndPrimary">Pre-primary and primary</label>
+                <input type="radio" id="primaryOnly" name="educationLevel" value="Primary only">
+                <label for="primaryOnly">Primary only</label>
+            </div>
+            <div>
+                <label>B.4 Type of school</label>
+                <input type="radio" id="regular" name="schoolType" value="Regular">
+                <label for="regular">Regular</label>
+                <input type="radio" id="nomadic" name="schoolType" value="Nomadic (Migrants)">
+                <label for="nomadic">Nomadic (Migrants)</label>
+                <input type="radio" id="islamiyya" name="schoolType" value="Islamiyya integrated">
+                <label for="islamiyya">Islamiyya integrated</label>
+                <input type="radio" id="specialNeeds" name="schoolType" value="Special needs">
+                <label for="specialNeeds">Special needs</label>
+            </div>
+            <div>
+                <label>B.5 Shifts: Does the School operate shift system?</label>
+                <input type="radio" id="shiftsYes" name="shifts" value="Yes">
+                <label for="shiftsYes">Yes</label>
+                <input type="radio" id="shiftsNo" name="shifts" value="No">
+                <label for="shiftsNo">No</label>
+            </div>
+            <div>
+                <label>B.6 Shared facilities</label>
+                <input type="radio" id="sharedFacilitiesYes" name="sharedFacilities" value="Yes">
+                <label for="sharedFacilitiesYes">Yes</label>
+                <input type="radio" id="sharedFacilitiesNo" name="sharedFacilities" value="No">
+                <label for="sharedFacilitiesNo">No</label>
+            </div>
+            <div>
+                <label for="howManySchoolsSharing">If Yes. How many Schools are sharing facilities:</label>
+                <input type="number" id="howManySchoolsSharing" name="howManySchoolsSharing">
+            </div>
+            <div>
+                <label>B.7 Multi-grade teaching</label>
+                <input type="radio" id="multiGradeYes" name="multiGrade" value="Yes">
+                <label for="multiGradeYes">Yes</label>
+                <input type="radio" id="multiGradeNo" name="multiGrade" value="No">
+                <label for="multiGradeNo">No</label>
+            </div>
+            <div>
+                <label for="distanceFromCatchment">B.8 School: Average Distance from Catchment communities (kilometres)</label>
+                <input type="number" id="distanceFromCatchment" name="distanceFromCatchment">
+            </div>
+            <div>
+                <label for="distanceFromLga">B.9 School: Distance from LGA HQ (kilometres)</label>
+                <input type="number" id="distanceFromLga" name="distanceFromLga">
+            </div>
+            <div>
+                <label for="pupilsDistance">B.10 Pupils: Distance from School (pupils further than 3km)</label>
+                <input type="number" id="pupilsDistance" name="pupilsDistance">
+            </div>
+            <div>
+                <label>B.11 Pupils: Boarding</label>
+                <label for="boardingMale">Male</label>
+                <input type="number" id="boardingMale" name="boardingMale">
+                <label for="boardingFemale">Female</label>
+                <input type="number" id="boardingFemale" name="boardingFemale">
+            </div>
+            <div>
+                <label>B.12 School Development Plan (SDP)</label>
+                <input type="radio" id="sdpYes" name="sdp" value="Yes">
+                <label for="sdpYes">Yes</label>
+                <input type="radio" id="sdpNo" name="sdp" value="No">
+                <label for="sdpNo">No</label>
+            </div>
+            <div>
+                <label>B.13 School Based Management Committee (SBMC)</label>
+                <input type="radio" id="sbmcYes" name="sbmc" value="Yes">
+                <label for="sbmcYes">Yes</label>
+                <input type="radio" id="sbmcNo" name="sbmc" value="No">
+                <label for="sbmcNo">No</label>
+            </div>
+            <div>
+                <label>B.14 Parent-Teacher Association (PTA) / Parents' Forum (PF)/ Mother’s Association</label>
+                <input type="radio" id="ptaYes" name="pta" value="Yes">
+                <label for="ptaYes">Yes</label>
+                <input type="radio" id="ptaNo" name="pta" value="No">
+                <label for="ptaNo">No</label>
+            </div>
+            <div>
+                <label for="lastInspectionDate">B.15 Date of Last Inspection Visit</label>
+                <input type="date" id="lastInspectionDate" name="lastInspectionDate">
+            </div>
+            <div>
+                <label for="inspectionsLastYear">Number of inspections Visit in last academic year</label>
+                <input type="number" id="inspectionsLastYear" name="inspectionsLastYear">
+            </div>
+            <div>
+                <label>B.16 Authority of Last Inspection</label>
+                <input type="radio" id="federal" name="inspectionAuthority" value="Federal">
+                <label for="federal">Federal</label>
+                <input type="radio" id="state" name="inspectionAuthority" value="State">
+                <label for="state">State</label>
+                <input type="radio" id="lgea" name="inspectionAuthority" value="LGEA">
+                <label for="lgea">LGEA</label>
+            </div>
+            <div>
+                <label for="conditionalCashTransfer">B.17 Conditional Cash Transfer (Number of pupils)</label>
+                <input type="number" id="conditionalCashTransfer" name="conditionalCashTransfer">
+            </div>
+            <div>
+                <label>B.18 School Grants</label>
+                <input type="radio" id="grantsYes" name="grants" value="Yes">
+                <label for="grantsYes">Yes</label>
+                <input type="radio" id="grantsNo" name="grants" value="No">
+                <label for="grantsNo">No</label>
+            </div>
+            <div>
+                <label>B.19 Security Guard</label>
+                <input type="radio" id="securityGuardYes" name="securityGuard" value="Yes">
+                <label for="securityGuardYes">Yes</label>
+                <input type="radio" id="securityGuardNo" name="securityGuard" value="No">
+                <label for="securityGuardNo">No</label>
+            </div>
+            <div>
+                <label>B.20 Ownership</label>
+                <input type="radio" id="ownershipFederal" name="ownership" value="Federal">
+                <label for="ownershipFederal">Federal</label>
+                <input type="radio" id="ownershipState" name="ownership" value="State">
+                <label for="ownershipState">State</label>
+                <input type="radio" id="ownershipLGA" name="ownership" value="LGA">
+                <label for="ownershipLGA">LGA</label>
+                <input type="radio" id="ownershipCommunity" name="ownership" value="Community">
+                <label for="ownershipCommunity">Community</label>
+            </div>
+
+            <!-- Enrolment -->
+            <h2>C. Enrolment</h2>
+            <h3>C.1 Number of Children with Birth Certificates</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="2">Kindergarten 1/ECCD</th>
+                        <th colspan="2">Kindergarten 2/ECCD</th>
+                        <th colspan="2">Nursery 1</th>
+                        <th colspan="2">Nursery 2</th>
+                        <th colspan="2">Nursery 3 / One Year pre- primary</th>
+                        <th colspan="2">Primary 1</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>National Population Commission (NPopC) Birth certificates</td>
+                        <td><input type="number" name="birthCert_kg1_male_npopc"></td>
+                        <td><input type="number" name="birthCert_kg1_female_npopc"></td>
+                        <td><input type="number" name="birthCert_kg2_male_npopc"></td>
+                        <td><input type="number" name="birthCert_kg2_female_npopc"></td>
+                        <td><input type="number" name="birthCert_n1_male_npopc"></td>
+                        <td><input type="number" name="birthCert_n1_female_npopc"></td>
+                        <td><input type="number" name="birthCert_n2_male_npopc"></td>
+                        <td><input type="number" name="birthCert_n2_female_npopc"></td>
+                        <td><input type="number" name="birthCert_n3_male_npopc"></td>
+                        <td><input type="number" name="birthCert_n3_female_npopc"></td>
+                        <td><input type="number" name="birthCert_p1_male_npopc"></td>
+                        <td><input type="number" name="birthCert_p1_female_npopc"></td>
+                    </tr>
+                    <tr>
+                        <td>Other Birth certificates</td>
+                        <td><input type="number" name="birthCert_kg1_male_other"></td>
+                        <td><input type="number" name="birthCert_kg1_female_other"></td>
+                        <td><input type="number" name="birthCert_kg2_male_other"></td>
+                        <td><input type="number" name="birthCert_kg2_female_other"></td>
+                        <td><input type="number" name="birthCert_n1_male_other"></td>
+                        <td><input type="number" name="birthCert_n1_female_other"></td>
+                        <td><input type="number" name="birthCert_n2_male_other"></td>
+                        <td><input type="number" name="birthCert_n2_female_other"></td>
+                        <td><input type="number" name="birthCert_n3_male_other"></td>
+                        <td><input type="number" name="birthCert_n3_female_other"></td>
+                        <td><input type="number" name="birthCert_p1_male_other"></td>
+                        <td><input type="number" name="birthCert_p1_female_other"></td>
+                    </tr>
+                    <tr>
+                        <td>National Identification Number (NIN)</td>
+                        <td><input type="number" name="birthCert_kg1_male_nin"></td>
+                        <td><input type="number" name="birthCert_kg1_female_nin"></td>
+                        <td><input type="number" name="birthCert_kg2_male_nin"></td>
+                        <td><input type="number" name="birthCert_kg2_female_nin"></td>
+                        <td><input type="number" name="birthCert_n1_male_nin"></td>
+                        <td><input type="number" name="birthCert_n1_female_nin"></td>
+                        <td><input type="number" name="birthCert_n2_male_nin"></td>
+                        <td><input type="number" name="birthCert_n2_female_nin"></td>
+                        <td><input type="number" name="birthCert_n3_male_nin"></td>
+                        <td><input type="number" name="birthCert_n3_female_nin"></td>
+                        <td><input type="number" name="birthCert_p1_male_nin"></td>
+                        <td><input type="number" name="birthCert_p1_female_nin"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C.2a Number of streams in Pre-primary schools</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Streams</th>
+                        <th>Kindergarten 1/ECCD</th>
+                        <th>Kindergarten 2/ECCD</th>
+                        <th>Nursery 1</th>
+                        <th>Nursery 2</th>
+                        <th>Nursery 3/ One Year pre-primary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No. of Streams</td>
+                        <td><input type="number" name="streams_kg1"></td>
+                        <td><input type="number" name="streams_kg2"></td>
+                        <td><input type="number" name="streams_n1"></td>
+                        <td><input type="number" name="streams_n2"></td>
+                        <td><input type="number" name="streams_n3"></td>
+                    </tr>
+                    <tr>
+                        <td>No of streams with Multigrade teaching</td>
+                        <td><input type="number" name="multigrade_streams_kg1"></td>
+                        <td><input type="number" name="multigrade_streams_kg2"></td>
+                        <td><input type="number" name="multigrade_streams_n1"></td>
+                        <td><input type="number" name="multigrade_streams_n2"></td>
+                        <td><input type="number" name="multigrade_streams_n3"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C.2b Pre-primary enrolment by age</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pupil age</th>
+                        <th colspan="2">Kindergarten 1/ECCD</th>
+                        <th colspan="2">Kindergarten 2/ECCD</th>
+                        <th colspan="2">Nursery 1</th>
+                        <th colspan="2">Nursery 2</th>
+                        <th colspan="2">Nursery 3/ One Year pre-primary</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>M</th>
+                        <th>F</th>
+                        <th>M</th>
+                        <th>F</th>
+                        <th>M</th>
+                        <th>F</th>
+                        <th>M</th>
+                        <th>F</th>
+                        <th>M</th>
+                        <th>F</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Below 3 Years</td>
+                        <td><input type="number" name="enrolment_age_kg1_m_below3"></td>
+                        <td><input type="number" name="enrolment_age_kg1_f_below3"></td>
+                        <td><input type="number" name="enrolment_age_kg2_m_below3"></td>
+                        <td><input type="number" name="enrolment_age_kg2_f_below3"></td>
+                        <td><input type="number" name="enrolment_age_n1_m_below3"></td>
+                        <td><input type="number" name="enrolment_age_n1_f_below3"></td>
+                        <td><input type="number" name="enrolment_age_n2_m_below3"></td>
+                        <td><input type="number" name="enrolment_age_n2_f_below3"></td>
+                        <td><input type="number" name="enrolment_age_n3_m_below3"></td>
+                        <td><input type="number" name="enrolment_age_n3_f_below3"></td>
+                    </tr>
+                    <tr>
+                        <td>3 Years</td>
+                        <td><input type="number" name="enrolment_age_kg1_m_3"></td>
+                        <td><input type="number" name="enrolment_age_kg1_f_3"></td>
+                        <td><input type="number" name="enrolment_age_kg2_m_3"></td>
+                        <td><input type="number" name="enrolment_age_kg2_f_3"></td>
+                        <td><input type="number" name="enrolment_age_n1_m_3"></td>
+                        <td><input type="number" name="enrolment_age_n1_f_3"></td>
+                        <td><input type="number" name="enrolment_age_n2_m_3"></td>
+                        <td><input type="number" name="enrolment_age_n2_f_3"></td>
+                        <td><input type="number" name="enrolment_age_n3_m_3"></td>
+                        <td><input type="number" name="enrolment_age_n3_f_3"></td>
+                    </tr>
+                    <tr>
+                        <td>4 Years</td>
+                        <td><input type="number" name="enrolment_age_kg1_m_4"></td>
+                        <td><input type="number" name="enrolment_age_kg1_f_4"></td>
+                        <td><input type="number" name="enrolment_age_kg2_m_4"></td>
+                        <td><input type="number" name="enrolment_age_kg2_f_4"></td>
+                        <td><input type="number" name="enrolment_age_n1_m_4"></td>
+                        <td><input type="number" name="enrolment_age_n1_f_4"></td>
+                        <td><input type="number" name="enrolment_age_n2_m_4"></td>
+                        <td><input type="number" name="enrolment_age_n2_f_4"></td>
+                        <td><input type="number" name="enrolment_age_n3_m_4"></td>
+                        <td><input type="number" name="enrolment_age_n3_f_4"></td>
+                    </tr>
+                    <tr>
+                        <td>5 Years</td>
+                        <td><input type="number" name="enrolment_age_kg1_m_5"></td>
+                        <td><input type="number" name="enrolment_age_kg1_f_5"></td>
+                        <td><input type="number" name="enrolment_age_kg2_m_5"></td>
+                        <td><input type="number" name="enrolment_age_kg2_f_5"></td>
+                        <td><input type="number" name="enrolment_age_n1_m_5"></td>
+                        <td><input type="number" name="enrolment_age_n1_f_5"></td>
+                        <td><input type="number" name="enrolment_age_n2_m_5"></td>
+                        <td><input type="number" name="enrolment_age_n2_f_5"></td>
+                        <td><input type="number" name="enrolment_age_n3_m_5"></td>
+                        <td><input type="number" name="enrolment_age_n3_f_5"></td>
+                    </tr>
+                    <tr>
+                        <td>Above 5 Years</td>
+                        <td><input type="number" name="enrolment_age_kg1_m_above5"></td>
+                        <td><input type="number" name="enrolment_age_kg1_f_above5"></td>
+                        <td><input type="number" name="enrolment_age_kg2_m_above5"></td>
+                        <td><input type="number" name="enrolment_age_kg2_f_above5"></td>
+                        <td><input type="number" name="enrolment_age_n1_m_above5"></td>
+                        <td><input type="number" name="enrolment_age_n1_f_above5"></td>
+                        <td><input type="number" name="enrolment_age_n2_m_above5"></td>
+                        <td><input type="number" name="enrolment_age_n2_f_above5"></td>
+                        <td><input type="number" name="enrolment_age_n3_m_above5"></td>
+                        <td><input type="number" name="enrolment_age_n3_f_above5"></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><input type="number" name="enrolment_age_kg1_m_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_kg1_f_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_kg2_m_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_kg2_f_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_n1_m_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_n1_f_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_n2_m_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_n2_f_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_n3_m_total" readonly></td>
+                        <td><input type="number" name="enrolment_age_n3_f_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C.3 New entrants into primary 1 and those that attended ECCDE</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pupil age</th>
+                        <th colspan="2">Primary 1</th>
+                        <th colspan="2">Number that attended ECCDE</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Below 6 Years</td>
+                        <td><input type="number" name="entrants_p1_m_below6"></td>
+                        <td><input type="number" name="entrants_p1_f_below6"></td>
+                        <td><input type="number" name="entrants_eccde_m_below6"></td>
+                        <td><input type="number" name="entrants_eccde_f_below6"></td>
+                    </tr>
+                    <tr>
+                        <td>6 Years</td>
+                        <td><input type="number" name="entrants_p1_m_6"></td>
+                        <td><input type="number" name="entrants_p1_f_6"></td>
+                        <td><input type="number" name="entrants_eccde_m_6"></td>
+                        <td><input type="number" name="entrants_eccde_f_6"></td>
+                    </tr>
+                    <tr>
+                        <td>7 Years</td>
+                        <td><input type="number" name="entrants_p1_m_7"></td>
+                        <td><input type="number" name="entrants_p1_f_7"></td>
+                        <td><input type="number" name="entrants_eccde_m_7"></td>
+                        <td><input type="number" name="entrants_eccde_f_7"></td>
+                    </tr>
+                    <tr>
+                        <td>8 Years</td>
+                        <td><input type="number" name="entrants_p1_m_8"></td>
+                        <td><input type="number" name="entrants_p1_f_8"></td>
+                        <td><input type="number" name="entrants_eccde_m_8"></td>
+                        <td><input type="number" name="entrants_eccde_f_8"></td>
+                    </tr>
+                    <tr>
+                        <td>9 Years</td>
+                        <td><input type="number" name="entrants_p1_m_9"></td>
+                        <td><input type="number" name="entrants_p1_f_9"></td>
+                        <td><input type="number" name="entrants_eccde_m_9"></td>
+                        <td><input type="number" name="entrants_eccde_f_9"></td>
+                    </tr>
+                    <tr>
+                        <td>10 Years</td>
+                        <td><input type="number" name="entrants_p1_m_10"></td>
+                        <td><input type="number" name="entrants_p1_f_10"></td>
+                        <td><input type="number" name="entrants_eccde_m_10"></td>
+                        <td><input type="number" name="entrants_eccde_f_10"></td>
+                    </tr>
+                    <tr>
+                        <td>11 Years</td>
+                        <td><input type="number" name="entrants_p1_m_11"></td>
+                        <td><input type="number" name="entrants_p1_f_11"></td>
+                        <td><input type="number" name="entrants_eccde_m_11"></td>
+                        <td><input type="number" name="entrants_eccde_f_11"></td>
+                    </tr>
+                    <tr>
+                        <td>Above 11 Years</td>
+                        <td><input type="number" name="entrants_p1_m_above11"></td>
+                        <td><input type="number" name="entrants_p1_f_above11"></td>
+                        <td><input type="number" name="entrants_eccde_m_above11"></td>
+                        <td><input type="number" name="entrants_eccde_f_above11"></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><input type="number" name="entrants_p1_m_total" readonly></td>
+                        <td><input type="number" name="entrants_p1_f_total" readonly></td>
+                        <td><input type="number" name="entrants_eccde_m_total" readonly></td>
+                        <td><input type="number" name="entrants_eccde_f_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C.4a Number of streams in the current school year</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>PRY1</th>
+                        <th>PRY2</th>
+                        <th>PRY3</th>
+                        <th>PRY4</th>
+                        <th>PRY5</th>
+                        <th>PRY6</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No. of Streams</td>
+                        <td><input type="number" name="primary_streams_p1"></td>
+                        <td><input type="number" name="primary_streams_p2"></td>
+                        <td><input type="number" name="primary_streams_p3"></td>
+                        <td><input type="number" name="primary_streams_p4"></td>
+                        <td><input type="number" name="primary_streams_p5"></td>
+                        <td><input type="number" name="primary_streams_p6"></td>
+                    </tr>
+                    <tr>
+                        <td>No of streams with Multigrade teaching</td>
+                        <td><input type="number" name="primary_multigrade_streams_p1"></td>
+                        <td><input type="number" name="primary_multigrade_streams_p2"></td>
+                        <td><input type="number" name="primary_multigrade_streams_p3"></td>
+                        <td><input type="number" name="primary_multigrade_streams_p4"></td>
+                        <td><input type="number" name="primary_multigrade_streams_p5"></td>
+                        <td><input type="number" name="primary_multigrade_streams_p6"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C.4b Primary enrolment by age for the current school year</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pupil age</th>
+                        <th colspan="2">PRY1</th>
+                        <th colspan="2">PRY2</th>
+                        <th colspan="2">PRY3</th>
+                        <th colspan="2">PRY4</th>
+                        <th colspan="2">PRY5</th>
+                        <th colspan="2">PRY6</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Below 6 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_below6"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_below6"></td>
+                    </tr>
+                    <tr>
+                        <td>6 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_6"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_6"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_6"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_6"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_6"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_6"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_6"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_6"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_6"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_6"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_6"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_6"></td>
+                    </tr>
+                    <tr>
+                        <td>7 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_7"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_7"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_7"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_7"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_7"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_7"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_7"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_7"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_7"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_7"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_7"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_7"></td>
+                    </tr>
+                    <tr>
+                        <td>8 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_8"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_8"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_8"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_8"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_8"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_8"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_8"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_8"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_8"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_8"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_8"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_8"></td>
+                    </tr>
+                    <tr>
+                        <td>9 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_9"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_9"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_9"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_9"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_9"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_9"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_9"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_9"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_9"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_9"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_9"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_9"></td>
+                    </tr>
+                    <tr>
+                        <td>10 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_10"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_10"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_10"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_10"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_10"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_10"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_10"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_10"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_10"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_10"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_10"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_10"></td>
+                    </tr>
+                    <tr>
+                        <td>11 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_11"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_11"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_11"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_11"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_11"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_11"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_11"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_11"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_11"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_11"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_11"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_11"></td>
+                    </tr>
+                    <tr>
+                        <td>Above 11 Years</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_above11"></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_above11"></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td><input type="number" name="primary_enrolment_p1_m_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p1_f_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p2_m_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p2_f_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p3_m_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p3_f_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p4_m_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p4_f_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p5_m_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p5_f_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p6_m_total" readonly></td>
+                        <td><input type="number" name="primary_enrolment_p6_f_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C.5 Pupil Flow in the Current Academic Year for Primary School</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pupil Flow</th>
+                        <th colspan="2">Pry 1</th>
+                        <th colspan="2">Pry 2</th>
+                        <th colspan="2">Pry 3</th>
+                        <th colspan="2">Pry 4</th>
+                        <th colspan="2">Pry 5</th>
+                        <th colspan="2">Pry 6</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dropout</td>
+                        <td><input type="number" name="pupil_flow_p1_m_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p1_f_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p2_m_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p2_f_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p3_m_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p3_f_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p4_m_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p4_f_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p5_m_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p5_f_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p6_m_dropout"></td>
+                        <td><input type="number" name="pupil_flow_p6_f_dropout"></td>
+                    </tr>
+                    <tr>
+                        <td>Transfer In</td>
+                        <td><input type="number" name="pupil_flow_p1_m_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p1_f_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p2_m_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p2_f_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p3_m_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p3_f_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p4_m_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p4_f_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p5_m_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p5_f_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p6_m_transfer_in"></td>
+                        <td><input type="number" name="pupil_flow_p6_f_transfer_in"></td>
+                    </tr>
+                    <tr>
+                        <td>Transfer Out</td>
+                        <td><input type="number" name="pupil_flow_p1_m_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p1_f_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p2_m_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p2_f_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p3_m_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p3_f_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p4_m_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p4_f_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p5_m_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p5_f_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p6_m_transfer_out"></td>
+                        <td><input type="number" name="pupil_flow_p6_f_transfer_out"></td>
+                    </tr>
+                    <tr>
+                        <td>Repeaters</td>
+                        <td><input type="number" name="pupil_flow_p1_m_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p1_f_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p2_m_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p2_f_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p3_m_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p3_f_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p4_m_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p4_f_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p5_m_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p5_f_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p6_m_repeaters"></td>
+                        <td><input type="number" name="pupil_flow_p6_f_repeaters"></td>
+                    </tr>
+                    <tr>
+                        <td>Promoted</td>
+                        <td><input type="number" name="pupil_flow_p1_m_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p1_f_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p2_m_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p2_f_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p3_m_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p3_f_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p4_m_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p4_f_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p5_m_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p5_f_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p6_m_promoted"></td>
+                        <td><input type="number" name="pupil_flow_p6_f_promoted"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Staff -->
+            <h2>D. STAFF</h2>
+            <div>
+                <label for="nonTeachingStaffMale">D.1 Non-teaching staff (Male)</label>
+                <input type="number" id="nonTeachingStaffMale" name="staff_nonTeaching_male">
+                <label for="nonTeachingStaffFemale">Female</label>
+                <input type="number" id="nonTeachingStaffFemale" name="staff_nonTeaching_female">
+                <label for="nonTeachingStaffTotal">Total</label>
+                <input type="number" id="nonTeachingStaffTotal" name="staff_nonTeaching_total" readonly>
+            </div>
+            <div>
+                <label for="teachingStaffMale">D.2 Teachers (Male)</label>
+                <input type="number" id="teachingStaffMale" name="staff_teaching_male">
+                <label for="teachingStaffFemale">Female</label>
+                <input type="number" id="teachingStaffFemale" name="staff_teaching_female">
+                <label for="teachingStaffTotal">Total</label>
+                <input type="number" id="teachingStaffTotal" name="staff_teaching_total" readonly>
+            </div>
+            <div>
+                <label for="careGiversMale">D.3 Care Givers (ECCD) (Male)</label>
+                <input type="number" id="careGiversMale" name="staff_careGivers_male">
+                <label for="careGiversFemale">Female</label>
+                <input type="number" id="careGiversFemale" name="staff_careGivers_female">
+                <label for="careGiversTotal">Total</label>
+                <input type="number" id="careGiversTotal" name="staff_careGivers_total" readonly>
+            </div>
+
+            <h3>D.4 Information on all staff</h3>
+            <table id="staffInfoTable">
+                <thead>
+                    <tr>
+                        <th>Staff File No</th>
+                        <th>Name of Staff</th>
+                        <th>Gender</th>
+                        <th>Type of staff</th>
+                        <th>Source of salary</th>
+                        <th>Year of birth</th>
+                        <th>Year of first appointment</th>
+                        <th>Year of present appointment</th>
+                        <th>Year of posting to this school</th>
+                        <th>Grade level / Step</th>
+                        <th>Present</th>
+                        <th>Academic Qualification</th>
+                        <th>Teaching Qualification</th>
+                        <th>Subject of Qualification</th>
+                        <th>Main subject taught</th>
+                        <th>Teaching type</th>
+                        <th>Attended training in last 12 months (Number)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Staff rows will be added here dynamically -->
+                </tbody>
+            </table>
+            <button type="button" id="addStaffRowBtn">Add Staff Row</button>
+
+            <!-- Classrooms -->
+            <h2>E. CLASSROOMS</h2>
+            <div>
+                <label for="totalClassrooms">E.1 How many classrooms are there in the school?</label>
+                <input type="number" id="totalClassrooms" name="classrooms_total">
+            </div>
+            <div>
+                <label>E.2 Are classes held outside because of insufficient classrooms?</label>
+                <input type="radio" id="classesOutsideYes" name="classesOutside" value="Yes">
+                <label for="classesOutsideYes">Yes</label>
+                <input type="radio" id="classesOutsideNo" name="classesOutside" value="No">
+                <label for="classesOutsideNo">No</label>
+                <label for="classesOutsideNumber">If yes, how many?</label>
+                <input type="number" id="classesOutsideNumber" name="classesOutside_number">
+            </div>
+            <div>
+                <label for="playRooms">E.3 How many play rooms are there in the school for ECCD?</label>
+                <input type="number" id="playRooms" name="playRooms_total">
+            </div>
+
+            <h3>E.4 Information on all classrooms/play rooms</h3>
+            <table id="classroomInfoTable">
+                <thead>
+                    <tr>
+                        <th>Year of construction</th>
+                        <th>Present condition</th>
+                        <th>Length (m)</th>
+                        <th>Width (m)</th>
+                        <th>Floor material</th>
+                        <th>Walls material</th>
+                        <th>Roof material</th>
+                        <th>Seating (Enough seats?)</th>
+                        <th>Writing board (Good?)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Classroom rows will be added here dynamically -->
+                </tbody>
+            </table>
+            <button type="button" id="addClassroomRowBtn">Add Classroom Row</button>
+
+            <h3>E.5 Number of rooms other than classrooms</h3>
+            <div>
+                <label for="staffRooms">Staff rooms</label>
+                <input type="number" name="otherRooms_staff">
+                <label for="officeRooms">Office</label>
+                <input type="number" name="otherRooms_office">
+                <label for="libraryRooms">Library</label>
+                <input type="number" name="otherRooms_library">
+                <label for="labRooms">Laboratories</label>
+                <input type="number" name="otherRooms_lab">
+                <label for="storeRooms">Store room</label>
+                <input type="number" name="otherRooms_store">
+                <label for="otherRooms">Others</label>
+                <input type="number" name="otherRooms_other">
+            </div>
+
+            <!-- Facilities -->
+            <h2>F. FACILITIES</h2>
+            <h3>F.1 Source(s) of safe drinking water</h3>
+            <div>
+                <input type="checkbox" id="waterPipe" name="waterSource" value="Pipe borne Water">
+                <label for="waterPipe">Pipe borne Water</label>
+                <input type="checkbox" id="waterBorehole" name="waterSource" value="Borehole">
+                <label for="waterBorehole">Borehole</label>
+                <input type="checkbox" id="waterWell" name="waterSource" value="Well">
+                <label for="waterWell">Well</label>
+                <input type="checkbox" id="waterOther" name="waterSource" value="Other">
+                <label for="waterOther">Other</label>
+                <input type="text" name="waterSource_other_specify" placeholder="Specify other">
+                <input type="checkbox" id="waterNone" name="waterSource" value="No Source of Safe Water">
+                <label for="waterNone">No Source of Safe Water</label>
+            </div>
+
+            <h3>F.2 Facilities available</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Facility</th>
+                        <th>Useable</th>
+                        <th>Not useable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Toilets</td>
+                        <td><input type="number" name="facilities_toilets_useable"></td>
+                        <td><input type="number" name="facilities_toilets_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Computers</td>
+                        <td><input type="number" name="facilities_computers_useable"></td>
+                        <td><input type="number" name="facilities_computers_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Water Source(s)</td>
+                        <td><input type="number" name="facilities_water_useable"></td>
+                        <td><input type="number" name="facilities_water_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Laboratories</td>
+                        <td><input type="number" name="facilities_labs_useable"></td>
+                        <td><input type="number" name="facilities_labs_notUseable"></td>
+                    </tr>
+                     <tr>
+                        <td>Classrooms</td>
+                        <td><input type="number" name="facilities_classrooms_useable"></td>
+                        <td><input type="number" name="facilities_classrooms_notUseable"></td>
+                    </tr>
+                     <tr>
+                        <td>Library</td>
+                        <td><input type="number" name="facilities_library_useable"></td>
+                        <td><input type="number" name="facilities_library_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Reading Corner</td>
+                        <td><input type="number" name="facilities_readingCorner_useable"></td>
+                        <td><input type="number" name="facilities_readingCorner_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Play Ground(s)</td>
+                        <td><input type="number" name="facilities_playground_useable"></td>
+                        <td><input type="number" name="facilities_playground_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Wash hand facility</td>
+                        <td><input type="number" name="facilities_washHand_useable"></td>
+                        <td><input type="number" name="facilities_washHand_notUseable"></td>
+                    </tr>
+                    <tr>
+                        <td>Others</td>
+                        <td><input type="number" name="facilities_others_useable"></td>
+                        <td><input type="number" name="facilities_others_notUseable"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>F.3 Shared Facilities</h3>
+            <div>
+                 <input type="checkbox" name="shared_toilets" value="Toilets"><label>Toilets</label>
+                 <input type="checkbox" name="shared_classrooms" value="Classrooms"><label>Classrooms</label>
+                 <input type="checkbox" name="shared_computers" value="Computers"><label>Computers</label>
+                 <input type="checkbox" name="shared_library" value="Library"><label>Library</label>
+                 <input type="checkbox" name="shared_water" value="Water Source(s)"><label>Water Source(s)</label>
+                 <input type="checkbox" name="shared_playground" value="Play Ground(s)"><label>Play Ground(s)</label>
+                 <input type="checkbox" name="shared_labs" value="Laboratories"><label>Laboratories</label>
+                 <input type="checkbox" name="shared_washHand" value="Wash hand facility"><label>Wash hand facility</label>
+                 <input type="checkbox" name="shared_others" value="Others"><label>Others</label>
+            </div>
+
+            <h3>F.4 Number of useable toilets units by each type of toilet.</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="3">Used only by pupils</th>
+                        <th colspan="3">Used only by teachers</th>
+                        <th colspan="3">Used by pupils and teachers</th>
+                        <th>Total</th>
+                    </tr>
+                     <tr>
+                        <th></th>
+                        <th>Male only</th>
+                        <th>Female only</th>
+                        <th>Mixed</th>
+                        <th>Male only</th>
+                        <th>Female only</th>
+                        <th>Mixed</th>
+                        <th>Male only</th>
+                        <th>Female only</th>
+                        <th>Mixed</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pit</td>
+                        <td><input type="number" name="toilets_pit_pupil_male"></td>
+                        <td><input type="number" name="toilets_pit_pupil_female"></td>
+                        <td><input type="number" name="toilets_pit_pupil_mixed"></td>
+                        <td><input type="number" name="toilets_pit_teacher_male"></td>
+                        <td><input type="number" name="toilets_pit_teacher_female"></td>
+                        <td><input type="number" name="toilets_pit_teacher_mixed"></td>
+                        <td><input type="number" name="toilets_pit_both_male"></td>
+                        <td><input type="number" name="toilets_pit_both_female"></td>
+                        <td><input type="number" name="toilets_pit_both_mixed"></td>
+                        <td><input type="number" name="toilets_pit_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Bucket system</td>
+                        <td><input type="number" name="toilets_bucket_pupil_male"></td>
+                        <td><input type="number" name="toilets_bucket_pupil_female"></td>
+                        <td><input type="number" name="toilets_bucket_pupil_mixed"></td>
+                        <td><input type="number" name="toilets_bucket_teacher_male"></td>
+                        <td><input type="number" name="toilets_bucket_teacher_female"></td>
+                        <td><input type="number" name="toilets_bucket_teacher_mixed"></td>
+                        <td><input type="number" name="toilets_bucket_both_male"></td>
+                        <td><input type="number" name="toilets_bucket_both_female"></td>
+                        <td><input type="number" name="toilets_bucket_both_mixed"></td>
+                        <td><input type="number" name="toilets_bucket_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Water flush</td>
+                        <td><input type="number" name="toilets_flush_pupil_male"></td>
+                        <td><input type="number" name="toilets_flush_pupil_female"></td>
+                        <td><input type="number" name="toilets_flush_pupil_mixed"></td>
+                        <td><input type="number" name="toilets_flush_teacher_male"></td>
+                        <td><input type="number" name="toilets_flush_teacher_female"></td>
+                        <td><input type="number" name="toilets_flush_teacher_mixed"></td>
+                        <td><input type="number" name="toilets_flush_both_male"></td>
+                        <td><input type="number" name="toilets_flush_both_female"></td>
+                        <td><input type="number" name="toilets_flush_both_mixed"></td>
+                        <td><input type="number" name="toilets_flush_total" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>Others</td>
+                        <td><input type="number" name="toilets_other_pupil_male"></td>
+                        <td><input type="number" name="toilets_other_pupil_female"></td>
+                        <td><input type="number" name="toilets_other_pupil_mixed"></td>
+                        <td><input type="number" name="toilets_other_teacher_male"></td>
+                        <td><input type="number" name="toilets_other_teacher_female"></td>
+                        <td><input type="number" name="toilets_other_teacher_mixed"></td>
+                        <td><input type="number" name="toilets_other_both_male"></td>
+                        <td><input type="number" name="toilets_other_both_female"></td>
+                        <td><input type="number" name="toilets_other_both_mixed"></td>
+                        <td><input type="number" name="toilets_other_total" readonly></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>F.5 Source(s) of power</h3>
+            <div>
+                <input type="checkbox" name="power_phcn" value="PHCN"><label>PHCN</label>
+                <input type="checkbox" name="power_generator" value="Generator"><label>Generator</label>
+                <input type="checkbox" name="power_solar" value="Solar"><label>Solar</label>
+                <input type="checkbox" name="power_none" value="No source of Power"><label>No source of Power</label>
+            </div>
+
+            <h3>F.6.1 Health facility</h3>
+            <div>
+                <input type="radio" name="health_facility" value="Health Clinic/Sick Bay"><label>Health Clinic/Sick Bay</label>
+                <input type="radio" name="health_facility" value="First Aid Kit"><label>First Aid Kit</label>
+                <input type="radio" name="health_facility" value="No Health facility"><label>No Health facility</label>
+            </div>
+
+            <h3>F.6.2 Does the school have health personnel?</h3>
+            <div>
+                <input type="radio" name="health_personnel" value="Yes"><label>Yes</label>
+                <input type="radio" name="health_personnel" value="No"><label>No</label>
+            </div>
+
+            <h3>F7 Safety Facilities</h3>
+            <div>
+                <input type="checkbox" name="safety_fence" value="perimeter fence"><label>perimeter fence</label>
+                <input type="checkbox" name="safety_gate" value="school gate"><label>school gate</label>
+                <input type="checkbox" name="safety_guards" value="Security guards"><label>Security guards</label>
+                <input type="checkbox" name="safety_camera" value="Security camera"><label>Security camera</label>
+            </div>
+
+            <h3>F8 Play Room</h3>
+             <div>
+                <input type="radio" name="playroom" value="Yes but no rugs or sand floor"><label>Yes but no rugs or sand floor</label>
+                <input type="radio" name="playroom" value="Yes with Play Rugs"><label>Yes with Play Rugs</label>
+                <input type="radio" name="playroom" value="Yes with Sand Floor"><label>Yes with Sand Floor</label>
+                <input type="radio" name="playroom" value="No Play Room"><label>No Play Room</label>
+            </div>
+
+            <h3>F9 Play Facilities</h3>
+            <div>
+                <input type="checkbox" name="play_facilities" value="Merry Go Round"><label>Merry Go Round</label>
+                <input type="checkbox" name="play_facilities" value="Swing"><label>Swing</label>
+                <input type="checkbox" name="play_facilities" value="Ladder Slide"><label>Ladder Slide</label>
+                <input type="checkbox" name="play_facilities" value="See Saw"><label>See Saw</label>
+                <input type="checkbox" name="play_facilities" value="Indoor Play Activity Materials"><label>Indoor Play Activity Materials</label>
+            </div>
+
+            <h3>F10 Instructional Materials</h3>
+            <div>
+                <input type="checkbox" name="instructional_materials" value="Charts"><label>Charts</label>
+                <input type="checkbox" name="instructional_materials" value="Posters"><label>Posters</label>
+                <input type="checkbox" name="instructional_materials" value="Toys"><label>Toys</label>
+                <input type="checkbox" name="instructional_materials" value="Audio/Visual"><label>Audio/Visual (Radio, TV, DVD)</label>
+                <input type="checkbox" name="instructional_materials" value="Word Puzzle Box"><label>Word Puzzle Box</label>
+                <input type="checkbox" name="instructional_materials" value="Caregiver Guide"><label>Caregiver Guide</label>
+            </div>
+
+            <h3>F11 Agricultural Facilities</h3>
+            <div>
+                <input type="checkbox" name="agric_facilities" value="Poultry Farm"><label>Poultry Farm</label>
+                <input type="checkbox" name="agric_facilities" value="Fish Pond"><label>Fish Pond</label>
+                <input type="checkbox" name="agric_facilities" value="Piggery Pen"><label>Piggery Pen</label>
+                <input type="checkbox" name="agric_facilities" value="School Farm"><label>School Farm</label>
+                <input type="checkbox" name="agric_facilities" value="Others"><label>Others</label>
+            </div>
+
+            <h3>F.12 Additional Classrooms Information</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>1 Seater</th>
+                        <th>2 Seater</th>
+                        <th>3 Seater</th>
+                        <th>4 Seater</th>
+                        <th>5 Seater</th>
+                        <th>6 Seater</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ECCD</td>
+                        <td><input type="number" name="seating_eccd_1"></td>
+                        <td><input type="number" name="seating_eccd_2"></td>
+                        <td><input type="number" name="seating_eccd_3"></td>
+                        <td><input type="number" name="seating_eccd_4"></td>
+                        <td><input type="number" name="seating_eccd_5"></td>
+                        <td><input type="number" name="seating_eccd_6"></td>
+                    </tr>
+                    <tr>
+                        <td>Pre-primary</td>
+                        <td><input type="number" name="seating_preprimary_1"></td>
+                        <td><input type="number" name="seating_preprimary_2"></td>
+                        <td><input type="number" name="seating_preprimary_3"></td>
+                        <td><input type="number" name="seating_preprimary_4"></td>
+                        <td><input type="number" name="seating_preprimary_5"></td>
+                        <td><input type="number" name="seating_preprimary_6"></td>
+                    </tr>
+                    <tr>
+                        <td>PRY1</td>
+                        <td><input type="number" name="seating_pry1_1"></td>
+                        <td><input type="number" name="seating_pry1_2"></td>
+                        <td><input type="number" name="seating_pry1_3"></td>
+                        <td><input type="number" name="seating_pry1_4"></td>
+                        <td><input type="number" name="seating_pry1_5"></td>
+                        <td><input type="number" name="seating_pry1_6"></td>
+                    </tr>
+                    <tr>
+                        <td>PRY2</td>
+                        <td><input type="number" name="seating_pry2_1"></td>
+                        <td><input type="number" name="seating_pry2_2"></td>
+                        <td><input type="number" name="seating_pry2_3"></td>
+                        <td><input type="number" name="seating_pry2_4"></td>
+                        <td><input type="number" name="seating_pry2_5"></td>
+                        <td><input type="number" name="seating_pry2_6"></td>
+                    </tr>
+                    <tr>
+                        <td>PRY3</td>
+                        <td><input type="number" name="seating_pry3_1"></td>
+                        <td><input type="number" name="seating_pry3_2"></td>
+                        <td><input type="number" name="seating_pry3_3"></td>
+                        <td><input type="number" name="seating_pry3_4"></td>
+                        <td><input type="number" name="seating_pry3_5"></td>
+                        <td><input type="number" name="seating_pry3_6"></td>
+                    </tr>
+                    <tr>
+                        <td>PRY4</td>
+                        <td><input type="number" name="seating_pry4_1"></td>
+                        <td><input type="number" name="seating_pry4_2"></td>
+                        <td><input type="number" name="seating_pry4_3"></td>
+                        <td><input type="number" name="seating_pry4_4"></td>
+                        <td><input type="number" name="seating_pry4_5"></td>
+                        <td><input type="number" name="seating_pry4_6"></td>
+                    </tr>
+                    <tr>
+                        <td>PRY5</td>
+                        <td><input type="number" name="seating_pry5_1"></td>
+                        <td><input type="number" name="seating_pry5_2"></td>
+                        <td><input type="number" name="seating_pry5_3"></td>
+                        <td><input type="number" name="seating_pry5_4"></td>
+                        <td><input type="number" name="seating_pry5_5"></td>
+                        <td><input type="number" name="seating_pry5_6"></td>
+                    </tr>
+                    <tr>
+                        <td>PRY6</td>
+                        <td><input type="number" name="seating_pry6_1"></td>
+                        <td><input type="number" name="seating_pry6_2"></td>
+                        <td><input type="number" name="seating_pry6_3"></td>
+                        <td><input type="number" name="seating_pry6_4"></td>
+                        <td><input type="number" name="seating_pry6_5"></td>
+                        <td><input type="number" name="seating_pry6_6"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Pupil/Teacher Book -->
+            <h2>G. PUPIL/TEACHER BOOK</h2>
+            <script>
+                const subjects = ["English Studies", "Mathematics", "National Values", "History", "Early Grade Reading (EGR)", "Supplementary Reading Materials (SRMs) on EGR", "Basic Science & Technology", "Christian Religious Studies", "Islamic Religious Studies", "Igbo", "Yoruba", "Hausa", "Cultural & Creative Arts", "Pre-Vocational Studies", "French Language"];
+                const grades = ["Pre-Primary", "PRY1", "PRY2", "PRY3", "PRY4", "PRY5", "PRY6"];
+                const manuals = ["Care Giver Guide/Hand Book", "National Policy on ECCDE/Pre-primary School", "National Curriculum", "Toy Making Manuals", "National Reading Framework", "National Policy on Education", "Production of Low Cost Teaching Aids in Language of Immediate Environment Manuals", "Guide to Coaching & Mentoring", "National Policy on Monitoring of Learning Achievements (NMLA) and Its implementation Guidelines"];
+                const qualifications = ["Ph.D.", "Masters with Teaching Qualification", "Masters without Teaching Qualification", "Degree with Teaching Qualification", "Degree without Teaching Qualification", "HND with Teaching Qualification", "HND without Teaching Qualification", "NCE", "OND/Diploma/ND", "Grade II", "SSCE/WASC/WASSC/GCE", "Below SSCE", "Others"];
+
+                function generateBookTable(tableId, namePrefix) {
+                    const tableBody = document.getElementById(tableId);
+                    subjects.forEach(subject => {
+                        const row = document.createElement('tr');
+                        let cells = `<td>${subject}</td>`;
+                        const subjectKey = subject.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                        grades.forEach(grade => {
+                            const gradeKey = grade.toLowerCase().replace('-', '');
+                            cells += `<td><input type="number" name="${namePrefix}[${subjectKey}][${gradeKey}]"></td>`;
+                        });
+                        row.innerHTML = cells;
+                        tableBody.appendChild(row);
+                    });
+                }
+            </script>
+
+            <h3>G.1.1 NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO PUPILS PROVIDED BY GOVERNMENT.</h3>
+            <table>
+                <thead><tr><th>Subject Area</th><th>Pre-Primary</th><th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th></tr></thead>
+                <tbody id="govPupilBooks"></tbody>
+            </table>
+            <script>generateBookTable('govPupilBooks', 'books[gov_pupil]');</script>
+
+            <h3>G.1.2 NUMBER OF CORE SUBJECT TEXTBOOKS AVAILABLE TO PUPILS PROVIDED BY ANY OTHER SOURCE.</h3>
+            <table>
+                 <thead><tr><th>Subject Area</th><th>Pre-Primary</th><th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th></tr></thead>
+                <tbody id="otherPupilBooks"></tbody>
+            </table>
+            <script>generateBookTable('otherPupilBooks', 'books[other_pupil]');</script>
+
+            <h3>G.2.1 NUMBER OF CORE SUBJECT PUPILS’ TEXTBOOKS MADE AVAILABLE TO TEACHERS IN THE SCHOOL PROVIDED BY GOVERNMENT.</h3>
+            <table>
+                 <thead><tr><th>Subject Area</th><th>Pre-Primary</th><th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th></tr></thead>
+                <tbody id="govTeacherBooks"></tbody>
+            </table>
+            <script>generateBookTable('govTeacherBooks', 'books[gov_teacher]');</script>
+
+            <h3>G.2.2 NUMBER OF CORE SUBJECT PUPILS’ TEXTBOOKS MADE AVAILABLE TO TEACHERS IN THE SCHOOL PROVIDED BY ANY OTHER SOURCE.</h3>
+            <table>
+                 <thead><tr><th>Subject Area</th><th>Pre-Primary</th><th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th></tr></thead>
+                <tbody id="otherTeacherBooks"></tbody>
+            </table>
+            <script>generateBookTable('otherTeacherBooks', 'books[other_teacher]');</script>
+
+            <h3>G.3.1 NUMBER OF CORE SUBJECT TEACHERS’ GUIDES AVAILABLE IN THE SCHOOL IN THE CURRENT ACADEMIC YEAR PROVIDED BY GOVERNMENT.</h3>
+            <table>
+                 <thead><tr><th>Subject Area</th><th>Pre-Primary</th><th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th></tr></thead>
+                <tbody id="govTeacherGuides"></tbody>
+            </table>
+            <script>generateBookTable('govTeacherGuides', 'books[gov_teacher_guide]');</script>
+
+            <h3>G.3.2 NUMBER OF CORE SUBJECT TEACHERS’ GUIDES AVAILABLE IN THE SCHOOL IN THE CURRENT ACADEMIC YEAR PROVIDED BY ANY OTHER SOURCE.</h3>
+            <table>
+                 <thead><tr><th>Subject Area</th><th>Pre-Primary</th><th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th></tr></thead>
+                <tbody id="otherTeacherGuides"></tbody>
+            </table>
+            <script>generateBookTable('otherTeacherGuides', 'books[other_teacher_guide]');</script>
+
+            <h3>G.4 CARE GIVER/TEACHER MANUALS PROVIDED BY THE SCHOOL IN THE CURRENT ACADEMIC YEAR</h3>
+            <table>
+                <thead><tr><th></th><th>Yes</th><th>No</th></tr></thead>
+                <tbody id="manualsTable"></tbody>
+            </table>
+            <script>
+                const manualsTable = document.getElementById('manualsTable');
+                manuals.forEach(manual => {
+                    const row = document.createElement('tr');
+                    const manualKey = manual.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                    row.innerHTML = `<td>${manual}</td><td><input type="radio" name="manuals[${manualKey}]" value="Yes"></td><td><input type="radio" name="manuals[${manualKey}]" value="No"></td>`;
+                    manualsTable.appendChild(row);
+                });
+            </script>
+
+            <!-- Teachers Qualification -->
+            <h2>H. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION IN THE CURRENT ACADEMIC YEAR</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Highest Academic qualification</th>
+                        <th colspan="3">Pre-Pry</th>
+                        <th colspan="3">Pry</th>
+                    </tr>
+                    <tr>
+                        <th></th><th>Male</th><th>Female</th><th>Total</th><th>Male</th><th>Female</th><th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="qualificationsTable"></tbody>
+            </table>
+            <script>
+                const qualificationsTable = document.getElementById('qualificationsTable');
+                qualifications.forEach(qual => {
+                    const row = document.createElement('tr');
+                    const qualKey = qual.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+                    row.innerHTML = `
+                        <td>${qual}</td>
+                        <td><input type="number" name="teacher_qualifications[${qualKey}][pre_pry][male]"></td>
+                        <td><input type="number" name="teacher_qualifications[${qualKey}][pre_pry][female]"></td>
+                        <td><input type="number" name="teacher_qualifications[${qualKey}][pre_pry][total]" readonly></td>
+                        <td><input type="number" name="teacher_qualifications[${qualKey}][pry][male]"></td>
+                        <td><input type="number" name="teacher_qualifications[${qualKey}][pry][female]"></td>
+                        <td><input type="number" name="teacher_qualifications[${qualKey}][pry][total]" readonly></td>
+                    `;
+                    qualificationsTable.appendChild(row);
+                });
+            </script>
+
+            <!-- School Well-being -->
+            <h2>H. SCHOOL WELL-BEING</h2>
+            <h3>H.1 School rules and regulations/guidelines</h3>
+            <div>
+                <label>Does the school have rules and regulations/guidelines?</label>
+                <input type="radio" name="well_being[has_rules]" value="Yes"><label>YES</label>
+                <input type="radio" name="well_being[has_rules]" value="No"><label>NO</label>
+            </div>
+            <h4>Do the rules and guidelines in your school cover the following aspects?</h4>
+            <h5>1. Physical safety in School?</h5>
+            <label>a. Bullying?</label> <input type="radio" name="well_being[rules][physical_safety][bullying]" value="Yes"> Yes <input type="radio" name="well_being[rules][physical_safety][bullying]" value="No"> No<br>
+            <label>b. Physical Violence?</label> <input type="radio" name="well_being[rules][physical_safety][violence]" value="Yes"> Yes <input type="radio" name="well_being[rules][physical_safety][violence]" value="No"> No<br>
+            <label>c. Corporal punishment?</label> <input type="radio" name="well_being[rules][physical_safety][corporal_punishment]" value="Yes"> Yes <input type="radio" name="well_being[rules][physical_safety][corporal_punishment]" value="No"> No<br>
+            <label>d. Does the school have security personnel?</label> <input type="radio" name="well_being[rules][physical_safety][security_personnel]" value="Yes"> Yes <input type="radio" name="well_being[rules][physical_safety][security_personnel]" value="No"> No<br>
+            <label>e. Does the school have a perimeter fence?</label> <input type="radio" name="well_being[rules][physical_safety][perimeter_fence]" value="Yes"> Yes <input type="radio" name="well_being[rules][physical_safety][perimeter_fence]" value="No"> No<br>
+            <label>f. Has your school been ever attacked?</label> <input type="radio" name="well_being[rules][physical_safety][attacked]" value="Yes"> Yes <input type="radio" name="well_being[rules][physical_safety][attacked]" value="No"> No<br>
+            <label>g. If Yes, how many times has your school been attacked in the last three (3) years?</label> <input type="number" name="well_being[rules][physical_safety][attack_times]"><br>
+            <label>h. Others (please specify)</label> <input type="text" name="well_being[rules][physical_safety][other_specify]"><br>
+            <h5>2. Stigma and discrimination towards:</h5>
+            <label>a. learners living with/affected by HIV</label> <input type="radio" name="well_being[rules][stigma][learners_hiv]" value="Yes"> Yes <input type="radio" name="well_being[rules][stigma][learners_hiv]" value="No"> No<br>
+            <label>b. learners based on ethnicity</label> <input type="radio" name="well_being[rules][stigma][learners_ethnicity]" value="Yes"> Yes <input type="radio" name="well_being[rules][stigma][learners_ethnicity]" value="No"> No<br>
+            <label>c. learners that have been harassed/abused</label> <input type="radio" name="well_being[rules][stigma][learners_harassed]" value="Yes"> Yes <input type="radio" name="well_being[rules][stigma][learners_harassed]" value="No"> No<br>
+            <label>d. staff living with/affected by HIV</label> <input type="radio" name="well_being[rules][stigma][staff_hiv]" value="Yes"> Yes <input type="radio" name="well_being[rules][stigma][staff_hiv]" value="No"> No<br>
+            <label>e. staff based on ethnicity</label> <input type="radio" name="well_being[rules][stigma][staff_ethnicity]" value="Yes"> Yes <input type="radio" name="well_being[rules][stigma][staff_ethnicity]" value="No"> No<br>
+            <label>f. staff that have been harassed/abused</label> <input type="radio" name="well_being[rules][stigma][staff_harassed]" value="Yes"> Yes <input type="radio" name="well_being[rules][stigma][staff_harassed]" value="No"> No<br>
+            <h5>3. Grievance/disciplinary procedures in case of breach of the regulation described in the rules and guidelines.</h5>
+            <input type="radio" name="well_being[rules][grievance_procedures]" value="Yes"> Yes <input type="radio" name="well_being[rules][grievance_procedures]" value="No"> No<br>
+
+            <h3>H.2 Communication of rules and guidelines</h3>
+            <label>Has your school communicated information about the rules and guidelines to learners?</label> <input type="radio" name="well_being[communication][learners]" value="Yes"> Yes <input type="radio" name="well_being[communication][learners]" value="No"> No<br>
+            <label>Has your school communicated information about the rules and guidelines to teachers?</label> <input type="radio" name="well_being[communication][teachers]" value="Yes"> Yes <input type="radio" name="well_being[communication][teachers]" value="No"> No<br>
+            <label>Has your school communicated information about the rules and guidelines to parents?</label> <input type="radio" name="well_being[communication][parents]" value="Yes"> Yes <input type="radio" name="well_being[communication][parents]" value="No"> No<br>
+
+            <h3>H.3 School Well-being Education</h3>
+            <label>1. Did learners in your school receive any form of life-skills-based SWB Education in the previous academic year?</label> <input type="radio" name="well_being[education][received_swb]" value="Yes"> Yes <input type="radio" name="well_being[education][received_swb]" value="No"> No<br>
+            <label>2. If yes, indicate which of these topics were covered</label><br>
+            <label>a. Teaching on generic life skills</label> <input type="radio" name="well_being[education][topics][generic_life_skills]" value="Yes"> Yes <input type="radio" name="well_being[education][topics][generic_life_skills]" value="No"> No<br>
+            <label>b. Teaching on reproductive health</label> <input type="radio" name="well_being[education][topics][reproductive_health]" value="Yes"> Yes <input type="radio" name="well_being[education][topics][reproductive_health]" value="No"> No<br>
+            <label>c. Teaching on HIV transmission and prevention.</label> <input type="radio" name="well_being[education][topics][hiv_prevention]" value="Yes"> Yes <input type="radio" name="well_being[education][topics][hiv_prevention]" value="No"> No<br>
+            <label>d. Teaching on Epidemics such as Cholera, Lassa Fever, and others</label> <input type="radio" name="well_being[education][topics][epidemics]" value="Yes"> Yes <input type="radio" name="well_being[education][topics][epidemics]" value="No"> No<br>
+            <label>e. Teaching on Pandemics such as COVID-19, Ebola and others</label> <input type="radio" name="well_being[education][topics][pandemics]" value="Yes"> Yes <input type="radio" name="well_being[education][topics][pandemics]" value="No"> No<br>
+
+            <h3>H.4 Number of learners that received/participated in SWB Life Skills in the previous year?</h3>
+            <label>Male</label> <input type="number" name="well_being[participants][male]"> <label>Female</label> <input type="number" name="well_being[participants][female]"><br>
+
+            <h3>H.5 Orientation Process for Parents or Guardians of Learners</h3>
+            <label>How many times has your school organized an orientation program for parents or guardians of learners regarding SWB in the previous academic year?</label> <input type="number" name="well_being[orientation][times]"><br>
+            <label>In what fora was the orientation program provided?</label><br>
+            <input type="checkbox" name="well_being[orientation][fora]" value="PTA"> PTA
+            <input type="checkbox" name="well_being[orientation][fora]" value="Open Day"> Open Day
+            <input type="checkbox" name="well_being[orientation][fora]" value="Special Session(s)"> Special Session(s)
+
+            <h3>H.6 Date of Last Orientation</h3>
+            <label>When was the last orientation Program conducted?</label> <input type="date" name="well_being[last_orientation_date]"><br>
+
+            <h3>H.7 Life skills-based Well-being: Teacher training</h3>
+            <label>How many teachers in your school received formal training on SWB?</label> <label>Male</label> <input type="number" name="well_being[teacher_training][formal_male]"> <label>Female</label> <input type="number" name="well_being[teacher_training][formal_female]"><br>
+            <label>How many teachers in your school who received formal training in the previous year also taught related topics on SWB</label> <label>Male</label> <input type="number" name="well_being[teacher_training][taught_male]"> <label>Female</label> <input type="number" name="well_being[teacher_training][taught_female]"><br>
+
+
+            <!-- Undertaking -->
+            <h2>UNDERTAKING</h2>
+            <p>NOTICE: Public officers completing this form are reminded that Civil Service Rule 04107 Section 1 requires the recording and supply of accurate data. Failure to do so amounts to gross misconduct punishable by sanctions that may include dismissal.</p>
+            <h3>Attestation by Head Teacher</h3>
+            <div>
+                <label for="headTeacherName">Name</label>
+                <input type="text" id="headTeacherName" name="attestation[head_teacher][name]">
+                <label for="headTeacherTel">Telephone</label>
+                <input type="text" id="headTeacherTel" name="attestation[head_teacher][telephone]">
+                <label for="headTeacherDate">Date</label>
+                <input type="date" id="headTeacherDate" name="attestation[head_teacher][date]">
+            </div>
+
+            <h3>Attestation by SBMC Chairperson/member</h3>
+            <div>
+                <label for="sbmcName">Name</label>
+                <input type="text" id="sbmcName" name="attestation[sbmc_chairperson][name]">
+                <label for="sbmcPosition">Position</label>
+                <input type="text" id="sbmcPosition" name="attestation[sbmc_chairperson][position]">
+                <label for="sbmcTel">Telephone</label>
+                <input type="text" id="sbmcTel" name="attestation[sbmc_chairperson][telephone]">
+                <label for="sbmcDate">Date</label>
+                <input type="date" id="sbmcDate" name="attestation[sbmc_chairperson][date]">
+            </div>
+
+            <h3>Attestation by Supervisor</h3>
+            <div>
+                <label for="supervisorName">Name</label>
+                <input type="text" id="supervisorName" name="attestation[supervisor][name]">
+                <label for="supervisorPosition">Position</label>
+                <input type="text" id="supervisorPosition" name="attestation[supervisor][position]">
+                <label for="supervisorTel">Telephone</label>
+                <input type="text" id="supervisorTel" name="attestation[supervisor][telephone]">
+                <label for="supervisorDate">Date</label>
+                <input type="date" id="supervisorDate" name="attestation[supervisor][date]">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <script src="eccde-form.js"></script>
+</body>
+</html>
