@@ -25,33 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    const user = JSON.parse(sessionStorage.getItem('user'));
-    if (!user || !user.id) {
-        window.location.href = 'login.html';
-        return;
-    }
-
-    fetch('/api/data', {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-user-id': user.id
-        }
-    })
-    .then(response => {
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-    })
-    .then(data => {
-        if (data.noData) {
-            document.querySelector('.dashboard').innerHTML = '<p>No survey data available to display.</p>';
+    if (document.getElementById('key-metrics')) {
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (!user || !user.id) {
+            window.location.href = 'login.html';
             return;
         }
-        updateDashboard(data);
-    })
-    .catch(error => {
-        console.error('Error fetching or processing dashboard data:', error);
-        document.querySelector('.dashboard').innerHTML = `<p>Error loading dashboard data. Please try again later. Details: ${error.message}</p>`;
-    });
+
+        fetch('/api/data', {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-user-id': user.id
+            }
+        })
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.json();
+        })
+        .then(data => {
+            if (data.noData) {
+                document.querySelector('.dashboard').innerHTML = '<p>No survey data available to display.</p>';
+                return;
+            }
+            updateDashboard(data);
+        })
+        .catch(error => {
+            console.error('Error fetching or processing dashboard data:', error);
+            document.querySelector('.dashboard').innerHTML = `<p>Error loading dashboard data. Please try again later. Details: ${error.message}</p>`;
+        });
+    }
 });
 
 function updateDashboard(data) {
