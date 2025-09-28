@@ -54,26 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             populateOfficeInfrastructureTable(data.officeInfrastructure);
             populateToiletFacilitiesTable(data.toiletFacilities);
             populateStaffingTable(data.staffing);
-            populatePrivateSchoolTable(data.privateSchoolData);
         });
 });
-
-function populatePrivateSchoolTable(data) {
-    if (!data) return;
-    const tableBody = document.getElementById('privateSchoolTableBody');
-    tableBody.innerHTML = ''; // Clear existing rows
-
-    const rows = [
-        { metric: 'Number of Private Schools', value: data.count },
-        { metric: 'Total Students in Private Schools', value: data.totalStudents }
-    ];
-
-    rows.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${row.metric}</td><td>${row.value}</td>`;
-        tableBody.appendChild(tr);
-    });
-}
 
 function logout() {
     sessionStorage.removeItem('loggedIn');
