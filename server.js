@@ -514,6 +514,19 @@ app.get('/api/eccde-reports', isAdminOrEnumerator, async (req, res) => {
     }
 });
 
+app.get('/api/eccde-reports-all', isAdminOrEnumerator, async (req, res) => {
+    try {
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = new mongoose.Types.ObjectId(req.user.id);
+        }
+        const reports = await Eccde.find(query).sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching all ECCDE reports', error });
+    }
+});
+
 app.get('/api/science-reports', isAdminOrEnumerator, async (req, res) => {
     try {
         const query = {};
