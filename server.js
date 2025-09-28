@@ -43,8 +43,15 @@ app.get('/forms', (req, res) => {
     res.sendFile(__dirname + '/forms.html');
 });
 
+app.get('/science', (req, res) => {
+    res.sendFile(__dirname + '/science.html');
+});
+
+app.get('/science-report', (req, res) => {
+    res.sendFile(__dirname + '/science-report.html');
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
+
 });
 
 // MongoDB Connection
@@ -55,7 +62,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const multer = require('multer');
 const Survey = require('./models/Survey');
+const Science = require('./models/Science');
 const PrivateSurvey = require('./models/PrivateSurvey');
+
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
 
@@ -264,6 +273,23 @@ app.post('/api/survey', isEnumerator, upload.array('photos', 10), (req, res) => 
     }
 });
 
+app.post('/api/science', isEnumerator, (req, res) => {
+    try {
+        const scienceData = req.body;
+        const newScience = new Science(scienceData);
+        newScience.save()
+            .then(science => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted science form for school ${science.schoolIdentification.schoolName}`);
+                console.log('Science form saved successfully:', science);
+                res.json(science);
+            })
+            .catch(err => {
+                console.error('Error saving science form:', err);
+                res.status(400).json({ message: 'Error: ' + err, error: err });
+            });
+    } catch (error) {
+        console.error('Error in /api/science route:', error);
 app.post('/api/private-survey', isEnumerator, (req, res) => {
     try {
         const surveyData = req.body;
@@ -285,6 +311,24 @@ app.post('/api/private-survey', isEnumerator, (req, res) => {
     }
 });
 
+app.get('/api/science-reports', async (req, res) => {
+    try {
+        const reports = await Science.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching science reports', error });
+    }
+});
+
+app.get('/api/data', async (req, res) => {
+    try {
+        const surveys = await Survey.find();
+        const scienceForms = await Science.find();
+
+        if (surveys.length === 0 && scienceForms.length === 0) {
+            return res.json({ noData: true });
+        }
+
 app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
@@ -297,18 +341,92 @@ app.get('/api/data', async (req, res) => {
         // Aggregate public survey data
         const qualificationCounts = {};
         surveys.forEach(s => {
-            qualificationCounts[s.highestQualification] = (qualificationCounts[s.highestQualification] || 0) + 1;
+            if(s.highestQualification) {
+                qualificationCounts[s.highestQualification] = (qualificationCounts[s.highestQualification] || 0) + 1;
+            }
+        });
+        scienceForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                if (staff.academicQualification) {
+                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
+                }
+            });
         });
 
         const electricityCounts = {};
         surveys.forEach(s => {
-            electricityCounts[s.electricity] = (electricityCounts[s.electricity] || 0) + 1;
+            if (s.electricity) {
+                electricityCounts[s.electricity] = (electricityCounts[s.electricity] || 0) + 1;
+            }
+        });
+        scienceForms.forEach(s => {
+            s.facilities?.powerSources?.forEach(source => {
+                if (source) {
+                    electricityCounts[source] = (electricityCounts[source] || 0) + 1;
+                }
+            });
         });
 
         const genderCounts = { Male: 0, Female: 0 };
         surveys.forEach(s => {
-            if (s.gender === 'male') genderCounts.Male++;
-            if (s.gender === 'female') genderCounts.Female++;
+            const gender = s.gender?.toLowerCase();
+            if (gender === 'male') {
+                genderCounts.Male++;
+            } else if (gender === 'female') {
+                genderCounts.Female++;
+            }
+        });
+        scienceForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                const gender = staff.gender?.toUpperCase();
+                if (gender === 'M') {
+                    genderCounts.Male++;
+                } else if (gender === 'F') {
+                    genderCounts.Female++;
+                }
+            });
+        });
+
+        const schoolTypeCounts = {};
+        scienceForms.forEach(s => {
+            const type = s.schoolCharacteristics?.typeOfSchool;
+            if (type) {
+                schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
+            }
+        });
+
+        const locationCounts = {};
+        scienceForms.forEach(s => {
+            const location = s.schoolCharacteristics?.location;
+            if(location) {
+                locationCounts[location] = (locationCounts[location] || 0) + 1;
+            }
+        });
+
+        let totalStudents = 0;
+        scienceForms.forEach(s => {
+            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
+            if (jssEnrolment) {
+                for (const level in jssEnrolment) {
+                    const enrolment = jssEnrolment[level];
+                    totalStudents += (enrolment?.below12?.male || 0) + (enrolment?.below12?.female || 0);
+                    totalStudents += (enrolment?.age12?.male || 0) + (enrolment?.age12?.female || 0);
+                    totalStudents += (enrolment?.age13?.male || 0) + (enrolment?.age13?.female || 0);
+                    totalStudents += (enrolment?.age14?.male || 0) + (enrolment?.age14?.female || 0);
+                    totalStudents += (enrolment?.above14?.male || 0) + (enrolment?.above14?.female || 0);
+                }
+            }
+            const sssEnrolment = s.enrolment?.seniorSecondaryEnrolment;
+            if (sssEnrolment) {
+                for (const level in sssEnrolment) {
+                    const enrolment = sssEnrolment[level];
+                    totalStudents += (enrolment?.below15?.male || 0) + (enrolment?.below15?.female || 0);
+                    totalStudents += (enrolment?.age15?.male || 0) + (enrolment?.age15?.female || 0);
+                    totalStudents += (enrolment?.age16?.male || 0) + (enrolment?.age16?.female || 0);
+                    totalStudents += (enrolment?.age17?.male || 0) + (enrolment?.age17?.female || 0);
+                    totalStudents += (enrolment?.above17?.male || 0) + (enrolment?.above17?.female || 0);
+                }
+            }
         });
 
         const officeInfrastructure = {
@@ -407,6 +525,19 @@ app.get('/api/data', async (req, res) => {
                     datasets: [{ data: Object.values(electricityCounts) }]
                 }
             },
+            schoolTypes: {
+                chart: {
+                    labels: Object.keys(schoolTypeCounts),
+                    datasets: [{ data: Object.values(schoolTypeCounts) }]
+                }
+            },
+            schoolLocations: {
+                chart: {
+                    labels: Object.keys(locationCounts),
+                    datasets: [{ data: Object.values(locationCounts) }]
+                }
+            },
+            totalStudents,
             toiletFacilities: toiletFacilities,
             staffing: staffing,
             privateSchoolData: privateSchoolData

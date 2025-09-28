@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audit Log - Survey App</title>
+    <title>Science Form Reports - Survey App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="survey.css">
 </head>
 <body>
     <header>
@@ -22,20 +23,25 @@
         </nav>
     </header>
     <main>
-        <h1>User Action Audit Log</h1>
-        <table id="audit-log-table">
+        <h1>Science Form Reports</h1>
+        <table id="reportsTable">
             <thead>
                 <tr>
-                    <th>User</th>
-                    <th>Action</th>
-                    <th>Timestamp</th>
+                    <th>School Name</th>
+                    <th>LGA</th>
+                    <th>State</th>
+                    <th>Date Submitted</th>
+                    <th>Details</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Log rows will be inserted here by JavaScript -->
+            <tbody id="reportsTableBody">
+                <!-- Report data will be populated here -->
             </tbody>
         </table>
     </main>
-    <script src="audit-log.js"></script>
+    <footer>
+        <p>Lagos State Universal Basic Education Board © 2025. All Rights Reserved. | Centre of Excellence</p>
+    </footer>
+    <script src="science-report.js"></script>
 </body>
 </html>
