@@ -18,69 +18,54 @@
             <div id="key-metrics" class="key-metrics-grid">
                 <div class="metric-card">
                     <h3>Total Schools</h3>
-                    <p id="total-schools"></p>
+                    <p id="total-schools">0</p>
                 </div>
                 <div class="metric-card">
                     <h3>Total Students</h3>
-                    <p id="total-students"></p>
+                    <p id="total-students">0</p>
                 </div>
                 <div class="metric-card">
-                    <h3>Total Staff</h3>
-                    <p id="total-staff"></p>
+                    <h3>Total Teachers</h3>
+                    <p id="total-teachers">0</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Student-Teacher Ratio</h3>
+                    <p id="student-teacher-ratio">0</p>
                 </div>
             </div>
         </div>
+
         <div class="chart-container">
-            <h2>School Statistics</h2>
-            <canvas id="school-types-chart"></canvas>
-            <table id="school-types-table">
-                <thead>
-                    <tr>
-                        <th>School Type</th>
-                        <th>Number of Schools</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-        <div class="chart-container">
-            <h2>Enrolment & Staffing</h2>
-            <div class="table-container">
-                <h3>Student Enrolment by Gender</h3>
-                <table id="enrolment-table">
-                    <thead>
-                        <tr>
-                            <th>Gender</th>
-                            <th>Count</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-            <div class="table-container">
-                <h3>Staffing by Category & Gender</h3>
-                <table id="staffing-table">
-                     <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Male</th>
-                            <th>Female</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <h2>Enrolment Analysis</h2>
+            <div class="chart-row">
+                <div class="chart-item">
+                    <h3>Enrolment by Level</h3>
+                    <canvas id="enrolment-by-level-chart"></canvas>
+                </div>
+                <div class="chart-item">
+                    <h3>Enrolment by Gender</h3>
+                    <canvas id="enrolment-by-gender-chart"></canvas>
+                </div>
             </div>
         </div>
+
         <div class="chart-container">
-            <h2>Teacher Qualifications</h2>
-            <canvas id="teacher-qualifications-chart"></canvas>
+            <h2>School & Teacher Statistics</h2>
+            <div class="chart-row">
+                <div class="chart-item">
+                    <h3>School Types</h3>
+                    <canvas id="school-types-chart"></canvas>
+                </div>
+                <div class="chart-item">
+                    <h3>Teacher Qualifications</h3>
+                    <canvas id="teacher-qualifications-chart"></canvas>
+                </div>
+            </div>
         </div>
+
         <div class="chart-container">
             <h2>Facilities Overview</h2>
+            <p>% of Schools with Key Facilities</p>
             <canvas id="facilities-chart"></canvas>
         </div>
     </div>

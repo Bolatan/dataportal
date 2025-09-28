@@ -529,7 +529,6 @@ app.get('/api/science-reports', isAdminOrEnumerator, async (req, res) => {
 
 app.get('/api/data', isAdminOrEnumerator, async (req, res) => {
     try {
-        // Step 1: Fetch data from all relevant collections
         const scienceForms = await Science.find().lean();
         const privateForms = await PrivateSurvey.find().lean();
         const eccdeForms = await Eccde.find().lean();
@@ -548,7 +547,7 @@ app.get('/api/data', isAdminOrEnumerator, async (req, res) => {
             return res.json({ noData: true });
         }
 
-        // Step 2: Initialize aggregators for common metrics
+        // Initialize aggregators
         const schoolCounts = {
             total: allForms.length,
             byType: {
@@ -560,92 +559,93 @@ app.get('/api/data', isAdminOrEnumerator, async (req, res) => {
             }
         };
 
-        const enrolment = { male: 0, female: 0 };
-        const staff = {
-            teaching: { male: 0, female: 0 },
-            nonTeaching: { male: 0, female: 0 }
-        };
-        const teacherQualifications = {};
-        const facilities = {
-            hasSafeWater: 0,
-            hasPower: 0,
-            hasSecurity: 0
+        let enrolment = { male: 0, female: 0, byLevel: { prePrimary: 0, primary: 0, jss: 0, sss: 0 } };
+        let staff = { teaching: 0, nonTeaching: 0 };
+        let teacherQualifications = {};
+        let facilities = { usableToilets: 0, safeWater: 0, power: 0 };
+
+        const sumEnrolment = (section) => {
+            let male = 0, female = 0;
+            if (!section) return { male, female };
+            Object.values(section).forEach(classData => {
+                if (typeof classData === 'object' && classData !== null) {
+                    Object.values(classData).forEach(ageGroup => {
+                        if (typeof ageGroup === 'object' && ageGroup !== null) {
+                            male += Number(ageGroup.male) || 0;
+                            female += Number(ageGroup.female) || 0;
+                        }
+                    });
+                }
+            });
+            return { male, female, total: male + female };
         };
 
-        // Step 3: Loop through all forms and aggregate data
         for (const form of allForms) {
-            // Aggregate Enrolment
-            const sumEnrolment = (levelData) => {
-                if (!levelData) return;
-                Object.values(levelData).forEach(classData => {
-                    if (typeof classData === 'object' && classData !== null) {
-                        Object.values(classData).forEach(ageGroup => {
-                            if (typeof ageGroup === 'object' && ageGroup !== null) {
-                                enrolment.male += Number(ageGroup.male) || 0;
-                                enrolment.female += Number(ageGroup.female) || 0;
-                            }
-                        });
-                    }
-                });
-            };
+            // --- Enrolment ---
+            let formEnrolment = { male: 0, female: 0 };
+            const jssEnrolment = sumEnrolment(form.enrolment?.juniorSecondaryEnrolment || form.enrolment?.jssByAge);
+            const sssEnrolment = sumEnrolment(form.enrolment?.seniorSecondaryEnrolment || form.enrolment?.sssByAge);
+            const prePrimaryEnrolment = sumEnrolment(form.enrolment?.prePrimaryByAge);
+            const primaryEnrolment = sumEnrolment(form.enrolment?.primaryByAge);
 
-            sumEnrolment(form.enrolment?.juniorSecondaryEnrolment);
-            sumEnrolment(form.enrolment?.seniorSecondaryEnrolment);
-            sumEnrolment(form.enrolment?.prePrimaryEnrolmentByAge);
-            sumEnrolment(form.enrolment?.primaryEnrolmentByAge);
-            sumEnrolment(form.enrolment?.juniorSecondaryEnrolmentByAge);
-            sumEnrolment(form.enrolment?.seniorSecondaryEnrolmentByAge);
-            if (form.formType === 'ECCDE') {
-                sumEnrolment(form.prePrimaryEnrolmentByAge);
-                sumEnrolment(form.primaryEnrolmentByAge);
-            }
+            formEnrolment.male += jssEnrolment.male + sssEnrolment.male + prePrimaryEnrolment.male + primaryEnrolment.male;
+            formEnrolment.female += jssEnrolment.female + sssEnrolment.female + prePrimaryEnrolment.female + primaryEnrolment.female;
 
-            // Aggregate Staff
-            staff.teaching.male += Number(form.staff?.teaching?.male) || 0;
-            staff.teaching.female += Number(form.staff?.teaching?.female) || 0;
-            staff.nonTeaching.male += Number(form.staff?.nonTeaching?.male) || 0;
-            staff.nonTeaching.female += Number(form.staff?.nonTeaching?.female) || 0;
+            enrolment.byLevel.jss += jssEnrolment.total;
+            enrolment.byLevel.sss += sssEnrolment.total;
+            enrolment.byLevel.prePrimary += prePrimaryEnrolment.total;
+            enrolment.byLevel.primary += primaryEnrolment.total;
 
-            // Aggregate Teacher Qualifications from staff info tables
+            enrolment.male += formEnrolment.male;
+            enrolment.female += formEnrolment.female;
+
+            // --- Staff ---
+            staff.teaching += (Number(form.staff?.teaching?.male) || 0) + (Number(form.staff?.teaching?.female) || 0);
+            staff.nonTeaching += (Number(form.staff?.nonTeaching?.male) || 0) + (Number(form.staff?.nonTeaching?.female) || 0);
+
+            // --- Teacher Qualifications ---
             const staffList = form.staff?.staffInfo || form.staffInfo || [];
             if (Array.isArray(staffList)) {
                 staffList.forEach(s => {
-                    const qual = s.academicQualification;
-                    if (qual) {
+                    if (s.academicQualification) {
+                        const qual = s.academicQualification.trim();
                         teacherQualifications[qual] = (teacherQualifications[qual] || 0) + 1;
                     }
                 });
             }
 
-            // Aggregate Facilities
-            const waterSources = form.facilities?.safeDrinkingWater || [];
-            if (waterSources.includes('Pipe borne Water') || waterSources.includes('Borehole')) {
-                facilities.hasSafeWater++;
+            // --- Facilities ---
+            const toilets = form.facilities?.availableFacilities?.toilets?.useable || form.facilities?.toilets?.useable || form.facilities?.toilets;
+            if (Number(toilets) > 0) facilities.usableToilets++;
+
+            const waterSources = form.facilities?.safeDrinkingWater || form.facilities?.waterSource;
+            if (Array.isArray(waterSources) && (waterSources.includes('Pipe borne Water') || waterSources.includes('Borehole'))) {
+                facilities.safeWater++;
+            } else if (form.facilities?.water === true) {
+                facilities.safeWater++;
             }
 
-            const powerSources = form.facilities?.powerSources || [];
-            if (powerSources.length > 0 && !powerSources.includes('No source of Power')) {
-                facilities.hasPower++;
-            }
-
-            const safetyFacilities = form.facilities?.safetyFacilities || [];
-            if (safetyFacilities.includes('perimeter fence') || safetyFacilities.includes('Security guards')) {
-                facilities.hasSecurity++;
+            const powerSources = form.facilities?.powerSources;
+            if (Array.isArray(powerSources) && powerSources.length > 0 && !powerSources.includes('No source of Power')) {
+                facilities.power++;
+            } else if (form.facilities?.power === true) {
+                facilities.power++;
             }
         }
 
-
-        // Step 4: Format the aggregated data for the frontend
+        // Format the response
         const responseData = {
             schoolCounts,
             enrolment: {
-                ...enrolment,
-                total: enrolment.male + enrolment.female
+                total: enrolment.male + enrolment.female,
+                male: enrolment.male,
+                female: enrolment.female,
+                byLevel: enrolment.byLevel
             },
             staff: {
-                teaching: { ...staff.teaching, total: staff.teaching.male + staff.teaching.female },
-                nonTeaching: { ...staff.nonTeaching, total: staff.nonTeaching.male + staff.nonTeaching.female },
-                total: staff.teaching.male + staff.teaching.female + staff.nonTeaching.male + staff.nonTeaching.female
+                teaching: { total: staff.teaching },
+                nonTeaching: { total: staff.nonTeaching },
+                total: staff.teaching + staff.nonTeaching
             },
             charts: {
                 schoolTypes: {
@@ -657,11 +657,11 @@ app.get('/api/data', isAdminOrEnumerator, async (req, res) => {
                     data: Object.values(teacherQualifications)
                 },
                 facilities: {
-                    labels: ['Safe Water', 'Power', 'Security'],
+                    labels: ['Usable Toilets', 'Safe Water', 'Power'],
                     data: [
-                        (facilities.hasSafeWater / allForms.length) * 100,
-                        (facilities.hasPower / allForms.length) * 100,
-                        (facilities.hasSecurity / allForms.length) * 100
+                        (facilities.usableToilets / allForms.length) * 100,
+                        (facilities.safeWater / allForms.length) * 100,
+                        (facilities.power / allForms.length) * 100
                     ]
                 }
             }
