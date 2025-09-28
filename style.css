@@ -122,7 +122,7 @@ nav ul li a {
 
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -170,4 +170,34 @@ th {
 
 #user-name {
     font-weight: bold;
+}
+
+/* Success Popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.popup-close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+
 }

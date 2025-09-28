@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('There was an error submitting the form. See console for details.');
                 } else {
                     console.log('Success:', result);
-                    alert('Form submitted successfully!');
+                    showSuccessPopup('Form submitted successfully!');
                     scienceForm.reset();
                     // Clear user-added dynamic rows
                     document.getElementById('staffInfoTableBody').innerHTML = '';
