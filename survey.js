@@ -253,11 +253,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            sessionStorage.removeItem('loggedIn');
-            sessionStorage.removeItem('user');
-            window.location.href = 'login.html';
-        });
-    }
 });
