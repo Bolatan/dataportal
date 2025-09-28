@@ -1,9 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     const reportsTableBody = document.getElementById('reportsTableBody');
 
-    fetch('/api/science-reports')
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (!user || !user.id) {
+        console.error('User not found in session storage. Redirecting to login.');
+        window.location.href = 'login.html';
+        return;
+    }
+
+    fetch('/api/science-reports', {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-user-id': user.id
+        }
+    })
         .then(response => response.json())
         .then(data => {
+            if (data.message) {
+                reportsTableBody.innerHTML = `<tr><td colspan="5">${data.message}</td></tr>`;
+                return;
+            }
             if (data && data.length > 0) {
                 data.forEach(report => {
                     const row = document.createElement('tr');

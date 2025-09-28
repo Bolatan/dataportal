@@ -171,6 +171,10 @@ const EccdeSchema = new mongoose.Schema({
         head_teacher: { name: String, telephone: String, date: Date },
         sbmc_chairperson: { name: String, position: String, telephone: String, date: Date },
         supervisor: { name: String, position: String, telephone: String, date: Date },
+    },
+    submittedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 }, { timestamps: true, strict: false }); // Using strict: false to allow for dynamic keys in objects
 
