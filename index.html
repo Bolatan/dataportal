@@ -14,103 +14,74 @@
     <script src="header.js"></script>
     <div class="dashboard">
         <div class="chart-container">
-            <h2>Office Infrastructure</h2>
-            <canvas id="officeInfrastructureChart"></canvas>
-            <table>
+            <h2>Key Metrics</h2>
+            <div id="key-metrics" class="key-metrics-grid">
+                <div class="metric-card">
+                    <h3>Total Schools</h3>
+                    <p id="total-schools"></p>
+                </div>
+                <div class="metric-card">
+                    <h3>Total Students</h3>
+                    <p id="total-students"></p>
+                </div>
+                <div class="metric-card">
+                    <h3>Total Staff</h3>
+                    <p id="total-staff"></p>
+                </div>
+            </div>
+        </div>
+        <div class="chart-container">
+            <h2>School Statistics</h2>
+            <canvas id="school-types-chart"></canvas>
+            <table id="school-types-table">
                 <thead>
                     <tr>
-                        <th>Condition</th>
-                        <th>Count</th>
+                        <th>School Type</th>
+                        <th>Number of Schools</th>
                     </tr>
                 </thead>
-                <tbody id="officeInfrastructureTableBody">
+                <tbody>
                 </tbody>
             </table>
         </div>
         <div class="chart-container">
-            <h2>Respondents Demographics</h2>
-            <h3>Sex Distribution of Respondents</h3>
-            <canvas id="sexDistributionChart"></canvas>
-            <h3>Highest Qualifications</h3>
-            <canvas id="qualificationsChart"></canvas>
+            <h2>Enrolment & Staffing</h2>
+            <div class="table-container">
+                <h3>Student Enrolment by Gender</h3>
+                <table id="enrolment-table">
+                    <thead>
+                        <tr>
+                            <th>Gender</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container">
+                <h3>Staffing by Category & Gender</h3>
+                <table id="staffing-table">
+                     <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Male</th>
+                            <th>Female</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="chart-container">
-            <h2>Source of Electricity</h2>
-            <canvas id="electricitySourceChart"></canvas>
+            <h2>Teacher Qualifications</h2>
+            <canvas id="teacher-qualifications-chart"></canvas>
         </div>
         <div class="chart-container">
-            <h2>Toilet Facilities</h2>
-            <canvas id="toiletFacilitiesChart"></canvas>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Toilet Metric</th>
-                        <th>Count</th>
-                    </tr>
-                </thead>
-                <tbody id="toiletFacilitiesTableBody">
-                </tbody>
-            </table>
-        </div>
-        <div class="chart-container">
-            <h2>Staffing</h2>
-            <canvas id="staffingChart"></canvas>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="staffingTableBody">
-                </tbody>
-            </table>
-        </div>
-
-        <div class="chart-container">
-            <h2>Private School Data</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody id="privateSchoolTableBody">
-                </tbody>
-            </table>
-        </div>
-        <div class="chart-container">
-            <h2>ECCDE Enrolment</h2>
-            <canvas id="eccdeEnrolmentChart"></canvas>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Level</th>
-                        <th>Male</th>
-                        <th>Female</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody id="eccdeEnrolmentTableBody">
-                </tbody>
-            </table>
-        </div>
-        <div class="chart-container">
-            <h2>ECCDE Staffing</h2>
-            <canvas id="eccdeStaffingChart"></canvas>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Count</th>
-                    </tr>
-                </thead>
-                <tbody id="eccdeStaffingTableBody">
-                </tbody>
-            </table>
+            <h2>Facilities Overview</h2>
+            <canvas id="facilities-chart"></canvas>
         </div>
     </div>
     <script src="script.js"></script>
