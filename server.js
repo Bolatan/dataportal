@@ -357,7 +357,7 @@ app.post('/api/science', isAdminOrEnumerator, (req, res) => {
     }
 });
 
-app.post('/api/jss', isAdminOrEnumerator, (req, res) => {
+app.post('/api/jss', isAdmin, (req, res) => {
     try {
         const jssData = req.body;
         const newJss = new Jss(jssData);
@@ -378,7 +378,7 @@ app.post('/api/jss', isAdminOrEnumerator, (req, res) => {
     }
 });
 
-app.post('/api/sss', isAdminOrEnumerator, (req, res) => {
+app.post('/api/sss', isAdmin, (req, res) => {
     try {
         const sssData = req.body;
         const newSss = new Sss(sssData);
@@ -399,7 +399,7 @@ app.post('/api/sss', isAdminOrEnumerator, (req, res) => {
     }
 });
 
-app.post('/api/private-survey', isAdminOrEnumerator, (req, res) => {
+app.post('/api/private-survey', isAdmin, (req, res) => {
     try {
         const surveyData = req.body;
         const newPrivateSurvey = new PrivateSurvey(surveyData);
@@ -420,7 +420,7 @@ app.post('/api/private-survey', isAdminOrEnumerator, (req, res) => {
     }
 });
 
-app.post('/api/eccde-form', isAdminOrEnumerator, (req, res) => {
+app.post('/api/eccde-form', isAdmin, (req, res) => {
     try {
         const eccdeData = req.body;
         const newEccde = new Eccde(eccdeData);

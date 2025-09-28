@@ -1,11 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     const user = JSON.parse(sessionStorage.getItem('user'));
 
-    if (!user || (user.role !== 'enumerator' && user.role !== 'admin')) {
-        alert('You do not have permission to view this page.');
-        window.location.href = '/';
+    if (!user) {
+        window.location.href = 'login.html';
         return;
     }
 
-    console.log('Forms page loaded successfully for user:', user.username);
+    // Role-based access control for form cards
+    if (user.role === 'enumerator') {
+        const formCards = document.querySelectorAll('.card');
+        formCards.forEach(card => {
+            const title = card.querySelector('h3').textContent;
+            if (title !== 'Science Form') {
+                card.style.display = 'none';
+            }
+        });
+    }
 });

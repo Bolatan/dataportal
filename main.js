@@ -43,11 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const allowedPages = [
                 '/forms.html', '/forms',
                 '/profile.html', '/profile',
-                '/science.html', '/science',
-                '/private_form.html', '/private-form',
-                '/eccde-form.html', '/eccde-form',
-                '/jss.html', '/jss',
-                '/sss.html', '/sss'
+                '/science.html', '/science'
             ];
 
             if (!allowedPages.includes(currentPage)) {
