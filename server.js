@@ -50,6 +50,7 @@ app.get('/science', (req, res) => {
 app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
 });
+
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
 });
@@ -395,6 +396,7 @@ app.get('/api/data', async (req, res) => {
 
         if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && eccdeForms.length === 0) {
         const jssForms = await Jss.find();
+
 
         if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && jssForms.length === 0) {
             return res.json({ noData: true });
