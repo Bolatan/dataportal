@@ -55,8 +55,100 @@ document.addEventListener('DOMContentLoaded', () => {
             populateToiletFacilitiesTable(data.toiletFacilities);
             populateStaffingTable(data.staffing);
             populatePrivateSchoolTable(data.privateSchoolData);
+
+            // Render ECCDE charts and tables
+            if (data.eccdeData) {
+                renderEccdeEnrolmentChart(data.eccdeData.enrolment, brandColors);
+                populateEccdeEnrolmentTable(data.eccdeData.enrolment);
+                renderEccdeStaffingChart(data.eccdeData.staffing, brandColors);
+                populateEccdeStaffingTable(data.eccdeData.staffing);
+            }
         });
 });
+
+function renderEccdeEnrolmentChart(data, brandColors) {
+    const ctx = document.getElementById('eccdeEnrolmentChart');
+    if (!ctx) return;
+    const chartData = {
+        labels: ['Pre-Primary', 'Primary'],
+        datasets: [
+            {
+                label: 'Male',
+                data: [data.prePrimary.male, data.primary.male],
+                backgroundColor: brandColors[0],
+            },
+            {
+                label: 'Female',
+                data: [data.prePrimary.female, data.primary.female],
+                backgroundColor: brandColors[1],
+            },
+        ],
+    };
+    new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function populateEccdeEnrolmentTable(data) {
+    const tableBody = document.getElementById('eccdeEnrolmentTableBody');
+    if (!tableBody) return;
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    const prePrimaryTotal = data.prePrimary.male + data.prePrimary.female;
+    const primaryTotal = data.primary.male + data.primary.female;
+
+    const rows = [
+        { level: 'Pre-Primary', male: data.prePrimary.male, female: data.prePrimary.female, total: prePrimaryTotal },
+        { level: 'Primary', male: data.primary.male, female: data.primary.female, total: primaryTotal },
+    ];
+
+    rows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.level}</td><td>${row.male}</td><td>${row.female}</td><td>${row.total}</td>`;
+        tableBody.appendChild(tr);
+    });
+}
+
+function renderEccdeStaffingChart(data, brandColors) {
+    const ctx = document.getElementById('eccdeStaffingChart');
+    if (!ctx) return;
+    const chartData = {
+        labels: ['Teachers', 'Non-Teaching'],
+        datasets: [{
+            data: [data.teachers, data.nonTeaching],
+            backgroundColor: brandColors,
+        }],
+    };
+    new Chart(ctx, {
+        type: 'pie',
+        data: chartData,
+    });
+}
+
+function populateEccdeStaffingTable(data) {
+    const tableBody = document.getElementById('eccdeStaffingTableBody');
+    if (!tableBody) return;
+    tableBody.innerHTML = ''; // Clear existing rows
+
+    const rows = [
+        { category: 'Teachers', count: data.teachers },
+        { category: 'Non-Teaching Staff', count: data.nonTeaching },
+    ];
+
+    rows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.category}</td><td>${row.count}</td>`;
+        tableBody.appendChild(tr);
+    });
+}
 
 function populatePrivateSchoolTable(data) {
     if (!data) return;

@@ -53,6 +53,9 @@ app.get('/science-report', (req, res) => {
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
 });
+
+app.get('/eccde-form', (req, res) => {
+    res.sendFile(__dirname + '/eccde-form.html');
 app.get('/jss', (req, res) => {
     res.sendFile(__dirname + '/jss.html');
 });
@@ -67,6 +70,7 @@ const multer = require('multer');
 const Survey = require('./models/Survey');
 const Science = require('./models/Science');
 const PrivateSurvey = require('./models/PrivateSurvey');
+const Eccde = require('./models/Eccde');
 const Jss = require('./models/jss');
 
 const User = require('./models/User');
@@ -298,6 +302,7 @@ app.post('/api/science', isEnumerator, (req, res) => {
     }
 });
 
+
 app.post('/api/jss', isEnumerator, (req, res) => {
     try {
         const jssData = req.body;
@@ -340,6 +345,38 @@ app.post('/api/private-survey', isEnumerator, (req, res) => {
     }
 });
 
+app.post('/api/eccde-form', (req, res) => {
+    try {
+        const eccdeData = req.body;
+        const newEccde = new Eccde(eccdeData);
+        newEccde.save()
+            .then(eccde => {
+                console.log('ECCDE form saved successfully:', eccde);
+                res.json(eccde);
+            })
+            .catch(err => {
+                console.error('Error saving ECCDE form:', err);
+                res.status(400).json('Error: ' + err);
+            });
+    } catch (error) {
+        console.error('Error in /api/eccde-form route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
+app.get('/eccde-reports', (req, res) => {
+    res.sendFile(__dirname + '/eccde-reports.html');
+});
+
+app.get('/api/eccde-reports', async (req, res) => {
+    try {
+        const reports = await Eccde.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching ECCDE reports', error });
+    }
+});
+
 app.get('/api/science-reports', async (req, res) => {
     try {
         const reports = await Science.find().sort({ createdAt: -1 });
@@ -354,6 +391,9 @@ app.get('/api/data', async (req, res) => {
         const surveys = await Survey.find();
         const scienceForms = await Science.find();
         const privateSurveys = await PrivateSurvey.find();
+        const eccdeForms = await Eccde.find();
+
+        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && eccdeForms.length === 0) {
         const jssForms = await Jss.find();
 
         if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && jssForms.length === 0) {
@@ -583,6 +623,41 @@ app.get('/api/data', async (req, res) => {
             totalStudents: totalPrivateStudents,
         };
 
+        const eccdeData = {
+            enrolment: {
+                prePrimary: { male: 0, female: 0 },
+                primary: { male: 0, female: 0 },
+            },
+            staffing: {
+                teachers: 0,
+                nonTeaching: 0,
+            },
+        };
+
+        eccdeForms.forEach(form => {
+            // Safely aggregate enrolment data
+            if (form.prePrimaryEnrolmentByAge) {
+                Object.values(form.prePrimaryEnrolmentByAge).forEach(ageGroup => {
+                    Object.values(ageGroup).forEach(level => {
+                        eccdeData.enrolment.prePrimary.male += Number(level.male) || 0;
+                        eccdeData.enrolment.prePrimary.female += Number(level.female) || 0;
+                    });
+                });
+            }
+            if (form.primaryEnrolmentByAge) {
+                Object.values(form.primaryEnrolmentByAge).forEach(ageGroup => {
+                    Object.values(ageGroup).forEach(level => {
+                        eccdeData.enrolment.primary.male += Number(level.male) || 0;
+                        eccdeData.enrolment.primary.female += Number(level.female) || 0;
+                    });
+                });
+            }
+
+            // Correctly aggregate staffing data
+            eccdeData.staffing.teachers += Number(form.staff?.teaching?.total) || 0;
+            eccdeData.staffing.nonTeaching += Number(form.staff?.nonTeaching?.total) || 0;
+        });
+
         const responseData = {
             officeInfrastructure: officeInfrastructure,
             respondentsDemographics: {
@@ -616,7 +691,8 @@ app.get('/api/data', async (req, res) => {
             totalStudents,
             toiletFacilities: toiletFacilities,
             staffing: staffing,
-            privateSchoolData: privateSchoolData
+            privateSchoolData: privateSchoolData,
+            eccdeData: eccdeData
         };
 
         res.json(responseData);
