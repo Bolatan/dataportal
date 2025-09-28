@@ -73,6 +73,13 @@ const surveySchema = new mongoose.Schema({
     electricity: String,
     waterlogged: String,
     photos: [String],
+    staffProfile: [{
+        name: String,
+        qualification: String,
+        specialization: String,
+        experience: Number,
+        trcn: String
+    }],
     createdAt: {
         type: Date,
         default: Date.now
