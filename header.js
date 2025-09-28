@@ -38,6 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (nav.classList.contains('show')) {
+                nav.classList.remove('show');
+            }
+        });
+    });
+
     if (logoutButton) {
         logoutButton.addEventListener('click', () => {
             sessionStorage.clear();
