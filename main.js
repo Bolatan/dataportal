@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('nav');
     if (hamburgerMenu) {
@@ -16,29 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (user) {
-        const userName = document.getElementById('user-name');
-        const userAvatar = document.getElementById('user-avatar');
-        if (userName) {
-            userName.textContent = user.fullName || user.username;
-        }
-        if (userAvatar) {
-            // Assuming user.profilePicture will be a valid path or URL
-            // userAvatar.src = user.profilePicture;
-        }
-
         // Role-based access control
         if (user.role === 'enumerator') {
-            // 1. Hide unauthorized nav links
-            const navLinks = document.querySelectorAll('nav ul li a');
-            const allowedHrefs = ['/profile', '/forms'];
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && !allowedHrefs.includes(href)) {
-                    link.parentElement.style.display = 'none';
-                }
-            });
-
-            // 2. Redirect if on an unauthorized page
+            // Redirect if on an unauthorized page
             const currentPage = window.location.pathname;
             const allowedPages = [
                 '/forms.html', '/forms',
