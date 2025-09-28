@@ -17,6 +17,7 @@ header {
     color: var(--brand-black);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .header-top {
@@ -100,7 +101,7 @@ nav ul li a {
         display: none;
         width: 100%;
         position: absolute;
-        top: 130px;
+        top: 95%;
         left: 0;
         background-color: var(--brand-gold);
         z-index: 100;
