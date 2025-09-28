@@ -69,4 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    const numberInputs = document.querySelectorAll('input[type="number"]');
+    numberInputs.forEach(input => {
+        input.min = 0;
+    });
 });
