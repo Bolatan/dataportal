@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECCDE Reports - Survey App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/science-report">Science Reports</a></li>
+                <li><a href="/audit-log">Audit Log</a></li>
+                <li><a href="/forms">School Census Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>ECCDE Primary Form Reports</h1>
+        <table id="reportsTable">
+            <thead>
+                <tr>
+                    <th>School Name</th>
+                    <th>LGA</th>
+                    <th>State</th>
+                    <th>Date Submitted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be inserted here by eccde-reports.js -->
+            </tbody>
+        </table>
+    </main>
+    <script src="eccde-reports.js"></script>
+</body>
+</html>
