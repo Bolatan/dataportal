@@ -51,6 +51,18 @@ app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
 });
 
+app.get('/private-form', (req, res) => {
+    res.sendFile(__dirname + '/private_form.html');
+});
+
+app.get('/eccde-form', (req, res) => {
+    res.sendFile(__dirname + '/eccde-form.html');
+});
+
+app.get('/jss', (req, res) => {
+    res.sendFile(__dirname + '/jss.html');
+});
+
 // MongoDB Connection
 const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/dataportal?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -60,6 +72,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 const multer = require('multer');
 const Survey = require('./models/Survey');
 const Science = require('./models/Science');
+const PrivateSurvey = require('./models/PrivateSurvey');
+const Eccde = require('./models/Eccde');
+const Jss = require('./models/jss');
+
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
 
@@ -289,6 +305,80 @@ app.post('/api/science', isEnumerator, (req, res) => {
     }
 });
 
+app.post('/api/jss', isEnumerator, (req, res) => {
+    try {
+        const jssData = req.body;
+        const newJss = new Jss(jssData);
+        newJss.save()
+            .then(jss => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted JSS form for school ${jss.schoolIdentification.schoolName}`);
+                console.log('JSS form saved successfully:', jss);
+                res.json(jss);
+            })
+            .catch(err => {
+                console.error('Error saving JSS form:', err);
+                res.status(400).json({ message: 'Error: ' + err, error: err });
+            });
+    } catch (error) {
+        console.error('Error in /api/jss route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
+app.post('/api/private-survey', isEnumerator, (req, res) => {
+    try {
+        const surveyData = req.body;
+        const newPrivateSurvey = new PrivateSurvey(surveyData);
+        newPrivateSurvey.save()
+            .then(survey => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted private survey for school ${survey.schoolIdentification.schoolName}`);
+                console.log('Private Survey saved successfully:', survey);
+                res.json(survey);
+            })
+            .catch(err => {
+                console.error('Error saving private survey:', err);
+                res.status(400).json('Error: ' + err);
+            });
+    } catch (error) {
+        console.error('Error in /api/private-survey route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
+app.post('/api/eccde-form', (req, res) => {
+    try {
+        const eccdeData = req.body;
+        const newEccde = new Eccde(eccdeData);
+        newEccde.save()
+            .then(eccde => {
+                console.log('ECCDE form saved successfully:', eccde);
+                res.json(eccde);
+            })
+            .catch(err => {
+                console.error('Error saving ECCDE form:', err);
+                res.status(400).json('Error: ' + err);
+            });
+    } catch (error) {
+        console.error('Error in /api/eccde-form route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
+app.get('/eccde-reports', (req, res) => {
+    res.sendFile(__dirname + '/eccde-reports.html');
+});
+
+app.get('/api/eccde-reports', async (req, res) => {
+    try {
+        const reports = await Eccde.find().sort({ createdAt: -1 });
+        res.json(reports);
+    } catch (error) {
+        res.status(400).json({ message: 'Error fetching ECCDE reports', error });
+    }
+});
+
 app.get('/api/science-reports', async (req, res) => {
     try {
         const reports = await Science.find().sort({ createdAt: -1 });
@@ -302,11 +392,15 @@ app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
         const scienceForms = await Science.find();
+        const privateSurveys = await PrivateSurvey.find();
+        const eccdeForms = await Eccde.find();
+        const jssForms = await Jss.find();
 
-        if (surveys.length === 0 && scienceForms.length === 0) {
+        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && eccdeForms.length === 0 && jssForms.length === 0) {
             return res.json({ noData: true });
         }
 
+        // Aggregate public survey data
         const qualificationCounts = {};
         surveys.forEach(s => {
             if(s.highestQualification) {
@@ -314,6 +408,13 @@ app.get('/api/data', async (req, res) => {
             }
         });
         scienceForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                if (staff.academicQualification) {
+                    qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
+                }
+            });
+        });
+        jssForms.forEach(s => {
             s.staff?.staffInfo?.forEach(staff => {
                 if (staff.academicQualification) {
                     qualificationCounts[staff.academicQualification] = (qualificationCounts[staff.academicQualification] || 0) + 1;
@@ -328,6 +429,13 @@ app.get('/api/data', async (req, res) => {
             }
         });
         scienceForms.forEach(s => {
+            s.facilities?.powerSources?.forEach(source => {
+                if (source) {
+                    electricityCounts[source] = (electricityCounts[source] || 0) + 1;
+                }
+            });
+        });
+        jssForms.forEach(s => {
             s.facilities?.powerSources?.forEach(source => {
                 if (source) {
                     electricityCounts[source] = (electricityCounts[source] || 0) + 1;
@@ -354,6 +462,16 @@ app.get('/api/data', async (req, res) => {
                 }
             });
         });
+        jssForms.forEach(s => {
+            s.staff?.staffInfo?.forEach(staff => {
+                const gender = staff.gender?.toUpperCase();
+                if (gender === 'M') {
+                    genderCounts.Male++;
+                } else if (gender === 'F') {
+                    genderCounts.Female++;
+                }
+            });
+        });
 
         const schoolTypeCounts = {};
         scienceForms.forEach(s => {
@@ -362,9 +480,21 @@ app.get('/api/data', async (req, res) => {
                 schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
             }
         });
+        jssForms.forEach(s => {
+            const type = s.schoolCharacteristics?.typeOfSchool;
+            if (type) {
+                schoolTypeCounts[type] = (schoolTypeCounts[type] || 0) + 1;
+            }
+        });
 
         const locationCounts = {};
         scienceForms.forEach(s => {
+            const location = s.schoolCharacteristics?.location;
+            if(location) {
+                locationCounts[location] = (locationCounts[location] || 0) + 1;
+            }
+        });
+        jssForms.forEach(s => {
             const location = s.schoolCharacteristics?.location;
             if(location) {
                 locationCounts[location] = (locationCounts[location] || 0) + 1;
@@ -396,12 +526,25 @@ app.get('/api/data', async (req, res) => {
                 }
             }
         });
+        jssForms.forEach(s => {
+            const jssEnrolment = s.enrolment?.juniorSecondaryEnrolment;
+            if (jssEnrolment) {
+                for (const level in jssEnrolment) {
+                    const enrolment = jssEnrolment[level];
+                    totalStudents += (enrolment?.below12?.male || 0) + (enrolment?.below12?.female || 0);
+                    totalStudents += (enrolment?.age12?.male || 0) + (enrolment?.age12?.female || 0);
+                    totalStudents += (enrolment?.age13?.male || 0) + (enrolment?.age13?.female || 0);
+                    totalStudents += (enrolment?.age14?.male || 0) + (enrolment?.age14?.female || 0);
+                    totalStudents += (enrolment?.above14?.male || 0) + (enrolment?.above14?.female || 0);
+                }
+            }
+        });
 
         const officeInfrastructure = {
             goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
             needed: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             majorRepairs: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
-            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0), // Changed to classroomsMajorRepair
+            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
             additionalNeeded: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
@@ -443,6 +586,73 @@ app.get('/api/data', async (req, res) => {
             }
         };
 
+        // Aggregate private survey data
+        const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
+            let surveyTotal = 0;
+            const enrolment = survey.schoolEnrolment;
+            if (!enrolment) return total;
+
+            const sumLevel = (level) => {
+                let levelTotal = 0;
+                if (level) {
+                    for (const grade in level) {
+                        if (level[grade] && typeof level[grade] === 'object' && 'male' in level[grade] && 'female' in level[grade]) {
+                            levelTotal += (level[grade].male || 0);
+                            levelTotal += (level[grade].female || 0);
+                        }
+                    }
+                }
+                return levelTotal;
+            };
+
+            surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.primaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.juniorSecondaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.seniorSecondaryEnrolmentByAge);
+
+            return total + surveyTotal;
+        }, 0);
+
+        const privateSchoolData = {
+            count: privateSurveys.length,
+            totalStudents: totalPrivateStudents,
+        };
+
+        const eccdeData = {
+            enrolment: {
+                prePrimary: { male: 0, female: 0 },
+                primary: { male: 0, female: 0 },
+            },
+            staffing: {
+                teachers: 0,
+                nonTeaching: 0,
+            },
+        };
+
+        eccdeForms.forEach(form => {
+            // Safely aggregate enrolment data
+            if (form.prePrimaryEnrolmentByAge) {
+                Object.values(form.prePrimaryEnrolmentByAge).forEach(ageGroup => {
+                    Object.values(ageGroup).forEach(level => {
+                        eccdeData.enrolment.prePrimary.male += Number(level.male) || 0;
+                        eccdeData.enrolment.prePrimary.female += Number(level.female) || 0;
+                    });
+                });
+            }
+            if (form.primaryEnrolmentByAge) {
+                Object.values(form.primaryEnrolmentByAge).forEach(ageGroup => {
+                    Object.values(ageGroup).forEach(level => {
+                        eccdeData.enrolment.primary.male += Number(level.male) || 0;
+                        eccdeData.enrolment.primary.female += Number(level.female) || 0;
+                    });
+                });
+            }
+
+            // Correctly aggregate staffing data
+            eccdeData.staffing.teachers += Number(form.staff?.teaching?.total) || 0;
+            eccdeData.staffing.nonTeaching += Number(form.staff?.nonTeaching?.total) || 0;
+        });
+
         const responseData = {
             officeInfrastructure: officeInfrastructure,
             respondentsDemographics: {
@@ -475,7 +685,9 @@ app.get('/api/data', async (req, res) => {
             },
             totalStudents,
             toiletFacilities: toiletFacilities,
-            staffing: staffing
+            staffing: staffing,
+            privateSchoolData: privateSchoolData,
+            eccdeData: eccdeData
         };
 
         res.json(responseData);
