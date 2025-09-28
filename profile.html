@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <script>
@@ -16,6 +16,13 @@
         }
     </script>
     <header>
+        <div class="header-top">
+            <img src="surveylogo.jpeg" alt="Lagos State Logo">
+            <h1>Lagos State EDUCATION MANAGEMENT INFORMATION SYSTEM (EMIS)</h1>
+            <button class="hamburger-menu">
+                &#9776;
+            </button>
+        </div>
         <nav>
             <ul>
                 <li><a href="/">Dashboard</a></li>
@@ -25,6 +32,7 @@
                 <li><a href="/reports">Reports</a></li>
                 <li><a href="/audit-log">Audit Log</a></li>
                 <li><a href="/forms">School Census Forms</a></li>
+                <li><button id="logout-button">Logout</button></li>
             </ul>
         </nav>
     </header>
