@@ -51,6 +51,7 @@ app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
 });
 
+
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
 });
@@ -59,6 +60,7 @@ app.get('/eccde-form', (req, res) => {
     res.sendFile(__dirname + '/eccde-form.html');
 app.get('/jss', (req, res) => {
     res.sendFile(__dirname + '/jss.html');
+
 });
 
 // MongoDB Connection
@@ -304,6 +306,7 @@ app.post('/api/science', isEnumerator, (req, res) => {
 });
 
 
+
 app.post('/api/jss', isEnumerator, (req, res) => {
     try {
         const jssData = req.body;
@@ -390,6 +393,7 @@ app.get('/api/science-reports', async (req, res) => {
 app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
+
         const scienceForms = await Science.find();
         const privateSurveys = await PrivateSurvey.find();
         const eccdeForms = await Eccde.find();
