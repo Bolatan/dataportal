@@ -1,18 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const nav = document.querySelector('nav');
-    const logoutButton = document.getElementById('logout-button');
-
     if (hamburgerMenu) {
         hamburgerMenu.addEventListener('click', () => {
             nav.classList.toggle('show');
-        });
-    }
-
-    if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            sessionStorage.clear();
-            window.location.href = 'login.html';
         });
     }
 
