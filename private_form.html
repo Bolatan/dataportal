@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private School Census Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="survey.css">
+</head>
+<body>
+    <script>
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (!user) {
+            window.location.href = 'login.html';
+        } else if (user.role !== 'enumerator' && user.role !== 'admin') {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Dashboard</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/survey">Survey</a></li>
+                <li><a href="/reports">Reports</a></li>
+                <li><a href="/audit-log">Audit Log</a></li>
+                <li><a href="/forms">School Census Forms</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="privateSurveyForm">
+            <h1>Private School Annual School Census</h1>
+            <fieldset>
+                <legend>Level</legend>
+                <div>
+                    <label for="level">Level:</label>
+                    <select id="level" name="level">
+                        <option value="PRE-PRY & PRY">PRE-PRY & PRY</option>
+                        <option value="JSS">JSS</option>
+                        <option value="SSS">SSS</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="schoolCode">School Code:</label>
+                    <input type="text" id="schoolCode" name="schoolCode">
+                </div>
+                <div>
+                    <label for="jssSchoolCode">JSS School Code:</label>
+                    <input type="text" id="jssSchoolCode" name="jssSchoolCode">
+                </div>
+                <div>
+                    <label for="sssSchoolCode">SSS School Code:</label>
+                    <input type="text" id="sssSchoolCode" name="sssSchoolCode">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>School Coordinates</legend>
+                <div>
+                    <label for="elevation">Elevation (Meter):</label>
+                    <input type="number" id="elevation" name="schoolCoordinates.elevation">
+                </div>
+                <div>
+                    <label for="latitude">Latitude North:</label>
+                    <input type="number" id="latitude" name="schoolCoordinates.latitude" step="any">
+                </div>
+                <div>
+                    <label for="longitude">Longitude East:</label>
+                    <input type="number" id="longitude" name="schoolCoordinates.longitude" step="any">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>A. School Identification</legend>
+                <div>
+                    <label for="schoolName">A.1 School Name:</label>
+                    <input type="text" id="schoolName" name="schoolIdentification.schoolName">
+                </div>
+                <div>
+                    <label for="proprietorName">A.2 Name of Proprietor:</label>
+                    <input type="text" id="proprietorName" name="schoolIdentification.proprietorName">
+                </div>
+                <div>
+                    <label for="address">A.3 Number and Street name:</label>
+                    <input type="text" id="address" name="schoolIdentification.address">
+                </div>
+                <div>
+                    <label for="villageOrTown">A.4 Name of Village or Town:</label>
+                    <input type="text" id="villageOrTown" name="schoolIdentification.villageOrTown">
+                </div>
+                <div>
+                    <label for="ward">A.5 Ward:</label>
+                    <input type="text" id="ward" name="schoolIdentification.ward">
+                </div>
+                <div>
+                    <label for="lga">A.6 LGA:</label>
+                    <input type="text" id="lga" name="schoolIdentification.lga">
+                </div>
+                <div>
+                    <label for="state">A.7 State:</label>
+                    <input type="text" id="state" name="schoolIdentification.state" value="Lagos" readonly>
+                </div>
+                <div>
+                    <label for="schoolTelephone">A.8 School Telephone / Proprietor’s GSM number:</label>
+                    <input type="text" id="schoolTelephone" name="schoolIdentification.schoolTelephone">
+                </div>
+                <div>
+                    <label for="emailAddress">A.9 E-mail Address:</label>
+                    <input type="email" id="emailAddress" name="schoolIdentification.emailAddress">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>B. School Characteristics</legend>
+                <p>Year of establishment of:</p>
+                <div>
+                    <label for="year-pre-primary">A. 1 Pre-primary:</label>
+                    <input type="number" id="year-pre-primary" name="schoolCharacteristics.yearOfEstablishment.prePrimary">
+                </div>
+                <div>
+                    <label for="year-primary">A. 2 Primary:</label>
+                    <input type="number" id="year-primary" name="schoolCharacteristics.yearOfEstablishment.primary">
+                </div>
+                <div>
+                    <label for="year-jss">A. 3 Junior Secondary School:</label>
+                    <input type="number" id="year-jss" name="schoolCharacteristics.yearOfEstablishment.juniorSecondary">
+                </div>
+                <div>
+                    <label for="year-sss">A. 4 Senior Secondary School:</label>
+                    <input type="number" id="year-sss" name="schoolCharacteristics.yearOfEstablishment.seniorSecondary">
+                </div>
+
+                <div>
+                    <p>A. 5 Location:</p>
+                    <input type="radio" id="location-urban" name="schoolCharacteristics.location" value="Urban">
+                    <label for="location-urban">Urban</label>
+                    <input type="radio" id="location-rural" name="schoolCharacteristics.location" value="Rural">
+                    <label for="location-rural">Rural</label>
+                </div>
+
+                <div>
+                    <p>A. 5 Ownership status:</p>
+                    <input type="radio" id="ownership-community" name="schoolCharacteristics.ownershipStatus" value="Community"> <label for="ownership-community">Community</label>
+                    <input type="radio" id="ownership-faith" name="schoolCharacteristics.ownershipStatus" value="Faith-based"> <label for="ownership-faith">Faith-based</label>
+                    <input type="radio" id="ownership-ngo" name="schoolCharacteristics.ownershipStatus" value="NGO"> <label for="ownership-ngo">NGO</label>
+                    <input type="radio" id="ownership-corporation" name="schoolCharacteristics.ownershipStatus" value="Corporation"> <label for="ownership-corporation">Corporation</label>
+                    <input type="radio" id="ownership-individual" name="schoolCharacteristics.ownershipStatus" value="Individual"> <label for="ownership-individual">Individual</label>
+                    <input type="radio" id="ownership-other" name="schoolCharacteristics.ownershipStatus" value="Other"> <label for="ownership-other">Other</label>
+                </div>
+
+                <div>
+                    <p>A. 6 Recognition status:</p>
+                    <input type="radio" id="recognition-not-approved" name="schoolCharacteristics.recognitionStatus" value="Yet to be approved"> <label for="recognition-not-approved">Yet to be approved</label>
+                    <input type="radio" id="recognition-in-process" name="schoolCharacteristics.recognitionStatus" value="In process of approval"> <label for="recognition-in-process">In process of approval</label>
+                    <input type="radio" id="recognition-approved" name="schoolCharacteristics.recognitionStatus" value="Approved"> <label for="recognition-approved">Approved</label>
+                </div>
+
+                <div>
+                    <p>A. 7 Levels of education offered (Tick all that apply):</p>
+                    <input type="checkbox" id="level-pre-primary" name="schoolCharacteristics.levelsOfEducationOffered.prePrimary"> <label for="level-pre-primary">Pre-primary</label>
+                    <input type="checkbox" id="level-primary" name="schoolCharacteristics.levelsOfEducationOffered.primary"> <label for="level-primary">Primary</label>
+                    <input type="checkbox" id="level-jss" name="schoolCharacteristics.levelsOfEducationOffered.juniorSecondary"> <label for="level-jss">Junior secondary</label>
+                    <input type="checkbox" id="level-sss" name="schoolCharacteristics.levelsOfEducationOffered.seniorSecondary"> <label for="level-sss">Senior secondary</label>
+                </div>
+
+                <div>
+                    <p>A. 8 Shifts: Does the School operate shift system?</p>
+                    <input type="radio" id="shifts-yes" name="schoolCharacteristics.shifts" value="Yes"> <label for="shifts-yes">Yes</label>
+                    <input type="radio" id="shifts-no" name="schoolCharacteristics.shifts" value="No"> <label for="shifts-no">No</label>
+                </div>
+
+                <div>
+                    <p>A. 9 Shared Facilities: Does the school/level share facilities/ premises with any other school/level?</p>
+                    <input type="radio" id="shared-facilities-yes" name="schoolCharacteristics.sharedFacilities" value="Yes"> <label for="shared-facilities-yes">Yes</label>
+                    <input type="radio" id="shared-facilities-no" name="schoolCharacteristics.sharedFacilities" value="No"> <label for="shared-facilities-no">No</label>
+                </div>
+
+                <div>
+                    <p>A. 10 Type of school (Tick only one):</p>
+                    <input type="radio" name="schoolCharacteristics.typeOfSchool" value="Regular School"> Regular School<br>
+                    <input type="radio" name="schoolCharacteristics.typeOfSchool" value="Nomadic (Migrants)"> Nomadic (Migrants)<br>
+                    <input type="radio" name="schoolCharacteristics.typeOfSchool" value="Islamiyya integrated"> Islamiyya integrated<br>
+                    <input type="radio" name="schoolCharacteristics.typeOfSchool" value="Science and Technical College"> Science and Technical College<br>
+                    <input type="radio" name="schoolCharacteristics.typeOfSchool" value="Special Needs"> Special Needs<br>
+                </div>
+
+                <div>
+                    <p>A. 11 Is the School a member of Private Schools Association?</p>
+                    <input type="radio" id="is-member-yes" name="schoolCharacteristics.isMemberOfPrivateSchoolsAssociation.member" value="Yes"> <label for="is-member-yes">Yes</label>
+                    <input type="radio" id="is-member-no" name="schoolCharacteristics.isMemberOfPrivateSchoolsAssociation.member" value="No"> <label for="is-member-no">No</label>
+                    <label for="association-name">If a member write name otherwise write None:</label>
+                    <input type="text" id="association-name" name="schoolCharacteristics.isMemberOfPrivateSchoolsAssociation.name">
+                </div>
+
+                <div>
+                    <label for="distance-from-catchment">A. 12 School: Average Distance from Catchment Communities/areas (kilometres):</label>
+                    <input type="number" id="distance-from-catchment" name="schoolCharacteristics.averageDistanceFromCatchment">
+                </div>
+
+                <div>
+                    <p>A. 13 Pupils/Students Boarding:</p>
+                    <label for="boarding-male">Male:</label>
+                    <input type="number" id="boarding-male" name="schoolCharacteristics.pupilsBoarding.male">
+                    <label for="boarding-female">Female:</label>
+                    <input type="number" id="boarding-female" name="schoolCharacteristics.pupilsBoarding.female">
+                </div>
+
+                <div>
+                    <p>A. 14 School Development Plan (SDP):</p>
+                    <input type="radio" id="sdp-yes" name="schoolCharacteristics.hasSDP" value="Yes"> <label for="sdp-yes">Yes</label>
+                    <input type="radio" id="sdp-no" name="schoolCharacteristics.hasSDP" value="No"> <label for="sdp-no">No</label>
+                </div>
+
+                <div>
+                    <p>A. 15 School Based Management Committee (SBMC):</p>
+                    <input type="radio" id="sbmc-yes" name="schoolCharacteristics.hasSBMC" value="Yes"> <label for="sbmc-yes">Yes</label>
+                    <input type="radio" id="sbmc-no" name="schoolCharacteristics.hasSBMC" value="No"> <label for="sbmc-no">No</label>
+                </div>
+
+                <div>
+                    <p>A. 16 Parents’-Teachers’ Association (PTA) / Parents Forum (PF):</p>
+                    <input type="radio" id="pta-yes" name="schoolCharacteristics.hasPTA" value="Yes"> <label for="pta-yes">Yes</label>
+                    <input type="radio" id="pta-no" name="schoolCharacteristics.hasPTA" value="No"> <label for="pta-no">No</label>
+                </div>
+
+                <div>
+                    <label for="last-inspection-date">A. 17 Date of Last Inspection Visit:</label>
+                    <input type="date" id="last-inspection-date" name="schoolCharacteristics.lastInspectionDate">
+                    <label for="inspection-visits">Number of inspection Visit in last academic year:</label>
+                    <input type="number" id="inspection-visits" name="schoolCharacteristics.numberOfInspections">
+                </div>
+
+                <div>
+                    <p>A.18 Authority of Last Inspection:</p>
+                    <input type="radio" name="schoolCharacteristics.lastInspectionAuthority" value="Federal"> Federal
+                    <input type="radio" name="schoolCharacteristics.lastInspectionAuthority" value="State"> State
+                    <input type="radio" name="schoolCharacteristics.lastInspectionAuthority" value="LGEA"> LGEA
+                </div>
+
+                <div>
+                    <label for="security-guards">A. 19 Security Guard (Number):</label>
+                    <input type="number" id="security-guards" name="schoolCharacteristics.securityGuards">
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>C. School Enrolment</legend>
+
+                <h4>Number of pupils enrolled with Birth Certificates and NIN in pre-primary & primary 1</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Birth Certificates & National Identification Number (NIN)</th>
+                            <th colspan="2">Kindergarten 1/ECCD</th>
+                            <th colspan="2">Kindergarten 2/ECCD</th>
+                            <th colspan="2">Nursery 1</th>
+                            <th colspan="2">Nursery 2</th>
+                            <th colspan="2">Nursery 3 / One Year pre-primary</th>
+                            <th colspan="2">Primary 1</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>National Population Commission</td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.kindergarten1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.kindergarten1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.kindergarten2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.kindergarten2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.nursery1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.nursery1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.nursery2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.nursery2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.nursery3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.prePrimary.nursery3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.nationalPopulationCommission.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.nationalPopulationCommission.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                             <td colspan="10"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.others.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.others.female"></td>
+                        </tr>
+                        <tr>
+                            <td>NIN</td>
+                             <td colspan="10"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.nin.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.nin.female"></td>
+                        </tr>
+                         <tr>
+                            <td>Total</td>
+                             <td colspan="10"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.primary1.total.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Number of Students enrolled with Birth Certificates and NIN in JSS 1 & SSS 1</h4>
+                <table>
+                     <thead>
+                        <tr>
+                            <th>Birth Certificates & National Identification Number (NIN)</th>
+                            <th colspan="2">JSS 1</th>
+                            <th colspan="2">SS 1</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>National Population Commission</td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.nationalPopulationCommission.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.nationalPopulationCommission.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.nationalPopulationCommission.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.nationalPopulationCommission.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.others.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.others.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.others.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.others.female"></td>
+                        </tr>
+                        <tr>
+                            <td>NIN</td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.nin.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.nin.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.nin.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.nin.female"></td>
+                        </tr>
+                         <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.jss1.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.birthCertificatesNIN.sss1.total.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4>Pre-primary Enrolment by age for the Current Academic Year</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pupils' age</th>
+                            <th colspan="2">Kindergarten 1/ECCD</th>
+                            <th colspan="2">Kindergarten 2/ECCD</th>
+                            <th colspan="2">Nursery 1</th>
+                            <th colspan="2">Nursery 2</th>
+                            <th colspan="2">Nursery3 / One Year Pre-primary</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No of streams</td>
+                            <td colspan="2"><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.streams"></td>
+                            <td colspan="2"><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.streams"></td>
+                            <td colspan="2"><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.streams"></td>
+                            <td colspan="2"><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.streams"></td>
+                            <td colspan="2"><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.streams"></td>
+                        </tr>
+                        <tr>
+                            <td>Below 3 Years</td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.below3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.below3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.below3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.below3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.below3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.below3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.below3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.below3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.below3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.below3.female"></td>
+                        </tr>
+                         <tr>
+                            <td>3 Years</td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.age3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.age3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.age3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.age3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.age3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.age3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.age3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.age3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.age3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.age3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>4 Years</td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.age4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.age4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.age4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.age4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.age4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.age4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.age4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.age4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.age4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.age4.female"></td>
+                        </tr>
+                        <tr>
+                            <td>5 Years</td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.age5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.age5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.age5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.age5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.age5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.age5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.age5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.age5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.age5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.age5.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Above 5 Years</td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.above5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.above5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.above5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.above5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.above5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.above5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.above5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.above5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.above5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.above5.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten1.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.kindergarten2.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery1.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery2.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.prePrimaryEnrolmentByAge.nursery3.total.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                 <h4>New entrants into primary 1 and those that attended ECCDE</h4>
+                 <table>
+                     <thead>
+                        <tr>
+                            <th>Pupil age</th>
+                            <th colspan="2">Primary 1</th>
+                            <th colspan="2">ECCDE</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th><th>Female</th>
+                            <th>Male</th><th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 6 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.below6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.below6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>6 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age6.female"></td>
+                        </tr>
+                         <tr>
+                            <td>7 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age7.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age7.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age7.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age7.female"></td>
+                        </tr>
+                         <tr>
+                            <td>8 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age8.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age8.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age8.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age8.female"></td>
+                        </tr>
+                         <tr>
+                            <td>9 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age9.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age9.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age9.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age9.female"></td>
+                        </tr>
+                         <tr>
+                            <td>10 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age10.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age10.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age10.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age10.female"></td>
+                        </tr>
+                         <tr>
+                            <td>11 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age11.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.age11.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age11.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.age11.female"></td>
+                        </tr>
+                         <tr>
+                            <td>Above 11 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.above11.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.above11.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.above11.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.above11.female"></td>
+                        </tr>
+                         <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsPrimary1.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsECCDE.total.female"></td>
+                        </tr>
+                    </tbody>
+                 </table>
+                <h4>Primary Enrolment by age for the Current Academic Year</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pupil age</th>
+                            <th colspan="2">PRY1</th><th colspan="2">PRY2</th><th colspan="2">PRY3</th>
+                            <th colspan="2">PRY4</th><th colspan="2">PRY5</th><th colspan="2">PRY6</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 6 Years</td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry1.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry1.below6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry2.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry2.below6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry3.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry3.below6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry4.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry4.below6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry5.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry5.below6.female"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry6.below6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.primaryEnrolmentByAge.pry6.below6.female"></td>
+                        </tr>
+                        <!-- Placeholder for other age groups -->
+                    </tbody>
+                </table>
+
+                <h4>C. 6 Number of pupils with special needs in the current school year (Pre-primary & Primary)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th colspan="2">ECCD</th><th colspan="2">NURS</th><th colspan="2">NR3</th>
+                            <th colspan="2">PRY1</th><th colspan="2">PRY2</th><th colspan="2">PRY3</th>
+                            <th colspan="2">PRY4</th><th colspan="2">PRY5</th><th colspan="2">PRY6</th>
+                        </tr>
+                         <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blind / visually impaired</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.blind.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Hearing / speech impaired</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.hearingImpaired.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Physically challenged</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.physicallyChallenged.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Mentally challenged</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.mentallyChallenged.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Albinism</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.albinism.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Autism</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsPrePrimaryPrimary.autism.pry6.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C. 7 Number of orphans by Grade</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vulnerability</th>
+                            <th colspan="2">ECCD</th><th colspan="2">NURS</th><th colspan="2">NR3</th>
+                            <th colspan="2">PRY1</th><th colspan="2">PRY2</th><th colspan="2">PRY3</th>
+                            <th colspan="2">PRY4</th><th colspan="2">PRY5</th><th colspan="2">PRY6</th>
+                        </tr>
+                         <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lost Mother</td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostMother.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Lost Father</td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostFather.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Lost Both</td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.eccd.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.eccd.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.nurs.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.nurs.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.nr3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.nr3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.orphansByGrade.lostBoth.pry6.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C.8 Pupil Flow for the Current Academic Year (PRIMARY)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pupil Flow</th>
+                            <th colspan="2">PRY 1</th><th colspan="2">PRY 2</th><th colspan="2">PRY 3</th>
+                            <th colspan="2">PRY 4</th><th colspan="2">PRY 5</th><th colspan="2">PRY 6</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dropout</td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.dropout.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer in</td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferIn.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer out</td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.transferOut.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Repeaters</td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.repeaters.pry6.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Promoted</td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry4.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry4.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry5.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry5.female"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry6.male"></td>
+                            <td><input type="number" name="schoolEnrolment.pupilFlowPrimary.promoted.pry6.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C.9 New entrants into JSS 1</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student age</th>
+                            <th>Male</th><th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 12 years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.below12.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.below12.female"></td>
+                        </tr>
+                        <tr>
+                            <td>12 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.age12.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.age12.female"></td>
+                        </tr>
+                        <tr>
+                            <td>13 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.age13.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.age13.female"></td>
+                        </tr>
+                        <tr>
+                            <td>14 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.age14.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.age14.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Above 14 years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.above14.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.above14.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsJSS1.total.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C.10 Junior Secondary Enrolment by age for the Current Academic Year</h4>
+                <table>
+                     <thead>
+                        <tr>
+                            <th>Student age</th>
+                            <th colspan="2">JS1</th><th colspan="2">JS2</th><th colspan="2">JS3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 12 Years</td>
+                            <td><input type="number" name="schoolEnrolment.juniorSecondaryEnrolmentByAge.js1.below12.male"></td>
+                            <td><input type="number" name="schoolEnrolment.juniorSecondaryEnrolmentByAge.js1.below12.female"></td>
+                            <td><input type="number" name="schoolEnrolment.juniorSecondaryEnrolmentByAge.js2.below12.male"></td>
+                            <td><input type="number" name="schoolEnrolment.juniorSecondaryEnrolmentByAge.js2.below12.female"></td>
+                            <td><input type="number" name="schoolEnrolment.juniorSecondaryEnrolmentByAge.js3.below12.male"></td>
+                            <td><input type="number" name="schoolEnrolment.juniorSecondaryEnrolmentByAge.js3.below12.female"></td>
+                        </tr>
+                        <!-- All age groups for JSS -->
+                    </tbody>
+                </table>
+
+                <h4>C.11 New entrants into SS1</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student age</th>
+                            <th>Male</th><th>Female</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 15 years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.below15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.below15.female"></td>
+                        </tr>
+                        <tr>
+                            <td>15 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.age15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.age15.female"></td>
+                        </tr>
+                        <tr>
+                            <td>16 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.age16.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.age16.female"></td>
+                        </tr>
+                        <tr>
+                            <td>17 Years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.age17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.age17.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Above 17 years</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.above17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.above17.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.newEntrantsSS1.total.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C.12 Senior Secondary Enrolment by age for the Current Academic Year</h4>
+                <table>
+                     <thead>
+                        <tr>
+                            <th>Student age</th>
+                            <th colspan="2">SS1</th><th colspan="2">SS2</th><th colspan="2">SS3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Below 15 years</td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.below15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.below15.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.below15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.below15.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.below15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.below15.female"></td>
+                        </tr>
+                        <tr>
+                            <td>15 Years</td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.age15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.age15.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.age15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.age15.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.age15.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.age15.female"></td>
+                        </tr>
+                        <tr>
+                            <td>16 Years</td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.age16.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.age16.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.age16.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.age16.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.age16.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.age16.female"></td>
+                        </tr>
+                        <tr>
+                            <td>17 Years</td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.age17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.age17.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.age17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.age17.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.age17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.age17.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Above 17 years</td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.above17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.above17.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.above17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.above17.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.above17.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.above17.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss1.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss2.total.female"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.total.male"></td>
+                            <td><input type="number" name="schoolEnrolment.seniorSecondaryEnrolmentByAge.ss3.total.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C.13 Student Flow for the Current Academic Year (JSS & SSS)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Flow</th>
+                            <th colspan="2">JS1</th><th colspan="2">JS2</th><th colspan="2">JS3</th>
+                            <th colspan="2">SS1</th><th colspan="2">SS2</th><th colspan="2">SS3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dropout</td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.dropout.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer in</td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferIn.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Transfer out</td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.transferOut.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Repeaters</td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.repeaters.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Promoted</td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.studentFlowJssSss.promoted.ss3.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>C.14 Number of Students with Special needs in the current school year (Secondary)</h4>
+                 <table>
+                    <thead>
+                        <tr>
+                            <th>Challenge</th>
+                            <th colspan="2">JS1</th><th colspan="2">JS2</th><th colspan="2">JS3</th>
+                            <th colspan="2">SS1</th><th colspan="2">SS2</th><th colspan="2">SS3</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                            <th>M</th><th>F</th><th>M</th><th>F</th><th>M</th><th>F</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blind / visually impaired</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.blind.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Hearing / speech impaired</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.js3.male"></td>
+                            <td><input.type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.hearingImpaired.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Physically challenged</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.physicallyChallenged.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Mentally challenged</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.mentallyChallenged.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Albinism</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.albinism.ss3.female"></td>
+                        </tr>
+                        <tr>
+                            <td>Autism</td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.js1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.js1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.js2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.js2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.js3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.js3.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.ss1.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.ss1.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.ss2.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.ss2.female"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.ss3.male"></td>
+                            <td><input type="number" name="schoolEnrolment.specialNeedsSecondary.autism.ss3.female"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>D. CLASSROOMS/FACILITIES</legend>
+                <!-- This section is not detailed in the provided text, so I will leave it empty for now. -->
+            </fieldset>
+
+            <fieldset>
+                <legend>E. TEXTBOOKS</legend>
+                <h4>E.1 Number of Pupils’/Students’ Textbooks available to Pupils on average in the Current Academic Year</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th>
+                            <th>JS1</th><th>JS2</th><th>JS3</th><th>SS1</th><th>SS2</th><th>SS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Number</td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.pry1"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.pry2"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.pry3"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.pry4"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.pry5"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.pry6"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.js1"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.js2"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.js3"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.ss1"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.ss2"></td>
+                            <td><input type="number" name="textbooks.pupilsTextbooks.ss3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>E.2 NUMBER OF PUPILS’/STUDENTS’ TEXTBOOKS MADE AVAILABLE TO TEACHERS ON AVERAGE IN THE CURRENT ACADEMIC YEAR</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th>
+                            <th>JS1</th><th>JS2</th><th>JS3</th><th>SS1</th><th>SS2</th><th>SS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Number</td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.pry1"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.pry2"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.pry3"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.pry4"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.pry5"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.pry6"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.js1"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.js2"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.js3"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.ss1"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.ss2"></td>
+                            <td><input type="number" name="textbooks.teachersTextbooks.ss3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                 <h4>E.3 NUMBER OF TEACHERS’ GUIDES AVAILABLE TO TEACHERS ON AVERAGE IN THE CURRENT ACADEMIC YEAR</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>PRY1</th><th>PRY2</th><th>PRY3</th><th>PRY4</th><th>PRY5</th><th>PRY6</th>
+                            <th>JS1</th><th>JS2</th><th>JS3</th><th>SS1</th><th>SS2</th><th>SS3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Number</td>
+                            <td><input type="number" name="textbooks.teachersGuides.pry1"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.pry2"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.pry3"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.pry4"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.pry5"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.pry6"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.js1"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.js2"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.js3"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.ss1"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.ss2"></td>
+                            <td><input type="number" name="textbooks.teachersGuides.ss3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>F. TEACHERS QUALIFICATION BY LEVEL OF EDUCATION IN THE CURRENT ACADEMIC YEAR</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Highest Academic qualification</th>
+                            <th colspan="3">Pre-Pry</th>
+                            <th colspan="3">Pry</th>
+                            <th colspan="3">JSS</th>
+                            <th colspan="3">SSS</th>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <th>Male</th><th>Female</th><th>Total</th>
+                            <th>Male</th><th>Female</th><th>Total</th>
+                            <th>Male</th><th>Female</th><th>Total</th>
+                            <th>Male</th><th>Female</th><th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ph.D.</td>
+                            <td><input type="number" name="teachersQualification.prePry.phd.male"></td>
+                            <td><input type="number" name="teachersQualification.prePry.phd.female"></td>
+                            <td><input type="number" name="teachersQualification.prePry.phd.total"></td>
+                            <td><input type="number" name="teachersQualification.pry.phd.male"></td>
+                            <td><input type="number" name="teachersQualification.pry.phd.female"></td>
+                            <td><input type="number" name="teachersQualification.pry.phd.total"></td>
+                            <td><input type="number" name="teachersQualification.jss.phd.male"></td>
+                            <td><input type="number" name="teachersQualification.jss.phd.female"></td>
+                            <td><input type="number" name="teachersQualification.jss.phd.total"></td>
+                            <td><input type="number" name="teachersQualification.sss.phd.male"></td>
+                            <td><input type="number" name="teachersQualification.sss.phd.female"></td>
+                            <td><input type="number" name="teachersQualification.sss.phd.total"></td>
+                        </tr>
+                        <tr><td>Masters with Teaching Qualification</td><td><input type="number" name="teachersQualification.prePry.mastersWithTeaching.male"></td><td><input type="number" name="teachersQualification.prePry.mastersWithTeaching.female"></td><td><input type="number" name="teachersQualification.prePry.mastersWithTeaching.total"></td><td><input type="number" name="teachersQualification.pry.mastersWithTeaching.male"></td><td><input type="number" name="teachersQualification.pry.mastersWithTeaching.female"></td><td><input type="number" name="teachersQualification.pry.mastersWithTeaching.total"></td><td><input type="number" name="teachersQualification.jss.mastersWithTeaching.male"></td><td><input type="number" name="teachersQualification.jss.mastersWithTeaching.female"></td><td><input type="number" name="teachersQualification.jss.mastersWithTeaching.total"></td><td><input type="number" name="teachersQualification.sss.mastersWithTeaching.male"></td><td><input type="number" name="teachersQualification.sss.mastersWithTeaching.female"></td><td><input type="number" name="teachersQualification.sss.mastersWithTeaching.total"></td></tr>
+                        <tr><td>Masters without Teaching Qualification</td><td><input type="number" name="teachersQualification.prePry.mastersWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.prePry.mastersWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.prePry.mastersWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.pry.mastersWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.pry.mastersWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.pry.mastersWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.jss.mastersWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.jss.mastersWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.jss.mastersWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.sss.mastersWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.sss.mastersWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.sss.mastersWithoutTeaching.total"></td></tr>
+                        <tr><td>Degree with Teaching Qualification</td><td><input type="number" name="teachersQualification.prePry.degreeWithTeaching.male"></td><td><input type="number" name="teachersQualification.prePry.degreeWithTeaching.female"></td><td><input type="number" name="teachersQualification.prePry.degreeWithTeaching.total"></td><td><input type="number" name="teachersQualification.pry.degreeWithTeaching.male"></td><td><input type="number" name="teachersQualification.pry.degreeWithTeaching.female"></td><td><input type="number" name="teachersQualification.pry.degreeWithTeaching.total"></td><td><input type="number" name="teachersQualification.jss.degreeWithTeaching.male"></td><td><input type="number" name="teachersQualification.jss.degreeWithTeaching.female"></td><td><input type="number" name="teachersQualification.jss.degreeWithTeaching.total"></td><td><input type="number" name="teachersQualification.sss.degreeWithTeaching.male"></td><td><input type="number" name="teachersQualification.sss.degreeWithTeaching.female"></td><td><input type="number" name="teachersQualification.sss.degreeWithTeaching.total"></td></tr>
+                        <tr><td>Degree without Teaching Qualification</td><td><input type="number" name="teachersQualification.prePry.degreeWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.prePry.degreeWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.prePry.degreeWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.pry.degreeWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.pry.degreeWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.pry.degreeWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.jss.degreeWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.jss.degreeWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.jss.degreeWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.sss.degreeWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.sss.degreeWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.sss.degreeWithoutTeaching.total"></td></tr>
+                        <tr><td>HND with Teaching Qualification</td><td><input type="number" name="teachersQualification.prePry.hndWithTeaching.male"></td><td><input type="number" name="teachersQualification.prePry.hndWithTeaching.female"></td><td><input type="number" name="teachersQualification.prePry.hndWithTeaching.total"></td><td><input type="number" name="teachersQualification.pry.hndWithTeaching.male"></td><td><input type="number" name="teachersQualification.pry.hndWithTeaching.female"></td><td><input type="number" name="teachersQualification.pry.hndWithTeaching.total"></td><td><input type="number" name="teachersQualification.jss.hndWithTeaching.male"></td><td><input type="number" name="teachersQualification.jss.hndWithTeaching.female"></td><td><input type="number" name="teachersQualification.jss.hndWithTeaching.total"></td><td><input type="number" name="teachersQualification.sss.hndWithTeaching.male"></td><td><input type="number" name="teachersQualification.sss.hndWithTeaching.female"></td><td><input type="number" name="teachersQualification.sss.hndWithTeaching.total"></td></tr>
+                        <tr><td>HND without Teaching Qualification</td><td><input type="number" name="teachersQualification.prePry.hndWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.prePry.hndWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.prePry.hndWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.pry.hndWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.pry.hndWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.pry.hndWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.jss.hndWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.jss.hndWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.jss.hndWithoutTeaching.total"></td><td><input type="number" name="teachersQualification.sss.hndWithoutTeaching.male"></td><td><input type="number" name="teachersQualification.sss.hndWithoutTeaching.female"></td><td><input type="number" name="teachersQualification.sss.hndWithoutTeaching.total"></td></tr>
+                        <tr><td>NCE</td><td><input type="number" name="teachersQualification.prePry.nce.male"></td><td><input type="number" name="teachersQualification.prePry.nce.female"></td><td><input type="number" name="teachersQualification.prePry.nce.total"></td><td><input type="number" name="teachersQualification.pry.nce.male"></td><td><input type="number" name="teachersQualification.pry.nce.female"></td><td><input type="number" name="teachersQualification.pry.nce.total"></td><td><input type="number" name="teachersQualification.jss.nce.male"></td><td><input type="number" name="teachersQualification.jss.nce.female"></td><td><input type="number" name="teachersQualification.jss.nce.total"></td><td><input type="number" name="teachersQualification.sss.nce.male"></td><td><input type="number" name="teachersQualification.sss.nce.female"></td><td><input type="number" name="teachersQualification.sss.nce.total"></td></tr>
+                        <tr><td>OND/Diploma/ND</td><td><input type="number" name="teachersQualification.prePry.ond.male"></td><td><input type="number" name="teachersQualification.prePry.ond.female"></td><td><input type="number" name="teachersQualification.prePry.ond.total"></td><td><input type="number" name="teachersQualification.pry.ond.male"></td><td><input type="number" name="teachersQualification.pry.ond.female"></td><td><input type="number" name="teachersQualification.pry.ond.total"></td><td><input type="number" name="teachersQualification.jss.ond.male"></td><td><input type="number" name="teachersQualification.jss.ond.female"></td><td><input type="number" name="teachersQualification.jss.ond.total"></td><td><input type="number" name="teachersQualification.sss.ond.male"></td><td><input type="number" name="teachersQualification.sss.ond.female"></td><td><input type="number" name="teachersQualification.sss.ond.total"></td></tr>
+                        <tr><td>Grade II</td><td><input type="number" name="teachersQualification.prePry.gradeII.male"></td><td><input type="number" name="teachersQualification.prePry.gradeII.female"></td><td><input type="number" name="teachersQualification.prePry.gradeII.total"></td><td><input type="number" name="teachersQualification.pry.gradeII.male"></td><td><input type="number" name="teachersQualification.pry.gradeII.female"></td><td><input type="number" name="teachersQualification.pry.gradeII.total"></td><td><input type="number" name="teachersQualification.jss.gradeII.male"></td><td><input type="number" name="teachersQualification.jss.gradeII.female"></td><td><input type="number" name="teachersQualification.jss.gradeII.total"></td><td><input type="number" name="teachersQualification.sss.gradeII.male"></td><td><input type="number" name="teachersQualification.sss.gradeII.female"></td><td><input type="number" name="teachersQualification.sss.gradeII.total"></td></tr>
+                        <tr><td>SSCE/WASC/WASSC/GCE</td><td><input type="number" name="teachersQualification.prePry.ssce.male"></td><td><input type="number" name="teachersQualification.prePry.ssce.female"></td><td><input type="number" name="teachersQualification.prePry.ssce.total"></td><td><input type="number" name="teachersQualification.pry.ssce.male"></td><td><input type="number" name="teachersQualification.pry.ssce.female"></td><td><input type="number" name="teachersQualification.pry.ssce.total"></td><td><input type="number" name="teachersQualification.jss.ssce.male"></td><td><input type="number" name="teachersQualification.jss.ssce.female"></td><td><input type="number" name="teachersQualification.jss.ssce.total"></td><td><input type="number" name="teachersQualification.sss.ssce.male"></td><td><input type="number" name="teachersQualification.sss.ssce.female"></td><td><input type="number" name="teachersQualification.sss.ssce.total"></td></tr>
+                        <tr><td>Below SSCE</td><td><input type="number" name="teachersQualification.prePry.belowSSCE.male"></td><td><input type="number" name="teachersQualification.prePry.belowSSCE.female"></td><td><input type="number" name="teachersQualification.prePry.belowSSCE.total"></td><td><input type="number" name="teachersQualification.pry.belowSSCE.male"></td><td><input type="number" name="teachersQualification.pry.belowSSCE.female"></td><td><input type="number" name="teachersQualification.pry.belowSSCE.total"></td><td><input type="number" name="teachersQualification.jss.belowSSCE.male"></td><td><input type="number" name="teachersQualification.jss.belowSSCE.female"></td><td><input type="number" name="teachersQualification.jss.belowSSCE.total"></td><td><input type="number" name="teachersQualification.sss.belowSSCE.male"></td><td><input type="number" name="teachersQualification.sss.belowSSCE.female"></td><td><input type="number" name="teachersQualification.sss.belowSSCE.total"></td></tr>
+                        <tr><td>Others</td><td><input type="number" name="teachersQualification.prePry.others.male"></td><td><input type="number" name="teachersQualification.prePry.others.female"></td><td><input type="number" name="teachersQualification.prePry.others.total"></td><td><input type="number" name="teachersQualification.pry.others.male"></td><td><input type="number" name="teachersQualification.pry.others.female"></td><td><input type="number" name="teachersQualification.pry.others.total"></td><td><input type="number" name="teachersQualification.jss.others.male"></td><td><input type="number" name="teachersQualification.jss.others.female"></td><td><input type="number" name="teachersQualification.jss.others.total"></td><td><input type="number" name="teachersQualification.sss.others.male"></td><td><input type="number" name="teachersQualification.sss.others.female"></td><td><input type="number" name="teachersQualification.sss.others.total"></td></tr>
+                        <tr><td>TOTAL</td><td><input type="number" name="teachersQualification.prePry.total.male"></td><td><input type="number" name="teachersQualification.prePry.total.female"></td><td><input type="number" name="teachersQualification.prePry.total.total"></td><td><input type="number" name="teachersQualification.pry.total.male"></td><td><input type="number" name="teachersQualification.pry.total.female"></td><td><input type="number" name="teachersQualification.pry.total.total"></td><td><input type="number" name="teachersQualification.jss.total.male"></td><td><input type="number" name="teachersQualification.jss.total.female"></td><td><input type="number" name="teachersQualification.jss.total.total"></td><td><input type="number" name="teachersQualification.sss.total.male"></td><td><input type="number" name="teachersQualification.sss.total.female"></td><td><input type="number" name="teachersQualification.sss.total.total"></td></tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>G. SCHOOL WELL-BEING</legend>
+                <div><p>H.1 School rules and regulations/guidelines</p><p>Does the school have rules and regulations/guidelines?</p><input type="radio" name="schoolWellBeing.hasRules" value="YES"> YES <input type="radio" name="schoolWellBeing.hasRules" value="NO"> NO</div>
+                <div><p>Do the rules and guidelines in your school cover the following aspects?</p><p>1. Physical safety in School?</p><label>a. Bullying?</label><input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.bullying" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.bullying" value="NO"> NO<br><label>b. Physical Violence?</label><input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.physicalViolence" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.physicalViolence" value="NO"> NO<br><label>c. Corporal punishment?</label><input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.corporalPunishment" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.corporalPunishment" value="NO"> NO<br><label>d. Does the school have security personnel?</label><input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasSecurityPersonnel" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasSecurityPersonnel" value="NO"> NO<br><label>e. Does the school have a perimeter fence?</label><input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasPerimeterFence" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasPerimeterFence" value="NO"> NO<br><label>f. Has your school been ever attacked?</label><input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasBeenAttacked" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.physicalSafety.hasBeenAttacked" value="NO"> NO<br><label>g. If Yes, how many times has your school been attacked in the last three (3) years?</label><input type="number" name="schoolWellBeing.rulesCover.physicalSafety.timesAttacked"><br><label>h. Others (please specify)</label><input type="text" name="schoolWellBeing.rulesCover.physicalSafety.others"></div>
+                <div><p>2. Stigma and discrimination towards:</p><label>a. learners living with/affected by HIV</label><input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHIV" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHIV" value="NO"> NO<br><label>b. learners based on ethnicity</label><input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersEthnicity" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersEthnicity" value="NO"> NO<br><label>c. learners that have been harassed/abused</label><input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHarassed" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.learnersHarassed" value="NO"> NO<br><label>d. staff living with/affected by HIV</label><input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHIV" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHIV" value="NO"> NO<br><label>e. staff based on ethnicity</label><input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffEthnicity" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffEthnicity" value="NO"> NO<br><label>f. staff that have been harassed/abused</label><input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHarassed" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.stigmaAndDiscrimination.staffHarassed" value="NO"> NO</div>
+                <div><p>3. Grievance/disciplinary procedures in case of breach of the regulation described in the rules and guidelines.</p><input type="radio" name="schoolWellBeing.rulesCover.grievanceProcedures" value="YES"> YES <input type="radio" name="schoolWellBeing.rulesCover.grievanceProcedures" value="NO"> NO</div>
+                <div><p>H.2 Communication of rules and guidelines</p><label>Has your school communicated information about the rules and guidelines to learners?</label><input type="radio" name="schoolWellBeing.communicationOfRules.toLearners" value="YES"> YES <input type="radio" name="schoolWellBeing.communicationOfRules.toLearners" value="NO"> NO<br><label>Has your school communicated information about the rules and guidelines to teachers?</label><input type="radio" name="schoolWellBeing.communicationOfRules.toTeachers" value="YES"> YES <input type="radio" name="schoolWellBeing.communicationOfRules.toTeachers" value="NO"> NO<br><label>Has your school communicated information about the rules and guidelines to parents?</label><input type="radio" name="schoolWellBeing.communicationOfRules.toParents" value="YES"> YES <input type="radio" name="schoolWellBeing.communicationOfRules.toParents" value="NO"> NO</div>
+                <div><p>H.3 School Well-being Education</p><label>1. Did learners in your school receive any form of life-skills-based SWB Education in the previous academic year?</label><input type="radio" name="schoolWellBeing.schoolWellBeingEducation.receivedLifeSkills" value="YES"> YES <input type="radio" name="schoolWellBeing.schoolWellBeingEducation.receivedLifeSkills" value="NO"> NO<br><p>2. If yes, indicate which of these topics were covered</p><label>a. Teaching on generic life skills</label><input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.genericLifeSkills" value="YES"> YES <input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.genericLifeSkills" value="NO"> NO<br><label>b. Teaching on reproductive health</label><input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.reproductiveHealth" value="YES"> YES <input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.reproductiveHealth" value="NO"> NO<br><label>c. Teaching on HIV transmission and prevention.</label><input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.hivPrevention" value="YES"> YES <input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.hivPrevention" value="NO"> NO<br><label>d. Teaching on Epidemics such as Cholera, Lassa Fever, and others</label><input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.epidemics" value="YES"> YES <input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.epidemics" value="NO"> NO<br><label>e. Teaching on Pandemics such as COVID-19, Ebola and others</label><input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.pandemics" value="YES"> YES <input type="radio" name="schoolWellBeing.schoolWellBeingEducation.topicsCovered.pandemics" value="NO"> NO</div>
+                <div><label>H.4 Number of learners that received/participated in SWB Life Skills in the previous year?</label> M <input type="number" name="schoolWellBeing.learnersReceivedSWB.male"> F <input type="number" name="schoolWellBeing.learnersReceivedSWB.female"></div>
+                <div><p>H.5 Orientation Process for Parents or Guardians of Learners</p><label>How many times has your school organized an orientation program for parents or guardians of learners regarding SWB in the previous academic year?</label><input type="number" name="schoolWellBeing.orientationForParents.timesOrganized"><br><p>In what fora was the orientation program provided?</p><input type="checkbox" name="schoolWellBeing.orientationForParents.fora.pta"> PTA <input type="checkbox" name="schoolWellBeing.orientationForParents.fora.openDay"> Open Day <input type="checkbox" name="schoolWellBeing.orientationForParents.fora.specialSessions"> Special Session(s)</div>
+                <div><label>H.6 Date of Last Orientation</label><input type="date" name="schoolWellBeing.lastOrientationDate"></div>
+                <div><p>H.7 Life skills-based Well-being: Teacher training</p><label>How many teachers in your school received formal training on SWB?</label> M <input type="number" name="schoolWellBeing.teacherTraining.receivedTraining.male"> F <input type="number" name="schoolWellBeing.teacherTraining.receivedTraining.female"><br><label>How many teachers in your school who received formal training in the previous year also taught related topics on SWB</label> M <input type="number" name="schoolWellBeing.teacherTraining.taughtTopics.male"> F <input type="number" name="schoolWellBeing.teacherTraining.taughtTopics.female"></div>
+            </fieldset>
+
+            <fieldset>
+                <legend>H. UNDERTAKING</legend>
+                <div><p>Attestation by Head Teacher / Principal</p><label>Name:</label><input type="text" name="undertaking.headTeacher.name"><label>Telephone:</label><input type="text" name="undertaking.headTeacher.telephone"><label>Signature:</label><input type="text" name="undertaking.headTeacher.signature"><label>Date:</label><input type="date" name="undertaking.headTeacher.date"></div>
+                <div><p>Attestation by SBMC Chairperson/member</p><label>Name:</label><input type="text" name="undertaking.sbmcChairperson.name"><label>Position:</label><input type="text" name="undertaking.sbmcChairperson.position"><label>Telephone:</label><input type="text" name="undertaking.sbmcChairperson.telephone"><label>Signature:</label><input type="text" name="undertaking.sbmcChairperson.signature"><label>Date:</label><input type="date" name="undertaking.sbmcChairperson.date"></div>
+                <div><p>Attestation by Supervisor</p><label>Name:</label><input type="text" name="undertaking.supervisor.name"><label>Position:</label><input type="text" name="undertaking.supervisor.position"><label>Telephone:</label><input type="text" name="undertaking.supervisor.telephone"><label>Signature:</label><input type="text" name="undertaking.supervisor.signature"><label>Date:</label><input type="date" name="undertaking.supervisor.date"></div>
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <p>Lagos State Universal Basic Education Board © 2025. All Rights Reserved. | Centre of Excellence</p>
+    </footer>
+    <script>
+        document.getElementById('privateSurveyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = {};
+
+            // This is a simplified data conversion. A more robust solution would handle nested objects.
+            for (let [key, value] of formData.entries()) {
+                // Basic nesting support
+                if (key.includes('.')) {
+                    const keys = key.split('.');
+                    let current = data;
+                    keys.forEach((k, i) => {
+                        if (i === keys.length - 1) {
+                            current[k] = value;
+                        } else {
+                            current[k] = current[k] || {};
+                            current = current[k];
+                        }
+                    });
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            console.log('Submitting data:', JSON.stringify(data, null, 2));
+
+            try {
+                const response = await fetch('/api/private-survey', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-user-id': user.id
+                    },
+                    body: JSON.stringify(data)
+                });
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                    form.reset();
+                } else {
+                    const error = await response.json();
+                    alert('Error submitting form: ' + error.message);
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('An error occurred while submitting the form.');
+            }
+        });
+    </script>
+</body>
+</html>
