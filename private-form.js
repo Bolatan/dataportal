@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     populateEnrolmentByAgeTable('prePrimaryEnrolmentTable', ['Below 3 Years', '3 Years', '4 Years', '5 Years', 'Above 5 Years', 'Total'], ['kg1', 'kg2', 'n1', 'n2', 'n3'], 'enrolment.prePrimaryByAge');
     populateNewEntrantsPrimary1Table();
     populateEnrolmentByAgeTable('primaryEnrolmentTable', ['Below 6 Years', '6 Years', '7 Years', '8 Years', '9 Years', '10 Years', '11 Years', 'Above 11 Years', 'Total'], ['pry1', 'pry2', 'pry3', 'pry4', 'pry5', 'pry6'], 'enrolment.primaryByAge');
-    populateSpecialNeedsPrimaryTable();
-    populateOrphansTable();
+    populateSpecialNeedsPrimaryTables();
+    populateOrphansTables();
     populatePupilFlowPrimaryTable();
     populateNewEntrantsTable('newEntrantsJSS1Table', ['Below 12 years', '12 Years', '13 Years', '14 Years', 'Above 14 years', 'Total'], 'enrolment.newEntrantsJSS1');
     populateEnrolmentByAgeTable('jssEnrolmentTable', ['Below 12 Years', '12 Years', '13 Years', '14 Years', 'Above 14 years', 'Total'], ['js1', 'js2', 'js3'], 'enrolment.jssByAge');
@@ -144,32 +144,44 @@ function populateNewEntrantsPrimary1Table() {
     });
 }
 
-function populateSpecialNeedsPrimaryTable() {
-    const tableBody = document.getElementById('specialNeedsPrimaryTable').getElementsByTagName('tbody')[0];
-    const challenges = ['Blind / visually impaired', 'Hearing / speech impaired', 'Physically challenged', 'Mentally challenged', 'Albinism', 'Autism'];
-    const levels = ['eccd', 'nurs', 'nr3', 'pry1', 'pry2', 'pry3', 'pry4', 'pry5', 'pry6'];
-    challenges.forEach(challenge => {
-        const row = tableBody.insertRow();
-        row.insertCell().textContent = challenge;
-        const challengeKey = challenge.toLowerCase().replace(/[^a-z0-9]+/g, '');
-        levels.forEach(level => {
-            createGenderCells(row, `enrolment.specialNeedsPrimary.${challengeKey}.${level}`);
+function populateSplitTable(tableId1, tableId2, rowHeaders, levels1, levels2, namePrefix) {
+    const tableBody1 = document.getElementById(tableId1).getElementsByTagName('tbody')[0];
+    const tableBody2 = document.getElementById(tableId2).getElementsByTagName('tbody')[0];
+
+    if (!tableBody1 || !tableBody2) {
+        // console.error(`One or both table bodies not found for IDs: ${tableId1}, ${tableId2}`);
+        return;
+    }
+
+    rowHeaders.forEach(header => {
+        const row1 = tableBody1.insertRow();
+        row1.insertCell().textContent = header;
+        const row2 = tableBody2.insertRow();
+        row2.insertCell().textContent = header;
+
+        const itemKey = header.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+        levels1.forEach(level => {
+            createGenderCells(row1, `${namePrefix}.${itemKey}.${level}`);
+        });
+        levels2.forEach(level => {
+            createGenderCells(row2, `${namePrefix}.${itemKey}.${level}`);
         });
     });
 }
 
-function populateOrphansTable() {
-    const tableBody = document.getElementById('orphansByGradeTable').getElementsByTagName('tbody')[0];
+function populateSpecialNeedsPrimaryTables() {
+    const challenges = ['Blind / visually impaired', 'Hearing / speech impaired', 'Physically challenged', 'Mentally challenged', 'Albinism', 'Autism'];
+    const levels1 = ['eccd', 'nurs', 'nr3', 'pry1', 'pry2'];
+    const levels2 = ['pry3', 'pry4', 'pry5', 'pry6'];
+    populateSplitTable('specialNeedsPrimaryTable1', 'specialNeedsPrimaryTable2', challenges, levels1, levels2, 'enrolment.specialNeedsPrimary');
+}
+
+function populateOrphansTables() {
     const vulnerabilities = ['Lost Mother', 'Lost Father', 'Lost Both'];
-    const levels = ['eccd', 'nurs', 'nr3', 'pry1', 'pry2', 'pry3', 'pry4', 'pry5', 'pry6'];
-    vulnerabilities.forEach(vuln => {
-        const row = tableBody.insertRow();
-        row.insertCell().textContent = vuln;
-        const vulnKey = vuln.toLowerCase().replace(/[^a-z0-9]+/g, '');
-        levels.forEach(level => {
-            createGenderCells(row, `enrolment.orphansByGrade.${vulnKey}.${level}`);
-        });
-    });
+    const levels1 = ['eccd', 'nurs', 'nr3', 'pry1', 'pry2'];
+    const levels2 = ['pry3', 'pry4', 'pry5', 'pry6'];
+    populateSplitTable('orphansByGradeTable1', 'orphansByGradeTable2', vulnerabilities, levels1, levels2, 'enrolment.orphansByGrade');
 }
 
 function populatePupilFlowPrimaryTable() {
