@@ -23,6 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', handleFormSubmission);
 });
 
+// Helper function to set up auto-calculation for a total field
+function setupTotalCalculation(sourceInputSelectors, totalInputSelector) {
+    const totalInput = document.querySelector(totalInputSelector);
+    if (!totalInput) {
+        // console.error(`Total input not found: ${totalInputSelector}`);
+        return;
+    }
+
+    const sourceInputs = sourceInputSelectors.map(selector => document.querySelector(selector)).filter(Boolean);
+
+    const updateTotal = () => {
+        const sum = sourceInputs.reduce((acc, input) => acc + (parseInt(input.value) || 0), 0);
+        totalInput.value = sum;
+    };
+
+    sourceInputs.forEach(input => {
+        input.addEventListener('input', updateTotal);
+    });
+}
+
+
 // Generic helper to create an input element
 function createInput(type, name, readOnly = false) {
     const input = document.createElement('input');
@@ -33,23 +54,38 @@ function createInput(type, name, readOnly = false) {
 }
 
 // Generic populator for tables with Male/Female columns
-function createGenderCells(row, namePrefix) {
+function createGenderCells(row, namePrefix, isTotal = false) {
     const maleCell = row.insertCell();
-    maleCell.appendChild(createInput('number', `${namePrefix}.male`));
+    maleCell.appendChild(createInput('number', `${namePrefix}.male`, isTotal));
     const femaleCell = row.insertCell();
-    femaleCell.appendChild(createInput('number', `${namePrefix}.female`));
+    femaleCell.appendChild(createInput('number', `${namePrefix}.female`, isTotal));
 }
 
 function populateBirthCertTable(tableId, levels, namePrefix) {
     const tableBody = document.getElementById(tableId).getElementsByTagName('tbody')[0];
     const certTypes = ['National Population Commission', 'Others', 'NIN', 'Total'];
-    certTypes.forEach(type => {
+    certTypes.forEach((type, index) => {
         const row = tableBody.insertRow();
         row.insertCell().textContent = type;
         const typeKey = type.toLowerCase().replace(/[^a-z0-9]+/g, '');
+        const isTotalRow = index === certTypes.length - 1;
         levels.forEach(level => {
-            createGenderCells(row, `${namePrefix}.${typeKey}.${level}`);
+            createGenderCells(row, `${namePrefix}.${typeKey}.${level}`, isTotalRow);
         });
+    });
+
+    // Add calculations
+    levels.forEach(level => {
+        // Male total
+        setupTotalCalculation(
+            ['nationalpopulationcommission', 'others', 'nin'].map(type => `[name="${namePrefix}.${type}.${level}.male"]`),
+            `[name="${namePrefix}.total.${level}.male"]`
+        );
+        // Female total
+        setupTotalCalculation(
+            ['nationalpopulationcommission', 'others', 'nin'].map(type => `[name="${namePrefix}.${type}.${level}.female"]`),
+            `[name="${namePrefix}.total.${level}.female"]`
+        );
     });
 }
 
@@ -59,9 +95,25 @@ function populateEnrolmentByAgeTable(tableId, ageGroups, levels, namePrefix) {
         const row = tableBody.insertRow();
         row.insertCell().textContent = age;
         const ageKey = age.toLowerCase().replace(/[^a-z0-9]+/g, '');
+        const isTotalRow = age === 'Total';
         levels.forEach(level => {
-            createGenderCells(row, `${namePrefix}.${ageKey}.${level}`);
+            createGenderCells(row, `${namePrefix}.${ageKey}.${level}`, isTotalRow);
         });
+    });
+
+    // Add calculations
+    const ageKeys = ageGroups.slice(0, -1).map(age => age.toLowerCase().replace(/[^a-z0-9]+/g, ''));
+    levels.forEach(level => {
+        // Male total
+        setupTotalCalculation(
+            ageKeys.map(ageKey => `[name="${namePrefix}.${ageKey}.${level}.male"]`),
+            `[name="${namePrefix}.total.${level}.male"]`
+        );
+        // Female total
+        setupTotalCalculation(
+            ageKeys.map(ageKey => `[name="${namePrefix}.${ageKey}.${level}.female"]`),
+            `[name="${namePrefix}.total.${level}.female"]`
+        );
     });
 }
 
@@ -72,8 +124,23 @@ function populateNewEntrantsPrimary1Table() {
         const row = tableBody.insertRow();
         row.insertCell().textContent = age;
         const ageKey = age.toLowerCase().replace(/[^a-z0-9]+/g, '');
-        createGenderCells(row, `enrolment.newEntrantsPrimary1.${ageKey}.primary1`);
-        createGenderCells(row, `enrolment.newEntrantsPrimary1.${ageKey}.attendedEccde`);
+        const isTotalRow = age === 'Total';
+        createGenderCells(row, `enrolment.newEntrantsPrimary1.${ageKey}.primary1`, isTotalRow);
+        createGenderCells(row, `enrolment.newEntrantsPrimary1.${ageKey}.attendedEccde`, isTotalRow);
+    });
+    // Add calculations
+    const ageKeys = ageGroups.slice(0, -1).map(age => age.toLowerCase().replace(/[^a-z0-9]+/g, ''));
+    ['primary1', 'attendedEccde'].forEach(category => {
+        // Male total
+        setupTotalCalculation(
+            ageKeys.map(ageKey => `[name="enrolment.newEntrantsPrimary1.${ageKey}.${category}.male"]`),
+            `[name="enrolment.newEntrantsPrimary1.total.${category}.male"]`
+        );
+        // Female total
+        setupTotalCalculation(
+            ageKeys.map(ageKey => `[name="enrolment.newEntrantsPrimary1.${ageKey}.${category}.female"]`),
+            `[name="enrolment.newEntrantsPrimary1.total.${category}.female"]`
+        );
     });
 }
 
@@ -125,8 +192,22 @@ function populateNewEntrantsTable(tableId, ageGroups, namePrefix) {
         const row = tableBody.insertRow();
         row.insertCell().textContent = age;
         const ageKey = age.toLowerCase().replace(/[^a-z0-9]+/g, '');
-        createGenderCells(row, `${namePrefix}.${ageKey}`);
+        const isTotalRow = age === 'Total';
+        createGenderCells(row, `${namePrefix}.${ageKey}`, isTotalRow);
     });
+
+    // Add calculations
+    const ageKeys = ageGroups.slice(0, -1).map(age => age.toLowerCase().replace(/[^a-z0-9]+/g, ''));
+    // Male total
+    setupTotalCalculation(
+        ageKeys.map(ageKey => `[name="${namePrefix}.${ageKey}.male"]`),
+        `[name="${namePrefix}.total.male"]`
+    );
+    // Female total
+    setupTotalCalculation(
+        ageKeys.map(ageKey => `[name="${namePrefix}.${ageKey}.female"]`),
+        `[name="${namePrefix}.total.female"]`
+    );
 }
 
 function populateStudentFlowSecondaryTable() {
@@ -176,11 +257,46 @@ function populateTeacherQualsTable() {
         const row = tableBody.insertRow();
         row.insertCell().textContent = qual;
         const qualKey = qual.toLowerCase().replace(/[^a-z0-9]+/g, '');
+        const isTotalRow = qual === 'TOTAL';
+
         levels.forEach(level => {
-            createGenderCells(row, `teacherQualifications.${qualKey}.${level}`);
-            const totalCell = row.insertCell();
-            totalCell.appendChild(createInput('number', `teacherQualifications.${qualKey}.${level}.total`, true));
+            const maleInput = createInput('number', `teacherQualifications.${qualKey}.${level}.male`, isTotalRow);
+            const femaleInput = createInput('number', `teacherQualifications.${qualKey}.${level}.female`, isTotalRow);
+            const totalInput = createInput('number', `teacherQualifications.${qualKey}.${level}.total`, true);
+
+            row.insertCell().appendChild(maleInput);
+            row.insertCell().appendChild(femaleInput);
+            row.insertCell().appendChild(totalInput);
+
+            // Row-wise total calculation (Male + Female)
+            if (!isTotalRow) {
+                const updateTotal = () => {
+                    totalInput.value = (parseInt(maleInput.value) || 0) + (parseInt(femaleInput.value) || 0);
+                    updateOverallTotal(qualKey, level);
+                };
+                maleInput.addEventListener('input', updateTotal);
+                femaleInput.addEventListener('input', updateTotal);
+            }
         });
+    });
+    // Column-wise total calculation (Sum of all qualifications)
+    const qualKeys = qualifications.slice(0, -1).map(q => q.toLowerCase().replace(/[^a-z0-9]+/g, ''));
+    levels.forEach(level => {
+        // Male total
+        setupTotalCalculation(
+            qualKeys.map(qualKey => `[name="teacherQualifications.${qualKey}.${level}.male"]`),
+            `[name="teacherQualifications.total.${level}.male"]`
+        );
+        // Female total
+        setupTotalCalculation(
+            qualKeys.map(qualKey => `[name="teacherQualifications.${qualKey}.${level}.female"]`),
+            `[name="teacherQualifications.total.${level}.female"]`
+        );
+        // Grand total
+        setupTotalCalculation(
+            qualKeys.map(qualKey => `[name="teacherQualifications.${qualKey}.${level}.total"]`),
+            `[name="teacherQualifications.total.${level}.total"]`
+        );
     });
 }
 
@@ -192,40 +308,29 @@ async function handleFormSubmission(event) {
     const data = {};
 
     for (const [key, value] of formData.entries()) {
-        // Handle checkboxes, which can have multiple values for the same key
-        if (key.endsWith('[]')) {
-            const cleanKey = key.slice(0, -2);
-            const keys = cleanKey.split('.');
-            let current = data;
-            keys.forEach((k, i) => {
-                if (i === keys.length - 1) {
-                    if (!current[k]) {
-                        current[k] = [];
+        const keys = key.split(/(?=\.)/).map(k => k.replace('.', ''));
+        let current = data;
+        keys.forEach((k, i) => {
+            const isArray = k.includes('[]');
+            const cleanKey = k.replace('[]', '');
+            if (i === keys.length - 1) {
+                if (isArray) {
+                    if (!current[cleanKey]) {
+                        current[cleanKey] = [];
                     }
-                    current[k].push(value);
+                    current[cleanKey].push(value);
                 } else {
-                    if (!current[k]) current[k] = {};
-                    current = current[k];
+                    current[cleanKey] = value;
                 }
-            });
-        } else {
-            // Handle regular inputs
-            const keys = key.split('.');
-            let current = data;
-            keys.forEach((k, i) => {
-                if (i === keys.length - 1) {
-                    current[k] = value;
-                } else {
-                    if (!current[k]) {
-                        current[k] = {};
-                    }
-                    current = current[k];
+            } else {
+                if (!current[cleanKey]) {
+                    current[cleanKey] = {};
                 }
-            });
-        }
+                current = current[cleanKey];
+            }
+        });
     }
-
-    // A special adjustment for levelsOffered checkboxes
+     // A special adjustment for levelsOffered checkboxes
     if (data.schoolCharacteristics && data.schoolCharacteristics.levelsOffered) {
         const levels = formData.getAll('schoolCharacteristics.levelsOffered');
         data.schoolCharacteristics.levelsOffered = levels;

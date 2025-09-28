@@ -1,6 +1,114 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('sss-form');
 
+    // Helper function to set up total calculations
+    function setupTotalCalculation(sourceInputNames, totalInputName) {
+        const totalInput = document.querySelector(`[name="${totalInputName}"]`);
+        if (!totalInput) {
+            // console.error(`Total input not found: ${totalInputName}`);
+            return;
+        }
+
+        const sourceInputs = sourceInputNames.map(name => document.querySelector(`[name="${name}"]`)).filter(Boolean);
+
+        if (sourceInputs.length !== sourceInputNames.length) {
+            // console.error(`One or more source inputs not found for ${totalInputName}`);
+            return;
+        }
+
+        const updateTotal = () => {
+            const sum = sourceInputs.reduce((acc, input) => acc + (parseInt(input.value) || 0), 0);
+            totalInput.value = sum;
+        };
+
+        sourceInputs.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+    }
+
+    // C.3 Senior Secondary Enrolment by age
+    const enrolmentCalculations = [
+        // SS1
+        { sources: ['enrolment.seniorSecondaryEnrolment.ss1.below15.male', 'enrolment.seniorSecondaryEnrolment.ss1.age15.male', 'enrolment.seniorSecondaryEnrolment.ss1.age16.male', 'enrolment.seniorSecondaryEnrolment.ss1.age17.male', 'enrolment.seniorSecondaryEnrolment.ss1.above17.male'], total: 'enrolment.seniorSecondaryEnrolment.ss1.total.male' },
+        { sources: ['enrolment.seniorSecondaryEnrolment.ss1.below15.female', 'enrolment.seniorSecondaryEnrolment.ss1.age15.female', 'enrolment.seniorSecondaryEnrolment.ss1.age16.female', 'enrolment.seniorSecondaryEnrolment.ss1.age17.female', 'enrolment.seniorSecondaryEnrolment.ss1.above17.female'], total: 'enrolment.seniorSecondaryEnrolment.ss1.total.female' },
+        // SS2
+        { sources: ['enrolment.seniorSecondaryEnrolment.ss2.below15.male', 'enrolment.seniorSecondaryEnrolment.ss2.age15.male', 'enrolment.seniorSecondaryEnrolment.ss2.age16.male', 'enrolment.seniorSecondaryEnrolment.ss2.age17.male', 'enrolment.seniorSecondaryEnrolment.ss2.above17.male'], total: 'enrolment.seniorSecondaryEnrolment.ss2.total.male' },
+        { sources: ['enrolment.seniorSecondaryEnrolment.ss2.below15.female', 'enrolment.seniorSecondaryEnrolment.ss2.age15.female', 'enrolment.seniorSecondaryEnrolment.ss2.age16.female', 'enrolment.seniorSecondaryEnrolment.ss2.age17.female', 'enrolment.seniorSecondaryEnrolment.ss2.above17.female'], total: 'enrolment.seniorSecondaryEnrolment.ss2.total.female' },
+        // SS3
+        { sources: ['enrolment.seniorSecondaryEnrolment.ss3.below15.male', 'enrolment.seniorSecondaryEnrolment.ss3.age15.male', 'enrolment.seniorSecondaryEnrolment.ss3.age16.male', 'enrolment.seniorSecondaryEnrolment.ss3.age17.male', 'enrolment.seniorSecondaryEnrolment.ss3.above17.male'], total: 'enrolment.seniorSecondaryEnrolment.ss3.total.male' },
+        { sources: ['enrolment.seniorSecondaryEnrolment.ss3.below15.female', 'enrolment.seniorSecondaryEnrolment.ss3.age15.female', 'enrolment.seniorSecondaryEnrolment.ss3.age16.female', 'enrolment.seniorSecondaryEnrolment.ss3.age17.female', 'enrolment.seniorSecondaryEnrolment.ss3.above17.female'], total: 'enrolment.seniorSecondaryEnrolment.ss3.total.female' },
+    ];
+    enrolmentCalculations.forEach(calc => setupTotalCalculation(calc.sources, calc.total));
+
+    // C.6 SSCE examination for the previous Academic Year
+    const ssceExams = ['waec', 'neco'];
+    const examCategories = ['registered', 'sat', 'passed'];
+
+    ssceExams.forEach(exam => {
+        examCategories.forEach(category => {
+            const maleInput = `enrolment.ssceExams.${exam}.${category}.male`;
+            const femaleInput = `enrolment.ssceExams.${exam}.${category}.female`;
+            const totalInput = `enrolment.ssceExams.${exam}.${category}.total`;
+            setupTotalCalculation([`[name="${maleInput}"]`, `[name="${femaleInput}"]`], `[name="${totalInput}"]`);
+        });
+
+        // Column totals
+        const maleSources = examCategories.map(cat => `[name="enrolment.ssceExams.${exam}.${cat}.male"]`);
+        const femaleSources = examCategories.map(cat => `[name="enrolment.ssceExams.${exam}.${cat}.female"]`);
+        const totalSources = examCategories.map(cat => `[name="enrolment.ssceExams.${exam}.${cat}.total"]`);
+        setupTotalCalculation(maleSources, `[name="enrolment.ssceExams.${exam}.total.male"]`);
+        setupTotalCalculation(femaleSources, `[name="enrolment.ssceExams.${exam}.total.female"]`);
+        setupTotalCalculation(totalSources, `[name="enrolment.ssceExams.${exam}.total.total"]`);
+    });
+
+
+    // Staff Totals
+    setupTotalCalculation(['[name="staff.nonTeaching.male"]', '[name="staff.nonTeaching.female"]'], '[name="staff.nonTeaching.total"]');
+    setupTotalCalculation(['[name="staff.teaching.male"]', '[name="staff.teaching.female"]'], '[name="staff.teaching.total"]');
+
+    // F.4 Toilets
+    const toiletTypes = ['pit', 'bucket', 'waterFlush', 'others'];
+    toiletTypes.forEach(type => {
+        const sources = [
+            `facilities.toilets.studentOnly.${type}.male`, `facilities.toilets.studentOnly.${type}.female`, `facilities.toilets.studentOnly.${type}.mixed`,
+            `facilities.toilets.teacherOnly.${type}.male`, `facilities.toilets.teacherOnly.${type}.female`, `facilities.toilets.teacherOnly.${type}.mixed`,
+            `facilities.toilets.studentAndTeacher.${type}.male`, `facilities.toilets.studentAndTeacher.${type}.female`, `facilities.toilets.studentAndTeacher.${type}.mixed`
+        ];
+        setupTotalCalculation(sources.map(s => `[name="${s}"]`), `[name="facilities.toilets.total.${type}"]`);
+    });
+
+    // I. Teacher Qualifications
+    const teacherQualificationBody = document.getElementById('teacherQualificationTableBody');
+    if (teacherQualificationBody) {
+        const qualifications = [
+            'phd', 'mastersWithTeaching', 'mastersWithoutTeaching', 'degreeWithTeaching', 'degreeWithoutTeaching',
+            'hndWithTeaching', 'hndWithoutTeaching', 'nce', 'ond', 'gradeII', 'ssce', 'belowSSCE', 'others'
+        ];
+
+        // Add a total row dynamically
+        const totalRow = document.createElement('tr');
+        totalRow.innerHTML = `
+            <td><strong>Total</strong></td>
+            <td><input type="number" name="teacherQualificationByLevel.sss.total.male" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.sss.total.female" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.sss.total.total" readonly></td>
+        `;
+        teacherQualificationBody.appendChild(totalRow);
+
+        // Set up row totals
+        qualifications.forEach(qual => {
+            setupTotalCalculation(
+                [`[name="teacherQualificationByLevel.sss.${qual}.male"]`, `[name="teacherQualificationByLevel.sss.${qual}.female"]`],
+                `[name="teacherQualificationByLevel.sss.${qual}.total"]`
+            );
+        });
+
+        // Set up column totals
+        setupTotalCalculation(qualifications.map(q => `[name="teacherQualificationByLevel.sss.${q}.male"]`), `[name="teacherQualificationByLevel.sss.total.male"]`);
+        setupTotalCalculation(qualifications.map(q => `[name="teacherQualificationByLevel.sss.${q}.female"]`), `[name="teacherQualificationByLevel.sss.total.female"]`);
+        setupTotalCalculation(qualifications.map(q => `[name="teacherQualificationByLevel.sss.${q}.total"]`), `[name="teacherQualificationByLevel.sss.total.total"]`);
+    }
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 

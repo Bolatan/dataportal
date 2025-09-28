@@ -16,6 +16,28 @@ document.addEventListener('DOMContentLoaded', () => {
         current[keys[keys.length - 1]] = value;
     }
 
+    // Helper function for setting up auto-calculation
+    function setupTotalCalculation(sourceInputSelectors, totalInputSelector) {
+        const totalInput = document.querySelector(totalInputSelector);
+        if (!totalInput) {
+            // console.error(`Total input not found: ${totalInputSelector}`);
+            return;
+        }
+
+        const sourceInputs = sourceInputSelectors.map(selector => document.querySelector(selector)).filter(Boolean);
+
+        const updateTotal = () => {
+            const sum = sourceInputs.reduce((acc, input) => acc + (parseInt(input.value) || 0), 0);
+            totalInput.value = sum;
+        };
+
+        sourceInputs.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+        updateTotal(); // Initial calculation
+    }
+
+
     // --- Dynamic & Pre-populated Row Generation ---
 
     function populateTable(tableBodyId, rows, namePrefix, useGenders = false) {
@@ -99,6 +121,45 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             teacherQualificationBody.appendChild(row);
         });
+
+         // Add total row
+        const totalRow = document.createElement('tr');
+        totalRow.innerHTML = `
+            <td><strong>Total</strong></td>
+            <td><input type="number" name="teacherQualificationByLevel.jss.total.male" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.jss.total.female" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.jss.total.total" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.sss.total.male" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.sss.total.female" readonly></td>
+            <td><input type="number" name="teacherQualificationByLevel.sss.total.total" readonly></td>
+        `;
+        teacherQualificationBody.appendChild(totalRow);
+
+
+        // Setup calculations for each qualification row and column
+        const qualKeys = qualifications.map(q => q.key);
+        qualKeys.forEach(key => {
+            // JSS row total
+            setupTotalCalculation(
+                [`[name="teacherQualificationByLevel.jss.${key}.male"]`, `[name="teacherQualificationByLevel.jss.${key}.female"]`],
+                `[name="teacherQualificationByLevel.jss.${key}.total"]`
+            );
+            // SSS row total
+            setupTotalCalculation(
+                [`[name="teacherQualificationByLevel.sss.${key}.male"]`, `[name="teacherQualificationByLevel.sss.${key}.female"]`],
+                `[name="teacherQualificationByLevel.sss.${key}.total"]`
+            );
+        });
+
+        // JSS column totals
+        setupTotalCalculation(qualKeys.map(k => `[name="teacherQualificationByLevel.jss.${k}.male"]`), '[name="teacherQualificationByLevel.jss.total.male"]');
+        setupTotalCalculation(qualKeys.map(k => `[name="teacherQualificationByLevel.jss.${k}.female"]`), '[name="teacherQualificationByLevel.jss.total.female"]');
+        setupTotalCalculation(qualKeys.map(k => `[name="teacherQualificationByLevel.jss.${k}.total"]`), '[name="teacherQualificationByLevel.jss.total.total"]');
+
+        // SSS column totals
+        setupTotalCalculation(qualKeys.map(k => `[name="teacherQualificationByLevel.sss.${k}.male"]`), '[name="teacherQualificationByLevel.sss.total.male"]');
+        setupTotalCalculation(qualKeys.map(k => `[name="teacherQualificationByLevel.sss.${k}.female"]`), '[name="teacherQualificationByLevel.sss.total.female"]');
+        setupTotalCalculation(qualKeys.map(k => `[name="teacherQualificationByLevel.sss.${k}.total"]`), '[name="teacherQualificationByLevel.sss.total.total"]');
     }
 
     const studentFlowCategories = [ { key: 'dropout', label: 'Dropout' }, { key: 'transferIn', label: 'Transfer in' }, { key: 'transferOut', label: 'Transfer out' }, { key: 'repeaters', label: 'Repeaters' }, { key: 'promoted', label: 'Promoted' }];
@@ -106,6 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const specialNeedsCategories = [ { key: 'blind', label: 'Blind / visually impaired' }, { key: 'hearingImpaired', label: 'Hearing / speech impaired' }, { key: 'physicallyChallenged', label: 'Physically challenged' }, { key: 'mentallyChallenged', label: 'Mentally challenged' }, { key: 'albinism', label: 'Albinism' }, { key: 'autism', label: 'Autism' }];
     populateTable('specialNeedsTableBody', specialNeedsCategories, 'enrolment.studentsWithSpecialNeeds', true);
+
+    // C.8 NABTEB examination totals
+    ['registered', 'sat', 'passed'].forEach(category => {
+        setupTotalCalculation(
+            [`[name="enrolment.nabtebExams.${category}.male"]`, `[name="enrolment.nabtebExams.${category}.female"]`],
+            `[name="enrolment.nabtebExams.${category}.total"]`
+        );
+    });
+
+    // D. Staff totals
+    setupTotalCalculation(['[name="staff.nonTeaching.male"]', '[name="staff.nonTeaching.female"]'], '[name="staff.nonTeaching.total"]');
+    setupTotalCalculation(['[name="staff.teaching.male"]', '[name="staff.teaching.female"]'], '[name="staff.teaching.total"]');
+
 
     // --- User-added Dynamic Rows ---
     function addDynamicRow(buttonId, tableBodyId, rowHTMLGenerator) {
@@ -189,13 +263,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (el.type === 'checkbox') {
                     // Initialize array if it doesn't exist
                     const path = name.replace(/\[\]$/, '');
-                    if (!path.split('.').reduce((o, k) => o && o[k], data)) {
-                        set(data, path, []);
-                    }
-                    if (el.checked) {
-                        // Push value to array
-                        let arr = path.split('.').reduce((o, k) => o[k], data);
-                        arr.push(el.value);
+                     if (el.checked) {
+                        const keys = path.split('.');
+                        let current = data;
+                        for(let i=0; i<keys.length -1; i++){
+                            if(!current[keys[i]]){
+                                current[keys[i]] = {};
+                            }
+                            current = current[keys[i]];
+                        }
+                        if(!Array.isArray(current[keys[keys.length - 1]])){
+                           current[keys[keys.length - 1]] = [];
+                        }
+                        current[keys[keys.length-1]].push(el.value);
                     }
                 } else {
                     value = el.value;
