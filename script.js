@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Authentication check
-    if (sessionStorage.getItem('loggedIn') !== 'true') {
+    const loggedIn = sessionStorage.getItem('loggedIn') === 'true';
+    const user = JSON.parse(sessionStorage.getItem('user') || 'null');
+
+    if (!loggedIn || !user || !user.id) {
+        // If not properly logged in, clear session and redirect to login.
+        sessionStorage.removeItem('loggedIn');
+        sessionStorage.removeItem('user');
         window.location.href = 'login.html';
         return;
     }
@@ -42,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/api/data', {
         headers: {
             'Content-Type': 'application/json',
+
             'x-user-id': user.id
         }
     })
