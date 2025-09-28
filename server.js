@@ -247,22 +247,27 @@ app.delete('/api/user/:id', isAdmin, async (req, res) => {
 app.post('/api/login', async (req, res) => {
     try {
         const { username, password } = req.body;
+
+        const userCount = await User.countDocuments();
+        console.log(`[DEBUG] Total users in database: ${userCount}`); // Temporary debug log
+
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(401).json({ message: 'Invalid username or password' });
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        const isMatch = await user.comparePassword(password);
-        if (!isMatch) {
-            return res.status(401).json({ message: 'Invalid username or password' });
-        }
-
-        res.json({
-            message: 'Login successful',
-            user: { id: user._id, username: user.username, role: user.role }
+        user.comparePassword(password, (err, isMatch) => {
+            if (err) {
+                return res.status(500).json({ message: 'Error logging in', error: err });
+            }
+            if (!isMatch) {
+                return res.status(401).json({ message: 'Invalid credentials' });
+            }
+            res.json({ message: 'Login successful', user: { id: user._id, username: user.username, role: user.role } });
         });
     } catch (error) {
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: 'Error logging in', error });
+
     }
 });
 
@@ -804,8 +809,9 @@ app.get('/api/data', async (req, res) => {
 });
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
+    .then((conn) => {
         console.log('MongoDB connected...');
+        console.log(`[DEBUG] Connected to database: ${conn.connection.name} on host: ${conn.connection.host}`); // Temporary debug log
         app.listen(port, () => {
             console.log(`Server is running on port: ${port}`);
         });
