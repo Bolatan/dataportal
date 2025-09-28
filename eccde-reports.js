@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             if (data && data.length > 0) {
-                exportToCsv(data, 'eccde-reports.csv', eccdeFieldLabels);
+                exportDataToCsv(data, 'eccde-reports.csv', eccdeFieldLabels);
             } else {
                 alert('No reports found to export.');
             }
