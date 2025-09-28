@@ -130,7 +130,11 @@ const privateSurveySchema = new mongoose.Schema({
         sbmc: attestationSchema,
         supervisor: attestationSchema
     },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    submittedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 }, { timestamps: true });
 
 module.exports = mongoose.model('PrivateSurvey', privateSurveySchema);

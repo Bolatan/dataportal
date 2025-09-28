@@ -29,10 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'login.html';
         return;
     }
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (!user || !user.id) {
+        console.error('User not found in session storage. Redirecting to login.');
+        window.location.href = 'login.html';
+        return;
+    }
+
 
     const brandColors = getBrandColors();
 
-    fetch('/api/data')
+    fetch('/api/data', {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-user-id': user.id
+        }
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

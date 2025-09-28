@@ -320,6 +320,10 @@ const sssSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    submittedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
 });
 

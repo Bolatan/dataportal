@@ -340,11 +340,11 @@ app.post('/api/survey', isAdmin, upload.array('photos', 10), (req, res) => {
 app.post('/api/science', isAdminOrEnumerator, (req, res) => {
     try {
         const scienceData = req.body;
+        scienceData.submittedBy = req.user.id;
         const newScience = new Science(scienceData);
         newScience.save()
             .then(science => {
-                const actorId = req.headers['x-user-id'];
-                logAction(actorId, `submitted science form for school ${science.schoolIdentification.schoolName}`);
+                logAction(req.user.id, `submitted science form for school ${science.schoolIdentification.schoolName}`);
                 console.log('Science form saved successfully:', science);
                 res.json(science);
             })
@@ -361,11 +361,11 @@ app.post('/api/science', isAdminOrEnumerator, (req, res) => {
 app.post('/api/jss', isAdminOrEnumerator, (req, res) => {
     try {
         const jssData = req.body;
+        jssData.submittedBy = req.user.id;
         const newJss = new Jss(jssData);
         newJss.save()
             .then(jss => {
-                const actorId = req.headers['x-user-id'];
-                logAction(actorId, `submitted JSS form for school ${jss.schoolIdentification.schoolName}`);
+                logAction(req.user.id, `submitted JSS form for school ${jss.schoolIdentification.schoolName}`);
                 console.log('JSS form saved successfully:', jss);
                 res.json(jss);
             })
@@ -382,11 +382,11 @@ app.post('/api/jss', isAdminOrEnumerator, (req, res) => {
 app.post('/api/sss', isAdminOrEnumerator, (req, res) => {
     try {
         const sssData = req.body;
+        sssData.submittedBy = req.user.id;
         const newSss = new Sss(sssData);
         newSss.save()
             .then(sss => {
-                const actorId = req.headers['x-user-id'];
-                logAction(actorId, `submitted SSS form for school ${sss.schoolIdentification.schoolName}`);
+                logAction(req.user.id, `submitted SSS form for school ${sss.schoolIdentification.schoolName}`);
                 console.log('SSS form saved successfully:', sss);
                 res.json(sss);
             })
@@ -403,11 +403,11 @@ app.post('/api/sss', isAdminOrEnumerator, (req, res) => {
 app.post('/api/private-survey', isAdminOrEnumerator, (req, res) => {
     try {
         const surveyData = req.body;
+        surveyData.submittedBy = req.user.id;
         const newPrivateSurvey = new PrivateSurvey(surveyData);
         newPrivateSurvey.save()
             .then(survey => {
-                const actorId = req.headers['x-user-id'];
-                logAction(actorId, `submitted private survey for school ${survey.schoolIdentification.schoolName}`);
+                logAction(req.user.id, `submitted private survey for school ${survey.schoolIdentification.schoolName}`);
                 console.log('Private Survey saved successfully:', survey);
                 res.json(survey);
             })
@@ -424,14 +424,14 @@ app.post('/api/private-survey', isAdminOrEnumerator, (req, res) => {
 app.post('/api/eccde-form', isAdminOrEnumerator, (req, res) => {
     try {
         const eccdeData = req.body;
+        eccdeData.submittedBy = req.user.id;
         const newEccde = new Eccde(eccdeData);
         newEccde.save()
             .then(eccde => {
-                const actorId = req.headers['x-user-id'];
                 if (eccde.schoolIdentification && eccde.schoolIdentification.schoolName) {
-                    logAction(actorId, `submitted ECCDE form for school ${eccde.schoolIdentification.schoolName}`);
+                    logAction(req.user.id, `submitted ECCDE form for school ${eccde.schoolIdentification.schoolName}`);
                 } else {
-                    logAction(actorId, 'submitted ECCDE form');
+                    logAction(req.user.id, 'submitted ECCDE form');
                 }
                 console.log('ECCDE form saved successfully:', eccde);
                 res.json(eccde);
@@ -462,52 +462,72 @@ app.get('/sss-reports', (req, res) => {
     res.sendFile(__dirname + '/sss-reports.html');
 });
 
-app.get('/api/jss-reports', isAdmin, async (req, res) => {
+app.get('/api/jss-reports', isAdminOrEnumerator, async (req, res) => {
     try {
-        const reports = await Jss.find().sort({ createdAt: -1 });
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = req.user.id;
+        }
+        const reports = await Jss.find(query).sort({ createdAt: -1 });
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching JSS reports', error });
     }
 });
 
-app.get('/api/private-reports', isAdmin, async (req, res) => {
+app.get('/api/private-reports', isAdminOrEnumerator, async (req, res) => {
     try {
-        const reports = await PrivateSurvey.find().sort({ createdAt: -1 });
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = req.user.id;
+        }
+        const reports = await PrivateSurvey.find(query).sort({ createdAt: -1 });
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching Private School reports', error });
     }
 });
 
-app.get('/api/sss-reports', isAdmin, async (req, res) => {
+app.get('/api/sss-reports', isAdminOrEnumerator, async (req, res) => {
     try {
-        const reports = await Sss.find().sort({ createdAt: -1 });
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = req.user.id;
+        }
+        const reports = await Sss.find(query).sort({ createdAt: -1 });
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching SSS reports', error });
     }
 });
 
-app.get('/api/eccde-reports', isAdmin, async (req, res) => {
+app.get('/api/eccde-reports', isAdminOrEnumerator, async (req, res) => {
     try {
-        const reports = await Eccde.find().sort({ createdAt: -1 });
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = req.user.id;
+        }
+        const reports = await Eccde.find(query).sort({ createdAt: -1 });
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching ECCDE reports', error });
     }
 });
 
-app.get('/api/science-reports', isAdmin, async (req, res) => {
+app.get('/api/science-reports', isAdminOrEnumerator, async (req, res) => {
     try {
-        const reports = await Science.find().sort({ createdAt: -1 });
+        const query = {};
+        if (req.user.role === 'enumerator') {
+            query.submittedBy = req.user.id;
+        }
+        const reports = await Science.find(query).sort({ createdAt: -1 });
         res.json(reports);
     } catch (error) {
         res.status(400).json({ message: 'Error fetching science reports', error });
     }
 });
 
-app.get('/api/data', isAdmin, async (req, res) => {
+app.get('/api/data', isAdminOrEnumerator, async (req, res) => {
     try {
         // Step 1: Fetch data from all relevant collections
         const scienceForms = await Science.find().lean();
