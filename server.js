@@ -269,6 +269,28 @@ app.post('/api/login', async (req, res) => {
 app.post('/api/survey', isEnumerator, upload.array('photos', 10), (req, res) => {
     try {
         const surveyData = req.body;
+
+        // Process staff profile data
+        const staffProfile = [];
+        let i = 1;
+        while (surveyData[`staff_name_${i}`]) {
+            staffProfile.push({
+                name: surveyData[`staff_name_${i}`],
+                qualification: surveyData[`staff_qualification_${i}`],
+                specialization: surveyData[`staff_specialization_${i}`],
+                experience: surveyData[`staff_experience_${i}`],
+                trcn: surveyData[`staff_trcn_${i}`]
+            });
+            // Clean up the surveyData object
+            delete surveyData[`staff_name_${i}`];
+            delete surveyData[`staff_qualification_${i}`];
+            delete surveyData[`staff_specialization_${i}`];
+            delete surveyData[`staff_experience_${i}`];
+            delete surveyData[`staff_trcn_${i}`];
+            i++;
+        }
+        surveyData.staffProfile = staffProfile;
+
         if (req.files) {
             surveyData.photos = req.files.map(file => file.path);
         }
@@ -444,9 +466,16 @@ app.get('/api/data', async (req, res) => {
         // Aggregate public survey data
         const qualificationCounts = {};
         surveys.forEach(s => {
+            // For backward compatibility with old data
             if(s.highestQualification) {
                 qualificationCounts[s.highestQualification] = (qualificationCounts[s.highestQualification] || 0) + 1;
             }
+            // For new data from staff profiles
+            s.staffProfile?.forEach(staff => {
+                if (staff.qualification) {
+                    qualificationCounts[staff.qualification] = (qualificationCounts[staff.qualification] || 0) + 1;
+                }
+            });
         });
         scienceForms.forEach(s => {
             s.staff?.staffInfo?.forEach(staff => {
@@ -506,14 +535,8 @@ app.get('/api/data', async (req, res) => {
         });
 
         const genderCounts = { Male: 0, Female: 0 };
-        surveys.forEach(s => {
-            const gender = s.gender?.toLowerCase();
-            if (gender === 'male') {
-                genderCounts.Male++;
-            } else if (gender === 'female') {
-                genderCounts.Female++;
-            }
-        });
+        // The new survey form does not collect gender information for staff.
+        // Data for this chart will come from the other forms.
         scienceForms.forEach(s => {
             s.staff?.staffInfo?.forEach(staff => {
                 const gender = staff.gender?.toUpperCase();
