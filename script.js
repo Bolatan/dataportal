@@ -170,6 +170,7 @@ function populatePrivateSchoolTable(data) {
 
 function logout() {
     sessionStorage.removeItem('loggedIn');
+    sessionStorage.removeItem('user');
     window.location.href = 'login.html';
 }
 
