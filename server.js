@@ -43,6 +43,10 @@ app.get('/forms', (req, res) => {
     res.sendFile(__dirname + '/forms.html');
 });
 
+app.get('/private-form', (req, res) => {
+    res.sendFile(__dirname + '/private_form.html');
+});
+
 // MongoDB Connection
 const dbURI = process.env.DATABASE_URL || 'mongodb+srv://bolatan:Ogbogbo123@cluster0.vzjwn4g.mongodb.net/dataportal?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -51,6 +55,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const multer = require('multer');
 const Survey = require('./models/Survey');
+const PrivateSurvey = require('./models/PrivateSurvey');
 const User = require('./models/User');
 const AuditLog = require('./models/AuditLog');
 
@@ -259,14 +264,37 @@ app.post('/api/survey', isEnumerator, upload.array('photos', 10), (req, res) => 
     }
 });
 
+app.post('/api/private-survey', isEnumerator, (req, res) => {
+    try {
+        const surveyData = req.body;
+        const newPrivateSurvey = new PrivateSurvey(surveyData);
+        newPrivateSurvey.save()
+            .then(survey => {
+                const actorId = req.headers['x-user-id'];
+                logAction(actorId, `submitted private survey for school ${survey.schoolIdentification.schoolName}`);
+                console.log('Private Survey saved successfully:', survey);
+                res.json(survey);
+            })
+            .catch(err => {
+                console.error('Error saving private survey:', err);
+                res.status(400).json('Error: ' + err);
+            });
+    } catch (error) {
+        console.error('Error in /api/private-survey route:', error);
+        res.status(500).json('Server error');
+    }
+});
+
 app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
-        if (surveys.length === 0) {
+        const privateSurveys = await PrivateSurvey.find();
+
+        if (surveys.length === 0 && privateSurveys.length === 0) {
             return res.json({ noData: true });
         }
 
-        // Aggregate data
+        // Aggregate public survey data
         const qualificationCounts = {};
         surveys.forEach(s => {
             qualificationCounts[s.highestQualification] = (qualificationCounts[s.highestQualification] || 0) + 1;
@@ -329,6 +357,38 @@ app.get('/api/data', async (req, res) => {
             }
         };
 
+        // Aggregate private survey data
+        const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
+            let surveyTotal = 0;
+            const enrolment = survey.schoolEnrolment;
+            if (!enrolment) return total;
+
+            const sumLevel = (level) => {
+                let levelTotal = 0;
+                if (level) {
+                    for (const grade in level) {
+                        if (level[grade] && typeof level[grade] === 'object' && 'male' in level[grade] && 'female' in level[grade]) {
+                            levelTotal += (level[grade].male || 0);
+                            levelTotal += (level[grade].female || 0);
+                        }
+                    }
+                }
+                return levelTotal;
+            };
+
+            surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.primaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.juniorSecondaryEnrolmentByAge);
+            surveyTotal += sumLevel(enrolment.seniorSecondaryEnrolmentByAge);
+
+            return total + surveyTotal;
+        }, 0);
+
+        const privateSchoolData = {
+            count: privateSurveys.length,
+            totalStudents: totalPrivateStudents,
+        };
+
         const responseData = {
             officeInfrastructure: officeInfrastructure,
             respondentsDemographics: {
@@ -348,7 +408,8 @@ app.get('/api/data', async (req, res) => {
                 }
             },
             toiletFacilities: toiletFacilities,
-            staffing: staffing
+            staffing: staffing,
+            privateSchoolData: privateSchoolData
         };
 
         res.json(responseData);
