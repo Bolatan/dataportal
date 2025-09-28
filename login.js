@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             sessionStorage.setItem('loggedIn', 'true');
             sessionStorage.setItem('user', JSON.stringify(data.user));
             if (data.user.role === 'enumerator') {
-                window.location.href = 'survey.html';
+                window.location.href = 'forms.html';
             } else {
                 window.location.href = 'index.html';
             }
