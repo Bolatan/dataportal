@@ -259,7 +259,7 @@ app.post('/api/login', async (req, res) => {
             if (!isMatch) {
                 return res.status(401).json({ message: 'Invalid credentials' });
             }
-            res.json({ message: 'Login successful', user: { id: user._id, username: user.username, role: user.role } });
+            res.json({ message: 'Login successful', user: { id: user._id, username: user.username, role: user.role, fullName: user.fullName, profilePicture: user.profilePicture } });
         });
     } catch (error) {
         res.status(500).json({ message: 'Error logging in', error });
