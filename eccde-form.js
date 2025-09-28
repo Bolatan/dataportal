@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(data => {
             console.log('Success:', data);
-            alert('Form submitted successfully!');
+            showSuccessPopup('Form submitted successfully!');
             eccdeForm.reset();
         })
         .catch((error) => {

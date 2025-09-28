@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert('Form submitted successfully!');
+                showSuccessPopup('Form submitted successfully!');
                 form.reset();
             } else {
                 const errorData = await response.json();

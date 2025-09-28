@@ -322,6 +322,34 @@ function renderSourceOfElectricityChart(data, brandColors) {
     });
 }
 
+function showSuccessPopup(message) {
+    // Create the popup container
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+
+    // Create the popup content
+    const popupContent = document.createElement('div');
+    popupContent.className = 'popup-content';
+
+    // Create the close button
+    const closeButton = document.createElement('span');
+    closeButton.className = 'popup-close';
+    closeButton.innerHTML = '&times;';
+    closeButton.onclick = () => {
+        document.body.removeChild(popup);
+    };
+
+    // Create the message element
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+
+    // Append elements
+    popupContent.appendChild(closeButton);
+    popupContent.appendChild(messageElement);
+    popup.appendChild(popupContent);
+    document.body.appendChild(popup);
+}
+
 function renderToiletFacilitiesChart(data, brandColors) {
     const ctx = document.getElementById('toiletFacilitiesChart');
     data.chart.datasets.forEach((dataset, index) => {
