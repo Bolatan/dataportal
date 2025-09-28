@@ -235,19 +235,19 @@ form div {
 .card h3 {
     margin-top: 0;
     font-size: 1.5em;
-    color: var(--primary-color);
+    color: #000000;
 }
 
 .card p {
     font-size: 1em;
-    color: #555;
+    color: #000000;
 }
 
 .card a {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 15px;
-    background-color: var(--primary-color);
+    background-color: #000000;
     color: var(--button-text-color);
     text-decoration: none;
     border-radius: 8px;
