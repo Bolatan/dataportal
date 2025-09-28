@@ -44,8 +44,6 @@ header a {
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 12px;
@@ -167,6 +165,15 @@ footer {
     border-top: 1px solid var(--border-color);
     color: #888;
     font-size: 0.9em;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    width: 100%;
 }
 
 form div {
