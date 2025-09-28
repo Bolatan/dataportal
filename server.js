@@ -51,16 +51,16 @@ app.get('/science-report', (req, res) => {
     res.sendFile(__dirname + '/science-report.html');
 });
 
-
 app.get('/private-form', (req, res) => {
     res.sendFile(__dirname + '/private_form.html');
 });
 
 app.get('/eccde-form', (req, res) => {
     res.sendFile(__dirname + '/eccde-form.html');
+});
+
 app.get('/jss', (req, res) => {
     res.sendFile(__dirname + '/jss.html');
-
 });
 
 // MongoDB Connection
@@ -305,8 +305,6 @@ app.post('/api/science', isEnumerator, (req, res) => {
     }
 });
 
-
-
 app.post('/api/jss', isEnumerator, (req, res) => {
     try {
         const jssData = req.body;
@@ -393,16 +391,12 @@ app.get('/api/science-reports', async (req, res) => {
 app.get('/api/data', async (req, res) => {
     try {
         const surveys = await Survey.find();
-
         const scienceForms = await Science.find();
         const privateSurveys = await PrivateSurvey.find();
         const eccdeForms = await Eccde.find();
-
-        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && eccdeForms.length === 0) {
         const jssForms = await Jss.find();
 
-
-        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && jssForms.length === 0) {
+        if (surveys.length === 0 && scienceForms.length === 0 && privateSurveys.length === 0 && eccdeForms.length === 0 && jssForms.length === 0) {
             return res.json({ noData: true });
         }
 
@@ -428,7 +422,6 @@ app.get('/api/data', async (req, res) => {
             });
         });
 
-
         const electricityCounts = {};
         surveys.forEach(s => {
             if (s.electricity) {
@@ -449,7 +442,6 @@ app.get('/api/data', async (req, res) => {
                 }
             });
         });
-
 
         const genderCounts = { Male: 0, Female: 0 };
         surveys.forEach(s => {
@@ -495,7 +487,6 @@ app.get('/api/data', async (req, res) => {
             }
         });
 
-
         const locationCounts = {};
         scienceForms.forEach(s => {
             const location = s.schoolCharacteristics?.location;
@@ -503,13 +494,12 @@ app.get('/api/data', async (req, res) => {
                 locationCounts[location] = (locationCounts[location] || 0) + 1;
             }
         });
-         jssForms.forEach(s => {
+        jssForms.forEach(s => {
             const location = s.schoolCharacteristics?.location;
             if(location) {
                 locationCounts[location] = (locationCounts[location] || 0) + 1;
             }
         });
-
 
         let totalStudents = 0;
         scienceForms.forEach(s => {
@@ -550,12 +540,11 @@ app.get('/api/data', async (req, res) => {
             }
         });
 
-
         const officeInfrastructure = {
             goodCondition: surveys.reduce((acc, s) => acc + (s.classroomsGood || 0), 0),
             needed: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             majorRepairs: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
-            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0), // Changed to classroomsMajorRepair
+            renovationRequired: surveys.reduce((acc, s) => acc + (s.classroomsMajorRepair || 0), 0),
             additionalNeeded: surveys.reduce((acc, s) => acc + (s.classroomsRequired || 0), 0),
             chart: {
                 labels: surveys.map(s => s.lgea),
