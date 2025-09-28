@@ -650,7 +650,7 @@ app.get('/api/data', isAdmin, async (req, res) => {
         };
         const totalPrivateStudents = privateSurveys.reduce((total, survey) => {
             let surveyTotal = 0;
-            const enrolment = survey.schoolEnrolment;
+            const enrolment = survey.enrolment;
             if (!enrolment) return total;
             const sumLevel = (level) => Object.values(level || {}).reduce((acc, grade) => acc + (grade.male || 0) + (grade.female || 0), 0);
             surveyTotal += sumLevel(enrolment.prePrimaryEnrolmentByAge);
