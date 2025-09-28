@@ -8,34 +8,7 @@
     <link rel="stylesheet" href="survey.css">
 </head>
 <body>
-    <script>
-        const user = JSON.parse(sessionStorage.getItem('user'));
-        if (!user) {
-            window.location.href = 'login.html';
-        } else if (user.role !== 'enumerator' && user.role !== 'admin') {
-            window.location.href = 'index.html';
-        }
-    </script>
-    <header>
-        <div class="header-top">
-            <a href="/"><img src="surveylogo.jpeg" alt="Lagos State Logo"></a>
-            <h1>Lagos State EDUCATION MANAGEMENT INFORMATION SYSTEM (EMIS)</h1>
-            <button class="hamburger-menu">
-                &#9776;
-            </button>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="/">Dashboard</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/reports">Reports</a></li>
-                <li><a href="/audit-log">Audit Log</a></li>
-                <li><a href="/forms">School Census Forms</a></li>
-                <li><button id="logout-button">Logout</button></li>
-            </ul>
-        </nav>
-    </header>
+    <script src="header.js"></script>
     <main>
         <form id="surveyForm">
             <h2>SECTION A: SCHOOL DATA</h2>
