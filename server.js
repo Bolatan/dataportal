@@ -169,6 +169,9 @@ app.post('/api/user', async (req, res) => {
         logAction(actorId, `created user ${username}`);
         res.status(201).json(newUser);
     } catch (error) {
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({ message: error.message });
+        }
         res.status(400).json({ message: 'Error creating user', error });
     }
 });
@@ -224,6 +227,9 @@ app.put('/api/user/:id', isAdmin, async (req, res) => {
 
         res.json(userObject);
     } catch (error) {
+        if (error.name === 'ValidationError') {
+            return res.status(400).json({ message: error.message });
+        }
         res.status(400).json({ message: 'Error updating user', error });
     }
 });
@@ -863,7 +869,7 @@ const ensureAdminUserExists = async () => {
             const newAdmin = new User({
                 username: 'admin',
                 email: 'admin@example.com',
-                password: 'temporaryPassword123',
+                password: 'AdminPass123@',
                 fullName: 'Administrator',
                 role: 'admin'
             });
