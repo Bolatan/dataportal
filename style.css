@@ -165,12 +165,39 @@ th {
     align-items: center;
 }
 
-#user-avatar {
+.user-icon {
+    display: inline-block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background-color: #ccc;
     margin-right: 10px;
-    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-icon::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.user-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    border-radius: 50% 50% 0 0;
+    background-color: white;
 }
 
 #user-name {

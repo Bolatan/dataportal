@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     &#9776;
                 </button>
                 <div id="user-profile">
-                    <img id="user-avatar" src="" alt="User Avatar">
+                    <span id="user-icon" class="user-icon"></span>
                     <span id="user-name"></span>
                 </div>
             </div>
@@ -58,12 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (user) {
         const userName = document.getElementById('user-name');
-        const userAvatar = document.getElementById('user-avatar');
         if (userName) {
             userName.textContent = user.fullName || user.username;
-        }
-        if (userAvatar) {
-            // userAvatar.src = user.profilePicture || 'default-avatar.png';
         }
 
         // Role-based access control for navigation
