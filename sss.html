@@ -17,37 +17,26 @@
             <p>For Principal Only: Search for your school using search school option in the NEMIS ASC PORTAL. If school is not found, prompt the LEMIS or SEMIS Officer to add school.</p>
 
             <fieldset>
-                <legend>School Location</legend>
-                <label for="schoolCode">School Code</label>
-                <input type="text" id="schoolCode" name="schoolCode">
-
-                <label for="elevation">Elevation (Meter)</label>
-                <input type="number" id="elevation" name="schoolCoordinates.elevation">
-
-                <label for="latitude">Latitude North</label>
-                <input type="text" id="latitude" name="schoolCoordinates.latitudeNorth">
-
-                <label for="longitude">Longitude East</label>
-                <input type="text" id="longitude" name="schoolCoordinates.longitudeEast">
-                <button type="button" onclick="getLocation('latitude', 'longitude')">Get Location</button>
-            </fieldset>
-
-            <fieldset>
                 <legend>A. School Identification</legend>
                 <label for="schoolName">A.1 School Name</label>
-                <input type="text" id="schoolName" name="schoolIdentification.schoolName">
+                <select id="schoolName" name="schoolName">
+                    <option value="">Select a school</option>
+                </select>
+
+                <label for="lga">A.5 LGA</label>
+                <input type="text" id="lga" name="lga" readonly>
+
+                <label for="ward">A.4 Ward</label>
+                <input type="text" id="ward" name="ward" readonly>
+
+                <label for="schoolCode">School Code</label>
+                <input type="text" id="schoolCode" name="schoolCode" readonly>
 
                 <label for="street">A.2 Number and Street name</label>
                 <input type="text" id="street" name="schoolIdentification.numberAndStreet">
 
                 <label for="village">A.3 Name of Village or Town</label>
                 <input type="text" id="village" name="schoolIdentification.villageOrTown">
-
-                <label for="ward">A.4 Ward</label>
-                <input type="text" id="ward" name="schoolIdentification.ward">
-
-                <label for="lga">A.5 LGA</label>
-                <input type="text" id="lga" name="schoolIdentification.lga">
 
                 <label for="state">A.6 State</label>
                 <input type="text" id="state" name="schoolIdentification.state">
@@ -1201,6 +1190,13 @@
     </main>
     <script src="script.js"></script>
     <script src="location.js"></script>
+    <script src="schools.js"></script>
+    <script src="form-logic.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSchoolDropdown();
+        });
+    </script>
     <script src="sss.js"></script>
     <script src="logout.js"></script>
 </body>
