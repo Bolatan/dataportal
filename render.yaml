@@ -11,4 +11,4 @@ services:
       - key: NODE_VERSION
         value: "14.17.0" # You can change this to your desired Node.js version
       - key: DATABASE_URL
-        value: "your_mongodb_connection_string_here" # IMPORTANT: Replace with your actual MongoDB connection string
+        value: "mongodb+srv://bolatan:Ogbogbo123$@cluster2.ntmi3jz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster2" # IMPORTANT: Replace with your actual MongoDB connection string
