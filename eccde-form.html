@@ -6,6 +6,7 @@
     <title>ECCDE Primary Form</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="survey.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <main>
@@ -18,21 +19,19 @@
             <p><strong>For Head Teacher Only:</strong> Search for your school using search school option in the NEMIS ASC PORTAL. If school is not found, prompt the LEMIS or SEMIS Officer to add school.</p>
             <div>
                 <label for="schoolName">A.1 School Name</label>
-                <select id="schoolName" name="schoolName">
-                    <option value="">Select a school</option>
-                </select>
-            </div>
-            <div>
-                <label for="lga">A.5 LGA</label>
-                <input type="text" id="lga" name="lga" readonly>
-            </div>
-            <div>
-                <label for="ward">A.4 Ward</label>
-                <input type="text" id="ward" name="ward" readonly>
+                <select id="schoolName" name="schoolName" style="width: 100%;"></select>
             </div>
             <div>
                 <label for="schoolCode">School Code</label>
-                <input type="text" id="schoolCode" name="schoolCode" readonly>
+                <input type="text" id="schoolCode" name="schoolCode">
+            </div>
+            <div>
+                <label for="ward">A.4 Ward</label>
+                <input type="text" id="ward" name="ward">
+            </div>
+            <div>
+                <label for="lga">A.5 LGA</label>
+                <input type="text" id="lga" name="lga">
             </div>
             <div>
                 <label for="latitude">Latitude North</label>
@@ -1479,15 +1478,12 @@
     </main>
     <script src="header.js"></script>
 
-    <script src="common.js"></script>
-    <script src="location.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="schools.js"></script>
     <script src="form-logic.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeSchoolDropdown();
-        });
-    </script>
+    <script src="common.js"></script>
+    <script src="location.js"></script>
     <script src="eccde-form.js"></script>
     <script src="logout.js"></script>
 </body>

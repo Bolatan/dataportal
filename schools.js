@@ -1,6152 +1,1137 @@
 const schools = [
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "AANUOLUWAPO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH CENTRAL PRY.SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "AHMAD MEM.PRY.SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "AJEGUNLE PRY. SCHL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "AKILO PRY. SCHL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "AMOSUN PRY. SCHL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "A.U.I. PRIMARY SCHOOL OGBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "A.U.I. PRIMARY SCHOOL ONIWAYA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ARAROMI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "BISHOP AJANA MEMORIAL PRY. SCHL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "C.A.C.PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "DAIRY FARM PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "DAROCHA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "DISTRICT PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "DOPEMU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "IBIDO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "IBUKUN-OLU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "IDEAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "IFELODUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "IFEOLUWA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "IREPODUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ISSA WILLIAMS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "JIBRIL MARTINS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "KEKE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "LADOJE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "MOSES ORIMOLADE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ODUDUWA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "OKE KOTO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "OKO OBA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "OKUSANYA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "OLUSANYA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ORE OFE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ORILE AGEGE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "PROGRESSIVE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "SACRED C&S SHILLO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "SAKA TINUBU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "SALVATION ARMY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "SANNGO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ST. PETERS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ST.SAVIOUR PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "STATE PRIMARY SCHOOL DOPEMU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "STATE PRIMARY SCHOOL ILORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "STATE PRIMARY OYEWOLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "STATE PRIMARY SANNGO AGEGE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "UNITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "YEWA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AGEGE",
-        "ward": "N/A",
-        "schoolname": "ZION A/C PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AFRICAN PRIMARY SCHOOL, AJEGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AIYETORO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AJEGUNLE PRIMARY SCHOOL, A/ORA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AJEGUNLE PRIMARY SCHOOL, OJO RD.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AJEROMI CENTRAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AJEROMI IFELODUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AJEROMI PUBLIC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ALABA PRIMARY SCHOOL I, ALABA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ALABA PRIMARY SCHOOL II, ALABA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ALAKOTO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL I, AIYETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL II, AIYETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL, ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ARAROMI PRIMARY SCHOOL, ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ASUBIOJO PRIMARY SCHOOL I, ALABA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ASUBIOJO PRIMARY SCHOOL II, ALABA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AWODI ORA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "AYODELE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "CARDOSO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "CHRIST ASSEMBLY NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "CHRIST THE KING PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "EBENEZER NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "FATHER SADIKU PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "GORIOLA PRIMARY SCHOOL AJEGUNLE I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "GORIOLA PRY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "IBAFON PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "IFELODUN NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "IRETI SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "IRETI PRIMARY SCHOOL II ALABA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "JIMOH OJORA PRY SCH I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "JIMOH OJORA PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "KAJOLA NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "LA PRIMARY SCHOOL I, AIYETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "L.A PRY SCHOOL 1B AMUKOKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "LA PRIMARY SCH II AYIETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "L.A PRIMARY SCH II AMUKOKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "L.A PRY SCHOOL ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "LOCAL AUTHORITY PRY SCHOOL LAYENI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "L.A NUR&PRIMARY SCHOOL 1A. AMUKOKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "LAGOS STATE MODEL NUR/PRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "MUSLIM PRIMARY SCHOOL AJEGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "MUSLIM NUR/PRY SCHOOLO ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "NAWAIR-UD-DEEN PRIMARY SCHOOL I AIYETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "N.U.D PRIMARY SCHOOL II, AIYETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "NEW ROAD PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OGUNLADE PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OGUNLADE SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OKOROGBO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OLADIPO PRY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OLADIPO PRY SCHOOL II AMUKOKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OLANIYONU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OLODI APAPA NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OLUWA PRY SCHOOL ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OREMIJE PRY SCHOOL I, TOLU COMPLEX",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "OREMEJI PRIMARY SCHOOL II TOLU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ORODU NUR/PRY SCHOOL AJEGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "RESERVATION PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "SARI-IGANMU PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "SARI-IGNMU PRY SCH II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "SEABREEZE NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ST.JOHN'S (ANG) NUR/PRY SCH. ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "ST. MARY'S (RCM) NUR & PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "SURU PRY SCHOOL, ALABA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "TOLU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "UNITY PRIMARY SCHOOL AWODI-ORA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "WOWO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "Z,I PRY SCHOOL I ALABA-ORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "Z.I NUR/PRY SCHOOL II ALABA-ORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "Z.I PRY SCH AJEGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AJEROMI IFELODUN",
-        "ward": "N/A",
-        "schoolname": "Z. I. PRIMARY SCHOOL, ARAROMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AANUOLUWAPO PRY SCHL, OKE-ODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ABARANJE PRY SCHL I, ABARANJE.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ABARANJE PRY SCHL II, ABARANJE.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ABATI PRY SCHOOL, ABATI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ABESAN PRY SCHOOL, ABESAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ABORU PRY SCHOOL, ABORU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL, MOSAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL, IKOLA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL, AKOWONJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL I, ALAGBADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL II, ALAGBADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL I, MEIRAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRY SCHL II, MEIRAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "AKOWONJO PRY. SCH., AKOWONJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ALAGUNTAN PRY. SCH., ALAGUNTAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ALIMOSHO PRY. SCH., ALIMOSHO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRY. SCH., AKESAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRY. SCH., OLORUNNISOLA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN PRY. SCH., ABULE-EGBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ATEGBO PRY. SCH., IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., ABULE-EGBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., AMIKANLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., BARUWA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH. I, EGAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH. II, EGAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., EGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., IDIMU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH. I, IJEGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH. II, IJEGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH. I, IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH. II, IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., ILAPO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., IPAJA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., ISHEFUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., ISHERI-OLOFIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., MEIRAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., OBADORE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., OKE-ODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., SASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRY. SCH., SURULERE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "EBENEZER AFRIC.CHURCH PRY. SCH., EGBEDA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "EGBEDA PRY. SCH., EGBEDA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ESTATE PRY. SCH., ABESAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "HOUSING ESTATE PRY. SCH, ABESAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "IFESOWAPO PRY. SCH. ABORU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. I, ALAGBADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. II, ALAGBADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. I, EGAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. II, EGAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH., EGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH., IDIMU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. NUR/PRY. SCH. I, IGANDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. NUR/PRY. SCH. II, IGANDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. I, IJEGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. II, IJEGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. I, IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH. II, IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY. SCH., ISHERI OSUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOV'T PRY.SCH. IKOLA OKE-ISHAGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRY. SCH., IGBOGILA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "NURUDEEN ADEWALE PRY.SCH., ALAGBADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "OKERUBE PRY. SCH. I, ABARANJE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "OKERUBE PRY. SCH. II, ABARANJE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "OKI PRY. SCH., OKI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "OLOFIN PRY. SCH. AKESAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "OLUKOTUN PRY. SCH. IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "OORE-OFE PRY SCH., EGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "RAUF-AREGBESOLA PRY.SCH.ABATI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "SALVATION ARMY PRY. SCH. I, AYOBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "SALVATION ARMY PRY. SCH. II, AYOBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "SASA NUR / PRY. SCH., SASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ST. ANDREWS PRY. SCH., IPAJA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "ST. GEORGE'S U.N.A. PRY. SCH., IPAJA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "TEMIDIRE PRY. SCH. OKE-ODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ALIMOSHO",
-        "ward": "N/A",
-        "schoolname": "UNITY PRY. SCH., EGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "AMUWO ODOFIN NUR. AND PRY SCHL. MILES 2",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "A. U. D NUR & PRY SCHL. ADO SOBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "BISHOKODJI COMM. NUR AND PRY SCHL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "CENTRAL NUR AND PRY SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "CENTRAL NUR AND PRY SCHL. KIRIKIRI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "C. & S NUR AND PRY SCHL. IGBOALEJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR AND PRY SCH. FESTAC EXT",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "FESTAC NUR AND PRY SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "5TH AVENUE NUR AND PRY SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "512 ROAD NUR AND PRY SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "4TH AVENUE NUR AND PRY SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "IDEAL NUR AND PRY SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "IJEGUN EGBE NUR AND PRY SCHL. 1 S/T",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "IJEGUN EGBE NUR AND PRY SCHL.II S/T",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "ITUN AGAN COMM. NUR AND PRY SCHL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "KUJE AMUWO NUR AND PRY SCHL. AMUWO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. IBASSA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. IBESHE S/B",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. IGBOLOGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. ILASE TOWN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. IYAGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. TOMARO ILADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. SAGBOKOJI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. 1 KIRIKIRI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR AND PRY SCHL. 2 KIRIKIRI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "LASA UNITED NUR & PRY SCHL. IBESHE/T.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "NAVY TOWN NUR AND PRY. SCHL. 1",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "NAVY TOWN NUR AND PRY. SCHL. 2",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "NEW TOWN NUR AND PRY. SCHL. F/T",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "OLUMOLE NUR AND PRY SCHL. OLUTI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "OYEWOLE NUR & PRY. SCHL. 1 MAZAMAZA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "OYEWOLE NUR & PRY. SCHL. 2 MAZAMAZA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "PROGRESS NUR AND PRY. SCHL. FESTAC/T",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "S. A. NURAND PRY. SCHL. IKAARE IREDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "SATELLITE NUR AND PRY SCHL. 1 S/TOWN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "SATELLITE NUR AND PRY SCHL. 2 S/TOWN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "2ND AVENUE NUR. AND PRY. SCHL. F/TOWN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "7TH AVENUE NUR. AND PRY. SCHL. F/TOWN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "3RD AVENUE NUR. AND PRY. SCHL. F/TOWN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "UNITY NUR AND PRY SCHL. MILE 2",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "U. P. E. NUR AND PRY. SCHL. FESTAC",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "AMUWO ODOFIN",
-        "ward": "N/A",
-        "schoolname": "Z. I. NUR AND PRY SCHL. AMUWO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "AJEROMI NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "APAPA NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "ARAKAN BARR. NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILD NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "BADIA NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "BAPTIST NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "DAVID SAVAGE NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "IJORA OLOYE NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "IRE-AKARI NUR/PRY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "IRE-AKARI NUR/PRY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "IREPODUN NUR/PRY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "IREPODUN NUR/PRY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "IRETI NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "LADI LAK NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "METHODIST NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "METROPOLITAN NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "NANTI COMM NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "OLOJOWON DEM. NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "ORILE NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "SARI IGANMU NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "STATE NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "ST THERESA NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "APAPA",
-        "ward": "N/A",
-        "schoolname": "UNITED XTIAN NUR/PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL ARADAGUN/MOSAFEJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL GBANKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, IGBOROSUN I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, IGBOROSUN II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, ILADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, ILOGBO-EREMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, IMEKE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, TOGA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ANG. PRIMARY SCHOOL, IWORO/AJIDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "A.D.S. PRIMARY SCHOOL, ARAROMI/ALE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "A.D.S. PRIMARY SCHOOL, II ARARPMI/ALE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "A.D.S. PRIMARY SCHOOL, III ARAROMI/ALE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "A.D.S. PRIMARY SCHOOL, BADAGRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN PRIMARY SCHOOL, IBEREKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "COMM. PRIMARY SCHOOL ESEPE/MUS/OBELE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "EPEME PRIMARY SCHOOL, EPE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "GBENOPO PRIMARY SCHOOL, AJARA I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "GBENOPO PRIMARY SCHOOL, AJARA II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, AJARA I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, AJARA II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, AJIDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, AKARAKUNMO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, APA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, BADAGRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, IBEREKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "LA. PRIMARY SCHOOL, IPARA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, IYAFIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, KETA-WEST",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, MOWO/AGEMOWO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRIMARY SCHOOL, OKOGBO/MOBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "L.A. PRMARY SCHOOL, TOPO/IDALE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, ASHIPANU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, BADAGRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, ENUKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, EREKITI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, KWEME",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, SAWA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, TOHON",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "MOROGBO PRIMARY SCHOOL, MOROGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "MUSLIM PRIMARY SCHOOL, BADAGRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "M.M.C. PRIMARY SCHOOL, IWORO/AJIDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "O.L.A. PRIMARY SCHOOL, BADAGRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "O.L.A. PRIMARY SCHOOL, OJOGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "O.L.F. PRIMARY SCHOOL, GANYINGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "S.A. PRIMARY SCHOOL, ANLO-BOGLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "S.A.PRIMARY SCHOOL,IBIKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "S.A. PRIMARY SCHOOL,IKOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "S.A. PRIMARY SCHOOL, ILOGBO-EREMI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "SEA-BEACH PRIMARY SCHOOL,AJIDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ST. LEO'S PRIMARY SCHOOL, IKOGA/ZEBBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ST.PATRICK PRIMARY SCHOOL,IRAGBO/IRAGON",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ST. PETER'S PRIMARY SCHOOL, AGONRIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ST.THOMAS PRIMARY SCHOOL, BADAGRY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "UNITY PRIMARY SCHOOL, AJIDO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "BADAGARY",
-        "ward": "N/A",
-        "schoolname": "ZUNVE PRIMARY SCHOOL,ZUNVE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Anglican Primary School, Ajebo",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Anglican Primary School, Ebute-Afuye, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Anglican Primary School, Sala",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Anglican Primary School, Sekungba",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Ansar-Ud-Deen Primary School Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Ansar-Ud-Deen Primary School Ibonwon",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Ansar-Ud-Deen Primary School Odo-Egiri",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Army Barracks Primary School, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Army Children Primary School, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Baptist Primary School, Agbowa/Ikosi",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Christ Church Primary School, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Community Primary School, I Erepoto, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Community Primary School, II Erepoto, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Government Demonstration Pry, Sch. Noforija",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Central Primary School,Agbowa",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Central Primary School, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Abejoye",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School,Abomiti",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Aboriji",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Emina",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Ibon",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Igbogun",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Igbooye",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Ikosi-Beach",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Imeki-Oke",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School,Imosan",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Ipesu",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Isan",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Ise",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Ito-Omu",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Ladaba",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Luboye",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Mayunre",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Moyopa",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School,Noforija",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Obada",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Oguntedo",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Okorisan",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Orepete",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Oriba",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Otta-Ikosi",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Local Government Primary School, Yegunda",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Lupetoro Primary School, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Methodist Primary School, Agbowa-Ikosi",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Pobo Community Primary School, Poka",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Roman Catholic Mission Prinmary School, Ejinrin",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Roman Catholic Mission Primary School,Ketu- Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Roman Catholic Mission Primary School, Igbodu Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. Joseph Roman Catholic Mission Primary School, Itoikin",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Roman Catholic Mission Primary School,Mojoda",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Saint Agnes Roman Catholic School, Orugbo",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. James Anglican Primary School, Museju Mutaku",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Anglican Primary School, Oke-Oso",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St John R.C.M. Primary School, Odomola",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. Joseph's Roman Catholic Mission Pry. Sch. Ibonwon",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Saint Michael's Anglican Primary School, I, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Saint Michael's Anglican Primary School, II, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. Paul's Anglican Pry. Sch. Igbooye",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. Peter's Roman Catholic Pry. Sch. Odoragunsin",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Roman Catholic Mission Primary School,Igbonla",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. Theresa's roman Catholic Mission Pry. Sch. Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "St. Vincent's Roman Catholic Mission Pry. Sch. Ijih",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Solomon Memorial Primary School, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Ajegbende",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Akodo/Ise",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Igbodu",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Iraye-Oke",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Iganke",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Ilara",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Imokun Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Odo-Ayandelu",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Universal Primary Education Pry. Sch., Odogbawojo",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Zummuratul lslamiyahPrimary I Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "EPE",
-        "ward": "N/A",
-        "schoolname": "Zummuratul lslamiyahPrimary II, Epe",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ADDO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "AJIRAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "AKINLADE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "AUD PRIAMRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ARCHBISHOP TAYLOR MEMO. PRY. SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN SCHOOL BONNY CAMP",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN SCHOOL DODAN BARRACKS",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "AWOYAYA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "BADORE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "BONNY CAMP PRIMARY B/CAMP",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "DODAN BARRACKS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "EPIPHANY ANGLICAN PRY. SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "FEDRAL HOUSING ESTATE PRY. SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "HOPE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "IKOTA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "IKOYI GIRLS MODERN ACADEMY",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "IKOYI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ILASAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "IRETI GIRLS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "IRETI PRIAMRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "OBA YEKINI ELEGUISHI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "JAMA-AL-TUL ISLAMIYYAT PRY. SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "JINADU ANGLICAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "KURAMO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "LANGBASA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "MAIYEGUN COMMUNITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "OBALENDE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "OGOMBO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "OKUN \u2013 AJAH PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "OLOMU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "SANGOTEDO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ST. GEORGE\u2019S BOYS\u2019 PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "ST. GEORGE\u2019S GIRLS\u2019 PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "VICTORIA ISLAND PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "MODEL NURSERY & PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "ETI-OSA",
-        "ward": "N/A",
-        "schoolname": "HON. KAZEEM ALIMI MEMORIAL PRIMARY SCHOOL, RESETTLEMENT",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "AKINWUNMI AMBODE NURSERY AND PRIMARY SCHOOL, KAYETORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ANSAR-UD-DEEN PRIMARY SCHOOL, ARAPAGI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ANWAR-UL-ISLAM PRIMARY SCHOOL, EMU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ABEGEDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ABIJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ADEBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, AJEGBENWA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, EPUTU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, FOLU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, IBA-OLOJA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, IBERIKODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, IGBODOLA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, LABORA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, LAKOWE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, OGOGORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, OKEGUN-ODOFIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, OTOLU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "FAOZIL-OMAR-AHMADIYYAH PRIMARY SCHOOL, IDADO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL, AKODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL,IDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL, ILEGE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL, OKUNMOPO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PIMARY SCHOOL, OKUNSOLU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL, ORIYANRIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, AWOYAYA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, AYETEJU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, BOGIJE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, IBEJU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, IDATA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, IDOTUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, IWEREKUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, LEKKI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, LEPIA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, OKEGUN-BAALE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, OKUNRAYE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, OLOMOWEWE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ROMAN CATHOLIC MISSION PRIMARY SCHOOL, ORIMEDU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ST. DAVID'S (ANG) PRIMARY SCHOOL, OSOROKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ST. PETER'S (ANG) PRIMARY SCHOOL, MAGBON-ALADE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "TSANGAYA (ALMAJIRUN) MODEL PRIMARY SCHOOL, OROFUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "UNIVERSAL PRIMARY EDUCATION SCHOOL, SIRIWON",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IBEJU-LEKKI",
-        "ward": "N/A",
-        "schoolname": "ADESALU PRY SCHOOL IBEJU LEKKI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "AGBADO IJAIYE PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "AGBADO IJAIYE PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "ALL SAINTS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "AYANLEYE MEM. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "BISHOP OLUWOLE MEM. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL BIOYIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "COKER MEM. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "EBENEZER A/C PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "EBENEZER A/C PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "FACM PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "FACM PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "FRED WILLIAMS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "GBELEYI PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "GBELEYI PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "HOLY TRINITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "IFAKO IJAYE MODEL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "IJU AJUWON COMMUNITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "IJU STATION PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "IJU STATION PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "KARAOLE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "NEW OKO OBA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "OGUNDIMU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "SAVIOURS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "ST. KIZTIOS CATH. PRIMARY SCHOOL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "ST. KIZTIOS CATH. PRIMARY SCHOOL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "VETLAND PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IFAKO IJAIYE",
-        "ward": "N/A",
-        "schoolname": "WESLEY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ADENIYI JONES PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "AGIDINGBI PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ANIFOWOSE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ARMY BARRACKS PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ARMY MODEL PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "BOLA MEM. PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "BRIGADE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "CENTRAL PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ONIGBONGBO PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ESTATE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "G.R.A. PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "IKEJA PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVT. PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "MILITARY PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "MILITARY CANT. PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "NINE BRIGADE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OGBA PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OJODU PRY SCHL I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OJODU PRY SCHL II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OJODU PRY SCHL III",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OKE-IRA PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OLUSOSUN PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ONILEKERE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "OPEBI PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "SOGUNLE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "STATE PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "ST. PETERS PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "TOKUNBO ALLI PRY SCHL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "MODEL N/P SCHL G.R.A.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "MODEL N/P SCHL OLUSOSUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKEJA",
-        "ward": "N/A",
-        "schoolname": "CORRECTIONAL CENTER",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ABEJOYE PRY. SCHOOL, IGBOKUTA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "AFRICAN BETHEL PRY. SCHL, ERIKORODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "AFRICAN BETHEL PRY. SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "AFRICAN BETHEL PRY. SCHOOL, MAYA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "AGA PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "AGODO ALARA PRY SCHOOL, ODOGUNYAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL, AKANUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL, IJEDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL, ISAWO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL, OFFIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "A.U. D. PRIMARY SCHOOL, IGBOGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "A. U. D. PRIMARY SCHOOL, IMOTA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "A. U. I. PRIMARY SCHOOL, IJEDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILD PRY. SCHOOL, LOSI - ONIKOKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "AYANGBURE PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "C & S PRIMARY SCHOOL I, MAJIDUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "C & S PRIMARY SCHOOL II, MAJIDUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ABULE-EKO, IJEDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, IMOTA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ITOWOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, MOWO-NLA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ODO-NLA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ESTATE PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ETUNRENREN PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "FARM SETTLEMENT PRY. SCHL, ODOGUNYAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "HOLY TRINITY PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "IDERA COMMUNITY PRIMARY SCHOOL, IDERA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "IJOMU MUSLIM PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "J. I. PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "LAJO COMM. PRY SCHOOL, OFFIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "LAMBO LASUNWON COMM. PRY. SCH. OKEGBEGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L. G. PRIMARY SCHOOL, BAYEKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L. G. PRIMARY SCHOOL, IGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L. G. PRIMARY SCHOOL, IMOTA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L.G. PRIMARY SCHOOL, IPAKODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L. G. PRIMARY SCHOOL, ISIWU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L.G. PRIMARY SCHOOL, MAJIDUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "L. G. PRIMARY SCHOOL, ORETA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, AGURA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL I, EWU-ELEPE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, GBERIGBE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, IBESE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, IGBOGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, IMOTA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, OKE-ELETU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "MODEL NUR/PRY. SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "MUSLIM PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "OGA PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "OMOLAYE COMM. PRY. SCH. AGBEDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "OSHO-SHOLU PRIMARY SCHOOL, ERUWEN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "OWODE PRIMARY SCHOOL, IBELEFUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ST. JOHN'S ANGLICAN PRY. SCHOOL, IMOTA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ST. SAVIOUR'S ANGLICAN PRY. SCHOOL, IGBAGA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "SALVATION ARMY PRY. SCHOOL, AGUNFOYE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "SALVATION ARMY PRY. SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "TEMIDIRE PRIMARY SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "TOGEDEJOYE PRY. SCHOOL, IKORODU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "U. A. M. C. (ELEJA) PRY. SCHOOL, IGBOGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "U. N. A. PRIMARY SCHOOL, IGBALU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "U. N. A. PRIMARY SCHOOL, OKE-AGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "U. P. E. PRIMARY SCHOOL, AJAGURO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "Z. I. PRIMARY SCHOOL, ODOGUNYAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "EGBIN KINGDOM COMMUNITY PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL II EWU- ELEPE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "ASANAT TOMORI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "Olu- Odo Community Primary school, Igbogbo Ikorodu",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "IKORODU",
-        "ward": "N/A",
-        "schoolname": "Igbe Ogunro Community Model Nursery & Primary school Ijede, Ikorodu",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "AGBOYI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "AINA MEMORIAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "AJELOGO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "AJIBOLA AYEDERE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ALAPERE PRIMARY SCHOOL, ALAPERE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL ODO-OGUN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL OGUDU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ANTHONY MODEL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "APOSTOLIC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ARAROMI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "AROWOSEGBE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "AYEROJU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "BAPTIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "EMMANUEL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "EXPRESSWAY PRIMARY SCHOOL 1",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "EXPRESSWAY PRIMARY SCHOOL 2",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "G. R. A PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "IDERA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "IFAKO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "IKOSI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "IREPODUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ISHERI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "KINIUN-IFA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "MAIDAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "MARYLAND PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "MOSAFEJO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "MUSLIM MISSION PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "OGUDU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "OJOTA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "OKE-IFAKO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "OLOWO-IRA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "OLUWALOGBON PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ORISIGUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "OWORONSOKI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "PASTOR ADEGBOYEGA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ST. AGNES PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "ST. FRANCIS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "KOSOFE",
-        "ward": "N/A",
-        "schoolname": "U A. C. C PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ADE - OSHODI MEMORIAL BAPTIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN GIRLS SEMINARY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ANSAR-UD-DEEN ALAKORO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ANSAR-UD-DEEN OKEPOPO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ANWAR-UL-ISLAM PRIMARY SCHOOL, ELEGBATA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ANWAR-UL-ISLAM GIRLS PRIMARY SCHOOL, OLUSHI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ARAROMI BAPTIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "CHRIST CHURCH CATHEDRAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "DR. TESLIM ELIAS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "EBUTE ELEFUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "EDWARD BLYDEN MEMORIAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "EREKO METHODIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "FAZIL-O-MAR AHMADIYAH PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "HOLY CROSS CATHOLIC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "HOLY TRINITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "JAMA-AT-TUL ISLAMMIYAH PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "LAGOS ISLAND LOCAL GOVERNMENT PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "OLOWOGBOWO METHODIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. DAVID'S ANGLICAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. JOHN'S ANGLICAN PRIMARY SCHOOL, AROLOYA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. JOSEPH'S CATHOLIC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. MARY'S CONVENT PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. MARY'S GIRLS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. MATHIAS BOYS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. MATHIAS GIRLS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. PATRICK'S CATHOLIC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. PAUL'S ANGLICAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. PETER'S (FAJI) PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ST. STEPHEN'S (WAEC) PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "TINUBU METHODIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "UNION BAPTIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS ISLAND",
-        "ward": "N/A",
-        "schoolname": "ZUMURATUL ISLAMIYYAH PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ADEKUNLE ANGLICAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "AFRICAN CHURCH PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "AGO EGBA AFR. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "AGO IJAIYE METH. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "AHMAADIYA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "AIYETORO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "AKOKA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ALL SAINT ANGLICAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ANSARUDEEN PRIMARY SCHOOL ODUNFA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ANSARUDEEN PRIMARY SCHOOL OSHOLAKE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "BANJO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "CATHOLIC GIRLS PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "CHRIST CHURCH PRIMARY SCHOOL. ODUNFA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "CHRIST CHURCH PRIMARY SCHOOL OYINGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "EBENEZER PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "EBUTE METTA PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "FADEYI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "FAZIL OMAR PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "HERBERT MACAULAY PRIMARY SCH.OOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "HUSSEY MILITARY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "IJERO BAPT.PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "IPONRI/OLALEYE NUR. PRIMARYY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "KADARA PRIMARYY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "LADI LAK INSTITUTE PRIMARYY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "LAGOS STREET AFRICAN.CHURCH. PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "LAGOS MAINLAND LOCAL GOVERNMENT PRIMARY SCHOOL FADEYI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "LAGOS MAINLAND LOCAL GOVERNMENT PRIMARY SCHOOL IJERO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MAKOKO ANG.PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MARYWOOD PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MILITARY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MOROCCO MILITARY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MOUNT.CARMEL CONVENT PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MYHOUNG MILITARY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "NATIONAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "OKOBABA SALVATION ARMY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "OLIMO MEMORIAL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "OLUWOLE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ONAYADE COMMUNITY.PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ONIKE BAPT.GIRLS PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "OROKU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "OTTO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "OUR LADY OF APOSTLES PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "SENATOR OLUREMI TINUBU PRY SCH",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "SEVENTH DAY ADVENTIST.PRIMARYY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ST.AGNES PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ST.DOMINICS CATH PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ST.JUDE'S ANG PRY SCHOOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ST.PATRICK'S CATH.PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ST.PAUL'S CATH PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "ST.PETER'S CATH.PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "TALIM-UL-ISLAM PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "THE APOSTOLIC PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "THE SALVATION ARMY PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "U.A.M.C (ELEJA) PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "YABA METHODIST PRY SCH.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "LAGOS MAINLAND",
-        "ward": "N/A",
-        "schoolname": "MODUPE COLE MEM. CHILD CARE & TREATMENT HOME SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ABIODUN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ADELEYE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ADENIYI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AGEGE MOTOR ROAD PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AINA SOGUNRO PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AJEABO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AJENIFUJA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AKODU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ALABA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ALAFIA-OLUWA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ALAKARA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ARAROMI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AYELABOWO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "AYETORO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "A.U.D. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "BARUWA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "BEREOLA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "BINEY MEMORIAL PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "CHRIST CENTRAL PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ELEJA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, ILUPEJU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, WORKYARD",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "DOSUMU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "DUROJAYE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ELEJA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ESTATE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "EXPRESSWAY PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "HOLY ROSARY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "IGBEHIN PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ILASAMAJA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ILUPEJU PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ISHAGA CLOSE PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ISLAMIC MODEL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ISOLO ROAD PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ITIRE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ITIRE/IKATE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ITIRE ROAD PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "KOSY BETHEL PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "LADIPO PRIMARY SCHOOLOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "LAYI-OYEKANMI PRIMARY SCHOOL,MUSHIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "L.G. PRIMARY SCHOOL IDI-ORO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "L.G. PRIMARY SCHOOL ITIRE RD.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "L. G. PRIMARY SCHOOL MEGBON",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "MAINLAND MODEL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "MAJOLATE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "MORAYO PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "MUSIN PUBLIC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "MUSLIM MISSION PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "NAFRC PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "NEW-CITY PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "N.U.D.PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ODI-OLOWO PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ODU-ABORE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ODUDUWA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "OJUWOYE COMM. PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "OJUWOYE PUB. PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "OLISA PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ONIPEDE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "OUR LADY OF FATIMA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "OYE PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "PALM AVE. PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "PAPA-AJAO PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. JOHN'S PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. JOSEPH'S PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. JUDE'S PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. MARTI'S PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. MICHAEL PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. PAUL'S A/C PRIMARY. SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. PAUL'S ANG. PRIMARY. SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST.PHILIP'S PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "ST. THOMAS AQ. PRIMARY SCHOOL.",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "SHYLON PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "SOKUNBI PRIMARY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "MUSHIN",
-        "ward": "N/A",
-        "schoolname": "SPECIAL CHILDREN SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "AGANJU AKA NUR & PRY SCHOOL I, OKOKOMAIKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "AGANJU AKA NUR & PRY SCHOOL II, OKOKOMAIKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ALAWORO NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN NUR & PRY SCHOOL I, OTTO - IJANIKIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN NUR & PRY SCHOOL II, OTTO - IJANIKIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ANGLICAN NUR & PRY SCHOOL III, OTTO - IJANIKIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ARMY BARRACKS NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ARMY CANTONMENT NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ARMY CHILDREN NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ARMY DEMONSTRATION NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ARMY MODEL NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "BRIGADE NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHOOL I, AJANGBADI - AFROMEDIA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHOOL II, AJANGBADI - AFROMEDIA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHOOL, PONPOKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ESTATE NUR & PRY SCHOOL I, IBA HOUSING ESTATE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ESTATE NUR & PRY SCHOOL II, IBA HOUSING ESTATE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "F. O. A. NUR & PRY SCHOOL I, OKOKOMAIKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "F. O. A. NUR & PRY SCHOOL II, OKOKOMAIKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "F. O. A. NUR & PRY SCHOOL III, OKOKOMAIKO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, ALAGUNTAN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, ERA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, ETEGBIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, IBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, IJAGEMO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL I, ILOGBO ELEGBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL II, ILOGBO ELEGBA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, IREWE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL I, ISASHI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL II, ISASHI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, MOBA - SEA BEACH",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, OKOLUNDU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, TAFFI - AWORI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "MILITARY NUR & PRY SCHOOL, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "SABO ONIBA NUR & PRY SCHOOL I, SABO - AJANGBADI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "SABO ONIBA NUR & PRY SCHOOL II, SABO - AJANGBADI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "SABO ONIBA NUR PRY SCHOOL III, SABO - AJANGBADI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "SALVATION ARMY NUR & PRY SCHOOL, OLOMOMETA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. FRANCIS CATHOLIC NUR & PRY SCHOOL, IGBO - OJA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. MARY'S ANGLICAN NUR & PRY SCHOOL, IDOLUWO - ILE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. MARY'S ANGLICAN NUR & PRY SCHOOL, IGBEDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. MICHAEL'S NUR & PRY SCHOOL I, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. MICHAEL'S NUR & PRY SCHOOL II, OJO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. PHILIP'S NUR & PRY SCHOOL, ESE - OFIN",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "ST. PETER'S NUR & PRY SCHOOL, ISAGIRA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHOOL, KETU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHOOL, IJEODODO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "AIYEKOTO NUR & PRY SCHOOL, IMUDE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHOOL, SHIBIRI - EKUNPA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "L. A. NUR & PRY SCHOOL, MUWO - TEDI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT MODEL NUR & PRY SCHL, AGRIC COMPLEX",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMM MODEL NUR & PRY SCHL, ILEMBA AWORI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHL, IBASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OJO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY NUR & PRY SCHL, AJEWANWA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AFARIOGUN PRIMARY. SCHOOL OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AFOLABI P PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AGEKE PRIMARY SCHOOL, EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AGO-OWU PRIMARY SCH,OOL SHOGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AJAO EST. PRYIMARY SCHOOL, AJAO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AJIBULU PRIMARY SCHOOL, MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AKINBAYE PRIMARY SCHOOL, ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "A.U.D. PRIMARY SCHOOL ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AREGBE PRIMARY SCHOOL MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "ASIWAJU BOLA HAMED PRIMARY SCHOOL EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AYO-ADEGBOYGA PRIMARY SCHOOL EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "BASIRU DANIA PRIMARY SCHOOL MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "CENTRAL PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "COMMUNITY PRIMARY SCHOOL, EWU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "DELE AJOMALE PRIMARY SCHOOL,ILASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "EJIGBO MODEL PRIMARY SCHOOL. EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "ESTATE PRIMARY SCHOOL, ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "EWU PRIMARY SCHOOL, EWU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "FADU MEMORIAL PRIMARY SCHOOL, EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "FAROMBI PRIMARY SCHOOL, ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "FOLARANMI PRIMARY SCHOOL, SOGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "FOLORUNSO PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "GBELEYI PRIMARY SCHOOL, ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "HOPE PRIMARY SCHOOL, MFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "IDEAL PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "IFOSHI PRIMARY SCHOOL, EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "ILASAMAJA PRIMARY SCHOOL, ILASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "IMAKIYO PRIMARY SCHOOL, EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "IPESA BALOGUN PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "IRE-AKARI ESTATE MODEL PRIMARY SCHOOL, ILASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "IRE-AKARI PRIMARY SCHOOL, ILASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "KUSORU PRIMARY SCHOOL, ILASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "LARINDE PRIMARY SCHOOL, MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL, ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "LOCAL GOVERNMENT PRIMARY SCHOOL, SHOGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "LCHE PRIMARY SCHOOL I. ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "LCHE PRIMARY SCHOOL II. ISOLO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "MAFOLUKU PRIMARY SCHOOL, MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, EWU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "METHODIST PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "MONSURU-AGORO PRIMARY SCHOOL, MAF",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "NEW STATE PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "OBAMORUFU PRIMARY SCHOOL, EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "OLADELE ALAKE PRIMARY SCHOOL, EJIGBO",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "OLOKUN PRIMARY SCHOOL, ILASA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "OSHODI MODEL PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "OSHODI PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "OWOSENI PRIMARY SCHOOL OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "ST. JOHN'S CATHOLIC PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "ST. PAUL'S ANGLICAN PRIMARY SCHOOL, ISHAGA",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "ST. PAUL'S ANGLICAN PRIMARY SCHOOL, MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "STATE PRIMARY SCHOOL. EWU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "STATE PRIMARY SCHOOL, MAFOLUKU",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "TEMIDIRE PRIMARY SCHOOL, SOGUNLE",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "WESLEY PRIMARY SCHOOL, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "OSHODI ISOLO",
-        "ward": "N/A",
-        "schoolname": "AKINSANYA AJALOLERU, OSHODI",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ABULE-AYO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ADARANIJO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ADEBULE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ADE-IFE SODIPO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "AIYETORO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "AGUNBIADE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "AJIDAGAN PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ALUBARIKA PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "APELEHIN PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ARCH-DEACON ADELAJA SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "AYINKE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "BAPTIST PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "BAPTIST ACADEMY PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "BARIGA PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "BASUA MILITARY PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "BISHOP CROWTHER PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "BISHOP HOWELL PRY. SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "C.M.S. PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "GBAGADA PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "GBAGADA EAST PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "IDI ODO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "IDOWU PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "IGBEHIN-ADUN PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "IGBOBI PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "IJEBU-TEDO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "JEHOVAH SHALLOM PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "LAD-LAK PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "MAHARUF-DEEN PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "MODUPE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "NATIONAL PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "NATIONAL ORTH. PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ODUDUWA PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ODUNLADE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "OGO-OLUWA PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "OKE-META PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "OLA-OLU PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "PEDRO PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "SAVIOUR PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "SHEPHERDHILL PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "SOMOLU LOCAL GOVT. PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "S.S PETER & PAUL PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ST. AUGUSTINE (UNA) PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ST. PAUL (UNA) PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "ST. PETER (UNA) PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "TEMIDIRE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "TEMPLE PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "WESLEY PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SOMOLU",
-        "ward": "N/A",
-        "schoolname": "WRIGHT PRY SCHOOL",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Abimbola Gibson Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Abina Omololu Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Adebola Baptist Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Adegoke Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Adeniji Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Adisa Bashua Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Aguntasholo Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Aiyetoro Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Akanji Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Akin-Jacobs Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Akinsemoyin Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Al-Wajud Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Alaafia Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Anglican Girls Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Animashaun Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Ansar-Ud-Deen Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Atara Health Centre Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Atunda Olu Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Canal Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Central Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Clementina Ajigbeda Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Coker Pry School I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Coker Pry School II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Dedeke Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Duro Oyedoyin Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Elizabeth Fowler Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Enitan Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Erinoso Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Estate Baptist Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Gbaja pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Ideal Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Ijeshatedo Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Immam Shuaib Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Jehovah Jireh Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Jinadu Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Lagos Progressive Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Local Authority Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Methodist Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Moslem Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Nathan Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Obele Odan Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Obele Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Odo Olowu Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Onitolo Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Orile Iganmu Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Our Lady of Lourdes Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Premier Day Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Rabiatu Thampson Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Randle Avenue Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Raufu Williams Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Salvation Army Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Sanya Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Shamsudeen Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Shitta Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Sijuade Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Subuola Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Surulere Baptist Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Surulere Pry School",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Umoru Pry School I",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Umoru Pry School II",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Wesley Pry School l",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Wesley Pry School ll",
-        "schoolcode": "N/A"
-    },
-    {
-        "lga": "SURULERE",
-        "ward": "N/A",
-        "schoolname": "Yaba Model Pry School",
-        "schoolcode": "N/A"
-    }
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Garko Central", "schoolCode": "221105001" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Gona", "schoolCode": "221105002" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Kalajanga", "schoolCode": "221105003" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Yayan", "schoolCode": "221105004" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Dahiru", "schoolCode": "221105005" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Bapparu", "schoolCode": "221105006" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Yola", "schoolCode": "221105007" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Boi", "schoolCode": "221105008" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Nahuta", "schoolCode": "221105009" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Kesa", "schoolCode": "221105010" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Lafiya", "schoolCode": "221105011" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Gamadadi", "schoolCode": "221105012" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Garko Nomadic", "schoolCode": "221105013" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Model Pri.Sch.Garko", "schoolCode": "221105014" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Yaya(V.A)", "schoolCode": "221105015" },
+    { "lga": "Akko", "ward": "Garko", "schoolName": "Wuro-Boi(V.A)", "schoolCode": "221105016" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-Central", "schoolCode": "221105017" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-Gabas", "schoolCode": "221105018" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Jalingo", "schoolCode": "221105019" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Shongo", "schoolCode": "221105020" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-North", "schoolCode": "221105021" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-West", "schoolCode": "221105022" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-North(V.A)", "schoolCode": "221105023" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Model Pri.Sch.Kumo", "schoolCode": "221105024" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-Central(V.A)", "schoolCode": "221105025" },
+    { "lga": "Akko", "ward": "Kumo-Central", "schoolName": "Kumo-Gabas(V.A)", "schoolCode": "221105026" },
+    { "lga": "Akko", "ward": "Kumo-East", "schoolName": "Tukulma", "schoolCode": "221105027" },
+    { "lga": "Akko", "ward": "Kumo-East", "schoolName": "Panda", "schoolCode": "221105028" },
+    { "lga": "Akko", "ward": "Kumo-East", "schoolName": "Kaltango-North", "schoolCode": "221105029" },
+    { "lga": "Akko", "ward": "Kumo-East", "schoolName": "Kumo-South", "schoolCode": "221105030" },
+    { "lga": "Akko", "ward": "Kumo-East", "schoolName": "Kumo-South(V.A)", "schoolCode": "221105031" },
+    { "lga": "Akko", "ward": "Kumo-East", "schoolName": "Panda(V.A)", "schoolCode": "221105032" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Kumo-North", "schoolCode": "221105033" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Barambu", "schoolCode": "221105034" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Kalshingi", "schoolCode": "221105035" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Nassara-Kumo", "schoolCode": "221105036" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Kumo-North-West", "schoolCode": "221105037" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Barambu(V.A)", "schoolCode": "221105038" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Kalshingi(V.A)", "schoolCode": "221105039" },
+    { "lga": "Akko", "ward": "Kumo-West", "schoolName": "Nassara-Kumo(V.A)", "schoolCode": "221105040" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Pindiga", "schoolCode": "221105041" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Tumu", "schoolCode": "221105042" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Solok", "schoolCode": "221105043" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Bula", "schoolCode": "221105044" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Jalingo-Pindiga", "schoolCode": "221105045" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "K-Sarki", "schoolCode": "221105046" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Shulto", "schoolCode": "221105047" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "K-Alhaji", "schoolCode": "221105048" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Taliyaje", "schoolCode": "221105049" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Jauro-Tukur", "schoolCode": "221105050" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Wuro-Dole", "schoolCode": "221105051" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Wuro-Ladde", "schoolCode": "221105052" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Auwaru", "schoolCode": "221105053" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Wuro-Sikko", "schoolCode": "221105054" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Kilawa", "schoolCode": "221105055" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Bubu-Yelwa", "schoolCode": "221105056" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Tumu(V.A)", "schoolCode": "221105057" },
+    { "lga": "Akko", "ward": "Pindiga", "schoolName": "Jalingo-Pindiga(V.A)", "schoolCode": "221105058" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Akko", "schoolCode": "221105059" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Lawanti", "schoolCode": "221105060" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Abba", "schoolCode": "221105061" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Modibbo", "schoolCode": "221105062" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-K-Hausa", "schoolCode": "221105063" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Dom-Dona", "schoolCode": "221105064" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-B-Fulani", "schoolCode": "221105065" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-B-Bolawa", "schoolCode": "221105066" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Yusuf", "schoolCode": "221105067" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Lek-Kule", "schoolCode": "221105068" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Laro", "schoolCode": "221105069" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Pan-She-She", "schoolCode": "221105070" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Lanshi", "schoolCode": "221105071" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Dahiru", "schoolCode": "221105072" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Baka", "schoolCode": "221105073" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "K-Garam", "schoolCode": "221105074" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Wuro-Toro", "schoolCode": "221105075" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Model Pri.Sch.Akko", "schoolCode": "221105076" },
+    { "lga": "Akko", "ward": "Akko", "schoolName": "Lawanti(V.A)", "schoolCode": "221105077" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Tumu", "schoolCode": "221105078" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Kaltango-South", "schoolCode": "221105079" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "G-Babale", "schoolCode": "221105080" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Laleko", "schoolCode": "221105081" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Dongol", "schoolCode": "221105082" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Wuro-Bogga", "schoolCode": "221105083" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "G-Jauro-Abba", "schoolCode": "221105084" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "G-Jauro-Adama", "schoolCode": "221105085" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "G-Jauro-Sajo", "schoolCode": "221105086" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "G-Jauro-Isiaku", "schoolCode": "221105087" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Tumu(V.A)", "schoolCode": "221105088" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Kaltango-South(V.A)", "schoolCode": "221105089" },
+    { "lga": "Akko", "ward": "Tumu", "schoolName": "Laleko(V.A)", "schoolCode": "221105090" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Kashere", "schoolCode": "221105091" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Lubo", "schoolCode": "221105092" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Pukila", "schoolCode": "221105093" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Yelwa", "schoolCode": "221105094" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "K-Kuka", "schoolCode": "221105095" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Dofa", "schoolCode": "221105096" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Gur-Gur", "schoolCode": "221105097" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Wuro-Alim", "schoolCode": "221105098" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Wuro-Yola", "schoolCode": "221105099" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Wuro-Gire", "schoolCode": "221105100" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Bose", "schoolCode": "221105101" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Hamma", "schoolCode": "221105102" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105103" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Buba", "schoolCode": "221105104" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Kari", "schoolCode": "221105105" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Manu", "schoolCode": "221105106" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Umaru", "schoolCode": "221105107" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "G-Jauro-Sule", "schoolCode": "221105108" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Kashere Nomadic", "schoolCode": "221105109" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Pukila(V.A)", "schoolCode": "221105110" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Yelwa(V.A)", "schoolCode": "221105111" },
+    { "lga": "Akko", "ward": "Kashere", "schoolName": "Lubo(V.A)", "schoolCode": "221105112" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Kumo-North", "schoolCode": "221105113" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Kumo-North(V.A)", "schoolCode": "221105114" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Model Pri.Sch.Kumo", "schoolCode": "221105115" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Kumo-Central(V.A)", "schoolCode": "221105116" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Kumo-Gabas(V.A)", "schoolCode": "221105117" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Kumo-West(V.A)", "schoolCode": "221105118" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Nassara-Kumo(V.A)", "schoolCode": "221105119" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Barambu(V.A)", "schoolCode": "221105120" },
+    { "lga": "Akko", "ward": "Kumo-North", "schoolName": "Kalshingi(V.A)", "schoolCode": "221105121" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Akko-North", "schoolCode": "221105122" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Lawanti(V.A)", "schoolCode": "221105123" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Abba(V.A)", "schoolCode": "221105124" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Modibbo(V.A)", "schoolCode": "221105125" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-K-Hausa(V.A)", "schoolCode": "221105126" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Dom-Dona(V.A)", "schoolCode": "221105127" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-B-Fulani(V.A)", "schoolCode": "221105128" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-B-Bolawa(V.A)", "schoolCode": "221105129" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Yusuf(V.A)", "schoolCode": "221105130" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Lek-Kule(V.A)", "schoolCode": "221105131" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Laro(V.A)", "schoolCode": "221105132" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Pan-She-She(V.A)", "schoolCode": "221105133" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Lanshi(V.A)", "schoolCode": "221105134" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Dahiru(V.A)", "schoolCode": "221105135" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Baka(V.A)", "schoolCode": "221105136" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "K-Garam(V.A)", "schoolCode": "221105137" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Toro(V.A)", "schoolCode": "221105138" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Model Pri.Sch.Akko(V.A)", "schoolCode": "221105139" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Lawanti(V.A)", "schoolCode": "221105140" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Abba(V.A)", "schoolCode": "221105141" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Modibbo(V.A)", "schoolCode": "221105142" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-K-Hausa(V.A)", "schoolCode": "221105143" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Dom-Dona(V.A)", "schoolCode": "221105144" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-B-Fulani(V.A)", "schoolCode": "221105145" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-B-Bolawa(V.A)", "schoolCode": "221105146" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Yusuf(V.A)", "schoolCode": "221105147" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Lek-Kule(V.A)", "schoolCode": "221105148" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Laro(V.A)", "schoolCode": "221105149" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Pan-She-She(V.A)", "schoolCode": "221105150" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Lanshi(V.A)", "schoolCode": "221105151" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Dahiru(V.A)", "schoolCode": "221105152" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Baka(V.A)", "schoolCode": "221105153" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "K-Garam(V.A)", "schoolCode": "221105154" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Wuro-Toro(V.A)", "schoolCode": "221105155" },
+    { "lga": "Akko", "ward": "Akko-North", "schoolName": "Model Pri.Sch.Akko(V.A)", "schoolCode": "221105156" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Gona", "schoolCode": "221105157" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Yayan", "schoolCode": "221105158" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Dahiru", "schoolCode": "221105159" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Bapparu", "schoolCode": "221105160" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Yola", "schoolCode": "221105161" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Boi", "schoolCode": "221105162" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Nahuta", "schoolCode": "221105163" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Kesa", "schoolCode": "221105164" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Lafiya", "schoolCode": "221105165" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Gamadadi", "schoolCode": "221105166" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Garko Nomadic", "schoolCode": "221105167" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Model Pri.Sch.Garko", "schoolCode": "221105168" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Yaya(V.A)", "schoolCode": "221105169" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Wuro-Boi(V.A)", "schoolCode": "221105170" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Garko Central", "schoolCode": "221105171" },
+    { "lga": "Akko", "ward": "Gona", "schoolName": "Kalajanga", "schoolCode": "221105172" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Tukulma", "schoolCode": "221105173" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Panda", "schoolCode": "221105174" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kaltango-North", "schoolCode": "221105175" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-South", "schoolCode": "221105176" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-South(V.A)", "schoolCode": "221105177" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Panda(V.A)", "schoolCode": "221105178" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-Central", "schoolCode": "221105179" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-Gabas", "schoolCode": "221105180" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Jalingo", "schoolCode": "221105181" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Shongo", "schoolCode": "221105182" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-North", "schoolCode": "221105183" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-West", "schoolCode": "221105184" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-North(V.A)", "schoolCode": "221105185" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Model Pri.Sch.Kumo", "schoolCode": "221105186" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-Central(V.A)", "schoolCode": "221105187" },
+    { "lga": "Akko", "ward": "Tukulma", "schoolName": "Kumo-Gabas(V.A)", "schoolCode": "221105188" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Barambu", "schoolCode": "221105189" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kalshingi", "schoolCode": "221105190" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Nassara-Kumo", "schoolCode": "221105191" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kumo-North-West", "schoolCode": "221105192" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Barambu(V.A)", "schoolCode": "221105193" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kalshingi(V.A)", "schoolCode": "221105194" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Nassara-Kumo(V.A)", "schoolCode": "221105195" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kumo-North", "schoolCode": "221105196" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kumo-North(V.A)", "schoolCode": "221105197" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Model Pri.Sch.Kumo", "schoolCode": "221105198" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kumo-Central(V.A)", "schoolCode": "221105199" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kumo-Gabas(V.A)", "schoolCode": "221105200" },
+    { "lga": "Akko", "ward": "Barambu", "schoolName": "Kumo-West(V.A)", "schoolCode": "221105201" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Pindiga-East", "schoolCode": "221105202" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Tumu", "schoolCode": "221105203" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Solok", "schoolCode": "221105204" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Bula", "schoolCode": "221105205" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Jalingo-Pindiga", "schoolCode": "221105206" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "K-Sarki", "schoolCode": "221105207" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Shulto", "schoolCode": "221105208" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "K-Alhaji", "schoolCode": "221105209" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Taliyaje", "schoolCode": "221105210" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Jauro-Tukur", "schoolCode": "221105211" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Wuro-Dole", "schoolCode": "221105212" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Wuro-Ladde", "schoolCode": "221105213" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Auwaru", "schoolCode": "221105214" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Wuro-Sikko", "schoolCode": "221105215" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Kilawa", "schoolCode": "221105216" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Bubu-Yelwa", "schoolCode": "221105217" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Tumu(V.A)", "schoolCode": "221105218" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Jalingo-Pindiga(V.A)", "schoolCode": "221105219" },
+    { "lga": "Akko", "ward": "Pindiga-East", "schoolName": "Pindiga", "schoolCode": "221105220" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Lubo", "schoolCode": "221105221" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Pukila", "schoolCode": "221105222" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Yelwa", "schoolCode": "221105223" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "K-Kuka", "schoolCode": "221105224" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Dofa", "schoolCode": "221105225" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Gur-Gur", "schoolCode": "221105226" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Wuro-Alim", "schoolCode": "221105227" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Wuro-Yola", "schoolCode": "221105228" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Wuro-Gire", "schoolCode": "221105229" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Bose", "schoolCode": "221105230" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Hamma", "schoolCode": "221105231" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105232" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Buba", "schoolCode": "221105233" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Kari", "schoolCode": "221105234" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Manu", "schoolCode": "221105235" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Umaru", "schoolCode": "221105236" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "G-Jauro-Sule", "schoolCode": "221105237" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Kashere Nomadic", "schoolCode": "221105238" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Pukila(V.A)", "schoolCode": "221105239" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Yelwa(V.A)", "schoolCode": "221105240" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Lubo(V.A)", "schoolCode": "221105241" },
+    { "lga": "Akko", "ward": "Lubo", "schoolName": "Kashere", "schoolCode": "221105242" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "Bangu", "schoolCode": "221105243" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "Dala-Waja", "schoolCode": "221105244" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Ganga", "schoolCode": "221105245" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Sale", "schoolCode": "221105246" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Buba", "schoolCode": "221105247" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Yohanna", "schoolCode": "221105248" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Musa", "schoolCode": "221105249" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105250" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Sarkin-Yaki", "schoolCode": "221105251" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105252" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "Bangu(V.A)", "schoolCode": "221105253" },
+    { "lga": "Balanga", "ward": "Bangu", "schoolName": "Dala-Waja(V.A)", "schoolCode": "221105254" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "Dala-Waja", "schoolCode": "221105255" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Ganga", "schoolCode": "221105256" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Sale", "schoolCode": "221105257" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Buba", "schoolCode": "221105258" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Yohanna", "schoolCode": "221105259" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Musa", "schoolCode": "221105260" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105261" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Sarkin-Yaki", "schoolCode": "221105262" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105263" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "Bangu", "schoolCode": "221105264" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "Bangu(V.A)", "schoolCode": "221105265" },
+    { "lga": "Balanga", "ward": "Dala-Waja", "schoolName": "Dala-Waja(V.A)", "schoolCode": "221105266" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "Nyuwar", "schoolCode": "221105267" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Malam", "schoolCode": "221105268" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221105269" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Tukur", "schoolCode": "221105270" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Jibir", "schoolCode": "221105271" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105272" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Sani", "schoolCode": "221105273" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105274" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Hussaini", "schoolCode": "221105275" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "G-Jauro-Ibrahim", "schoolCode": "221105276" },
+    { "lga": "Balanga", "ward": "Nyuwar", "schoolName": "Nyuwar(V.A)", "schoolCode": "221105277" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "Jessu", "schoolCode": "221105278" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Baba", "schoolCode": "221105279" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Lazarus", "schoolCode": "221105280" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Ayuba", "schoolCode": "221105281" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105282" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Haruna", "schoolCode": "221105283" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105284" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Ishaku", "schoolCode": "221105285" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Filibus", "schoolCode": "221105286" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "G-Jauro-Daniel", "schoolCode": "221105287" },
+    { "lga": "Balanga", "ward": "Jessu", "schoolName": "Jessu(V.A)", "schoolCode": "221105288" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "Wala-Waja", "schoolCode": "221105289" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105290" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Usman", "schoolCode": "221105291" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Umaru", "schoolCode": "221105292" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Isa", "schoolCode": "221105293" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Sambo", "schoolCode": "221105294" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Bello", "schoolCode": "221105295" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105296" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105297" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "G-Jauro-Sale", "schoolCode": "221105298" },
+    { "lga": "Balanga", "ward": "Wala-Waja", "schoolName": "Wala-Waja(V.A)", "schoolCode": "221105299" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "Wala-Longuda", "schoolCode": "221105300" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Markus", "schoolCode": "221105301" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Bitrus", "schoolCode": "221105302" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Dauda", "schoolCode": "221105303" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Ezra", "schoolCode": "221105304" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Philemon", "schoolCode": "221105305" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Luka", "schoolCode": "221105306" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Simon", "schoolCode": "221105307" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105308" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "G-Jauro-Paul", "schoolCode": "221105309" },
+    { "lga": "Balanga", "ward": "Wala-Longuda", "schoolName": "Wala-Longuda(V.A)", "schoolCode": "221105310" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "Sikkam", "schoolCode": "221105311" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Hamidu", "schoolCode": "221105312" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Idris", "schoolCode": "221105313" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Ardo", "schoolCode": "221105314" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Bala", "schoolCode": "221105315" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Kefas", "schoolCode": "221105316" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Jibrin", "schoolCode": "221105317" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105318" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Babayo", "schoolCode": "221105319" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "G-Jauro-Abbas", "schoolCode": "221105320" },
+    { "lga": "Balanga", "ward": "Sikkam", "schoolName": "Sikkam(V.A)", "schoolCode": "221105321" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "Kulani", "schoolCode": "221105322" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Hussaini", "schoolCode": "221105323" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Bappah", "schoolCode": "221105324" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Ali", "schoolCode": "221105325" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Manga", "schoolCode": "221105326" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105327" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105328" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Daudu", "schoolCode": "221105329" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Sulaiman", "schoolCode": "221105330" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "G-Jauro-Yila", "schoolCode": "221105331" },
+    { "lga": "Balanga", "ward": "Kulani", "schoolName": "Kulani(V.A)", "schoolCode": "221105332" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "Degri", "schoolCode": "221105333" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Audu", "schoolCode": "221105334" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Yarima", "schoolCode": "221105335" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Abel", "schoolCode": "221105336" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Jethro", "schoolCode": "221105337" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Manasseh", "schoolCode": "221105338" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Amos", "schoolCode": "221105339" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Josiah", "schoolCode": "221105340" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Silas", "schoolCode": "221105341" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "G-Jauro-Ezekiel", "schoolCode": "221105342" },
+    { "lga": "Balanga", "ward": "Degri", "schoolName": "Degri(V.A)", "schoolCode": "221105343" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "Chama", "schoolCode": "221105344" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Bulus", "schoolCode": "221105345" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105346" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Gideon", "schoolCode": "221105347" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Ishaya", "schoolCode": "221105348" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Joel", "schoolCode": "221105349" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Nathan", "schoolCode": "221105350" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Philip", "schoolCode": "221105351" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Stephen", "schoolCode": "221105352" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "G-Jauro-Timothy", "schoolCode": "221105353" },
+    { "lga": "Balanga", "ward": "Chama", "schoolName": "Chama(V.A)", "schoolCode": "221105354" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "Billiri-North", "schoolCode": "221105355" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "Todi", "schoolCode": "221105356" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "Pokwangli", "schoolCode": "221105357" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Lis", "schoolCode": "221105358" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Mashe", "schoolCode": "221105359" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Yari", "schoolCode": "221105360" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Lakare", "schoolCode": "221105361" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Bong", "schoolCode": "221105362" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Lafiya", "schoolCode": "221105363" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "K-Amna", "schoolCode": "221105364" },
+    { "lga": "Billiri", "ward": "Billiri-North", "schoolName": "Billiri-North(V.A)", "schoolCode": "221105365" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "Billiri-South", "schoolCode": "221105366" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "Tash-Bade", "schoolCode": "221105367" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "Pops-Tashe", "schoolCode": "221105368" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Pand-Kelo", "schoolCode": "221105369" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Amdo", "schoolCode": "221105370" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Ayaba", "schoolCode": "221105371" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Yalwa", "schoolCode": "221105372" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Lantubo", "schoolCode": "221105373" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Kwana", "schoolCode": "221105374" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "K-Kulgul", "schoolCode": "221105375" },
+    { "lga": "Billiri", "ward": "Billiri-South", "schoolName": "Billiri-South(V.A)", "schoolCode": "221105376" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "Tal", "schoolCode": "221105377" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "Tanglang", "schoolCode": "221105378" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "Tudu", "schoolCode": "221105379" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Todi", "schoolCode": "221105380" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Sarki", "schoolCode": "221105381" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Wuro-Bapparu", "schoolCode": "221105382" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Panshak-Kala", "schoolCode": "221105383" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Lantang", "schoolCode": "221105384" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Kura", "schoolCode": "221105385" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "K-Kelo", "schoolCode": "221105386" },
+    { "lga": "Billiri", "ward": "Tal", "schoolName": "Tal(V.A)", "schoolCode": "221105387" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "Todi", "schoolCode": "221105388" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "Pokwangli", "schoolCode": "221105389" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Lis", "schoolCode": "221105390" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Mashe", "schoolCode": "221105391" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Yari", "schoolCode": "221105392" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Lakare", "schoolCode": "221105393" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Bong", "schoolCode": "221105394" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Lafiya", "schoolCode": "221105395" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "K-Amna", "schoolCode": "221105396" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "Billiri-North", "schoolCode": "221105397" },
+    { "lga": "Billiri", "ward": "Todi", "schoolName": "Billiri-North(V.A)", "schoolCode": "221105398" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "Tash-Bade", "schoolCode": "221105399" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "Pops-Tashe", "schoolCode": "221105400" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Pand-Kelo", "schoolCode": "221105401" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Amdo", "schoolCode": "221105402" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Ayaba", "schoolCode": "221105403" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Yalwa", "schoolCode": "221105404" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Lantubo", "schoolCode": "221105405" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Kwana", "schoolCode": "221105406" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "K-Kulgul", "schoolCode": "221105407" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "Billiri-South", "schoolCode": "221105408" },
+    { "lga": "Billiri", "ward": "Tash-Bade", "schoolName": "Billiri-South(V.A)", "schoolCode": "221105409" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "Tanglang", "schoolCode": "221105410" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "Tudu", "schoolCode": "221105411" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Todi", "schoolCode": "221105412" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Sarki", "schoolCode": "221105413" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Wuro-Bapparu", "schoolCode": "221105414" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Panshak-Kala", "schoolCode": "221105415" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Lantang", "schoolCode": "221105416" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Kura", "schoolCode": "221105417" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "K-Kelo", "schoolCode": "221105418" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "Tal", "schoolCode": "221105419" },
+    { "lga": "Billiri", "ward": "Tanglang", "schoolName": "Tal(V.A)", "schoolCode": "221105420" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "Dukku-North", "schoolCode": "221105421" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "Bawa", "schoolCode": "221105422" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Bappa", "schoolCode": "221105423" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Musa", "schoolCode": "221105424" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Adama", "schoolCode": "221105425" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105426" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Sale", "schoolCode": "221105427" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Umaru", "schoolCode": "221105428" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Isa", "schoolCode": "221105429" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "G-Jauro-Bello", "schoolCode": "221105430" },
+    { "lga": "Dukku", "ward": "Dukku-North", "schoolName": "Dukku-North(V.A)", "schoolCode": "221105431" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "Dukku-South", "schoolCode": "221105432" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "Zange", "schoolCode": "221105433" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105434" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105435" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Buba", "schoolCode": "221105436" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105437" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105438" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Hamza", "schoolCode": "221105439" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Idris", "schoolCode": "221105440" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "G-Jauro-Jibril", "schoolCode": "221105441" },
+    { "lga": "Dukku", "ward": "Dukku-South", "schoolName": "Dukku-South(V.A)", "schoolCode": "221105442" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "Gombe-Abba", "schoolCode": "221105443" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "Wuro-Tale", "schoolCode": "221105444" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Kari", "schoolCode": "221105445" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105446" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Malam", "schoolCode": "221105447" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Manu", "schoolCode": "221105448" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105449" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Sani", "schoolCode": "221105450" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105451" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "G-Jauro-Usman", "schoolCode": "221105452" },
+    { "lga": "Dukku", "ward": "Gombe-Abba", "schoolName": "Gombe-Abba(V.A)", "schoolCode": "221105453" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "Hashidu", "schoolCode": "221105454" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "Yame", "schoolCode": "221105455" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105456" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105457" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105458" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105459" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105460" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105461" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105462" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105463" },
+    { "lga": "Dukku", "ward": "Hashidu", "schoolName": "Hashidu(V.A)", "schoolCode": "221105464" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "Wuro-Tale", "schoolCode": "221105465" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Kari", "schoolCode": "221105466" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105467" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Malam", "schoolCode": "221105468" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Manu", "schoolCode": "221105469" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105470" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Sani", "schoolCode": "221105471" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105472" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "G-Jauro-Usman", "schoolCode": "221105473" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "Gombe-Abba", "schoolCode": "221105474" },
+    { "lga": "Dukku", "ward": "Wuro-Tale", "schoolName": "Gombe-Abba(V.A)", "schoolCode": "221105475" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "Zange", "schoolCode": "221105476" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105477" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105478" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Buba", "schoolCode": "221105479" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105480" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105481" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Hamza", "schoolCode": "221105482" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Idris", "schoolCode": "221105483" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "G-Jauro-Jibril", "schoolCode": "221105484" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "Dukku-South", "schoolCode": "221105485" },
+    { "lga": "Dukku", "ward": "Zange", "schoolName": "Dukku-South(V.A)", "schoolCode": "221105486" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "Bajoga-East", "schoolCode": "221105487" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "B-Gari", "schoolCode": "221105488" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Abba", "schoolCode": "221105489" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Baba", "schoolCode": "221105490" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Dikko", "schoolCode": "221105491" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105492" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Hamma", "schoolCode": "221105493" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Joda", "schoolCode": "221105494" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Kaka", "schoolCode": "221105495" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "G-Jauro-Liman", "schoolCode": "221105496" },
+    { "lga": "Funakaye", "ward": "Bajoga-East", "schoolName": "Bajoga-East(V.A)", "schoolCode": "221105497" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "Bajoga-West", "schoolCode": "221105498" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "T-Wada", "schoolCode": "221105499" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Manga", "schoolCode": "221105500" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Nafiu", "schoolCode": "221105501" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Sabo", "schoolCode": "221105502" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Tukur", "schoolCode": "221105503" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Wambai", "schoolCode": "221105504" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Yau", "schoolCode": "221105505" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Zailani", "schoolCode": "221105506" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221105507" },
+    { "lga": "Funakaye", "ward": "Bajoga-West", "schoolName": "Bajoga-West(V.A)", "schoolCode": "221105508" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "Ashaka", "schoolCode": "221105509" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "Jalingo", "schoolCode": "221105510" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Bappa", "schoolCode": "221105511" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Bello", "schoolCode": "221105512" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Buba", "schoolCode": "221105513" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105514" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105515" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Hamidu", "schoolCode": "221105516" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Idris", "schoolCode": "221105517" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "G-Jauro-Jibrin", "schoolCode": "221105518" },
+    { "lga": "Funakaye", "ward": "Ashaka", "schoolName": "Ashaka(V.A)", "schoolCode": "221105519" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "Bage", "schoolCode": "221105520" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "Ribadu", "schoolCode": "221105521" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Kari", "schoolCode": "221105522" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105523" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Malam", "schoolCode": "221105524" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Manu", "schoolCode": "221105525" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105526" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Sani", "schoolCode": "221105527" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105528" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "G-Jauro-Usman", "schoolCode": "221105529" },
+    { "lga": "Funakaye", "ward": "Bage", "schoolName": "Bage(V.A)", "schoolCode": "221105530" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "Ribadu", "schoolCode": "221105531" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Kari", "schoolCode": "221105532" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105533" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Malam", "schoolCode": "221105534" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Manu", "schoolCode": "221105535" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105536" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Sani", "schoolCode": "221105537" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105538" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "G-Jauro-Usman", "schoolCode": "221105539" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "Bage", "schoolCode": "221105540" },
+    { "lga": "Funakaye", "ward": "Ribadu", "schoolName": "Bage(V.A)", "schoolCode": "221105541" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "Tongo", "schoolCode": "221105542" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105543" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105544" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105545" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105546" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105547" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105548" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105549" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105550" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "Hashidu", "schoolCode": "221105551" },
+    { "lga": "Funakaye", "ward": "Tongo", "schoolName": "Hashidu(V.A)", "schoolCode": "221105552" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "Ajiya", "schoolCode": "221105553" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "Dawaki", "schoolCode": "221105554" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Abare", "schoolCode": "221105555" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Bogo", "schoolCode": "221105556" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Doma", "schoolCode": "221105557" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Goni", "schoolCode": "221105558" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Kumo", "schoolCode": "221105559" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Madaki", "schoolCode": "221105560" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Sarki", "schoolCode": "221105561" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "G-Jauro-Yerima", "schoolCode": "221105562" },
+    { "lga": "Gombe", "ward": "Ajiya", "schoolName": "Ajiya(V.A)", "schoolCode": "221105563" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "Bolari-East", "schoolCode": "221105564" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "Idi", "schoolCode": "221105565" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105566" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Buba", "schoolCode": "221105567" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105568" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105569" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Hamza", "schoolCode": "221105570" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Idris", "schoolCode": "221105571" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Jibril", "schoolCode": "221105572" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "G-Jauro-Kari", "schoolCode": "221105573" },
+    { "lga": "Gombe", "ward": "Bolari-East", "schoolName": "Bolari-East(V.A)", "schoolCode": "221105574" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "Bolari-West", "schoolCode": "221105575" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "Makama", "schoolCode": "221105576" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105577" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Malam", "schoolCode": "221105578" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Manu", "schoolCode": "221105579" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105580" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Sani", "schoolCode": "221105581" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105582" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Usman", "schoolCode": "221105583" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105584" },
+    { "lga": "Gombe", "ward": "Bolari-West", "schoolName": "Bolari-West(V.A)", "schoolCode": "221105585" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "Dawaki", "schoolCode": "221105586" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Abare", "schoolCode": "221105587" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Bogo", "schoolCode": "221105588" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Doma", "schoolCode": "221105589" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Goni", "schoolCode": "221105590" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Kumo", "schoolCode": "221105591" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Madaki", "schoolCode": "221105592" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Sarki", "schoolCode": "221105593" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "G-Jauro-Yerima", "schoolCode": "221105594" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "Ajiya", "schoolCode": "221105595" },
+    { "lga": "Gombe", "ward": "Dawaki", "schoolName": "Ajiya(V.A)", "schoolCode": "221105596" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "Idi", "schoolCode": "221105597" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105598" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Buba", "schoolCode": "221105599" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105600" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105601" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Hamza", "schoolCode": "221105602" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Idris", "schoolCode": "221105603" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Jibril", "schoolCode": "221105604" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "G-Jauro-Kari", "schoolCode": "221105605" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "Bolari-East", "schoolCode": "221105606" },
+    { "lga": "Gombe", "ward": "Idi", "schoolName": "Bolari-East(V.A)", "schoolCode": "221105607" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "Inna", "schoolCode": "221105608" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105609" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105610" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105611" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105612" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105613" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105614" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105615" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105616" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "Kumbiya-Kumbiya", "schoolCode": "221105617" },
+    { "lga": "Gombe", "ward": "Inna", "schoolName": "Kumbiya-Kumbiya(V.A)", "schoolCode": "221105618" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "Jeka-Da-Fari", "schoolCode": "221105619" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "Shamaki", "schoolCode": "221105620" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105621" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105622" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Bappah", "schoolCode": "221105623" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Bello", "schoolCode": "221105624" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Bose", "schoolCode": "221105625" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Dukku", "schoolCode": "221105626" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Garkuwa", "schoolCode": "221105627" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "G-Jauro-Goje", "schoolCode": "221105628" },
+    { "lga": "Gombe", "ward": "Jeka-Da-Fari", "schoolName": "Jeka-Da-Fari(V.A)", "schoolCode": "221105629" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "Kumbiya-Kumbiya", "schoolCode": "221105630" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105631" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105632" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105633" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105634" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105635" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105636" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105637" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105638" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "Inna", "schoolCode": "221105639" },
+    { "lga": "Gombe", "ward": "Kumbiya-Kumbiya", "schoolName": "Inna(V.A)", "schoolCode": "221105640" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "Makama", "schoolCode": "221105641" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105642" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Malam", "schoolCode": "221105643" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Manu", "schoolCode": "221105644" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105645" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Sani", "schoolCode": "221105646" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105647" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Usman", "schoolCode": "221105648" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105649" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "Bolari-West", "schoolCode": "221105650" },
+    { "lga": "Gombe", "ward": "Makama", "schoolName": "Bolari-West(V.A)", "schoolCode": "221105651" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "Pantami", "schoolCode": "221105652" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Abare", "schoolCode": "221105653" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Bogo", "schoolCode": "221105654" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Doma", "schoolCode": "221105655" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Goni", "schoolCode": "221105656" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Kumo", "schoolCode": "221105657" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Madaki", "schoolCode": "221105658" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Sarki", "schoolCode": "221105659" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "G-Jauro-Yerima", "schoolCode": "221105660" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "Shamaki", "schoolCode": "221105661" },
+    { "lga": "Gombe", "ward": "Pantami", "schoolName": "Shamaki(V.A)", "schoolCode": "221105662" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "Shamaki", "schoolCode": "221105663" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105664" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105665" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Bappah", "schoolCode": "221105666" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Bello", "schoolCode": "221105667" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Bose", "schoolCode": "221105668" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Dukku", "schoolCode": "221105669" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Garkuwa", "schoolCode": "221105670" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "G-Jauro-Goje", "schoolCode": "221105671" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "Jeka-Da-Fari", "schoolCode": "221105672" },
+    { "lga": "Gombe", "ward": "Shamaki", "schoolName": "Jeka-Da-Fari(V.A)", "schoolCode": "221105673" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "Awak", "schoolCode": "221105674" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Ayuba", "schoolCode": "221105675" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Baba", "schoolCode": "221105676" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Dauda", "schoolCode": "221105677" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Ezra", "schoolCode": "221105678" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105679" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Haruna", "schoolCode": "221105680" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Ishaku", "schoolCode": "221105681" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Lazarus", "schoolCode": "221105682" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105683" },
+    { "lga": "Kaltungo", "ward": "Awak", "schoolName": "Awak(V.A)", "schoolCode": "221105684" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "Banganje", "schoolCode": "221105685" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Bulus", "schoolCode": "221105686" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105687" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Gideon", "schoolCode": "221105688" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Ishaya", "schoolCode": "221105689" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Joel", "schoolCode": "221105690" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Nathan", "schoolCode": "221105691" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Philip", "schoolCode": "221105692" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Stephen", "schoolCode": "221105693" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "G-Jauro-Timothy", "schoolCode": "221105694" },
+    { "lga": "Kaltungo", "ward": "Banganje", "schoolName": "Banganje(V.A)", "schoolCode": "221105695" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "Kafare", "schoolCode": "221105696" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Amos", "schoolCode": "221105697" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Audu", "schoolCode": "221105698" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Ezekiel", "schoolCode": "221105699" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Jethro", "schoolCode": "221105700" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Josiah", "schoolCode": "221105701" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Manasseh", "schoolCode": "221105702" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Silas", "schoolCode": "221105703" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "G-Jauro-Yarima", "schoolCode": "221105704" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "Kaltin", "schoolCode": "221105705" },
+    { "lga": "Kaltungo", "ward": "Kafare", "schoolName": "Kaltin(V.A)", "schoolCode": "221105706" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "Kaltungo-East", "schoolCode": "221105707" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Bitrus", "schoolCode": "221105708" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Daniel", "schoolCode": "221105709" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Luka", "schoolCode": "221105710" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Markus", "schoolCode": "221105711" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Paul", "schoolCode": "221105712" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Philemon", "schoolCode": "221105713" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Simon", "schoolCode": "221105714" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105715" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "Kaltungo-West", "schoolCode": "221105716" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-East", "schoolName": "Kaltungo-West(V.A)", "schoolCode": "221105717" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "Kaltungo-West", "schoolCode": "221105718" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Bitrus", "schoolCode": "221105719" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Daniel", "schoolCode": "221105720" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Luka", "schoolCode": "221105721" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Markus", "schoolCode": "221105722" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Paul", "schoolCode": "221105723" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Philemon", "schoolCode": "221105724" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Simon", "schoolCode": "221105725" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105726" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "Kaltungo-East", "schoolCode": "221105727" },
+    { "lga": "Kaltungo", "ward": "Kaltungo-West", "schoolName": "Kaltungo-East(V.A)", "schoolCode": "221105728" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "Kaltin", "schoolCode": "221105729" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Amos", "schoolCode": "221105730" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Audu", "schoolCode": "221105731" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Ezekiel", "schoolCode": "221105732" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Jethro", "schoolCode": "221105733" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Josiah", "schoolCode": "221105734" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Manasseh", "schoolCode": "221105735" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Silas", "schoolCode": "221105736" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "G-Jauro-Yarima", "schoolCode": "221105737" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "Kafare", "schoolCode": "221105738" },
+    { "lga": "Kaltungo", "ward": "Kaltin", "schoolName": "Kafare(V.A)", "schoolCode": "221105739" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "Boomi", "schoolCode": "221105740" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Abare", "schoolCode": "221105741" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Bogo", "schoolCode": "221105742" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Doma", "schoolCode": "221105743" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Goni", "schoolCode": "221105744" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Kumo", "schoolCode": "221105745" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Madaki", "schoolCode": "221105746" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Sarki", "schoolCode": "221105747" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "G-Jauro-Yerima", "schoolCode": "221105748" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "Daban-Fulani", "schoolCode": "221105749" },
+    { "lga": "Kwami", "ward": "Boomi", "schoolName": "Daban-Fulani(V.A)", "schoolCode": "221105750" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "Daban-Fulani", "schoolCode": "221105751" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Abare", "schoolCode": "221105752" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Bogo", "schoolCode": "221105753" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Doma", "schoolCode": "221105754" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Goni", "schoolCode": "221105755" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Kumo", "schoolCode": "221105756" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Madaki", "schoolCode": "221105757" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Sarki", "schoolCode": "221105758" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "G-Jauro-Yerima", "schoolCode": "221105759" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "Boomi", "schoolCode": "221105760" },
+    { "lga": "Kwami", "ward": "Daban-Fulani", "schoolName": "Boomi(V.A)", "schoolCode": "221105761" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "Doho", "schoolCode": "221105762" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Adamu", "schoolCode": "221105763" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Buba", "schoolCode": "221105764" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105765" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105766" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Hamza", "schoolCode": "221105767" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Idris", "schoolCode": "221105768" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Jibril", "schoolCode": "221105769" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Kari", "schoolCode": "221105770" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105771" },
+    { "lga": "Kwami", "ward": "Doho", "schoolName": "Doho(V.A)", "schoolCode": "221105772" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "Garin-Barba", "schoolCode": "221105773" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Malam", "schoolCode": "221105774" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Manu", "schoolCode": "221105775" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105776" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Sani", "schoolCode": "221105777" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105778" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Usman", "schoolCode": "221105779" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105780" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105781" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105782" },
+    { "lga": "Kwami", "ward": "Garin-Barba", "schoolName": "Garin-Barba(V.A)", "schoolCode": "221105783" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "Jemagu", "schoolCode": "221105784" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105785" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105786" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105787" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105788" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105789" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Hassan", "schoolCode": "221105790" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Ibrahim", "schoolCode": "221105791" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Jauro", "schoolCode": "221105792" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "G-Jauro-Kawu", "schoolCode": "221105793" },
+    { "lga": "Kwami", "ward": "Jemagu", "schoolName": "Jemagu(V.A)", "schoolCode": "221105794" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "Jurara", "schoolCode": "221105795" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105796" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105797" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Bappah", "schoolCode": "221105798" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Bello", "schoolCode": "221105799" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Bose", "schoolCode": "221105800" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Dukku", "schoolCode": "221105801" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Garkuwa", "schoolCode": "221105802" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Goje", "schoolCode": "221105803" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "G-Jauro-Haruna", "schoolCode": "221105804" },
+    { "lga": "Kwami", "ward": "Jurara", "schoolName": "Jurara(V.A)", "schoolCode": "221105805" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "Komfulata", "schoolCode": "221105806" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Ishaku", "schoolCode": "221105807" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Jibrin", "schoolCode": "221105808" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Kabiru", "schoolCode": "221105809" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Ladan", "schoolCode": "221105810" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Maikudi", "schoolCode": "221105811" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Nasiru", "schoolCode": "221105812" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Saleh", "schoolCode": "221105813" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Tanko", "schoolCode": "221105814" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "G-Jauro-Uba", "schoolCode": "221105815" },
+    { "lga": "Kwami", "ward": "Komfulata", "schoolName": "Komfulata(V.A)", "schoolCode": "221105816" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "Kwami", "schoolCode": "221105817" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221105818" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Bappayo", "schoolCode": "221105819" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Chiroma", "schoolCode": "221105820" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Darma", "schoolCode": "221105821" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Gajere", "schoolCode": "221105822" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Haske", "schoolCode": "221105823" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Inuwa", "schoolCode": "221105824" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Jabbo", "schoolCode": "221105825" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "G-Jauro-Kaura", "schoolCode": "221105826" },
+    { "lga": "Kwami", "ward": "Kwami", "schoolName": "Kwami(V.A)", "schoolCode": "221105827" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "Malam-Sidi", "schoolCode": "221105828" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Laminu", "schoolCode": "221105829" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Magaji", "schoolCode": "221105830" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Maina", "schoolCode": "221105831" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Nafada", "schoolCode": "221105832" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Rabi'u", "schoolCode": "221105833" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Santuraki", "schoolCode": "221105834" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Tafida", "schoolCode": "221105835" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Ubandoma", "schoolCode": "221105836" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "G-Jauro-Waziri", "schoolCode": "221105837" },
+    { "lga": "Kwami", "ward": "Malam-Sidi", "schoolName": "Malam-Sidi(V.A)", "schoolCode": "221105838" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "Barwo-East", "schoolCode": "221105839" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105840" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Baba", "schoolCode": "221105841" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Dikko", "schoolCode": "221105842" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105843" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Hamma", "schoolCode": "221105844" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Joda", "schoolCode": "221105845" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Kaka", "schoolCode": "221105846" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "G-Jauro-Liman", "schoolCode": "221105847" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "Barwo-West", "schoolCode": "221105848" },
+    { "lga": "Nafada", "ward": "Barwo-East", "schoolName": "Barwo-West(V.A)", "schoolCode": "221105849" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "Barwo-West", "schoolCode": "221105850" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Manga", "schoolCode": "221105851" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Nafiu", "schoolCode": "221105852" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Sabo", "schoolCode": "221105853" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Tukur", "schoolCode": "221105854" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Wambai", "schoolCode": "221105855" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Yau", "schoolCode": "221105856" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Zailani", "schoolCode": "221105857" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221105858" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "Barwo-East", "schoolCode": "221105859" },
+    { "lga": "Nafada", "ward": "Barwo-West", "schoolName": "Barwo-East(V.A)", "schoolCode": "221105860" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "Birin-Fulani-East", "schoolCode": "221105861" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Bappa", "schoolCode": "221105862" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Bello", "schoolCode": "221105863" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Buba", "schoolCode": "221105864" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221105865" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Gidado", "schoolCode": "221105866" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Hamidu", "schoolCode": "221105867" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Idris", "schoolCode": "221105868" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "G-Jauro-Jibrin", "schoolCode": "221105869" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "Birin-Fulani-West", "schoolCode": "221105870" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-East", "schoolName": "Birin-Fulani-West(V.A)", "schoolCode": "221105871" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "Birin-Fulani-West", "schoolCode": "221105872" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Kari", "schoolCode": "221105873" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Lawan", "schoolCode": "221105874" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Malam", "schoolCode": "221105875" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Manu", "schoolCode": "221105876" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221105877" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Sani", "schoolCode": "221105878" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221105879" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "G-Jauro-Usman", "schoolCode": "221105880" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "Birin-Fulani-East", "schoolCode": "221105881" },
+    { "lga": "Nafada", "ward": "Birin-Fulani-West", "schoolName": "Birin-Fulani-East(V.A)", "schoolCode": "221105882" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "Birin-Bolawa", "schoolCode": "221105883" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105884" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105885" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105886" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105887" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105888" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105889" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105890" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105891" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "Jigawa", "schoolCode": "221105892" },
+    { "lga": "Nafada", "ward": "Birin-Bolawa", "schoolName": "Jigawa(V.A)", "schoolCode": "221105893" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "Jigawa", "schoolCode": "221105894" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221105895" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105896" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105897" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221105898" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Abdu", "schoolCode": "221105899" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Babangida", "schoolCode": "221105900" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105901" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105902" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "Birin-Bolawa", "schoolCode": "221105903" },
+    { "lga": "Nafada", "ward": "Jigawa", "schoolName": "Birin-Bolawa(V.A)", "schoolCode": "221105904" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "Nafada-East", "schoolCode": "221105905" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105906" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105907" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Bappah", "schoolCode": "221105908" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Bello", "schoolCode": "221105909" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Bose", "schoolCode": "221105910" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Dukku", "schoolCode": "221105911" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Garkuwa", "schoolCode": "221105912" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "G-Jauro-Goje", "schoolCode": "221105913" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "Nafada-West", "schoolCode": "221105914" },
+    { "lga": "Nafada", "ward": "Nafada-East", "schoolName": "Nafada-West(V.A)", "schoolCode": "221105915" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "Nafada-West", "schoolCode": "221105916" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221105917" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221105918" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Bappah", "schoolCode": "221105919" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Bello", "schoolCode": "221105920" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Bose", "schoolCode": "221105921" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Dukku", "schoolCode": "221105922" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Garkuwa", "schoolCode": "221105923" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "G-Jauro-Goje", "schoolCode": "221105924" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "Nafada-East", "schoolCode": "221105925" },
+    { "lga": "Nafada", "ward": "Nafada-West", "schoolName": "Nafada-East(V.A)", "schoolCode": "221105926" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "Bangunji", "schoolCode": "221105927" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Ayuba", "schoolCode": "221105928" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Baba", "schoolCode": "221105929" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Dauda", "schoolCode": "221105930" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Ezra", "schoolCode": "221105931" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Gambo", "schoolCode": "221105932" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Haruna", "schoolCode": "221105933" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Ishaku", "schoolCode": "221105934" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Lazarus", "schoolCode": "221105935" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221105936" },
+    { "lga": "Shongom", "ward": "Bangunji", "schoolName": "Bangunji(V.A)", "schoolCode": "221105937" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "Boh", "schoolCode": "221105938" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Bulus", "schoolCode": "221105939" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221105940" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Gideon", "schoolCode": "221105941" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Ishaya", "schoolCode": "221105942" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Joel", "schoolCode": "221105943" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Nathan", "schoolCode": "221105944" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Philip", "schoolCode": "221105945" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Stephen", "schoolCode": "221105946" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "G-Jauro-Timothy", "schoolCode": "221105947" },
+    { "lga": "Shongom", "ward": "Boh", "schoolName": "Boh(V.A)", "schoolCode": "221105948" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "Filiya", "schoolCode": "221105949" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Amos", "schoolCode": "221105950" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Audu", "schoolCode": "221105951" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Ezekiel", "schoolCode": "221105952" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Jethro", "schoolCode": "221105953" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Josiah", "schoolCode": "221105954" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Manasseh", "schoolCode": "221105955" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Silas", "schoolCode": "221105956" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "G-Jauro-Yarima", "schoolCode": "221105957" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "Gundale", "schoolCode": "221105958" },
+    { "lga": "Shongom", "ward": "Filiya", "schoolName": "Gundale(V.A)", "schoolCode": "221105959" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "Gundale", "schoolCode": "221105960" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Amos", "schoolCode": "221105961" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Audu", "schoolCode": "221105962" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Ezekiel", "schoolCode": "221105963" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Jethro", "schoolCode": "221105964" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Josiah", "schoolCode": "221105965" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Manasseh", "schoolCode": "221105966" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Silas", "schoolCode": "221105967" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "G-Jauro-Yarima", "schoolCode": "221105968" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "Filiya", "schoolCode": "221105969" },
+    { "lga": "Shongom", "ward": "Gundale", "schoolName": "Filiya(V.A)", "schoolCode": "221105970" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "Gwandum", "schoolCode": "221105971" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Bitrus", "schoolCode": "221105972" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Daniel", "schoolCode": "221105973" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Luka", "schoolCode": "221105974" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Markus", "schoolCode": "221105975" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Paul", "schoolCode": "221105976" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Philemon", "schoolCode": "221105977" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Simon", "schoolCode": "221105978" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105979" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "Kushi", "schoolCode": "221105980" },
+    { "lga": "Shongom", "ward": "Gwandum", "schoolName": "Kushi(V.A)", "schoolCode": "221105981" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "Kushi", "schoolCode": "221105982" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Bitrus", "schoolCode": "221105983" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Daniel", "schoolCode": "221105984" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Luka", "schoolCode": "221105985" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Markus", "schoolCode": "221105986" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Paul", "schoolCode": "221105987" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Philemon", "schoolCode": "221105988" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Simon", "schoolCode": "221105989" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221105990" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "Gwandum", "schoolCode": "221105991" },
+    { "lga": "Shongom", "ward": "Kushi", "schoolName": "Gwandum(V.A)", "schoolCode": "221105992" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "Lalaipido", "schoolCode": "221105993" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Abare", "schoolCode": "221105994" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Bogo", "schoolCode": "221105995" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Doma", "schoolCode": "221105996" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Goni", "schoolCode": "221105997" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Kumo", "schoolCode": "221105998" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Madaki", "schoolCode": "221105999" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Sarki", "schoolCode": "221106000" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "G-Jauro-Yerima", "schoolCode": "221106001" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "Lapan", "schoolCode": "221106002" },
+    { "lga": "Shongom", "ward": "Lalaipido", "schoolName": "Lapan(V.A)", "schoolCode": "221106003" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "Lapan", "schoolCode": "221106004" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Abare", "schoolCode": "221106005" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Bogo", "schoolCode": "221106006" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Doma", "schoolCode": "221106007" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Goni", "schoolCode": "221106008" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Kumo", "schoolCode": "221106009" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Madaki", "schoolCode": "221106010" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Sarki", "schoolCode": "221106011" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "G-Jauro-Yerima", "schoolCode": "221106012" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "Lalaipido", "schoolCode": "221106013" },
+    { "lga": "Shongom", "ward": "Lapan", "schoolName": "Lalaipido(V.A)", "schoolCode": "221106014" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "Deba", "schoolCode": "221106015" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Adamu", "schoolCode": "221106016" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Buba", "schoolCode": "221106017" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Dahiru", "schoolCode": "221106018" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Gidado", "schoolCode": "221106019" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Hamza", "schoolCode": "221106020" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Idris", "schoolCode": "221106021" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Jibril", "schoolCode": "221106022" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Kari", "schoolCode": "221106023" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "G-Jauro-Lawan", "schoolCode": "221106024" },
+    { "lga": "Yamaltu/Deba", "ward": "Deba", "schoolName": "Deba(V.A)", "schoolCode": "221106025" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "Difa", "schoolCode": "221106026" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Malam", "schoolCode": "221106027" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Manu", "schoolCode": "221106028" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Nuhu", "schoolCode": "221106029" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Sani", "schoolCode": "221106030" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Tanimu", "schoolCode": "221106031" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Usman", "schoolCode": "221106032" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Yahaya", "schoolCode": "221106033" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Yakubu", "schoolCode": "221106034" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "G-Jauro-Yusuf", "schoolCode": "221106035" },
+    { "lga": "Yamaltu/Deba", "ward": "Difa", "schoolName": "Difa(V.A)", "schoolCode": "221106036" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "Gwani", "schoolCode": "221106037" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Zubairu", "schoolCode": "221106038" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Abdu", "schoolCode": "221106039" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Babangida", "schoolCode": "221106040" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Danjuma", "schoolCode": "221106041" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Gambo", "schoolCode": "221106042" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Hassan", "schoolCode": "221106043" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Ibrahim", "schoolCode": "221106044" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Jauro", "schoolCode": "221106045" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "G-Jauro-Kawu", "schoolCode": "221106046" },
+    { "lga": "Yamaltu/Deba", "ward": "Gwani", "schoolName": "Gwani(V.A)", "schoolCode": "221106047" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "Hinna", "schoolCode": "221106048" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Abubakar", "schoolCode": "221106049" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Aliyu", "schoolCode": "221106050" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Bappah", "schoolCode": "221106051" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Bello", "schoolCode": "221106052" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Bose", "schoolCode": "221106053" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Dukku", "schoolCode": "221106054" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Garkuwa", "schoolCode": "221106055" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Goje", "schoolCode": "221106056" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "G-Jauro-Haruna", "schoolCode": "221106057" },
+    { "lga": "Yamaltu/Deba", "ward": "Hinna", "schoolName": "Hinna(V.A)", "schoolCode": "221106058" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "Jagali", "schoolCode": "221106059" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Ishaku", "schoolCode": "221106060" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Jibrin", "schoolCode": "221106061" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Kabiru", "schoolCode": "221106062" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Ladan", "schoolCode": "221106063" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Maikudi", "schoolCode": "221106064" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Nasiru", "schoolCode": "221106065" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Saleh", "schoolCode": "221106066" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Tanko", "schoolCode": "221106067" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "G-Jauro-Uba", "schoolCode": "221106068" },
+    { "lga": "Yamaltu/Deba", "ward": "Jagali", "schoolName": "Jagali(V.A)", "schoolCode": "221106069" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "Jara-Fulani", "schoolCode": "221106070" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221106071" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Bappayo", "schoolCode": "221106072" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Chiroma", "schoolCode": "221106073" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Darma", "schoolCode": "221106074" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Gajere", "schoolCode": "221106075" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Haske", "schoolCode": "221106076" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Inuwa", "schoolCode": "221106077" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Jabbo", "schoolCode": "221106078" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "G-Jauro-Kaura", "schoolCode": "221106079" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Fulani", "schoolName": "Jara-Fulani(V.A)", "schoolCode": "221106080" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "Jara-Hausa", "schoolCode": "221106081" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Laminu", "schoolCode": "221106082" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Magaji", "schoolCode": "221106083" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Maina", "schoolCode": "221106084" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Nafada", "schoolCode": "221106085" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Rabi'u", "schoolCode": "221106086" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Santuraki", "schoolCode": "221106087" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Tafida", "schoolCode": "221106088" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Ubandoma", "schoolCode": "221106089" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "G-Jauro-Waziri", "schoolCode": "221106090" },
+    { "lga": "Yamaltu/Deba", "ward": "Jara-Hausa", "schoolName": "Jara-Hausa(V.A)", "schoolCode": "221106091" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "Kuri", "schoolCode": "221106092" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Abdu", "schoolCode": "221106093" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Baba", "schoolCode": "221106094" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Dikko", "schoolCode": "221106095" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Gambo", "schoolCode": "221106096" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Hamma", "schoolCode": "221106097" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Joda", "schoolCode": "221106098" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Kaka", "schoolCode": "221106099" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "G-Jauro-Liman", "schoolCode": "221106100" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "Lano", "schoolCode": "221106101" },
+    { "lga": "Yamaltu/Deba", "ward": "Kuri", "schoolName": "Lano(V.A)", "schoolCode": "221106102" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "Lano", "schoolCode": "221106103" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Abdu", "schoolCode": "221106104" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Baba", "schoolCode": "221106105" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Dikko", "schoolCode": "221106106" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Gambo", "schoolCode": "221106107" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Hamma", "schoolCode": "221106108" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Joda", "schoolCode": "221106109" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Kaka", "schoolCode": "221106110" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "G-Jauro-Liman", "schoolCode": "221106111" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "Kuri", "schoolCode": "221106112" },
+    { "lga": "Yamaltu/Deba", "ward": "Lano", "schoolName": "Kuri(V.A)", "schoolCode": "221106113" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "Shinga", "schoolCode": "221106114" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Manga", "schoolCode": "221106115" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Nafiu", "schoolCode": "221106116" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Sabo", "schoolCode": "221106117" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Tukur", "schoolCode": "221106118" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Wambai", "schoolCode": "221106119" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Yau", "schoolCode": "221106120" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Zailani", "schoolCode": "221106121" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221106122" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "Zole", "schoolCode": "221106123" },
+    { "lga": "Yamaltu/Deba", "ward": "Shinga", "schoolName": "Zole(V.A)", "schoolCode": "221106124" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "Zole", "schoolCode": "221106125" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Manga", "schoolCode": "221106126" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Nafiu", "schoolCode": "221106127" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Sabo", "schoolCode": "221106128" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Tukur", "schoolCode": "221106129" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Wambai", "schoolCode": "221106130" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Yau", "schoolCode": "221106131" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Zailani", "schoolCode": "221106132" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "G-Jauro-Alhaji", "schoolCode": "221106133" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "Shinga", "schoolCode": "221106134" },
+    { "lga": "Yamaltu/Deba", "ward": "Zole", "schoolName": "Shinga(V.A)", "schoolCode": "221106135" }
 ];
