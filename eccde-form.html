@@ -17,8 +17,22 @@
             <h2>A. School Identification</h2>
             <p><strong>For Head Teacher Only:</strong> Search for your school using search school option in the NEMIS ASC PORTAL. If school is not found, prompt the LEMIS or SEMIS Officer to add school.</p>
             <div>
+                <label for="schoolName">A.1 School Name</label>
+                <select id="schoolName" name="schoolName">
+                    <option value="">Select a school</option>
+                </select>
+            </div>
+            <div>
+                <label for="lga">A.5 LGA</label>
+                <input type="text" id="lga" name="lga" readonly>
+            </div>
+            <div>
+                <label for="ward">A.4 Ward</label>
+                <input type="text" id="ward" name="ward" readonly>
+            </div>
+            <div>
                 <label for="schoolCode">School Code</label>
-                <input type="text" id="schoolCode" name="schoolCode">
+                <input type="text" id="schoolCode" name="schoolCode" readonly>
             </div>
             <div>
                 <label for="latitude">Latitude North</label>
@@ -34,24 +48,12 @@
                 <input type="text" id="elevation" name="elevation">
             </div>
             <div>
-                <label for="schoolName">A.1 School Name</label>
-                <input type="text" id="schoolName" name="schoolName">
-            </div>
-            <div>
                 <label for="streetName">A.2 Number and Street name</label>
                 <input type="text" id="streetName" name="streetName">
             </div>
             <div>
                 <label for="villageTown">A.3 Name of Village or Town</label>
                 <input type="text" id="villageTown" name="villageTown">
-            </div>
-            <div>
-                <label for="ward">A.4 Ward</label>
-                <input type="text" id="ward" name="ward">
-            </div>
-            <div>
-                <label for="lga">A.5 LGA</label>
-                <input type="text" id="lga" name="lga">
             </div>
             <div>
                 <label for="state">A.6 State</label>
@@ -1479,6 +1481,13 @@
 
     <script src="common.js"></script>
     <script src="location.js"></script>
+    <script src="schools.js"></script>
+    <script src="form-logic.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSchoolDropdown();
+        });
+    </script>
     <script src="eccde-form.js"></script>
     <script src="logout.js"></script>
 </body>
